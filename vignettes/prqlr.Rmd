@@ -1,0 +1,70 @@
+---
+title: Use PRQL on R
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Use PRQL on R}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+This package provides simple function to convert [PRQL](https://prql-lang.org/) query strings to SQL strings.
+
+```{r}
+library(prqlr)
+"from mtcars | filter cyl > 6 | select [cyl, mpg]" |>
+  prql_to_sql()
+```
+
+It can be combined with already existing great packages that manipulate data with SQL.
+
+## Work with DB
+
+Using it with the `{DBI}` package, we can execute PRQL queries against the database.
+
+```{r}
+library(DBI)
+
+# Create an ephemeral in-memory RSQLite database
+con <- dbConnect(RSQLite::SQLite(), ":memory:")
+
+dbWriteTable(con, "mtcars_table", mtcars)
+
+"from mtcars_table
+filter cyl == 4" |>
+  prql_to_sql() |>
+  dbGetQuery(con, statement = _)
+```
+
+## Work with R data.frame
+
+Using it with the `{tidyquery}` package, we can execute PRQL queries against R `data.frame`.
+
+```{r}
+library(tidyquery)
+library(nycflights13)
+
+"from flights
+join side:left planes [tailnum]
+filter (distance | in 200..300)
+filter null != air_time
+group [origin, dest] (
+  aggregate [
+    num_flts = count,
+    num_seats = (sum seats | round 0),
+    avg_delay = (average arr_delay | round 0)
+  ]
+)
+filter num_flts > 3000
+sort [-num_seats, avg_delay]
+take 2
+" |>
+  prql_to_sql() |>
+  query()
+```

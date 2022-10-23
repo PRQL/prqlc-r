@@ -1,12 +1,20 @@
 Package: prqlr
 Title: R bindings for the prql-compiler
+Description: Convert prql to sql.
 Version: 0.0.0.9000
 Authors@R:
     person("Tatsuya", "Shima", email = "ts1s1andn@gmail.com", role = c("aut", "cre"))
 Depends:
   R (>= 4.2)
-Description: Convert prql to sql.
+Suggests:
+  rextendr,
+  knitr,
+  RSQLite,
+  tidyquery,
+  nycflights13
 License: MIT + file LICENSE
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.2.1
+SystemRequirements: Cargo (rustc package manager)
+VignetteBuilder: knitr
