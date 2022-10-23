@@ -1,0 +1,29 @@
+{
+	"name": "${localWorkspaceFolderBasename}",
+	"image": "ghcr.io/rocker-org/devcontainer/r-ver:4",
+	"features": {
+		"ghcr.io/devcontainers/features/rust:1": {
+			"version": "latest"
+		}
+	},
+	"customizations": {
+		"vscode": {
+			"settings": {
+				"terminal.integrated.defaultProfile.linux": "zsh",
+				"r.rterm.linux": "radian",
+				"r.bracketedPaste": true,
+				"r.plot.useHttpgd": true,
+				"[r]": {
+					"editor.wordSeparators": "`~!@#%$^&*()-=+[{]}\\|;:'\",<>/?"
+				}
+			},
+			"extensions": [
+				"reditorsupport.r",
+				"rdebugger.r-debugger",
+				"EditorConfig.EditorConfig"
+			]
+		}
+	},
+	"remoteUser": "rstudio",
+	"postCreateCommand": "R -q -e 'remotes::install_github(\"extendr/rextendr\")'"
+}

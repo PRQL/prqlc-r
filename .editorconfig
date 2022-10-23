@@ -1,0 +1,10 @@
+[*]
+insert_final_newline = true
+end_of_line = lf
+
+[*.json]
+indent_style = tab
+
+[*.{R,Rmd}]
+indent_style = space
+indent_size = 2
