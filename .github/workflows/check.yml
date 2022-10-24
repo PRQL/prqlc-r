@@ -36,6 +36,11 @@ jobs:
 
     steps:
       - uses: actions/checkout@v3
+      - uses: actions-rs/toolchain@v1
+        if: ${{ matrix.config.os == 'windows-latest' }}
+        with:
+          override: true
+          toolchain: stable-x86_64-pc-windows-gnu
       - name: Add more toolchain for windows
         # https://github.com/actions-rs/toolchain/issues/165
         if: ${{ matrix.config.os == 'windows-latest' }}
