@@ -4,10 +4,10 @@
 \alias{prql_to_sql}
 \title{Compile a PRQL string into a SQL string}
 \usage{
-prql_to_sql(query)
+prql_to_sql(prql)
 }
 \arguments{
-\item{query}{A PRQL string}
+\item{prql}{A PRQL string}
 }
 \value{
 A SQL string

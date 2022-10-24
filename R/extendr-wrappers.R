@@ -9,11 +9,11 @@
 NULL
 
 #' @title Compile a PRQL string into a SQL string
-#' @param query A PRQL string
+#' @param prql A PRQL string
 #' @return A SQL string
 #' @examples
 #' "from mtcars \n filter cyl > 6 \n select [cyl, mpg]" |>
 #'   prql_to_sql()
 #' @export
-prql_to_sql <- function(query) .Call(wrap__prql_to_sql, query)
+prql_to_sql <- function(prql) .Call(wrap__prql_to_sql, prql)
 
