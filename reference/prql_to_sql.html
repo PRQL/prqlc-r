@@ -45,12 +45,12 @@
 
     <div class="section level2">
     <h2 id="ref-usage">Usage<a class="anchor" aria-label="anchor" href="#ref-usage"></a></h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">prql_to_sql</span><span class="op">(</span><span class="va">query</span><span class="op">)</span></span></code></pre></div>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">prql_to_sql</span><span class="op">(</span><span class="va">prql</span><span class="op">)</span></span></code></pre></div>
     </div>
 
     <div class="section level2">
     <h2 id="arguments">Arguments<a class="anchor" aria-label="anchor" href="#arguments"></a></h2>
-    <dl><dt>query</dt>
+    <dl><dt>prql</dt>
 <dd><p>A PRQL string</p></dd>
 
 </dl></div>
@@ -63,7 +63,7 @@
 
     <div class="section level2">
     <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="st">"from mtcars \n filter cyl &gt; 6 \n select [cyl, mpg]"</span> <span class="op">|&gt;</span></span></span>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="st">"from mtcars | filter cyl &gt; 6 | select [cyl, mpg]"</span> <span class="op">|&gt;</span></span></span>
 <span class="r-in"><span>  <span class="fu">prql_to_sql</span><span class="op">(</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] "SELECT\n  cyl,\n  mpg\nFROM\n  mtcars\nWHERE\n  cyl &gt; 6"</span>
 </code></pre></div>

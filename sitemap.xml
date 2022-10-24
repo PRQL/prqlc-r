@@ -1,30 +1,30 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>/404.html</loc>
+    <loc>https://eitsupi.github.io/prqlr/404.html</loc>
   </url>
   <url>
-    <loc>/LICENSE-text.html</loc>
+    <loc>https://eitsupi.github.io/prqlr/LICENSE-text.html</loc>
   </url>
   <url>
-    <loc>/LICENSE.html</loc>
+    <loc>https://eitsupi.github.io/prqlr/LICENSE.html</loc>
   </url>
   <url>
-    <loc>/articles/index.html</loc>
+    <loc>https://eitsupi.github.io/prqlr/articles/index.html</loc>
   </url>
   <url>
-    <loc>/articles/prqlr.html</loc>
+    <loc>https://eitsupi.github.io/prqlr/articles/prqlr.html</loc>
   </url>
   <url>
-    <loc>/authors.html</loc>
+    <loc>https://eitsupi.github.io/prqlr/authors.html</loc>
   </url>
   <url>
-    <loc>/index.html</loc>
+    <loc>https://eitsupi.github.io/prqlr/index.html</loc>
   </url>
   <url>
-    <loc>/reference/index.html</loc>
+    <loc>https://eitsupi.github.io/prqlr/reference/index.html</loc>
   </url>
   <url>
-    <loc>/reference/prql_to_sql.html</loc>
+    <loc>https://eitsupi.github.io/prqlr/reference/prql_to_sql.html</loc>
   </url>
 </urlset>
