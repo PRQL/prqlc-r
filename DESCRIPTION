@@ -3,15 +3,18 @@ Title: R bindings for the prql-compiler
 Description: Convert prql to sql.
 Version: 0.0.0.9000
 Authors@R:
-    person("Tatsuya", "Shima", email = "ts1s1andn@gmail.com", role = c("aut", "cre"))
+  person("Tatsuya", "Shima", email = "ts1s1andn@gmail.com", role = c("aut", "cre"))
 Depends:
   R (>= 4.2)
 Suggests:
   rextendr,
   knitr,
+  lintr,
+  DBI,
   RSQLite,
   tidyquery,
-  nycflights13
+  nycflights13,
+  dplyr
 License: MIT + file LICENSE
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE)
