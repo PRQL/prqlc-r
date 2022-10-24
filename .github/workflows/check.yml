@@ -25,7 +25,7 @@ jobs:
       matrix:
         config:
           - { os: macOS-latest, r: "release" }
-          - { os: windows-latest, r: "release" }
+          - { os: windows-latest, r: "release", rtools-version: "42" }
           - { os: ubuntu-latest, r: "devel", http-user-agent: "release" }
           - { os: ubuntu-latest, r: "release" }
           # - { os: ubuntu-latest, r: "oldrel-1" }
@@ -40,13 +40,7 @@ jobs:
         if: ${{ matrix.config.os == 'windows-latest' }}
         with:
           override: true
-          toolchain: stable-x86_64-pc-windows-gnu
-      - name: Add more toolchain for windows
-        # https://github.com/actions-rs/toolchain/issues/165
-        if: ${{ matrix.config.os == 'windows-latest' }}
-        run: |
-          rustup target add x86_64-pc-windows-gnu
-          rustup target add i686-pc-windows-gnu
+          toolchain: stable-gnu
 
       - uses: r-lib/actions/setup-pandoc@v2
 
@@ -55,6 +49,7 @@ jobs:
           r-version: ${{ matrix.config.r }}
           http-user-agent: ${{ matrix.config.http-user-agent }}
           use-public-rspm: true
+          rtools-version: ${{ matrix.config.rtools-version }}
 
       - uses: r-lib/actions/setup-r-dependencies@v2
         with:
