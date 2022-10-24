@@ -50,7 +50,8 @@ Using it with the `{tidyquery}` package, we can execute PRQL queries against R `
 library(tidyquery)
 library(nycflights13)
 
-"from flights
+"
+from flights
 join side:left planes [tailnum]
 filter (distance | in 200..300)
 filter null != air_time
@@ -67,4 +68,29 @@ take 2
 " |>
   prql_to_sql() |>
   query()
+```
+
+Note that [the PRQL syntax](https://prql-lang.org/book/) is very similar to the `{dplyr}` syntax.
+`{dplyr}` is a very popular R package for manipulating data.
+
+```{r}
+library(dplyr, warn.conflicts = FALSE)
+library(nycflights13)
+
+flights |>
+  left_join(planes, by = "tailnum") |>
+  filter(
+    distance |> between(200, 300),
+    !is.na(air_time)
+  ) |>
+  group_by(origin, dest) |>
+  summarise(
+    num_flts = n(),
+    num_seats = sum(seats, na.rm = TRUE) |> round(0),
+    avg_delay = mean(arr_delay, na.rm = TRUE) |> round(0),
+    .groups = "drop"
+  ) |>
+  filter(num_flts > 3000) |>
+  arrange(desc(num_seats), avg_delay) |>
+  head(2)
 ```
