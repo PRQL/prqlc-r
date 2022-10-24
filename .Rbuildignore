@@ -1,5 +1,6 @@
 ^LICENSE\.md$
 ^\.devcontainer$
+^\.github$
 ^\.editorconfig$
 ^\.lintr$
 ^_pkgdown\.yml$
