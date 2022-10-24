@@ -4,6 +4,8 @@ Description: Convert prql to sql.
 Version: 0.0.0.9000
 Authors@R:
     person("Tatsuya", "Shima", email = "ts1s1andn@gmail.com", role = c("aut", "cre"))
+URL: https://eitsupi.github.io/prqlr, https://github.com/eitsupi/prqlr
+BugReports: https://github.com/eitsupi/prqlr/issues
 Depends:
     R (>= 4.2)
 Suggests:
