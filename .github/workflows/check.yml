@@ -36,6 +36,12 @@ jobs:
 
     steps:
       - uses: actions/checkout@v3
+      - name: Add more toolchain for windows
+        # https://github.com/actions-rs/toolchain/issues/165
+        if: ${{ matrix.config.os == 'windows-latest' }}
+        run: |
+          rustup target add x86_64-pc-windows-gnu
+          rustup target add i686-pc-windows-gnu
 
       - uses: r-lib/actions/setup-pandoc@v2
 
