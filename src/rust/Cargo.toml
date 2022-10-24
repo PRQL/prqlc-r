@@ -8,5 +8,7 @@ crate-type = ['staticlib']
 name = "prqlr"
 
 [dependencies]
-extendr-api = { git = "https://github.com/extendr/extendr" }
-prql-compiler = { git = "https://github.com/prql/prql" }
+# extendr-api = { git = "https://github.com/extendr/extendr" }
+extendr-api = "0.3.1"
+# prql-compiler = { git = "https://github.com/prql/prql" }
+prql-compiler = "0.2.9"
