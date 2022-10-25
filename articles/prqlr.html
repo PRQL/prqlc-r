@@ -74,18 +74,42 @@
 
     
     
-<p>This package provides simple function to convert <a href="https://prql-lang.org/" class="external-link">PRQL</a> query strings to SQL strings.</p>
-<div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
+<p><a href="https://prql-lang.org/" class="external-link">PRQL</a> (Pipelined Relational Query Language, pronounced “Prequel”) is a modern language for transforming data, can be compiled to SQL.</p>
+<p>This package provides a simple function to convert a PRQL query string to a SQL string.</p>
+<p>For example, the following PRQL query can be converted to the below SQL query.</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode elm"><code class="sourceCode elm"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="op">#</span> <span class="dt">This</span> <span class="fu">is</span> <span class="fu">a</span> <span class="dt">PRQL</span> <span class="fu">query</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">from</span> <span class="fu">mtcars</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">filter</span> <span class="fu">cyl</span> <span class="op">&gt;</span> <span class="dv">6</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="fu">select</span> [<span class="fu">cyl</span><span class="op">,</span> <span class="fu">mpg</span>]</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="fu">derive</span> [<span class="fu">mpg_int</span> <span class="op">=</span> <span class="fu">round</span> <span class="dv">0</span> <span class="fu">mpg</span>]</span></code></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode sql"><code class="sourceCode sql"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co">-- This is a SQL query</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>  cyl,</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>  mpg,</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ROUND</span>(mpg, <span class="dv">0</span>) <span class="kw">AS</span> mpg_int</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="kw">FROM</span></span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>  mtcars</span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a><span class="kw">WHERE</span></span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>  cyl <span class="op">&gt;</span> <span class="dv">6</span></span></code></pre></div>
+<p>Just pass the PRQL string to the <code><a href="../reference/prql_to_sql.html">prql_to_sql()</a></code> function like this.</p>
+<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://eitsupi.github.io/prqlr">prqlr</a></span><span class="op">)</span></span>
-<span><span class="st">"from mtcars | filter cyl &gt; 6 | select [cyl, mpg]"</span> <span class="op">|&gt;</span></span>
+<span></span>
+<span><span class="st">"</span></span>
+<span><span class="st">from mtcars</span></span>
+<span><span class="st">filter cyl &gt; 6</span></span>
+<span><span class="st">select [cyl, mpg]</span></span>
+<span><span class="st">derive [mpg_int = round 0 mpg]</span></span>
+<span><span class="st">"</span> <span class="op">|&gt;</span></span>
 <span>  <span class="fu"><a href="../reference/prql_to_sql.html">prql_to_sql</a></span><span class="op">(</span><span class="op">)</span></span>
-<span><span class="co">#&gt; [1] "SELECT\n  cyl,\n  mpg\nFROM\n  mtcars\nWHERE\n  cyl &gt; 6"</span></span></code></pre></div>
-<p>It can be combined with already existing great packages that manipulate data with SQL.</p>
+<span><span class="co">#&gt; [1] "SELECT\n  cyl,\n  mpg,\n  ROUND(mpg, 0) AS mpg_int\nFROM\n  mtcars\nWHERE\n  cyl &gt; 6"</span></span></code></pre></div>
+<p>This outputed SQL string can be used with already existing great packages that manipulate data with SQL.</p>
 <div class="section level2">
 <h2 id="work-with-db">Work with DB<a class="anchor" aria-label="anchor" href="#work-with-db"></a>
 </h2>
 <p>Using it with the <a href="https://dbi.r-dbi.org" class="external-link">DBI</a> package, we can execute PRQL queries against the database.</p>
-<div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
+<p>Here sqlite is used via <a href="https://rsqlite.r-dbi.org" class="external-link">RSQLite</a>, so the <a href="https://prql-lang.org/book/queries/dialect_and_version.html" class="external-link">dialect</a> header is set at the top of the query.</p>
+<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://dbi.r-dbi.org" class="external-link">DBI</a></span><span class="op">)</span></span>
 <span></span>
 <span><span class="co"># Create an ephemeral in-memory RSQLite database</span></span>
@@ -93,28 +117,38 @@
 <span></span>
 <span><span class="fu"><a href="https://dbi.r-dbi.org/reference/dbWriteTable.html" class="external-link">dbWriteTable</a></span><span class="op">(</span><span class="va">con</span>, <span class="st">"mtcars_table"</span>, <span class="va">mtcars</span><span class="op">)</span></span>
 <span></span>
-<span><span class="st">"from mtcars_table</span></span>
-<span><span class="st">filter cyl == 4"</span> <span class="op">|&gt;</span></span>
+<span><span class="st">"</span></span>
+<span><span class="st">prql dialect:sqlite</span></span>
+<span><span class="st"></span></span>
+<span><span class="st">from mtcars_table</span></span>
+<span><span class="st">filter cyl &gt; 6</span></span>
+<span><span class="st">select [cyl, mpg]</span></span>
+<span><span class="st">derive [mpg_int = round 0 mpg]</span></span>
+<span><span class="st">"</span> <span class="op">|&gt;</span></span>
 <span>  <span class="fu"><a href="../reference/prql_to_sql.html">prql_to_sql</a></span><span class="op">(</span><span class="op">)</span> <span class="op">|&gt;</span></span>
 <span>  <span class="fu"><a href="https://dbi.r-dbi.org/reference/dbGetQuery.html" class="external-link">dbGetQuery</a></span><span class="op">(</span><span class="va">con</span>, statement <span class="op">=</span> <span class="va">_</span><span class="op">)</span></span>
-<span><span class="co">#&gt;     mpg cyl  disp  hp drat    wt  qsec vs am gear carb</span></span>
-<span><span class="co">#&gt; 1  22.8   4 108.0  93 3.85 2.320 18.61  1  1    4    1</span></span>
-<span><span class="co">#&gt; 2  24.4   4 146.7  62 3.69 3.190 20.00  1  0    4    2</span></span>
-<span><span class="co">#&gt; 3  22.8   4 140.8  95 3.92 3.150 22.90  1  0    4    2</span></span>
-<span><span class="co">#&gt; 4  32.4   4  78.7  66 4.08 2.200 19.47  1  1    4    1</span></span>
-<span><span class="co">#&gt; 5  30.4   4  75.7  52 4.93 1.615 18.52  1  1    4    2</span></span>
-<span><span class="co">#&gt; 6  33.9   4  71.1  65 4.22 1.835 19.90  1  1    4    1</span></span>
-<span><span class="co">#&gt; 7  21.5   4 120.1  97 3.70 2.465 20.01  1  0    3    1</span></span>
-<span><span class="co">#&gt; 8  27.3   4  79.0  66 4.08 1.935 18.90  1  1    4    1</span></span>
-<span><span class="co">#&gt; 9  26.0   4 120.3  91 4.43 2.140 16.70  0  1    5    2</span></span>
-<span><span class="co">#&gt; 10 30.4   4  95.1 113 3.77 1.513 16.90  1  1    5    2</span></span>
-<span><span class="co">#&gt; 11 21.4   4 121.0 109 4.11 2.780 18.60  1  1    4    2</span></span></code></pre></div>
+<span><span class="co">#&gt;    cyl  mpg mpg_int</span></span>
+<span><span class="co">#&gt; 1    8 18.7      19</span></span>
+<span><span class="co">#&gt; 2    8 14.3      14</span></span>
+<span><span class="co">#&gt; 3    8 16.4      16</span></span>
+<span><span class="co">#&gt; 4    8 17.3      17</span></span>
+<span><span class="co">#&gt; 5    8 15.2      15</span></span>
+<span><span class="co">#&gt; 6    8 10.4      10</span></span>
+<span><span class="co">#&gt; 7    8 10.4      10</span></span>
+<span><span class="co">#&gt; 8    8 14.7      15</span></span>
+<span><span class="co">#&gt; 9    8 15.5      16</span></span>
+<span><span class="co">#&gt; 10   8 15.2      15</span></span>
+<span><span class="co">#&gt; 11   8 13.3      13</span></span>
+<span><span class="co">#&gt; 12   8 19.2      19</span></span>
+<span><span class="co">#&gt; 13   8 15.8      16</span></span>
+<span><span class="co">#&gt; 14   8 15.0      15</span></span></code></pre></div>
 </div>
 <div class="section level2">
 <h2 id="work-with-r-data-frame">Work with R data.frame<a class="anchor" aria-label="anchor" href="#work-with-r-data-frame"></a>
 </h2>
-<p>Using it with the <a href="https://github.com/ianmcook/tidyquery" class="external-link">tidyquery</a> package, we can execute PRQL queries against R <code>data.frame</code>.</p>
-<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
+<p>Using it with the <a href="https://github.com/ianmcook/tidyquery" class="external-link">tidyquery</a> package, we can execute PRQL queries against R <code><a href="https://rdrr.io/r/base/data.frame.html" class="external-link">?data.frame</a></code>.</p>
+<p>Let’s run a query that joins and aggregates two data.frames, <code>flights</code> and <code>planes</code>, contained in the <a href="https://github.com/hadley/nycflights13" class="external-link">nycflights13</a> package.</p>
+<div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/ianmcook/tidyquery" class="external-link">tidyquery</a></span><span class="op">)</span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/hadley/nycflights13" class="external-link">nycflights13</a></span><span class="op">)</span></span>
 <span></span>
@@ -122,7 +156,7 @@
 <span><span class="st">from flights</span></span>
 <span><span class="st">join side:left planes [tailnum]</span></span>
 <span><span class="st">filter (distance | in 200..300)</span></span>
-<span><span class="st">filter null != air_time</span></span>
+<span><span class="st">filter air_time != null</span></span>
 <span><span class="st">group [origin, dest] (</span></span>
 <span><span class="st">  aggregate [</span></span>
 <span><span class="st">    num_flts = count,</span></span>
@@ -142,7 +176,7 @@
 <span><span class="co">#&gt; <span style="color: #BCBCBC;">1</span> LGA    DCA       <span style="text-decoration: underline;">4</span>468    <span style="text-decoration: underline;">712</span>643         6</span></span>
 <span><span class="co">#&gt; <span style="color: #BCBCBC;">2</span> EWR    BOS       <span style="text-decoration: underline;">5</span>247    <span style="text-decoration: underline;">611</span>192         5</span></span></code></pre></div>
 <p>Note that <a href="https://prql-lang.org/book/" class="external-link">the PRQL syntax</a> is very similar to the <a href="https://dplyr.tidyverse.org" class="external-link">dplyr</a> syntax. <a href="https://dplyr.tidyverse.org" class="external-link">dplyr</a> is a very popular R package for manipulating data.</p>
-<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://dplyr.tidyverse.org" class="external-link">dplyr</a></span>, warn.conflicts <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/hadley/nycflights13" class="external-link">nycflights13</a></span><span class="op">)</span></span>
 <span></span>
