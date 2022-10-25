@@ -4,7 +4,8 @@
 <!-- badges: start -->
 <!-- badges: end -->
 
-R bindings for [the `prql-compiler` Rust library](https://crates.io/crates/prql-compiler).
+R bindings for [the `prql-compiler` Rust library](https://crates.io/crates/prql-compiler),
+powered by [the `extendr` framework](https://extendr.github.io/).
 
 ## Installation
 

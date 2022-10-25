@@ -14,6 +14,60 @@ NULL
 #' @examples
 #' "from mtcars | filter cyl > 6 | select [cyl, mpg]" |>
 #'   prql_to_sql()
+#'
+#' # Show the SQL string with the cli package's cli_code function
+#' if (requireNamespace("cli", quietly = TRUE)) {
+#'   library(cli)
+#'   "
+#'   from mtcars
+#'   filter cyl > 6
+#'   select [cyl, mpg]
+#'   " |>
+#'     prql_to_sql() |>
+#'     cli_code(language = "sql")
+#' }
 #' @export
 prql_to_sql <- function(prql) .Call(wrap__prql_to_sql, prql)
+
+#' @title Format a PRQL string
+#' @param prql A PRQL string
+#' @return A PRQL string
+#' @examples
+#' format_prql("from mtcars | select cyl")
+#'
+#' # Show the PQL string with the cli package's cli_code function
+#' if (requireNamespace("cli", quietly = TRUE)) {
+#'   library(cli)
+#'   "
+#'   from mtcars
+#'   filter cyl > 6
+#'   select [cyl, mpg]
+#'   " |>
+#'     format_prql() |>
+#'     cli_code(language = "elm")
+#'     # Coincidentally, elm's syntax highlighting is best suited for prql
+#' }
+#' @export
+format_prql <- function(prql) .Call(wrap__format_prql, prql)
+
+#' @title Compile a PRQL string into a JSON version of the Query
+#' @param prql A PRQL string
+#' @return A JSON string of AST
+#' @examples
+#' "from mtcars | filter cyl > 6 | select [cyl, mpg]" |>
+#'   prql_to_json()
+#' @seealso [json_to_prql()]
+#' @export
+prql_to_json <- function(prql) .Call(wrap__prql_to_json, prql)
+
+#' @title Convert a JSON AST back to a PRQL string
+#' @param json A JSON string of AST
+#' @return A PRQL string
+#' @seealso [prql_to_json()]
+#' @examples
+#' "from mtcars | filter cyl > 6 | select [cyl, mpg]" |>
+#'   prql_to_json() |>
+#'   json_to_prql()
+#' @export
+json_to_prql <- function(json) .Call(wrap__json_to_prql, json)
 

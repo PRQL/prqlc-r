@@ -14,19 +14,56 @@ knitr::opts_chunk$set(
 )
 ```
 
-This package provides simple function to convert [PRQL](https://prql-lang.org/) query strings to SQL strings.
+[PRQL](https://prql-lang.org/) (Pipelined Relational Query Language, pronounced "Prequel")
+is a modern language for transforming data, can be compiled to SQL.
+
+This package provides a simple function to convert a PRQL query string to a SQL string.
+
+For example, the following PRQL query can be converted to the below SQL query.
+
+```elm
+# This is a PRQL query
+from mtcars
+filter cyl > 6
+select [cyl, mpg]
+derive [mpg_int = round 0 mpg]
+```
+
+```sql
+-- This is a SQL query
+SELECT
+  cyl,
+  mpg,
+  ROUND(mpg, 0) AS mpg_int
+FROM
+  mtcars
+WHERE
+  cyl > 6
+```
+
+Just pass the PRQL string to the `prql_to_sql()` function like this.
 
 ```{r}
 library(prqlr)
-"from mtcars | filter cyl > 6 | select [cyl, mpg]" |>
+
+"
+from mtcars
+filter cyl > 6
+select [cyl, mpg]
+derive [mpg_int = round 0 mpg]
+" |>
   prql_to_sql()
 ```
 
-It can be combined with already existing great packages that manipulate data with SQL.
+This outputed SQL string can be used with already existing great packages that manipulate data with SQL.
 
 ## Work with DB
 
 Using it with the `{DBI}` package, we can execute PRQL queries against the database.
+
+Here sqlite is used via `{RSQLite}`,
+so the [dialect](https://prql-lang.org/book/queries/dialect_and_version.html) header
+is set at the top of the query.
 
 ```{r}
 library(DBI)
@@ -36,15 +73,24 @@ con <- dbConnect(RSQLite::SQLite(), ":memory:")
 
 dbWriteTable(con, "mtcars_table", mtcars)
 
-"from mtcars_table
-filter cyl == 4" |>
+"
+prql dialect:sqlite
+
+from mtcars_table
+filter cyl > 6
+select [cyl, mpg]
+derive [mpg_int = round 0 mpg]
+" |>
   prql_to_sql() |>
   dbGetQuery(con, statement = _)
 ```
 
 ## Work with R data.frame
 
-Using it with the `{tidyquery}` package, we can execute PRQL queries against R `data.frame`.
+Using it with the `{tidyquery}` package, we can execute PRQL queries against R `?data.frame`.
+
+Let's run a query that joins and aggregates two data.frames, `flights` and `planes`,
+contained in the `{nycflights13}` package.
 
 ```{r}
 library(tidyquery)
@@ -54,7 +100,7 @@ library(nycflights13)
 from flights
 join side:left planes [tailnum]
 filter (distance | in 200..300)
-filter null != air_time
+filter air_time != null
 group [origin, dest] (
   aggregate [
     num_flts = count,
