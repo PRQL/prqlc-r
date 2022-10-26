@@ -5,6 +5,12 @@ on:
   pull_request:
     branches:
       - main
+    paths:
+      - R/**
+      - src/**
+      - vignetts/**
+      - _pkgdown.yml
+      - DESCRIPTION
   release:
     types:
       - published
