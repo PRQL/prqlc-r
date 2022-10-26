@@ -32,4 +32,6 @@ clean:
 	rm -Rf $(SHLIB) $(STATLIB) $(OBJECTS) rust/target
 
 rustup:
-	rustup toolchain install stable-gnu || true
+	if [ "${GITHUB_ACTIONS}" = "true" ]; then \
+		rustup toolchain install stable-gnu || true; \
+	fi
