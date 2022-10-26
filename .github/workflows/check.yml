@@ -50,11 +50,12 @@ jobs:
 
     steps:
       - uses: actions/checkout@v3
-      - uses: actions-rs/toolchain@v1
-        if: ${{ matrix.config.os == 'windows-latest' }}
-        with:
-          override: true
-          toolchain: stable-gnu
+
+      # - uses: actions-rs/toolchain@v1
+      #   if: ${{ matrix.config.os == 'windows-latest' }}
+      #   with:
+      #     override: true
+      #     toolchain: stable-gnu
 
       - uses: r-lib/actions/setup-pandoc@v2
 
