@@ -26,7 +26,7 @@
     
     <a class="navbar-brand me-2" href="../index.html">prqlr</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.0.0.9000</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.0.1</small>
 
     
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -40,6 +40,9 @@
 </li>
 <li class="nav-item">
   <a class="nav-link" href="../reference/index.html">Reference</a>
+</li>
+<li class="nav-item">
+  <a class="nav-link" href="../news/index.html">Changelog</a>
 </li>
       </ul>
 <form class="form-inline my-2 my-lg-0" role="search">
@@ -74,9 +77,13 @@
 
     
     
-<p><a href="https://prql-lang.org/" class="external-link">PRQL</a> (Pipelined Relational Query Language, pronounced “Prequel”) is a modern language for transforming data, can be compiled to SQL.</p>
-<p>This package provides a simple function to convert a PRQL query string to a SQL string.</p>
-<p>For example, the following PRQL query can be converted to the below SQL query.</p>
+<p><a href="https://prql-lang.org/" class="external-link">PRQL</a> (Pipelined Relational Query
+Language, pronounced “Prequel”) is a modern language for transforming
+data, can be compiled to SQL.</p>
+<p>This package provides a simple function to convert a PRQL query
+string to a SQL string.</p>
+<p>For example, the following PRQL query can be converted to the below
+SQL query.</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode elm"><code class="sourceCode elm"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="op">#</span> <span class="dt">This</span> <span class="fu">is</span> <span class="fu">a</span> <span class="dt">PRQL</span> <span class="fu">query</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">from</span> <span class="fu">mtcars</span></span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">filter</span> <span class="fu">cyl</span> <span class="op">&gt;</span> <span class="dv">6</span></span>
@@ -91,7 +98,8 @@
 <span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>  mtcars</span>
 <span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a><span class="kw">WHERE</span></span>
 <span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>  cyl <span class="op">&gt;</span> <span class="dv">6</span></span></code></pre></div>
-<p>Just pass the PRQL string to the <code><a href="../reference/prql_to_sql.html">prql_to_sql()</a></code> function like this.</p>
+<p>Just pass the PRQL string to the <code><a href="../reference/prql_to_sql.html">prql_to_sql()</a></code> function
+like this.</p>
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://eitsupi.github.io/prqlr">prqlr</a></span><span class="op">)</span></span>
 <span></span>
@@ -103,12 +111,15 @@
 <span><span class="st">"</span> <span class="op">|&gt;</span></span>
 <span>  <span class="fu"><a href="../reference/prql_to_sql.html">prql_to_sql</a></span><span class="op">(</span><span class="op">)</span></span>
 <span><span class="co">#&gt; [1] "SELECT\n  cyl,\n  mpg,\n  ROUND(mpg, 0) AS mpg_int\nFROM\n  mtcars\nWHERE\n  cyl &gt; 6"</span></span></code></pre></div>
-<p>This outputed SQL string can be used with already existing great packages that manipulate data with SQL.</p>
+<p>This outputed SQL string can be used with already existing great
+packages that manipulate data with SQL.</p>
 <div class="section level2">
 <h2 id="work-with-db">Work with DB<a class="anchor" aria-label="anchor" href="#work-with-db"></a>
 </h2>
-<p>Using it with the <a href="https://dbi.r-dbi.org" class="external-link">DBI</a> package, we can execute PRQL queries against the database.</p>
-<p>Here sqlite is used via <a href="https://rsqlite.r-dbi.org" class="external-link">RSQLite</a>, so the <a href="https://prql-lang.org/book/queries/dialect_and_version.html" class="external-link">dialect</a> header is set at the top of the query.</p>
+<p>Using it with the <a href="https://dbi.r-dbi.org" class="external-link">DBI</a> package, we can execute PRQL
+queries against the database.</p>
+<p>Here sqlite is used via <a href="https://rsqlite.r-dbi.org" class="external-link">RSQLite</a>, so the <a href="https://prql-lang.org/book/queries/dialect_and_version.html" class="external-link">dialect</a>
+header is set at the top of the query.</p>
 <div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://dbi.r-dbi.org" class="external-link">DBI</a></span><span class="op">)</span></span>
 <span></span>
@@ -146,8 +157,11 @@
 <div class="section level2">
 <h2 id="work-with-r-data-frame">Work with R data.frame<a class="anchor" aria-label="anchor" href="#work-with-r-data-frame"></a>
 </h2>
-<p>Using it with the <a href="https://github.com/ianmcook/tidyquery" class="external-link">tidyquery</a> package, we can execute PRQL queries against R <code><a href="https://rdrr.io/r/base/data.frame.html" class="external-link">?data.frame</a></code>.</p>
-<p>Let’s run a query that joins and aggregates two data.frames, <code>flights</code> and <code>planes</code>, contained in the <a href="https://github.com/hadley/nycflights13" class="external-link">nycflights13</a> package.</p>
+<p>Using it with the <a href="https://github.com/ianmcook/tidyquery" class="external-link">tidyquery</a> package, we can execute
+PRQL queries against R <code><a href="https://rdrr.io/r/base/data.frame.html" class="external-link">?data.frame</a></code>.</p>
+<p>Let’s run a query that joins and aggregates two data.frames,
+<code>flights</code> and <code>planes</code>, contained in the
+<a href="https://github.com/hadley/nycflights13" class="external-link">nycflights13</a> package.</p>
 <div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/ianmcook/tidyquery" class="external-link">tidyquery</a></span><span class="op">)</span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/hadley/nycflights13" class="external-link">nycflights13</a></span><span class="op">)</span></span>
@@ -175,7 +189,9 @@
 <span><span class="co">#&gt;   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>  <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;int&gt;</span>     <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>     <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span></span></span>
 <span><span class="co">#&gt; <span style="color: #BCBCBC;">1</span> LGA    DCA       <span style="text-decoration: underline;">4</span>468    <span style="text-decoration: underline;">712</span>643         6</span></span>
 <span><span class="co">#&gt; <span style="color: #BCBCBC;">2</span> EWR    BOS       <span style="text-decoration: underline;">5</span>247    <span style="text-decoration: underline;">611</span>192         5</span></span></code></pre></div>
-<p>Note that <a href="https://prql-lang.org/book/" class="external-link">the PRQL syntax</a> is very similar to the <a href="https://dplyr.tidyverse.org" class="external-link">dplyr</a> syntax. <a href="https://dplyr.tidyverse.org" class="external-link">dplyr</a> is a very popular R package for manipulating data.</p>
+<p>Note that <a href="https://prql-lang.org/book/" class="external-link">the PRQL syntax</a>
+is very similar to the <a href="https://dplyr.tidyverse.org" class="external-link">dplyr</a> syntax. <a href="https://dplyr.tidyverse.org" class="external-link">dplyr</a>
+is a very popular R package for manipulating data.</p>
 <div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://dplyr.tidyverse.org" class="external-link">dplyr</a></span>, warn.conflicts <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/hadley/nycflights13" class="external-link">nycflights13</a></span><span class="op">)</span></span>
