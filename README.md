@@ -9,7 +9,8 @@ powered by [the `extendr` framework](https://extendr.github.io/).
 
 ## Installation
 
-This package can be installed from R-universe. If available, a binary package will be installed.
+This package can be installed from [R-universe](https://eitsupi.r-universe.dev/ui#package:prqlr).
+If available, a binary package will be installed.
 
 ```r
 install.packages("prqlr", repos = "https://eitsupi.r-universe.dev")
