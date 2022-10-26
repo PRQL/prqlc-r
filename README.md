@@ -2,6 +2,8 @@
 # prqlr
 
 <!-- badges: start -->
+[![prqlr status badge](https://eitsupi.r-universe.dev/badges/prqlr)](https://eitsupi.r-universe.dev)
+[![CRAN status](https://www.r-pkg.org/badges/version/prqlr)](https://CRAN.R-project.org/package=prqlr)
 <!-- badges: end -->
 
 R bindings for [the `prql-compiler` Rust library](https://crates.io/crates/prql-compiler),
