@@ -9,7 +9,14 @@ powered by [the `extendr` framework](https://extendr.github.io/).
 
 ## Installation
 
-TBD
+This package can be installed from R-universe. If available, a binary package will be installed.
+
+```r
+install.packages("prqlr", repos = "https://eitsupi.r-universe.dev")
+```
+
+For source installation, the Rust toolchain must be configured.
+Please check the <https://github.com/r-rust/hellorust> repository.
 
 ## Example
 
@@ -20,7 +27,7 @@ library(prqlr)
 #> [1] "SELECT\n  cyl,\n  mpg\nFROM\n  mtcars\nWHERE\n  cyl > 6"
 ```
 
-PRQL's pipelines can be joined by `\n`, the newline character, or actual newlines in addition to `|`.
+PRQL's pipelines can be joined by the newline character (`\n`), or actual newlines in addition to `|`.
 
 ```r
 "from mtcars \n filter cyl > 6 \n select [cyl, mpg]" |>
@@ -35,3 +42,7 @@ select [cyl, mpg]" |>
   prql_to_sql()
 #> [1] "SELECT\n  cyl,\n  mpg\nFROM\n  mtcars\nWHERE\n  cyl > 6"
 ```
+
+## Development
+
+Use the `rextendr::document()` function to generate R source code from Rust source code in the `src` directory.
