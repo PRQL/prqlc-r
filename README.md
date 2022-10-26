@@ -11,6 +11,8 @@ powered by [the `extendr` framework](https://extendr.github.io/).
 
 ## Installation
 
+Requires R 4.2.0 or later.
+
 This package can be installed from [R-universe](https://eitsupi.r-universe.dev/ui#package:prqlr).
 If available, a binary package will be installed.
 
