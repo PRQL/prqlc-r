@@ -1,9 +1,6 @@
 name: Install from R-universe
 on:
   workflow_dispatch:
-  pull_request:
-    branches:
-      - main
 
 concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
