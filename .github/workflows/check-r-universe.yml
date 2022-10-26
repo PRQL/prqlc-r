@@ -1,0 +1,30 @@
+name: R-universe
+on:
+  workflow_dispatch:
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  install-from-r-universe:
+    runs-on: ${{ matrix.config.os }}
+
+    name: ${{ matrix.config.os }} (${{ matrix.config.r }})
+
+    strategy:
+      fail-fast: false
+      matrix:
+        config:
+          - { os: macOS-latest, r: "release" }
+          - { os: windows-latest, r: "release", rtools-version: "42" }
+
+    steps:
+      - uses: r-lib/actions/setup-pandoc@v2
+      - uses: r-lib/actions/setup-r@v2
+        with:
+          r-version: ${{ matrix.config.r }}
+          rtools-version: ${{ matrix.config.rtools-version }}
+      - run: |
+          install.packages("prqlr", repos = "https://eitsupi.r-universe.dev")
+        shell: Rscript {0}
