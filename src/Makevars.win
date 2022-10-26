@@ -8,7 +8,7 @@ LIBDIR = $(TARGET_DIR)/$(TARGET)/release
 STATLIB = $(LIBDIR)/libprqlr.a
 PKG_LIBS = -L$(LIBDIR) -lprqlr -lws2_32 -ladvapi32 -luserenv -lbcrypt
 
-all: C_clean
+all: C_clean rustup
 
 $(SHLIB): $(STATLIB)
 
@@ -30,3 +30,8 @@ C_clean:
 
 clean:
 	rm -Rf $(SHLIB) $(STATLIB) $(OBJECTS) rust/target
+
+rustup:
+	if [ "${GITHUB_ACTIONS}" = "true" ]; then \
+		rustup toolchain install stable-gnu || true; \
+	fi
