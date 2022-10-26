@@ -25,6 +25,6 @@ jobs:
         with:
           r-version: ${{ matrix.config.r }}
           rtools-version: ${{ matrix.config.rtools-version }}
-      - run: |
-          install.packages("prqlr", repos = "https://eitsupi.r-universe.dev")
+      - id: install the package
         shell: Rscript {0}
+        run: install.packages("prqlr", repos = "https://eitsupi.r-universe.dev")
