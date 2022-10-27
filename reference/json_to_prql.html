@@ -78,8 +78,17 @@
     <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="st">"from mtcars | filter cyl &gt; 6 | select [cyl, mpg]"</span> <span class="op">|&gt;</span></span></span>
 <span class="r-in"><span>  <span class="fu"><a href="prql_to_json.html">prql_to_json</a></span><span class="op">(</span><span class="op">)</span> <span class="op">|&gt;</span></span></span>
-<span class="r-in"><span>  <span class="fu">json_to_prql</span><span class="op">(</span><span class="op">)</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "prql dialect:generic\n\nfrom mtcars\nfilter cyl &gt; 6\nselect [\n  cyl,\n  mpg,\n]\n\n"</span>
+<span class="r-in"><span>  <span class="fu">json_to_prql</span><span class="op">(</span><span class="op">)</span> <span class="op">|&gt;</span></span></span>
+<span class="r-in"><span>  <span class="fu"><a href="https://rdrr.io/r/base/cat.html" class="external-link">cat</a></span><span class="op">(</span><span class="op">)</span></span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> prql dialect:generic</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> from mtcars</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> filter cyl &gt; 6</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> select [</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   cyl,</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   mpg,</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> ]</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 </code></pre></div>
     </div>
   </main><aside class="col-md-3"><nav id="toc"><h2>On this page</h2>
