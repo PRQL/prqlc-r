@@ -10,7 +10,6 @@ Depends:
     R (>= 4.2)
 Suggests:
     rextendr,
-    cli,
     knitr,
     rmarkdown,
     lintr,

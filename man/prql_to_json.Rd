@@ -17,7 +17,8 @@ Compile a PRQL string into a JSON version of the Query
 }
 \examples{
 "from mtcars | filter cyl > 6 | select [cyl, mpg]" |>
-  prql_to_json()
+  prql_to_json() |>
+  cat()
 }
 \seealso{
 \code{\link[=json_to_prql]{json_to_prql()}}

@@ -18,7 +18,8 @@ Convert a JSON AST back to a PRQL string
 \examples{
 "from mtcars | filter cyl > 6 | select [cyl, mpg]" |>
   prql_to_json() |>
-  json_to_prql()
+  json_to_prql() |>
+  cat()
 }
 \seealso{
 \code{\link[=prql_to_json]{prql_to_json()}}
