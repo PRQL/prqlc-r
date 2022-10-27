@@ -28,24 +28,59 @@ Please check the <https://github.com/r-rust/hellorust> repository.
 ```r
 library(prqlr)
 "from mtcars | filter cyl > 6 | select [cyl, mpg]" |>
-  prql_to_sql()
-#> [1] "SELECT\n  cyl,\n  mpg\nFROM\n  mtcars\nWHERE\n  cyl > 6"
+  prql_to_sql() |>
+  cat()
+#> SELECT
+#>   cyl,
+#>   mpg
+#> FROM
+#>   mtcars
+#> WHERE
+#>   cyl > 6
 ```
 
 PRQL's pipelines can be joined by the newline character (`\n`), or actual newlines in addition to `|`.
 
 ```r
 "from mtcars \n filter cyl > 6 \n select [cyl, mpg]" |>
-  prql_to_sql()
-#> [1] "SELECT\n  cyl,\n  mpg\nFROM\n  mtcars\nWHERE\n  cyl > 6"
+  prql_to_sql() |>
+  cat()
+#> SELECT
+#>   cyl,
+#>   mpg
+#> FROM
+#>   mtcars
+#> WHERE
+#>   cyl > 6
 ```
 
 ```r
 "from mtcars
 filter cyl > 6
 select [cyl, mpg]" |>
-  prql_to_sql()
-#> [1] "SELECT\n  cyl,\n  mpg\nFROM\n  mtcars\nWHERE\n  cyl > 6"
+  prql_to_sql() |>
+  cat()
+#> SELECT
+#>   cyl,
+#>   mpg
+#> FROM
+#>   mtcars
+#> WHERE
+#>   cyl > 6
+```
+
+Thanks to the `{tidyquery}` package,
+we can even convert a PRQL query to a SQL query and then to a `{dplyr}` query!
+
+```r
+"from mtcars
+filter cyl > 6
+select [cyl, mpg]" |>
+  prql_to_sql() |>
+  tidyquery::show_dplyr()
+#> mtcars %>%
+#>   filter(cyl > 6) %>%
+#>   select(cyl, mpg)
 ```
 
 ## Development
