@@ -7,17 +7,13 @@ use extendr_api::prelude::*;
 /// "from mtcars | filter cyl > 6 | select [cyl, mpg]" |>
 ///   prql_to_sql()
 ///
-/// # Show the SQL string with the cli package's cli_code function
-/// if (requireNamespace("cli", quietly = TRUE)) {
-///   library(cli)
-///   "
-///   from mtcars
-///   filter cyl > 6
-///   select [cyl, mpg]
-///   " |>
-///     prql_to_sql() |>
-///     cli_code(language = "sql")
-/// }
+/// "
+/// from mtcars
+/// filter cyl > 6
+/// select [cyl, mpg]
+/// " |>
+///   prql_to_sql() |>
+///   cat()
 /// @export
 #[extendr]
 fn prql_to_sql(prql: &str) -> String {
@@ -31,18 +27,13 @@ fn prql_to_sql(prql: &str) -> String {
 /// @examples
 /// format_prql("from mtcars | select cyl")
 ///
-/// # Show the PQL string with the cli package's cli_code function
-/// if (requireNamespace("cli", quietly = TRUE)) {
-///   library(cli)
-///   "
-///   from mtcars
-///   filter cyl > 6
-///   select [cyl, mpg]
-///   " |>
-///     format_prql() |>
-///     cli_code(language = "elm")
-///     # Coincidentally, elm's syntax highlighting is best suited for prql
-/// }
+/// "
+/// from mtcars
+/// filter cyl > 6
+/// select [cyl, mpg]
+/// " |>
+///   format_prql() |>
+///   cat()
 /// @export
 #[extendr]
 fn format_prql(prql: &str) -> String {
@@ -55,7 +46,8 @@ fn format_prql(prql: &str) -> String {
 /// @return A JSON string of AST
 /// @examples
 /// "from mtcars | filter cyl > 6 | select [cyl, mpg]" |>
-///   prql_to_json()
+///   prql_to_json() |>
+///   cat()
 /// @seealso [json_to_prql()]
 /// @export
 #[extendr]
@@ -71,7 +63,8 @@ fn prql_to_json(prql: &str) -> String {
 /// @examples
 /// "from mtcars | filter cyl > 6 | select [cyl, mpg]" |>
 ///   prql_to_json() |>
-///   json_to_prql()
+///   json_to_prql() |>
+///   cat()
 /// @export
 #[extendr]
 fn json_to_prql(json: &str) -> String {

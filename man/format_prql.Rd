@@ -18,16 +18,11 @@ Format a PRQL string
 \examples{
 format_prql("from mtcars | select cyl")
 
-# Show the PQL string with the cli package's cli_code function
-if (requireNamespace("cli", quietly = TRUE)) {
-  library(cli)
-  "
-  from mtcars
-  filter cyl > 6
-  select [cyl, mpg]
-  " |>
-    format_prql() |>
-    cli_code(language = "elm")
-    # Coincidentally, elm's syntax highlighting is best suited for prql
-}
+"
+from mtcars
+filter cyl > 6
+select [cyl, mpg]
+" |>
+  format_prql() |>
+  cat()
 }

@@ -19,15 +19,11 @@ Compile a PRQL string into a SQL string
 "from mtcars | filter cyl > 6 | select [cyl, mpg]" |>
   prql_to_sql()
 
-# Show the SQL string with the cli package's cli_code function
-if (requireNamespace("cli", quietly = TRUE)) {
-  library(cli)
-  "
-  from mtcars
-  filter cyl > 6
-  select [cyl, mpg]
-  " |>
-    prql_to_sql() |>
-    cli_code(language = "sql")
-}
+"
+from mtcars
+filter cyl > 6
+select [cyl, mpg]
+" |>
+  prql_to_sql() |>
+  cat()
 }

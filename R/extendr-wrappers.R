@@ -15,17 +15,13 @@ NULL
 #' "from mtcars | filter cyl > 6 | select [cyl, mpg]" |>
 #'   prql_to_sql()
 #'
-#' # Show the SQL string with the cli package's cli_code function
-#' if (requireNamespace("cli", quietly = TRUE)) {
-#'   library(cli)
-#'   "
-#'   from mtcars
-#'   filter cyl > 6
-#'   select [cyl, mpg]
-#'   " |>
-#'     prql_to_sql() |>
-#'     cli_code(language = "sql")
-#' }
+#' "
+#' from mtcars
+#' filter cyl > 6
+#' select [cyl, mpg]
+#' " |>
+#'   prql_to_sql() |>
+#'   cat()
 #' @export
 prql_to_sql <- function(prql) .Call(wrap__prql_to_sql, prql)
 
@@ -35,18 +31,13 @@ prql_to_sql <- function(prql) .Call(wrap__prql_to_sql, prql)
 #' @examples
 #' format_prql("from mtcars | select cyl")
 #'
-#' # Show the PQL string with the cli package's cli_code function
-#' if (requireNamespace("cli", quietly = TRUE)) {
-#'   library(cli)
-#'   "
-#'   from mtcars
-#'   filter cyl > 6
-#'   select [cyl, mpg]
-#'   " |>
-#'     format_prql() |>
-#'     cli_code(language = "elm")
-#'     # Coincidentally, elm's syntax highlighting is best suited for prql
-#' }
+#' "
+#' from mtcars
+#' filter cyl > 6
+#' select [cyl, mpg]
+#' " |>
+#'   format_prql() |>
+#'   cat()
 #' @export
 format_prql <- function(prql) .Call(wrap__format_prql, prql)
 
@@ -55,7 +46,8 @@ format_prql <- function(prql) .Call(wrap__format_prql, prql)
 #' @return A JSON string of AST
 #' @examples
 #' "from mtcars | filter cyl > 6 | select [cyl, mpg]" |>
-#'   prql_to_json()
+#'   prql_to_json() |>
+#'   cat()
 #' @seealso [json_to_prql()]
 #' @export
 prql_to_json <- function(prql) .Call(wrap__prql_to_json, prql)
@@ -67,7 +59,8 @@ prql_to_json <- function(prql) .Call(wrap__prql_to_json, prql)
 #' @examples
 #' "from mtcars | filter cyl > 6 | select [cyl, mpg]" |>
 #'   prql_to_json() |>
-#'   json_to_prql()
+#'   json_to_prql() |>
+#'   cat()
 #' @export
 json_to_prql <- function(json) .Call(wrap__json_to_prql, json)
 
