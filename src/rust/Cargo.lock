@@ -505,9 +505,9 @@ dependencies = [
 
 [[package]]
 name = "prql-compiler"
-version = "0.2.9"
+version = "0.2.11"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "ab0a1460939caebd0f788a7843df1474657c5686f5e41cc0fe356bfdc177be86"
+checksum = "dfd678b55245fbca95605b00dfc90aee13d4d5669f9e1d71802137e4da17d157"
 dependencies = [
  "anyhow",
  "ariadne",
@@ -517,8 +517,10 @@ dependencies = [
  "color-eyre",
  "enum-as-inner",
  "itertools",
+ "once_cell",
  "pest",
  "pest_derive",
+ "semver",
  "serde",
  "serde_json",
  "serde_yaml",
@@ -563,6 +565,15 @@ name = "ryu"
 version = "1.0.11"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "4501abdff3ae82a1c1b477a17252eb69cee9e66eb915c1abaa4f44d873df9f09"
+
+[[package]]
+name = "semver"
+version = "1.0.14"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "e25dfac463d778e353db5be2449d1cce89bd6fd23c9f1ea21310ce6e5a1b29c4"
+dependencies = [
+ "serde",
+]
 
 [[package]]
 name = "serde"
