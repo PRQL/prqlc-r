@@ -3,7 +3,7 @@ pkgdown: 2.0.6
 pkgdown_sha: ~
 articles:
   prqlr: prqlr.html
-last_built: 2022-10-27T12:29Z
+last_built: 2022-11-21T13:27Z
 urls:
   reference: https://eitsupi.github.io/prqlr/reference
   article: https://eitsupi.github.io/prqlr/articles
