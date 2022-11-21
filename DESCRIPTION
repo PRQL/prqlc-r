@@ -1,7 +1,7 @@
 Package: prqlr
 Title: R bindings for the prql-compiler Rust library
 Description: Convert PRQL to SQL.
-Version: 0.0.1.9000
+Version: 0.0.2
 Authors@R:
     person("Tatsuya", "Shima", email = "ts1s1andn@gmail.com", role = c("aut", "cre"))
 URL: https://eitsupi.github.io/prqlr, https://github.com/eitsupi/prqlr
