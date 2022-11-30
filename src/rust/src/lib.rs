@@ -21,26 +21,6 @@ fn prql_to_sql(prql: &str) -> String {
     unwrap_or_throw(result)
 }
 
-/// @title Format a PRQL string
-/// @param prql A PRQL string
-/// @return A PRQL string
-/// @examples
-/// format_prql("from mtcars | select cyl")
-///
-/// "
-/// from mtcars
-/// filter cyl > 6
-/// select [cyl, mpg]
-/// " |>
-///   format_prql() |>
-///   cat()
-/// @export
-#[extendr]
-fn format_prql(prql: &str) -> String {
-    let result = prql_compiler::format(prql);
-    unwrap_or_throw(result)
-}
-
 /// @title Compile a PRQL string into a JSON version of the Query
 /// @param prql A PRQL string
 /// @return A JSON string of AST
@@ -85,7 +65,6 @@ fn unwrap_or_throw(result: anyhow::Result<String>) -> String {
 extendr_module! {
     mod prqlr;
     fn prql_to_sql;
-    fn format_prql;
     fn prql_to_json;
     fn json_to_prql;
 }
