@@ -25,22 +25,6 @@ NULL
 #' @export
 prql_to_sql <- function(prql) .Call(wrap__prql_to_sql, prql)
 
-#' @title Format a PRQL string
-#' @param prql A PRQL string
-#' @return A PRQL string
-#' @examples
-#' format_prql("from mtcars | select cyl")
-#'
-#' "
-#' from mtcars
-#' filter cyl > 6
-#' select [cyl, mpg]
-#' " |>
-#'   format_prql() |>
-#'   cat()
-#' @export
-format_prql <- function(prql) .Call(wrap__format_prql, prql)
-
 #' @title Compile a PRQL string into a JSON version of the Query
 #' @param prql A PRQL string
 #' @return A JSON string of AST

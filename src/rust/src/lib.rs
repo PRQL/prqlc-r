@@ -32,7 +32,7 @@ fn prql_to_sql(prql: &str) -> String {
 /// @export
 #[extendr]
 fn prql_to_json(prql: &str) -> String {
-    let result = prql_compiler::to_json(prql);
+    let result = prql_compiler::parse(prql).and_then(prql_compiler::pl_to_json);
     unwrap_or_throw(result)
 }
 
@@ -48,7 +48,7 @@ fn prql_to_json(prql: &str) -> String {
 /// @export
 #[extendr]
 fn json_to_prql(json: &str) -> String {
-    let result = prql_compiler::from_json(json);
+    let result = prql_compiler::json_to_pl(json).and_then(prql_compiler::pl_to_prql);
     unwrap_or_throw(result)
 }
 
