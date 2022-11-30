@@ -98,7 +98,7 @@ library(nycflights13)
 
 "
 from flights
-join side:left planes [tailnum]
+join side:left planes [==tailnum]
 filter (distance | in 200..300)
 filter air_time != null
 group [origin, dest] (
