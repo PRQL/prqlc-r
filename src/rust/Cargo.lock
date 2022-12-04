@@ -533,9 +533,9 @@ dependencies = [
 
 [[package]]
 name = "prql-compiler"
-version = "0.3.0"
+version = "0.3.1"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "1993bea7bae51b97565f3a638686806a654dfcddc4085cab0ede2074466edf96"
+checksum = "389cdd1f8bd291589422e2cd2440315ebb5218d3b9eeeeb0f7678c052ded6134"
 dependencies = [
  "anyhow",
  "ariadne",
