@@ -89,7 +89,7 @@ derive [mpg_int = round 0 mpg]
 
 Using it with the `{tidyquery}` package, we can execute PRQL queries against R `?data.frame`.
 
-Let's run a query that joins and aggregates two data.frames, `flights` and `planes`,
+Let's run a query that aggregates a data.frame `flights`,
 contained in the `{nycflights13}` package.
 
 ```{r}
@@ -98,18 +98,15 @@ library(nycflights13)
 
 "
 from flights
-join side:left planes [tailnum]
 filter (distance | in 200..300)
 filter air_time != null
 group [origin, dest] (
   aggregate [
     num_flts = count,
-    num_seats = (sum seats | round 0),
     avg_delay = (average arr_delay | round 0)
   ]
 )
-filter num_flts > 3000
-sort [-num_seats, avg_delay]
+sort avg_delay
 take 2
 " |>
   prql_to_sql() |>
@@ -124,7 +121,6 @@ library(dplyr, warn.conflicts = FALSE)
 library(nycflights13)
 
 flights |>
-  left_join(planes, by = "tailnum") |>
   filter(
     distance |> between(200, 300),
     !is.na(air_time)
@@ -132,11 +128,9 @@ flights |>
   group_by(origin, dest) |>
   summarise(
     num_flts = n(),
-    num_seats = sum(seats, na.rm = TRUE) |> round(0),
     avg_delay = mean(arr_delay, na.rm = TRUE) |> round(0),
     .groups = "drop"
   ) |>
-  filter(num_flts > 3000) |>
-  arrange(desc(num_seats), avg_delay) |>
+  arrange(avg_delay) |>
   head(2)
 ```
