@@ -26,7 +26,7 @@
     
     <a class="navbar-brand me-2" href="../index.html">prqlr</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.0.2</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.0.3</small>
 
     
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -168,7 +168,7 @@ PRQL queries against R <code><a href="https://rdrr.io/r/base/data.frame.html" cl
 <span></span>
 <span><span class="st">"</span></span>
 <span><span class="st">from flights</span></span>
-<span><span class="st">join side:left planes [tailnum]</span></span>
+<span><span class="st">join side:left planes [==tailnum]</span></span>
 <span><span class="st">filter (distance | in 200..300)</span></span>
 <span><span class="st">filter air_time != null</span></span>
 <span><span class="st">group [origin, dest] (</span></span>
@@ -178,7 +178,6 @@ PRQL queries against R <code><a href="https://rdrr.io/r/base/data.frame.html" cl
 <span><span class="st">    avg_delay = (average arr_delay | round 0)</span></span>
 <span><span class="st">  ]</span></span>
 <span><span class="st">)</span></span>
-<span><span class="st">filter num_flts &gt; 3000</span></span>
 <span><span class="st">sort [-num_seats, avg_delay]</span></span>
 <span><span class="st">take 2</span></span>
 <span><span class="st">"</span> <span class="op">|&gt;</span></span>
@@ -209,7 +208,6 @@ is a very popular R package for manipulating data.</p>
 <span>    avg_delay <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/mean.html" class="external-link">mean</a></span><span class="op">(</span><span class="va">arr_delay</span>, na.rm <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span> <span class="op">|&gt;</span> <span class="fu"><a href="https://rdrr.io/r/base/Round.html" class="external-link">round</a></span><span class="op">(</span><span class="fl">0</span><span class="op">)</span>,</span>
 <span>    .groups <span class="op">=</span> <span class="st">"drop"</span></span>
 <span>  <span class="op">)</span> <span class="op">|&gt;</span></span>
-<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html" class="external-link">filter</a></span><span class="op">(</span><span class="va">num_flts</span> <span class="op">&gt;</span> <span class="fl">3000</span><span class="op">)</span> <span class="op">|&gt;</span></span>
 <span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/arrange.html" class="external-link">arrange</a></span><span class="op">(</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/desc.html" class="external-link">desc</a></span><span class="op">(</span><span class="va">num_seats</span><span class="op">)</span>, <span class="va">avg_delay</span><span class="op">)</span> <span class="op">|&gt;</span></span>
 <span>  <span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="fl">2</span><span class="op">)</span></span>
 <span><span class="co">#&gt; <span style="color: #949494;"># A tibble: 2 × 5</span></span></span>

@@ -10,7 +10,7 @@
     
     <a class="navbar-brand me-2" href="../index.html">prqlr</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.0.2</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.0.3</small>
 
     
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -79,7 +79,7 @@
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="st">"from mtcars | filter cyl &gt; 6 | select [cyl, mpg]"</span> <span class="op">|&gt;</span></span></span>
 <span class="r-in"><span>  <span class="fu">prql_to_json</span><span class="op">(</span><span class="op">)</span> <span class="op">|&gt;</span></span></span>
 <span class="r-in"><span>  <span class="fu"><a href="https://rdrr.io/r/base/cat.html" class="external-link">cat</a></span><span class="op">(</span><span class="op">)</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> {"version":null,"dialect":"Generic","nodes":[{"Pipeline":{"nodes":[{"FuncCall":{"name":"from","args":[{"Ident":"mtcars"}],"named_args":{}}},{"FuncCall":{"name":"filter","args":[{"Binary":{"left":{"Ident":"cyl"},"op":"Gt","right":{"Literal":{"Integer":6}}}}],"named_args":{}}},{"FuncCall":{"name":"select","args":[{"List":[{"Ident":"cyl"},{"Ident":"mpg"}]}],"named_args":{}}}]}}]}</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [{"Pipeline":{"Pipeline":{"exprs":[{"FuncCall":{"name":{"Ident":["from"]},"args":[{"Ident":["mtcars"]}],"named_args":{}}},{"FuncCall":{"name":{"Ident":["filter"]},"args":[{"Binary":{"left":{"Ident":["cyl"]},"op":"Gt","right":{"Literal":{"Integer":6}}}}],"named_args":{}}},{"FuncCall":{"name":{"Ident":["select"]},"args":[{"List":[{"Ident":["cyl"]},{"Ident":["mpg"]}]}],"named_args":{}}}]}}}]</span>
 </code></pre></div>
     </div>
   </main><aside class="col-md-3"><nav id="toc"><h2>On this page</h2>
