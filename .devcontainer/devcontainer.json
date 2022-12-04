@@ -9,17 +9,9 @@
 	"customizations": {
 		"vscode": {
 			"settings": {
-				"terminal.integrated.defaultProfile.linux": "zsh",
-				"r.rterm.linux": "radian",
-				"r.bracketedPaste": true,
-				"r.plot.useHttpgd": true,
-				"[r]": {
-					"editor.wordSeparators": "`~!@#%$^&*()-=+[{]}\\|;:'\",<>/?"
-				}
+				"terminal.integrated.defaultProfile.linux": "zsh"
 			},
 			"extensions": [
-				"reditorsupport.r",
-				"rdebugger.r-debugger",
 				"EditorConfig.EditorConfig"
 			]
 		}
