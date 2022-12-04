@@ -1,4 +1,4 @@
-# prqlr (development version)
+# prqlr 0.0.3
 
 - Based on [`prql-compiler`](https://crates.io/crates/prql-compiler) v0.3.1
 - The `format_prql` function is removed.
