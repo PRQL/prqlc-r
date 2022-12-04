@@ -9,7 +9,7 @@ on:
       - R/**
       - src/**
       - tests/**
-      - vignetts/*
+      - vignettes/*
       - DESCRIPTION
       - NAMESPACE
   pull_request:
@@ -19,7 +19,7 @@ on:
       - R/**
       - src/**
       - tests/**
-      - vignetts/*
+      - vignettes/*
       - DESCRIPTION
       - NAMESPACE
   workflow_dispatch:
