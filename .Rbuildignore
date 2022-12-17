@@ -7,3 +7,4 @@
 ^docs$
 ^pkgdown$
 ^vignettes/articles$
+^cran-comments\.md$
