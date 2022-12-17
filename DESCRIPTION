@@ -1,6 +1,9 @@
 Package: prqlr
 Title: R bindings for the prql-compiler Rust library
-Description: Convert PRQL to SQL.
+Description:
+    Provides a function to convert PRQL strings to SQL strings.
+    Combined with other R functions that take SQL as an argument,
+    PRQL can be used on R.
 Version: 0.0.3.9000
 Authors@R:
     person("Tatsuya", "Shima", email = "ts1s1andn@gmail.com", role = c("aut", "cre"))
