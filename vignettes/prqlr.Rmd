@@ -61,7 +61,7 @@ This outputed SQL string can be used with already existing great packages that m
 
 Using it with the `{DBI}` package, we can execute PRQL queries against the database.
 
-Here sqlite is used via `{RSQLite}`,
+Here SQLite is used via `{RSQLite}`,
 so the [dialect](https://prql-lang.org/book/queries/dialect_and_version.html) header
 is set at the top of the query.
 
