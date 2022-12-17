@@ -7,7 +7,7 @@ Description:
 Version: 0.1.0
 Authors@R:
     person("Tatsuya", "Shima", email = "ts1s1andn@gmail.com", role = c("aut", "cre"))
-URL: https://eitsupi.github.io/prqlr, https://github.com/eitsupi/prqlr
+URL: https://eitsupi.github.io/prqlr/, https://github.com/eitsupi/prqlr
 BugReports: https://github.com/eitsupi/prqlr/issues
 Depends:
     R (>= 4.2)
