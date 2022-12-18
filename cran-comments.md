@@ -16,7 +16,7 @@
 ❯ checking installed package size ... NOTE
     installed size is 14.6Mb
     sub-directories of 1Mb or more:
-      libs  14.4Mb
+      libs  14.5Mb
 
 ❯ checking compilation flags used ... NOTE
   Compilation used the following non-portable flag(s):
