@@ -7,13 +7,14 @@ all: C_clean
 
 $(SHLIB): $(STATLIB)
 
-CARGOTMP = $(PWD)/.cargo
+NOT_CRAN := $(shell echo "$(NOT_CRAN)" | tr '[:upper:]' '[:lower:]')
+CARGOTMP := $(PWD)/.cargo
 
 $(STATLIB):
 	# In some environments, ~/.cargo/bin might not be included in PATH, so we need
 	# to set it here to ensure cargo can be invoked. It is appended to PATH and
 	# therefore is only used if cargo is absent from the user's PATH.
-	if [ "${NOT_CRAN}" != "true" ]; then \
+	if [ "$(NOT_CRAN)" != "true" ]; then \
 		CARGO_HOME=$(CARGOTMP); \
 	fi && \
 	export PATH="$(PATH):$(HOME)/.cargo/bin" && \
