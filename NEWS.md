@@ -1,5 +1,10 @@
 # prqlr (development version)
 
+- Change Rust toolchain for Windows from GNU to MSVC. (#22)
+- `CARGO_HOME` is now set to the temporary directory during installation
+  if the environment variable `NOT_CRAN` is not set to `true`
+  [to avoid writing in HOME](https://github.com/r-rust/faq). (#25, #27)
+
 # prqlr 0.0.3
 
 - Based on [`prql-compiler`](https://github.com/prql/prql) v0.3.1
