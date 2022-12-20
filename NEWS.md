@@ -1,4 +1,4 @@
-# prqlr (development version)
+# prqlr 0.0.4
 
 - Change Rust toolchain for Windows from GNU to MSVC. (#22)
 - `CARGO_HOME` is now set to the temporary directory during installation
