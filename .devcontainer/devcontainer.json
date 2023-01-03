@@ -4,18 +4,16 @@
 	"features": {
 		"ghcr.io/devcontainers/features/rust:1": {
 			"version": "latest"
+		},
+		"ghcr.io/rocker-org/devcontainer-features/r-packages:1": {
+			"packages": "github::extendr/rextendr"
 		}
 	},
 	"customizations": {
 		"vscode": {
-			"settings": {
-				"terminal.integrated.defaultProfile.linux": "zsh"
-			},
 			"extensions": [
 				"EditorConfig.EditorConfig"
 			]
 		}
-	},
-	"remoteUser": "rstudio",
-	"postCreateCommand": "R -q -e 'remotes::install_github(\"extendr/rextendr\")'"
+	}
 }
