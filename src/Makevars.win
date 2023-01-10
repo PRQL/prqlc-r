@@ -1,8 +1,5 @@
 TARGET = $(subst 64,x86_64,$(subst 32,i686,$(WIN)))-pc-windows-gnu
 
-# This is provided in Makevars.ucrt for R >= 4.2
-TOOLCHAIN ?= stable-msvc
-
 TARGET_DIR = ./rust/target
 LIBDIR = $(TARGET_DIR)/$(TARGET)/release
 STATLIB = $(LIBDIR)/libprqlr.a
@@ -16,11 +13,13 @@ CARGOTMP = $(CURDIR)/.cargo
 
 $(STATLIB):
 	mkdir -p $(TARGET_DIR)/libgcc_mock
-	cd $(TARGET_DIR)/libgcc_mock && \
-		touch gcc_mock.c && \
-		gcc -c gcc_mock.c -o gcc_mock.o && \
-		ar -r libgcc_eh.a gcc_mock.o && \
-		cp libgcc_eh.a libgcc_s.a
+	# `rustc` adds `-lgcc_eh` flags to the compiler, but Rtools' GCC doesn't have
+	# `libgcc_eh` due to the compilation settings. So, in order to please the
+	# compiler, we need to add empty `libgcc_eh` to the library search paths.
+	#
+	# For more details, please refer to
+	# https://github.com/r-windows/rtools-packages/blob/2407b23f1e0925bbb20a4162c963600105236318/mingw-w64-gcc/PKGBUILD#L313-L316
+	touch $(TARGET_DIR)/libgcc_mock/libgcc_eh.a
 
 	# CARGO_LINKER is provided in Makevars.ucrt for R >= 4.2
 	if [ "$(NOT_CRAN)" != "true" ] && [ "$(NOT_CRAN)" != "TRUE" ]; then \
