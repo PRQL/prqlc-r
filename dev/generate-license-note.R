@@ -1,7 +1,7 @@
 # A script to generate LICENSE.note
 # cargo-license <https://crates.io/crates/cargo-license> must be installed on the system to use this.
 #
-# Usage: Rscript tools/generate-license-note.R
+# Usage: Rscript dev/generate-license-note.R
 
 manifest_path <- file.path("src", "rust", "Cargo.toml")
 license_note_path <- file.path("LICENSE.note")
