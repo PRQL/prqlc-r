@@ -1,0 +1,627 @@
+The binary compiled from the source code of this package contains the following Rust packages.
+
+
+-------------------------------------------------------------
+
+Name:        addr2line
+Repository:  https://github.com/gimli-rs/addr2line
+Authors:     addr2line authors
+License:     Apache-2.0 OR MIT
+
+-------------------------------------------------------------
+
+Name:        adler
+Repository:  https://github.com/jonas-schievink/adler.git
+Authors:     Jonas Schievink
+License:     0BSD OR Apache-2.0 OR MIT
+
+-------------------------------------------------------------
+
+Name:        aho-corasick
+Repository:  https://github.com/BurntSushi/aho-corasick
+Authors:     Andrew Gallant
+License:     MIT OR Unlicense
+
+-------------------------------------------------------------
+
+Name:        anyhow
+Repository:  https://github.com/dtolnay/anyhow
+Authors:     David Tolnay
+License:     Apache-2.0 OR MIT
+
+-------------------------------------------------------------
+
+Name:        ariadne
+Repository:  https://github.com/zesterer/ariadne
+Authors:     Joshua Barretto
+License:     MIT
+
+-------------------------------------------------------------
+
+Name:        atty
+Repository:  https://github.com/softprops/atty
+Authors:     softprops
+License:     MIT
+
+-------------------------------------------------------------
+
+Name:        backtrace
+Repository:  https://github.com/rust-lang/backtrace-rs
+Authors:     The Rust Project Developers
+License:     Apache-2.0 OR MIT
+
+-------------------------------------------------------------
+
+Name:        bitflags
+Repository:  https://github.com/bitflags/bitflags
+Authors:     The Rust Project Developers
+License:     Apache-2.0 OR MIT
+
+-------------------------------------------------------------
+
+Name:        cfg-if
+Repository:  https://github.com/alexcrichton/cfg-if
+Authors:     Alex Crichton
+License:     Apache-2.0 OR MIT
+
+-------------------------------------------------------------
+
+Name:        clap
+Repository:  https://github.com/clap-rs/clap
+Authors:     clap authors
+License:     Apache-2.0 OR MIT
+
+-------------------------------------------------------------
+
+Name:        clap_derive
+Repository:  https://github.com/clap-rs/clap/tree/master/clap_derive
+Authors:     clap_derive authors
+License:     Apache-2.0 OR MIT
+
+-------------------------------------------------------------
+
+Name:        clap_lex
+Repository:  https://github.com/clap-rs/clap/tree/master/clap_lex
+Authors:     clap_lex authors
+License:     Apache-2.0 OR MIT
+
+-------------------------------------------------------------
+
+Name:        clio
+Repository:  https://github.com/aj-bagwell/clio
+Authors:     AJ Bagwell
+License:     MIT
+
+-------------------------------------------------------------
+
+Name:        color-eyre
+Repository:  https://github.com/yaahc/color-eyre
+Authors:     Jane Lusby
+License:     Apache-2.0 OR MIT
+
+-------------------------------------------------------------
+
+Name:        color-spantrace
+Repository:  https://github.com/yaahc/color-spantrace
+Authors:     Jane Lusby
+License:     Apache-2.0 OR MIT
+
+-------------------------------------------------------------
+
+Name:        either
+Repository:  https://github.com/bluss/either
+Authors:     bluss
+License:     Apache-2.0 OR MIT
+
+-------------------------------------------------------------
+
+Name:        enum-as-inner
+Repository:  https://github.com/bluejekyll/enum-as-inner
+Authors:     Benjamin Fry
+License:     Apache-2.0 OR MIT
+
+-------------------------------------------------------------
+
+Name:        env_logger
+Repository:  https://github.com/env-logger-rs/env_logger/
+Authors:     env_logger authors
+License:     Apache-2.0 OR MIT
+
+-------------------------------------------------------------
+
+Name:        extendr-api
+Repository:  https://github.com/extendr/extendr
+Authors:     andy-thomason, Thomas Down, Mossa Merhi Reimert, Claus O. Wilke, Hiroaki Yutani, Ilia A. Kosenkov
+License:     MIT
+
+-------------------------------------------------------------
+
+Name:        extendr-engine
+Repository:  https://github.com/extendr/extendr
+Authors:     andy-thomason, Thomas Down, Mossa Merhi Reimert, Claus O. Wilke, Hiroaki Yutani, Ilia A. Kosenkov
+License:     MIT
+
+-------------------------------------------------------------
+
+Name:        extendr-macros
+Repository:  https://github.com/extendr/extendr
+Authors:     andy-thomason, Thomas Down, Mossa Merhi Reimert, Claus O. Wilke, Hiroaki Yutani, Ilia A. Kosenkov
+License:     MIT
+
+-------------------------------------------------------------
+
+Name:        eyre
+Repository:  https://github.com/yaahc/eyre
+Authors:     David Tolnay, Jane Lusby
+License:     Apache-2.0 OR MIT
+
+-------------------------------------------------------------
+
+Name:        gimli
+Repository:  https://github.com/gimli-rs/gimli
+Authors:     gimli authors
+License:     Apache-2.0 OR MIT
+
+-------------------------------------------------------------
+
+Name:        hashbrown
+Repository:  https://github.com/rust-lang/hashbrown
+Authors:     Amanieu d'Antras
+License:     Apache-2.0 OR MIT
+
+-------------------------------------------------------------
+
+Name:        heck
+Repository:  https://github.com/withoutboats/heck
+Authors:     Without Boats
+License:     Apache-2.0 OR MIT
+
+-------------------------------------------------------------
+
+Name:        hermit-abi
+Repository:  https://github.com/hermitcore/libhermit-rs
+Authors:     Stefan Lankes
+License:     Apache-2.0 OR MIT
+
+-------------------------------------------------------------
+
+Name:        humantime
+Repository:  https://github.com/tailhook/humantime
+Authors:     Paul Colomiets
+License:     Apache-2.0 OR MIT
+
+-------------------------------------------------------------
+
+Name:        indenter
+Repository:  https://github.com/yaahc/indenter
+Authors:     Jane Lusby
+License:     Apache-2.0 OR MIT
+
+-------------------------------------------------------------
+
+Name:        indexmap
+Repository:  https://github.com/bluss/indexmap
+Authors:     indexmap authors
+License:     Apache-2.0 OR MIT
+
+-------------------------------------------------------------
+
+Name:        itertools
+Repository:  https://github.com/rust-itertools/itertools
+Authors:     bluss
+License:     Apache-2.0 OR MIT
+
+-------------------------------------------------------------
+
+Name:        itoa
+Repository:  https://github.com/dtolnay/itoa
+Authors:     David Tolnay
+License:     Apache-2.0 OR MIT
+
+-------------------------------------------------------------
+
+Name:        lazy_static
+Repository:  https://github.com/rust-lang-nursery/lazy-static.rs
+Authors:     Marvin Löbel
+License:     Apache-2.0 OR MIT
+
+-------------------------------------------------------------
+
+Name:        libR-sys
+Repository:  
+Authors:     andy-thomason, Thomas Down, Mossa Merhi Reimert, Claus O. Wilke, Ilia Kosenkov, Hiroaki Yutani
+License:     MIT
+
+-------------------------------------------------------------
+
+Name:        libc
+Repository:  https://github.com/rust-lang/libc
+Authors:     The Rust Project Developers
+License:     Apache-2.0 OR MIT
+
+-------------------------------------------------------------
+
+Name:        log
+Repository:  https://github.com/rust-lang/log
+Authors:     The Rust Project Developers
+License:     Apache-2.0 OR MIT
+
+-------------------------------------------------------------
+
+Name:        memchr
+Repository:  https://github.com/BurntSushi/memchr
+Authors:     Andrew Gallant, bluss
+License:     MIT OR Unlicense
+
+-------------------------------------------------------------
+
+Name:        minimal-lexical
+Repository:  https://github.com/Alexhuszagh/minimal-lexical
+Authors:     Alex Huszagh
+License:     Apache-2.0 OR MIT
+
+-------------------------------------------------------------
+
+Name:        miniz_oxide
+Repository:  https://github.com/Frommi/miniz_oxide/tree/master/miniz_oxide
+Authors:     Frommi, oyvindln
+License:     Apache-2.0 OR MIT OR Zlib
+
+-------------------------------------------------------------
+
+Name:        nom
+Repository:  https://github.com/Geal/nom
+Authors:     contact@geoffroycouprie.com
+License:     MIT
+
+-------------------------------------------------------------
+
+Name:        object
+Repository:  https://github.com/gimli-rs/object
+Authors:     object authors
+License:     Apache-2.0 OR MIT
+
+-------------------------------------------------------------
+
+Name:        once_cell
+Repository:  https://github.com/matklad/once_cell
+Authors:     Aleksey Kladov
+License:     Apache-2.0 OR MIT
+
+-------------------------------------------------------------
+
+Name:        os_str_bytes
+Repository:  https://github.com/dylni/os_str_bytes
+Authors:     dylni
+License:     Apache-2.0 OR MIT
+
+-------------------------------------------------------------
+
+Name:        owo-colors
+Repository:  https://github.com/jam1garner/owo-colors
+Authors:     jam1garner
+License:     MIT
+
+-------------------------------------------------------------
+
+Name:        paste
+Repository:  https://github.com/dtolnay/paste
+Authors:     David Tolnay
+License:     Apache-2.0 OR MIT
+
+-------------------------------------------------------------
+
+Name:        pest
+Repository:  https://github.com/pest-parser/pest
+Authors:     Dragoș Tiselice
+License:     Apache-2.0 OR MIT
+
+-------------------------------------------------------------
+
+Name:        pest_derive
+Repository:  https://github.com/pest-parser/pest
+Authors:     Dragoș Tiselice
+License:     Apache-2.0 OR MIT
+
+-------------------------------------------------------------
+
+Name:        pest_generator
+Repository:  https://github.com/pest-parser/pest
+Authors:     Dragoș Tiselice
+License:     Apache-2.0 OR MIT
+
+-------------------------------------------------------------
+
+Name:        pest_meta
+Repository:  https://github.com/pest-parser/pest
+Authors:     Dragoș Tiselice
+License:     Apache-2.0 OR MIT
+
+-------------------------------------------------------------
+
+Name:        pin-project-lite
+Repository:  https://github.com/taiki-e/pin-project-lite
+Authors:     pin-project-lite authors
+License:     Apache-2.0 OR MIT
+
+-------------------------------------------------------------
+
+Name:        proc-macro-error
+Repository:  https://gitlab.com/CreepySkeleton/proc-macro-error
+Authors:     CreepySkeleton
+License:     Apache-2.0 OR MIT
+
+-------------------------------------------------------------
+
+Name:        proc-macro-error-attr
+Repository:  https://gitlab.com/CreepySkeleton/proc-macro-error
+Authors:     CreepySkeleton
+License:     Apache-2.0 OR MIT
+
+-------------------------------------------------------------
+
+Name:        proc-macro2
+Repository:  https://github.com/dtolnay/proc-macro2
+Authors:     David Tolnay, Alex Crichton
+License:     Apache-2.0 OR MIT
+
+-------------------------------------------------------------
+
+Name:        prql-compiler
+Repository:  https://github.com/prql/prql
+Authors:     prql-compiler authors
+License:     Apache-2.0
+
+-------------------------------------------------------------
+
+Name:        quote
+Repository:  https://github.com/dtolnay/quote
+Authors:     David Tolnay
+License:     Apache-2.0 OR MIT
+
+-------------------------------------------------------------
+
+Name:        regex
+Repository:  https://github.com/rust-lang/regex
+Authors:     The Rust Project Developers
+License:     Apache-2.0 OR MIT
+
+-------------------------------------------------------------
+
+Name:        regex-syntax
+Repository:  https://github.com/rust-lang/regex
+Authors:     The Rust Project Developers
+License:     Apache-2.0 OR MIT
+
+-------------------------------------------------------------
+
+Name:        rustc-demangle
+Repository:  https://github.com/alexcrichton/rustc-demangle
+Authors:     Alex Crichton
+License:     Apache-2.0 OR MIT
+
+-------------------------------------------------------------
+
+Name:        rustversion
+Repository:  https://github.com/dtolnay/rustversion
+Authors:     David Tolnay
+License:     Apache-2.0 OR MIT
+
+-------------------------------------------------------------
+
+Name:        ryu
+Repository:  https://github.com/dtolnay/ryu
+Authors:     David Tolnay
+License:     Apache-2.0 OR BSL-1.0
+
+-------------------------------------------------------------
+
+Name:        semver
+Repository:  https://github.com/dtolnay/semver
+Authors:     David Tolnay
+License:     Apache-2.0 OR MIT
+
+-------------------------------------------------------------
+
+Name:        serde
+Repository:  https://github.com/serde-rs/serde
+Authors:     Erick Tryzelaar, David Tolnay
+License:     Apache-2.0 OR MIT
+
+-------------------------------------------------------------
+
+Name:        serde_derive
+Repository:  https://github.com/serde-rs/serde
+Authors:     Erick Tryzelaar, David Tolnay
+License:     Apache-2.0 OR MIT
+
+-------------------------------------------------------------
+
+Name:        serde_json
+Repository:  https://github.com/serde-rs/json
+Authors:     Erick Tryzelaar, David Tolnay
+License:     Apache-2.0 OR MIT
+
+-------------------------------------------------------------
+
+Name:        serde_yaml
+Repository:  https://github.com/dtolnay/serde-yaml
+Authors:     David Tolnay
+License:     Apache-2.0 OR MIT
+
+-------------------------------------------------------------
+
+Name:        sharded-slab
+Repository:  https://github.com/hawkw/sharded-slab
+Authors:     Eliza Weisman
+License:     MIT
+
+-------------------------------------------------------------
+
+Name:        sqlformat
+Repository:  https://github.com/shssoichiro/sqlformat-rs
+Authors:     Josh Holmer
+License:     Apache-2.0 OR MIT
+
+-------------------------------------------------------------
+
+Name:        sqlparser
+Repository:  https://github.com/sqlparser-rs/sqlparser-rs
+Authors:     Andy Grove
+License:     Apache-2.0
+
+-------------------------------------------------------------
+
+Name:        strsim
+Repository:  https://github.com/dguo/strsim-rs
+Authors:     Danny Guo
+License:     MIT
+
+-------------------------------------------------------------
+
+Name:        strum
+Repository:  https://github.com/Peternator7/strum
+Authors:     Peter Glotfelty
+License:     MIT
+
+-------------------------------------------------------------
+
+Name:        strum_macros
+Repository:  https://github.com/Peternator7/strum
+Authors:     Peter Glotfelty
+License:     MIT
+
+-------------------------------------------------------------
+
+Name:        syn
+Repository:  https://github.com/dtolnay/syn
+Authors:     David Tolnay
+License:     Apache-2.0 OR MIT
+
+-------------------------------------------------------------
+
+Name:        termcolor
+Repository:  https://github.com/BurntSushi/termcolor
+Authors:     Andrew Gallant
+License:     MIT OR Unlicense
+
+-------------------------------------------------------------
+
+Name:        thiserror
+Repository:  https://github.com/dtolnay/thiserror
+Authors:     David Tolnay
+License:     Apache-2.0 OR MIT
+
+-------------------------------------------------------------
+
+Name:        thiserror-impl
+Repository:  https://github.com/dtolnay/thiserror
+Authors:     David Tolnay
+License:     Apache-2.0 OR MIT
+
+-------------------------------------------------------------
+
+Name:        thread_local
+Repository:  https://github.com/Amanieu/thread_local-rs
+Authors:     Amanieu d'Antras
+License:     Apache-2.0 OR MIT
+
+-------------------------------------------------------------
+
+Name:        tracing
+Repository:  https://github.com/tokio-rs/tracing
+Authors:     Eliza Weisman, Tokio Contributors
+License:     MIT
+
+-------------------------------------------------------------
+
+Name:        tracing-core
+Repository:  https://github.com/tokio-rs/tracing
+Authors:     Tokio Contributors
+License:     MIT
+
+-------------------------------------------------------------
+
+Name:        tracing-error
+Repository:  https://github.com/tokio-rs/tracing
+Authors:     Eliza Weisman, Jane Lusby, Tokio Contributors
+License:     MIT
+
+-------------------------------------------------------------
+
+Name:        tracing-subscriber
+Repository:  https://github.com/tokio-rs/tracing
+Authors:     Eliza Weisman, David Barsky, Tokio Contributors
+License:     MIT
+
+-------------------------------------------------------------
+
+Name:        ucd-trie
+Repository:  https://github.com/BurntSushi/ucd-generate
+Authors:     Andrew Gallant
+License:     Apache-2.0 OR MIT
+
+-------------------------------------------------------------
+
+Name:        unicode-ident
+Repository:  https://github.com/dtolnay/unicode-ident
+Authors:     David Tolnay
+License:     (MIT OR Apache-2.0) AND Unicode-DFS-2016
+
+-------------------------------------------------------------
+
+Name:        unicode_categories
+Repository:  https://github.com/swgillespie/unicode-categories
+Authors:     Sean Gillespie
+License:     Apache-2.0 OR MIT
+
+-------------------------------------------------------------
+
+Name:        unsafe-libyaml
+Repository:  https://github.com/dtolnay/unsafe-libyaml
+Authors:     David Tolnay
+License:     MIT
+
+-------------------------------------------------------------
+
+Name:        valuable
+Repository:  https://github.com/tokio-rs/valuable
+Authors:     valuable authors
+License:     MIT
+
+-------------------------------------------------------------
+
+Name:        winapi
+Repository:  https://github.com/retep998/winapi-rs
+Authors:     Peter Atashian
+License:     Apache-2.0 OR MIT
+
+-------------------------------------------------------------
+
+Name:        winapi-i686-pc-windows-gnu
+Repository:  https://github.com/retep998/winapi-rs
+Authors:     Peter Atashian
+License:     Apache-2.0 OR MIT
+
+-------------------------------------------------------------
+
+Name:        winapi-util
+Repository:  https://github.com/BurntSushi/winapi-util
+Authors:     Andrew Gallant
+License:     MIT OR Unlicense
+
+-------------------------------------------------------------
+
+Name:        winapi-x86_64-pc-windows-gnu
+Repository:  https://github.com/retep998/winapi-rs
+Authors:     Peter Atashian
+License:     Apache-2.0 OR MIT
+
+-------------------------------------------------------------
+
+Name:        yansi
+Repository:  https://github.com/SergioBenitez/yansi
+Authors:     Sergio Benitez
+License:     Apache-2.0 OR MIT
+
+-------------------------------------------------------------
