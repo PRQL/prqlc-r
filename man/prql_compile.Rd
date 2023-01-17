@@ -43,5 +43,5 @@ select ![cyl]
   cat()
 }
 \seealso{
-available_dialects
+prql_available_dialects
 }

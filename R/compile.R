@@ -5,7 +5,7 @@
 #' @param signature_comment a logical flag. Whether to add a signature comment to the output SQL query.
 #' @return a SQL query string
 #' @details [prql_to_sql] is deprecated in favor of [prql_compile].
-#' @seealso available_dialects
+#' @seealso prql_available_dialects
 #' @examples
 #' "from mtcars | filter cyl > 6 | select [cyl, mpg]" |>
 #'   prql_compile()
@@ -23,7 +23,7 @@
 #' @export
 prql_compile <- function(prql_query, dialect = NA, format = TRUE, signature_comment = TRUE) {
   if (length(dialect) == 1 && !(dialect %in% c(NA, dialects))) {
-    stop("Unsupported dialect. Please check with the 'available_dialects()' function for available dialects.")
+    stop("Unsupported dialect. Please check with the 'prql_available_dialects()' function for available dialects.")
   }
   compile(prql_query, dialect, format, signature_comment)
 }
@@ -43,11 +43,12 @@ dialects <- c(
 )
 
 #' @title Available dialect names
+#' @description Available dialects for the `dialect` option of the [prql_compile()] function.
 #' @return a character vector of dialect names.
 #' @examples
-#' available_dialects()
+#' prql_available_dialects()
 #' @export
-available_dialects <- function() {
+prql_available_dialects <- function() {
   dialects
 }
 

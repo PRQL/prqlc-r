@@ -84,7 +84,7 @@ take 3
   dbGetQuery(con, statement = _)
 ```
 
-Available dialect names can be found with the `available_dialects()` function.
+Available dialect names can be found with the `prql_available_dialects()` function.
 
 ## Work with R data.frame
 
@@ -92,7 +92,7 @@ Using it with the `{tidyquery}` package, we can execute PRQL queries against R `
 
 Let's run a query that aggregates a data.frames `flights`,
 contained in the `{nycflights13}` package.
-
++
 ```{r}
 library(tidyquery)
 library(nycflights13)
