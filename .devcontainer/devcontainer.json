@@ -13,7 +13,12 @@
 		"vscode": {
 			"extensions": [
 				"EditorConfig.EditorConfig"
-			]
+			],
+			"settings": {
+				"rust-analyzer.linkedProjects": [
+					"${containerWorkspaceFolder}/src/rust/Cargo.toml"
+				]
+			}
 		}
 	}
 }
