@@ -14,12 +14,32 @@ prql_compile(prql_query, dialect = NA, format = TRUE, signature_comment = TRUE)
 \item{format}{a logical flag. Whether to format the SQL query.}
 
 \item{signature_comment}{a logical flag. Whether to add a signature comment to the output SQL query.}
+
+\item{prql_qyery, prql}{a PRQL query string.}
 }
 \value{
 a SQL query string
 }
 \description{
 Compile a PRQL query into a SQL query
+}
+\details{
+\link{prql_to_sql} is deprecated in favor of \link{prql_compile}.
+}
+\examples{
+"from mtcars | filter cyl > 6 | select [cyl, mpg]" |>
+  prql_compile()
+
+"from mtcars | filter cyl > 6 | select [cyl, mpg]" |>
+  prql_compile(format = FALSE, signature_comment = FALSE)
+
+"
+from mtcars
+filter cyl > 6
+select ![cyl]
+" |>
+  prql_compile("duckdb") |>
+  cat()
 }
 \seealso{
 available_dialects
