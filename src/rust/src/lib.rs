@@ -1,58 +1,71 @@
 use extendr_api::prelude::*;
+use std::str::FromStr;
 
-/// @title Compile a PRQL string into a SQL string
-/// @param prql A PRQL string
-/// @return A SQL string
-/// @examples
-/// "from mtcars | filter cyl > 6 | select [cyl, mpg]" |>
-///   prql_to_sql()
-///
-/// "
-/// from mtcars
-/// filter cyl > 6
-/// select [cyl, mpg]
-/// " |>
-///   prql_to_sql() |>
-///   cat()
-/// @export
-#[extendr]
-fn prql_to_sql(prql: &str) -> String {
-    let result = prql_compiler::compile(prql);
+/// @title Compile a PRQL query into a SQL query
+/// @param prql_query a PRQL query string.
+/// @param dialect a SQL dialect name to use. If it is not a valid value, the dialect contained in the query will be used.
+/// @param format a logical flag. Whether to format the SQL query.
+/// @param signature_comment a logical flag. Whether to add a signature comment to the output SQL query.
+/// @return a SQL query string
+/// @noRd
+#[extendr(use_try_from = true)]
+pub fn compile(
+    prql_query: &str,
+    dialect: Option<String>,
+    format: bool,
+    signature_comment: bool,
+) -> String {
+    let dialect = prql_compiler::sql::Dialect::from_str(dialect.as_deref().unwrap_or_default())
+        .map(From::from)
+        .ok();
+
+    let options: Option<prql_compiler::sql::Options> = Some(prql_compiler::sql::Options {
+        format,
+        dialect,
+        signature_comment,
+    });
+
+    let result = Ok(prql_query)
+        .and_then(prql_compiler::prql_to_pl)
+        .and_then(prql_compiler::pl_to_rq)
+        .and_then(|rq| prql_compiler::rq_to_sql(rq, options.map(prql_compiler::sql::Options::from)))
+        .map_err(|e| e.composed("", prql_query, false));
+
     unwrap_or_throw(result)
 }
 
-/// @title Compile a PRQL string into a JSON version of the Query
-/// @param prql A PRQL string
-/// @return A JSON string of AST
-/// @examples
-/// "from mtcars | filter cyl > 6 | select [cyl, mpg]" |>
-///   prql_to_json() |>
-///   cat()
-/// @seealso [json_to_prql()]
-/// @export
+/// @noRd
 #[extendr]
-fn prql_to_json(prql: &str) -> String {
-    let result = prql_compiler::parse(prql).and_then(prql_compiler::pl_to_json);
+pub fn prql_to_pl(prql_query: &str) -> String {
+    let result = Ok(prql_query)
+        .and_then(prql_compiler::prql_to_pl)
+        .and_then(prql_compiler::json::from_pl);
+
     unwrap_or_throw(result)
 }
 
-/// @title Convert a JSON AST back to a PRQL string
-/// @param json A JSON string of AST
-/// @return A PRQL string
-/// @seealso [prql_to_json()]
-/// @examples
-/// "from mtcars | filter cyl > 6 | select [cyl, mpg]" |>
-///   prql_to_json() |>
-///   json_to_prql() |>
-///   cat()
-/// @export
+/// @noRd
 #[extendr]
-fn json_to_prql(json: &str) -> String {
-    let result = prql_compiler::json_to_pl(json).and_then(prql_compiler::pl_to_prql);
+pub fn pl_to_rq(pl_json: &str) -> String {
+    let result = Ok(pl_json)
+        .and_then(prql_compiler::json::to_pl)
+        .and_then(prql_compiler::pl_to_rq)
+        .and_then(prql_compiler::json::from_rq);
+
     unwrap_or_throw(result)
 }
 
-fn unwrap_or_throw(result: anyhow::Result<String>) -> String {
+/// @noRd
+#[extendr]
+pub fn rq_to_sql(rq_json: &str) -> String {
+    let result = Ok(rq_json)
+        .and_then(prql_compiler::json::to_rq)
+        .and_then(|x| prql_compiler::rq_to_sql(x, None));
+
+    unwrap_or_throw(result)
+}
+
+fn unwrap_or_throw(result: anyhow::Result<String, prql_compiler::ErrorMessages>) -> String {
     match result {
         Ok(v) => v,
         Err(e) => {
@@ -64,7 +77,8 @@ fn unwrap_or_throw(result: anyhow::Result<String>) -> String {
 
 extendr_module! {
     mod prqlr;
-    fn prql_to_sql;
-    fn prql_to_json;
-    fn json_to_prql;
+    fn compile;
+    fn prql_to_pl;
+    fn pl_to_rq;
+    fn rq_to_sql;
 }

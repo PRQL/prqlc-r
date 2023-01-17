@@ -11,45 +11,23 @@
 #' @useDynLib prqlr, .registration = TRUE
 NULL
 
-#' @title Compile a PRQL string into a SQL string
-#' @param prql A PRQL string
-#' @return A SQL string
-#' @examples
-#' "from mtcars | filter cyl > 6 | select [cyl, mpg]" |>
-#'   prql_to_sql()
-#'
-#' "
-#' from mtcars
-#' filter cyl > 6
-#' select [cyl, mpg]
-#' " |>
-#'   prql_to_sql() |>
-#'   cat()
-#' @export
-prql_to_sql <- function(prql) .Call(wrap__prql_to_sql, prql)
+#' @title Compile a PRQL query into a SQL query
+#' @param prql_query a PRQL query string.
+#' @param dialect a SQL dialect name to use. If it is not a valid value, the dialect contained in the query will be used.
+#' @param format a logical flag. Whether to format the SQL query.
+#' @param signature_comment a logical flag. Whether to add a signature comment to the output SQL query.
+#' @return a SQL query string
+#' @noRd
+compile <- function(prql_query, dialect, format, signature_comment) .Call(wrap__compile, prql_query, dialect, format, signature_comment)
 
-#' @title Compile a PRQL string into a JSON version of the Query
-#' @param prql A PRQL string
-#' @return A JSON string of AST
-#' @examples
-#' "from mtcars | filter cyl > 6 | select [cyl, mpg]" |>
-#'   prql_to_json() |>
-#'   cat()
-#' @seealso [json_to_prql()]
-#' @export
-prql_to_json <- function(prql) .Call(wrap__prql_to_json, prql)
+#' @noRd
+prql_to_pl <- function(prql_query) .Call(wrap__prql_to_pl, prql_query)
 
-#' @title Convert a JSON AST back to a PRQL string
-#' @param json A JSON string of AST
-#' @return A PRQL string
-#' @seealso [prql_to_json()]
-#' @examples
-#' "from mtcars | filter cyl > 6 | select [cyl, mpg]" |>
-#'   prql_to_json() |>
-#'   json_to_prql() |>
-#'   cat()
-#' @export
-json_to_prql <- function(json) .Call(wrap__json_to_prql, json)
+#' @noRd
+pl_to_rq <- function(pl_json) .Call(wrap__pl_to_rq, pl_json)
+
+#' @noRd
+rq_to_sql <- function(rq_json) .Call(wrap__rq_to_sql, rq_json)
 
 
 # nolint end

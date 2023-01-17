@@ -21,7 +21,8 @@ Suggests:
     tidyquery,
     nycflights13,
     dplyr,
-    testthat (>= 3.0.0)
+    testthat (>= 3.0.0),
+    patrick
 License: MIT + file LICENSE
 Language: en-US
 Encoding: UTF-8
