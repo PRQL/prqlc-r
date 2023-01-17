@@ -52,7 +52,8 @@ filter cyl > 6
 select [cyl, mpg]
 derive [mpg_int = round 0 mpg]
 " |>
-  prql_to_sql()
+  prql_compile() |>
+  cat()
 ```
 
 This outputed SQL string can be used with already existing great packages that manipulate data with SQL.
@@ -61,9 +62,8 @@ This outputed SQL string can be used with already existing great packages that m
 
 Using it with the `{DBI}` package, we can execute PRQL queries against the database.
 
-Here SQLite is used via `{RSQLite}`,
-so the [dialect](https://prql-lang.org/book/queries/dialect_and_version.html) header
-is set at the top of the query.
+Since SQLite is used via `{RSQLite}`,
+so the [dialect](https://prql-lang.org/book/queries/header.html) option is set to `"sqlite"`.
 
 ```{r}
 library(DBI)
@@ -74,22 +74,23 @@ con <- dbConnect(RSQLite::SQLite(), ":memory:")
 dbWriteTable(con, "mtcars_table", mtcars)
 
 "
-prql dialect:sqlite
-
 from mtcars_table
 filter cyl > 6
 select [cyl, mpg]
 derive [mpg_int = round 0 mpg]
+take 3
 " |>
-  prql_to_sql() |>
+  prql_compile("sqlite") |>
   dbGetQuery(con, statement = _)
 ```
+
+Available dialect names can be found with the `available_dialects()` function.
 
 ## Work with R data.frame
 
 Using it with the `{tidyquery}` package, we can execute PRQL queries against R `?data.frame`.
 
-Let's run a query that joins and aggregates two data.frames, `flights` and `planes`,
+Let's run a query that aggregates a data.frames `flights`,
 contained in the `{nycflights13}` package.
 
 ```{r}
@@ -98,20 +99,18 @@ library(nycflights13)
 
 "
 from flights
-join side:left planes [==tailnum]
 filter (distance | in 200..300)
 filter air_time != null
 group [origin, dest] (
   aggregate [
     num_flts = count,
-    num_seats = (sum seats | round 0),
     avg_delay = (average arr_delay | round 0)
   ]
 )
-sort [-num_seats, avg_delay]
+sort [-origin, avg_delay]
 take 2
 " |>
-  prql_to_sql() |>
+  prql_compile() |>
   query()
 ```
 
@@ -123,7 +122,6 @@ library(dplyr, warn.conflicts = FALSE)
 library(nycflights13)
 
 flights |>
-  left_join(planes, by = "tailnum") |>
   filter(
     distance |> between(200, 300),
     !is.na(air_time)
@@ -131,10 +129,9 @@ flights |>
   group_by(origin, dest) |>
   summarise(
     num_flts = n(),
-    num_seats = sum(seats, na.rm = TRUE) |> round(0),
     avg_delay = mean(arr_delay, na.rm = TRUE) |> round(0),
     .groups = "drop"
   ) |>
-  arrange(desc(num_seats), avg_delay) |>
-  head(2)
+  arrange(desc(origin), avg_delay) |>
+  slice(1:2)
 ```
