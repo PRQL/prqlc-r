@@ -20,6 +20,17 @@
 #' " |>
 #'   prql_compile("duckdb") |>
 #'   cat()
+#'
+#' # Target dialect can also be written in the PRQL query.
+#' "
+#' prql target:sql.duckdb
+#'
+#' from mtcars
+#' filter cyl > 6
+#' select ![cyl]
+#' " |>
+#'   prql_compile() |>
+#'   cat()
 #' @export
 prql_compile <- function(prql_query, dialect = NA, format = TRUE, signature_comment = TRUE) {
   if (length(dialect) == 1 && !(dialect %in% c(NA, dialects))) {
