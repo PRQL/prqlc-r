@@ -90,7 +90,7 @@ Available dialect names can be found with the `prql_available_dialects()` functi
 
 Using it with the `{tidyquery}` package, we can execute PRQL queries against R `?data.frame`.
 
-Let's run a query that aggregates a data.frames `flights`,
+Let's run a query that aggregates a data.frame `flights`,
 contained in the `{nycflights13}` package.
 +
 ```{r}
