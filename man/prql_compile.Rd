@@ -2,20 +2,21 @@
 % Please edit documentation in R/compile.R
 \name{prql_compile}
 \alias{prql_compile}
+\alias{prql_to_sql}
 \title{Compile a PRQL query into a SQL query}
 \usage{
 prql_compile(prql_query, dialect = NA, format = TRUE, signature_comment = TRUE)
+
+prql_to_sql(prql)
 }
 \arguments{
-\item{prql_query}{a PRQL query string.}
+\item{prql_query, prql}{a PRQL query string.}
 
 \item{dialect}{a SQL dialect name to use. If not specified, the dialect contained in the query will be used.}
 
 \item{format}{a logical flag. Whether to format the SQL query.}
 
 \item{signature_comment}{a logical flag. Whether to add a signature comment to the output SQL query.}
-
-\item{prql_qyery, prql}{a PRQL query string.}
 }
 \value{
 a SQL query string

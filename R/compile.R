@@ -1,6 +1,9 @@
-#' @inherit compile
-#' @param prql_qyery,prql a PRQL query string.
+#' @title Compile a PRQL query into a SQL query
+#' @param prql_query,prql a PRQL query string.
 #' @param dialect a SQL dialect name to use. If not specified, the dialect contained in the query will be used.
+#' @param format a logical flag. Whether to format the SQL query.
+#' @param signature_comment a logical flag. Whether to add a signature comment to the output SQL query.
+#' @return a SQL query string
 #' @details [prql_to_sql] is deprecated in favor of [prql_compile].
 #' @seealso available_dialects
 #' @examples
@@ -41,11 +44,14 @@ dialects <- c(
 
 #' @title Available dialect names
 #' @return a character vector of dialect names.
+#' @examples
+#' available_dialects()
+#' @export
 available_dialects <- function() {
   dialects
 }
 
-#' @rdname compile
+#' @rdname prql_compile
 #' @export
 prql_to_sql <- function(prql) {
   .Deprecated("prql_compile")

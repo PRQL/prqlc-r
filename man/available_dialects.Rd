@@ -12,3 +12,6 @@ a character vector of dialect names.
 \description{
 Available dialect names
 }
+\examples{
+available_dialects()
+}

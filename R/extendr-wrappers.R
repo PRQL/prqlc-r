@@ -17,6 +17,7 @@ NULL
 #' @param format a logical flag. Whether to format the SQL query.
 #' @param signature_comment a logical flag. Whether to add a signature comment to the output SQL query.
 #' @return a SQL query string
+#' @noRd
 compile <- function(prql_query, dialect, format, signature_comment) .Call(wrap__compile, prql_query, dialect, format, signature_comment)
 
 #' @noRd
