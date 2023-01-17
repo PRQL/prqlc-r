@@ -133,5 +133,5 @@ flights |>
     .groups = "drop"
   ) |>
   arrange(desc(origin), avg_delay) |>
-  slice(1:2)
+  head(2)
 ```
