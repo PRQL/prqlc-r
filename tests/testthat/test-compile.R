@@ -28,3 +28,23 @@ test_that("PRQL query", {
       cat()
   )
 })
+
+patrick::with_parameters_test_that("Dialects",
+  {
+    query <- "
+from flights
+filter (distance | in 200..300)
+filter air_time != null
+group [origin, dest] (
+  aggregate [
+    num_flts = count,
+    avg_delay = (average arr_delay | round 0)
+  ]
+)
+sort [-origin, avg_delay]
+take 2
+"
+    expect_snapshot(cat(prql_compile(query, dialect, TRUE, FALSE)))
+  },
+  dialect = prql_available_dialects()
+)
