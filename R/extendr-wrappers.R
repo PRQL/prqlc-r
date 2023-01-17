@@ -19,10 +19,13 @@ NULL
 #' @return a SQL query string
 compile <- function(prql_query, dialect, format, signature_comment) .Call(wrap__compile, prql_query, dialect, format, signature_comment)
 
+#' @noRd
 prql_to_pl <- function(prql_query) .Call(wrap__prql_to_pl, prql_query)
 
+#' @noRd
 pl_to_rq <- function(pl_json) .Call(wrap__pl_to_rq, pl_json)
 
+#' @noRd
 rq_to_sql <- function(rq_json) .Call(wrap__rq_to_sql, rq_json)
 
 

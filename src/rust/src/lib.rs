@@ -33,6 +33,7 @@ pub fn compile(
     unwrap_or_throw(result)
 }
 
+/// @noRd
 #[extendr]
 pub fn prql_to_pl(prql_query: &str) -> String {
     let result = Ok(prql_query)
@@ -42,6 +43,7 @@ pub fn prql_to_pl(prql_query: &str) -> String {
     unwrap_or_throw(result)
 }
 
+/// @noRd
 #[extendr]
 pub fn pl_to_rq(pl_json: &str) -> String {
     let result = Ok(pl_json)
@@ -52,6 +54,7 @@ pub fn pl_to_rq(pl_json: &str) -> String {
     unwrap_or_throw(result)
 }
 
+/// @noRd
 #[extendr]
 pub fn rq_to_sql(rq_json: &str) -> String {
     let result = Ok(rq_json)
