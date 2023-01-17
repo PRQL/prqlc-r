@@ -7,7 +7,6 @@ use std::str::FromStr;
 /// @param format a logical flag. Whether to format the SQL query.
 /// @param signature_comment a logical flag. Whether to add a signature comment to the output SQL query.
 /// @return a SQL query string
-/// @noRd
 #[extendr(use_try_from = true)]
 pub fn compile(
     prql_query: &str,
