@@ -194,7 +194,7 @@ dependencies = [
 [[package]]
 name = "extendr-api"
 version = "0.3.1"
-source = "git+https://github.com/extendr/extendr?rev=f511254b1be180528a1711e4c87473966a1010d0#f511254b1be180528a1711e4c87473966a1010d0"
+source = "git+https://github.com/extendr/extendr.git?rev=f511254b1be180528a1711e4c87473966a1010d0#f511254b1be180528a1711e4c87473966a1010d0"
 dependencies = [
  "extendr-engine",
  "extendr-macros",
@@ -206,7 +206,7 @@ dependencies = [
 [[package]]
 name = "extendr-engine"
 version = "0.3.1"
-source = "git+https://github.com/extendr/extendr?rev=f511254b1be180528a1711e4c87473966a1010d0#f511254b1be180528a1711e4c87473966a1010d0"
+source = "git+https://github.com/extendr/extendr.git?rev=f511254b1be180528a1711e4c87473966a1010d0#f511254b1be180528a1711e4c87473966a1010d0"
 dependencies = [
  "libR-sys",
 ]
@@ -214,7 +214,7 @@ dependencies = [
 [[package]]
 name = "extendr-macros"
 version = "0.3.1"
-source = "git+https://github.com/extendr/extendr?rev=f511254b1be180528a1711e4c87473966a1010d0#f511254b1be180528a1711e4c87473966a1010d0"
+source = "git+https://github.com/extendr/extendr.git?rev=f511254b1be180528a1711e4c87473966a1010d0#f511254b1be180528a1711e4c87473966a1010d0"
 dependencies = [
  "proc-macro2",
  "quote",
@@ -433,7 +433,7 @@ dependencies = [
 [[package]]
 name = "prql-compiler"
 version = "0.4.0"
-source = "git+https://github.com/PRQL/prql?rev=refs/pull/1561/head#1b4217c01c590c51a3e80c8a11b28f78f109a110"
+source = "git+https://github.com/PRQL/prql.git?rev=refs/pull/1561/head#1b4217c01c590c51a3e80c8a11b28f78f109a110"
 dependencies = [
  "anyhow",
  "ariadne",
