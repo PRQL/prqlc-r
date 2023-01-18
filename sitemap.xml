@@ -28,12 +28,9 @@
     <loc>https://eitsupi.github.io/prqlr/reference/index.html</loc>
   </url>
   <url>
-    <loc>https://eitsupi.github.io/prqlr/reference/json_to_prql.html</loc>
+    <loc>https://eitsupi.github.io/prqlr/reference/prql_available_dialects.html</loc>
   </url>
   <url>
-    <loc>https://eitsupi.github.io/prqlr/reference/prql_to_json.html</loc>
-  </url>
-  <url>
-    <loc>https://eitsupi.github.io/prqlr/reference/prql_to_sql.html</loc>
+    <loc>https://eitsupi.github.io/prqlr/reference/prql_compile.html</loc>
   </url>
 </urlset>
