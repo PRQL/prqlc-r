@@ -18,7 +18,7 @@ test_that("Unsupported dialect", {
 
 test_that("PRQL query", {
   expect_snapshot(cat(prql_compile("from a | select [b]")))
-  expect_snapshot(cat(prql_compile("from a | select [b]"), NA, FALSE, FALSE))
+  expect_snapshot(cat(prql_compile("from a | select [b]", NA, FALSE, FALSE)))
   expect_snapshot(
     "from star_wars
     select [star_wars.*]

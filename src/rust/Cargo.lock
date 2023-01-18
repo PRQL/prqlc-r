@@ -433,8 +433,7 @@ dependencies = [
 [[package]]
 name = "prql-compiler"
 version = "0.4.0"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "3b726ff36fe55314ad1c97fb8b00b023018666ad7bbc18eef2446e535679fc0f"
+source = "git+https://github.com/PRQL/prql?rev=1b4217c01c590c51a3e80c8a11b28f78f109a110#1b4217c01c590c51a3e80c8a11b28f78f109a110"
 dependencies = [
  "anyhow",
  "ariadne",
@@ -465,8 +464,6 @@ dependencies = [
  "anyhow",
  "extendr-api",
  "prql-compiler",
- "strum",
- "strum_macros",
 ]
 
 [[package]]
