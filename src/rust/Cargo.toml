@@ -13,5 +13,3 @@ extendr-api = { git = "https://github.com/extendr/extendr", rev = "f511254b1be18
 # prql-compiler = { git = "https://github.com/prql/prql" }
 prql-compiler = { version = "0.4.0", default-features = false }
 anyhow = "1.0.68"
-strum = "0.24"
-strum_macros = "0.24"

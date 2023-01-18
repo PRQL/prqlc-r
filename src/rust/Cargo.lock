@@ -465,8 +465,6 @@ dependencies = [
  "anyhow",
  "extendr-api",
  "prql-compiler",
- "strum",
- "strum_macros",
 ]
 
 [[package]]
