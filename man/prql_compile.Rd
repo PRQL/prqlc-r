@@ -54,5 +54,5 @@ select ![cyl]
   cat()
 }
 \seealso{
-prql_available_dialects
+\link{prql_available_dialects}
 }
