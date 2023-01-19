@@ -12,10 +12,8 @@ BugReports: https://github.com/eitsupi/prqlr/issues
 Depends:
     R (>= 4.2)
 Suggests:
-    rextendr,
     knitr,
     rmarkdown,
-    lintr,
     DBI,
     RSQLite,
     tidyquery,
