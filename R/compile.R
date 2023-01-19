@@ -5,7 +5,7 @@
 #' @param signature_comment a logical flag. Whether to add a signature comment to the output SQL query.
 #' @return a SQL query string
 #' @details [prql_to_sql] is deprecated in favor of [prql_compile].
-#' @seealso prql_available_dialects
+#' @seealso [prql_available_dialects]
 #' @examples
 #' "from mtcars | filter cyl > 6 | select [cyl, mpg]" |>
 #'   prql_compile()
