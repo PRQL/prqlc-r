@@ -56,7 +56,7 @@ derive [mpg_int = round 0 mpg]
   cat()
 ```
 
-This outputed SQL query string can be used with already existing great packages that manipulate data with SQL.
+This outputted SQL query string can be used with already existing great packages that manipulate data with SQL.
 
 ## Work with DB
 
