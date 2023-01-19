@@ -27,10 +27,16 @@ powered by [the `extendr` framework](https://extendr.github.io/).
 
 Requires R 4.2.0 or later.
 
-This package can be installed from [R-universe](https://eitsupi.r-universe.dev/ui#package:prqlr).
+This package can be installed from CRAN or [R-universe](https://eitsupi.r-universe.dev/ui#package:prqlr).
 If available, a binary package will be installed.
 
 ```r
+# Install from CRAN
+install.packages("prqlr")
+```
+
+```r
+# Install from R-universe
 install.packages("prqlr", repos = "https://eitsupi.r-universe.dev")
 ```
 
