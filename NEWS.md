@@ -2,7 +2,7 @@
 
 ## Breaking changes
 
-- Based on [`prql-compiler`](https://github.com/prql/prql) v0.4.0
+- Based on [`prql-compiler`](https://github.com/prql/prql) v0.4.1
 - `prql_compile()` is implemented and `prql_to_sql()` is deprecated.
 - `json_to_prql()` and `prql_to_json()` are removed.
 
