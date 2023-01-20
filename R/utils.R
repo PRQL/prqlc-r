@@ -6,9 +6,7 @@
 #' @return the ok-element of list , or a error will be thrown
 #'
 #' @examples
-#'
 #' unwrap(list(ok="foo",err=NULL))
-#'
 #' tryCatch(
 #'   unwrap(ok=NULL, err = "something happen on the rust side"),
 #'   error = function(e) as.character(e)
