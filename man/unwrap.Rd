@@ -18,11 +18,15 @@ the ok-element of list , or a error will be thrown
 rust-like unwrapping of result. Useful to do error handling on the R side.
 }
 \examples{
+#export unwrap for this example, only for internal use
+unwrap <- prqlr:::unwrap
 
+#unwrap a result with the ok-value "foo"
 unwrap(list(ok="foo",err=NULL))
 
+#unwrap an err-result
 tryCatch(
-  unwrap(ok=NULL, err = "something happen on the rust side"),
+  unwrap(ok=NULL, err = "something happend on the rust side"),
   error = function(e) as.character(e)
 )
 }
