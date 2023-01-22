@@ -38,3 +38,6 @@ Config/Needs/dev:
     styler,
     purrr,
     RcppTOML
+Config/Needs/website:
+    pkgdown,
+    extendr/rextendr
