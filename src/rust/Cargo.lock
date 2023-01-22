@@ -435,7 +435,7 @@ dependencies = [
 [[package]]
 name = "prql-compiler"
 version = "0.4.1"
-source = "git+https://github.com/eitsupi/prql?rev=2513cfe7e1929398ca935f88a1548492331d2273#2513cfe7e1929398ca935f88a1548492331d2273"
+source = "git+https://github.com/PRQL/prql?rev=19de2b245e9a7565032fb42c45ed921ce4dd1cb2#19de2b245e9a7565032fb42c45ed921ce4dd1cb2"
 dependencies = [
  "anyhow",
  "ariadne",

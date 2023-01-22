@@ -29,5 +29,10 @@ pl_to_rq <- function(pl_json) .Call(wrap__pl_to_rq, pl_json)
 #' @noRd
 rq_to_sql <- function(rq_json) .Call(wrap__rq_to_sql, rq_json)
 
+#' @title prql-compiler's version
+#' @return a prql-compiler's version string
+#' @noRd
+compiler_version <- function() .Call(wrap__compiler_version)
+
 
 # nolint end

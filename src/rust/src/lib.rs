@@ -65,6 +65,14 @@ pub fn rq_to_sql(rq_json: &str) -> String {
     unwrap_or_throw(result)
 }
 
+/// @title prql-compiler's version
+/// @return a prql-compiler's version string
+/// @noRd
+#[extendr]
+pub fn compiler_version() -> String {
+    prql_compiler::PRQL_VERSION.to_string()
+}
+
 fn unwrap_or_throw(result: anyhow::Result<String, prql_compiler::ErrorMessages>) -> String {
     match result {
         Ok(v) => v,
@@ -81,4 +89,5 @@ extendr_module! {
     fn prql_to_pl;
     fn pl_to_rq;
     fn rq_to_sql;
+    fn compiler_version;
 }
