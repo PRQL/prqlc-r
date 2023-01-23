@@ -9,7 +9,7 @@ use crate::utils::r_result_list;
 /// @param dialect a SQL dialect name to use. If it is not a valid value, the dialect contained in the query will be used.
 /// @param format a logical flag. Whether to format the SQL query.
 /// @param signature_comment a logical flag. Whether to add a signature comment to the output SQL query.
-/// @return a SQL query string
+/// @return a list contains a SQL string or an error message.
 /// @noRd
 #[extendr(use_try_from = true)]
 pub fn compile(
