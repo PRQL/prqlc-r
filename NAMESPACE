@@ -2,6 +2,6 @@
 
 export(prql_available_dialects)
 export(prql_compile)
-export(prql_compiler_version)
 export(prql_to_sql)
+export(prql_version)
 useDynLib(prqlr, .registration = TRUE)
