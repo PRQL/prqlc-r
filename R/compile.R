@@ -36,8 +36,9 @@ prql_compile <- function(prql_query, dialect = NA, format = TRUE, signature_comm
   if (length(dialect) == 1 && !(dialect %in% c(NA, dialects))) {
     stop("Unsupported dialect. Please check with the 'prql_available_dialects()' function for available dialects.")
   }
-  result <- compile(prql_query, dialect, format, signature_comment)
-  unwrap(result)
+
+  compile(prql_query, dialect, format, signature_comment) |>
+    unwrap()
 }
 
 dialects <- c(
@@ -68,6 +69,6 @@ prql_available_dialects <- function() {
 #' @export
 prql_to_sql <- function(prql) {
   .Deprecated("prql_compile")
-  result <- prql_compile(prql)
-  unwrap(result)
+
+  prql_compile(prql)
 }
