@@ -25,6 +25,7 @@ test_that("PRQL query", {
     select ![jar_jar_binks, midichlorians]"
     |>
       compile("duckdb", TRUE, TRUE) |>
+      unwrap() |>
       cat()
   )
 })
