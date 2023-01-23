@@ -30,3 +30,14 @@ SystemRequirements: Cargo (rustc package manager)
 VignetteBuilder: knitr
 Config/testthat/edition: 3
 Config/rextendr/version: 0.2.0.9000
+Config/Needs/dev:
+    extendr/rextendr,
+    data.table,
+    dplyr,
+    lintr,
+    styler,
+    purrr,
+    RcppTOML
+Config/Needs/website:
+    pkgdown,
+    extendr/rextendr
