@@ -1,0 +1,60 @@
+---
+title: Use PRQL in R Markdown
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Use PRQL in R Markdown}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+Loading `{prqlr}` makes the `prql` code chunks executable on R Markdown files.
+
+```{r}
+library(prqlr)
+"prql" %in% names(knitr::knit_engines$get())
+```
+
+Usage is the same as for [SQL code chunks](https://bookdown.org/yihui/rmarkdown/language-engines.html#sql).
+
+For example, let's render an R Markdown file named `test.Rmd` with the following contents
+with the `knitr::knit()` function.
+
+````markdown
+```{r, echo=FALSE}`r ''`
+library(DBI)
+library(prqlr)
+con <- dbConnect(RSQLite::SQLite(), ":memory:")
+dbWriteTable(con, "mtcars", mtcars)
+```
+
+```{prql, connection = "con"}`r ''`
+from mtcars
+filter cyl > 6
+select [cyl, mpg]
+derive [mpg_int = round 0 mpg]
+take 3
+```
+````
+
+After rendering, a Markdown file named `test.md` is generated with the following contents.
+
+````markdown
+```elm
+from mtcars
+filter cyl > 6
+select [cyl, mpg]
+derive [mpg_int = round 0 mpg]
+take 3
+```
+
+Table: 3 records
+
+| cyl|  mpg| mpg_int|
+|---:|----:|-------:|
+|   8| 18.7|      19|
+|   8| 14.3|      14|
+|   8| 16.4|      16|
+````
+
+Note that the syntax highlighting of Elm is the best for PRQL,
+so the output code blocks are marked as `elm`.
