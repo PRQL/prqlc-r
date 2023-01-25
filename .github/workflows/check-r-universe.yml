@@ -27,3 +27,4 @@ jobs:
       - id: install-package
         shell: Rscript {0}
         run: install.packages("prqlr", repos = "https://eitsupi.r-universe.dev")
+        Ncpus: "2"
