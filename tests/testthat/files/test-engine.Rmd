@@ -8,8 +8,20 @@ con <- dbConnect(RSQLite::SQLite(), ":memory:")
 dbWriteTable(con, "mtcars", mtcars)
 ```
 
+```{prql}
+from mtcars | filter cyl > 6 | select [mpg] | take 3
+```
+
 ```{prql, connection = "con"}
 from mtcars | filter cyl > 6 | select [mpg] | take 3
+```
+
+```{prql}
+from mtcars
+filter cyl > 6
+select [cyl, mpg]
+derive [mpg_int = round 0 mpg]
+take 3
 ```
 
 ```{prql, connection = "con"}
