@@ -68,10 +68,19 @@ pub fn rq_to_sql(rq_json: &str) -> List {
     r_result_list(result)
 }
 
+/// @title prql-compiler's version
+/// @return a prql-compiler's version string
+/// @noRd
+#[extendr]
+pub fn compiler_version() -> String {
+    prql_compiler::PRQL_VERSION.to_string()
+}
+
 extendr_module! {
     mod prqlr;
     fn compile;
     fn prql_to_pl;
     fn pl_to_rq;
     fn rq_to_sql;
+    fn compiler_version;
 }
