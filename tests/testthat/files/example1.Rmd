@@ -1,7 +1,3 @@
----
-output: github_document
----
-
 ```{r, echo=FALSE}
 library(DBI)
 con <- dbConnect(RSQLite::SQLite(), ":memory:")
@@ -12,7 +8,21 @@ dbWriteTable(con, "mtcars", mtcars)
 from mtcars | filter cyl > 6 | select [mpg] | take 3
 ```
 
-```{prql, connection = "con"}
+```{prql}
+#| engine-opts:
+#|   dialect: mssql
+#|   signature_comment: false
+
+from mtcars | filter cyl > 6 | select [mpg] | take 3
+```
+
+```{prql engine.opts=list(dialect="mssql", signature_comment=FALSE)}
+from mtcars | filter cyl > 6 | select [mpg] | take 3
+```
+
+```{prql}
+#| connection: con
+
 from mtcars | filter cyl > 6 | select [mpg] | take 3
 ```
 
@@ -24,7 +34,7 @@ derive [mpg_int = round 0 mpg]
 take 3
 ```
 
-```{prql, connection = "con"}
+```{prql, connection=con}
 from mtcars
 filter cyl > 6
 select [cyl, mpg]

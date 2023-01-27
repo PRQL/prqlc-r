@@ -55,3 +55,5 @@ unwrap <- function(result, call = sys.call(1L)) {
 prql_version <- function() {
   numeric_version(compiler_version())
 }
+
+`%||%` <- function(x, y) if (is.null(x)) y else x

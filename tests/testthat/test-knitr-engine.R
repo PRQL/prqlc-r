@@ -3,11 +3,11 @@ test_that("Set prql knitr engine", {
 })
 
 test_that("Snapshot test of knitr-engine", {
-  input <- file.path("files", "test-engine.Rmd")
+  input <- file.path("files", "example1.Rmd")
   output <- tempfile(fileext = "md")
   on.exit(unlink(output))
 
-  knitr::knit(input, output, quiet = TRUE)
+  suppressWarnings(knitr::knit(input, output, quiet = TRUE, envir = new.env()))
 
   expect_snapshot(
     readLines(output) |>
