@@ -27,7 +27,6 @@ eng_prql <- function(options) {
 
   options$code <- sql_code
 
-  eng_sql <- utils::getFromNamespace("eng_sql", "knitr")
-  eng_sql(options) |>
+  knitr::knit_engines$get("sql")(options) |>
     sub(sql_code, prql_code, x = _, fixed = TRUE)
 }

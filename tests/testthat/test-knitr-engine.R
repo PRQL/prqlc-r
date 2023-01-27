@@ -5,6 +5,7 @@ test_that("Set prql knitr engine", {
 test_that("Snapshot test of knitr-engine", {
   input <- file.path("files", "test-engine.Rmd")
   output <- tempfile(fileext = "md")
+  on.exit(unlink(output))
 
   knitr::knit(input, output, quiet = TRUE)
 

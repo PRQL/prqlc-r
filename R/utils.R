@@ -46,3 +46,12 @@ unwrap <- function(result, call = sys.call(1L)) {
   # if not ok XOR error, then it must be another internal error.
   stop("Internal error: result object corrupted")
 }
+
+#' @title prql-compiler's version
+#' @return a [numeric_version] with the version of the built-in prql-compiler.
+#' @examples
+#' prql_version()
+#' @export
+prql_version <- function() {
+  numeric_version(compiler_version())
+}
