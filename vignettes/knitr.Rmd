@@ -9,11 +9,6 @@ vignette: >
 
 Loading `{prqlr}` makes the `prql` code chunks executable in R Markdown and Quarto Markdown files.
 
-```{r}
-library(prqlr)
-"prql" %in% names(knitr::knit_engines$get())
-```
-
 ## Use with `{DBI}` connections
 
 If using with database connections,
@@ -25,14 +20,18 @@ For example, let's render an R Markdown file named `test.Rmd` with the following
 with the `knitr::knit()` function.
 
 ````markdown
-```{r, echo=FALSE}`r ''`
+`r ''````{r}
+#| echo: false
+
 library(DBI)
 library(prqlr)
 con <- dbConnect(RSQLite::SQLite(), ":memory:")
 dbWriteTable(con, "mtcars", mtcars)
 ```
 
-```{prql, connection="con"}`r ''`
+`r ''````{prql}
+#| connection: con
+
 from mtcars
 filter cyl > 6
 select [cyl, mpg]
@@ -69,11 +68,13 @@ so the output code blocks are marked as `elm`.
 PRQL code chunks without the `connection` option will generate SQL code blocks.
 
 ````markdown
-```{r echo=FALSE}`r ''`
+`r ''````{r}
+#| echo: false
+
 library(prqlr)
 ```
 
-```{prql}`r ''`
+`r ''````{prql}
 from mtcars
 filter cyl > 6
 select [cyl, mpg]
