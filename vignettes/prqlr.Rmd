@@ -7,11 +7,14 @@ vignette: >
   %\VignetteEncoding{UTF-8}
 ---
 
-```{r, include = FALSE}
+```{r}
+#| include: false
 knitr::opts_chunk$set(
   collapse = TRUE,
   comment = "#>"
 )
+
+library(prqlr)
 ```
 
 [PRQL](https://prql-lang.org/) (Pipelined Relational Query Language, pronounced "Prequel")
@@ -21,24 +24,13 @@ This package provides a simple function to convert a PRQL query string to a SQL 
 
 For example, the following PRQL query can be converted to the below SQL query.
 
-```elm
-# This is a PRQL query
+```{prql}
+#| engine-opts:
+#|   signature_comment: false
 from mtcars
 filter cyl > 6
 select [cyl, mpg]
 derive [mpg_int = round 0 mpg]
-```
-
-```sql
--- This is a SQL query
-SELECT
-  cyl,
-  mpg,
-  ROUND(mpg, 0) AS mpg_int
-FROM
-  mtcars
-WHERE
-  cyl > 6
 ```
 
 Just pass the PRQL query string to the `prql_compile()` function, like this.
