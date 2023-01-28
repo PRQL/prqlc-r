@@ -1,0 +1,20 @@
+version: "3"
+
+tasks:
+  setup-dev:
+    desc: Install tools for development.
+    deps:
+      - setup-dev-r
+      - setup-dev-rust
+
+  setup-dev-r:
+    internal: true
+    cmds:
+      - Rscript -e 'pak::local_install_deps(dependencies = "soft")'
+      # workaround for can't use pak's function
+      - Rscript -e 'remotes::install_deps(dependencies = c("config/needs/dev", "config/needs/website"))'
+
+  setup-dev-rust:
+    internal: true
+    cmds:
+      - cargo install cargo-license

@@ -5,9 +5,7 @@
 		"ghcr.io/devcontainers/features/rust:1": {
 			"version": "latest"
 		},
-		"ghcr.io/rocker-org/devcontainer-features/r-packages:1": {
-			"packages": "github::extendr/rextendr"
-		}
+		"ghcr.io/eitsupi/devcontainer-features/go-task": {}
 	},
 	"customizations": {
 		"vscode": {
@@ -20,5 +18,18 @@
 				]
 			}
 		}
-	}
+	},
+	"mounts": [
+		{
+			"source": "devcontainer-pak-cache",
+			"target": "/home/rstudio/.cache/R/pkgcache/pkg",
+			"type": "volume"
+		},
+		{
+			"source": "devcontainer-cargo-cache",
+			"target": "/usr/local/cargo",
+			"type": "volume"
+		}
+	],
+	"postCreateCommand": "task setup-dev"
 }
