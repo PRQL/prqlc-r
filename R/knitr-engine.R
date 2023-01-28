@@ -8,11 +8,12 @@ eng_prql <- function(options) {
   prql_code <- options$code |>
     paste0(collapse = "\n")
 
-  dialect <- .get_engine_opt(options, "dialect")
-  signature_comment <- .get_engine_opt(options, "signature_comment", TRUE)
+  compile_options <- c(
+    options$`engine-opts`[names(options$`engine-opts`) %in% names(formals(prql_compile))],
+    options$engine.opts[names(options$`engine-opts`) %in% names(formals(prql_compile))]
+  )
 
-  sql_code <- prql_code |>
-    prql_compile(dialect = dialect, signature_comment = signature_comment)
+  sql_code <- do.call(prql_compile, c(list(prql_code), compile_options))
 
   # elm coincidentally provides the best syntax highlight for prql.
   options$engine <- "elm"
@@ -33,13 +34,4 @@ eng_prql <- function(options) {
 
   knitr::knit_engines$get("sql")(options) |>
     sub(sql_code, prql_code, x = _, fixed = TRUE)
-}
-
-#' Get knitr engine options value or default value
-#' @param options a list, knitr options.
-#' @param opt_name the name of target engine option.
-#' @param default the default value of the engine option.
-#' @noRd
-.get_engine_opt <- function(options, opt_name, default = NULL) {
-  options$`engine-opts`[[opt_name]] %||% options$engine.opts[[opt_name]] %||% default
 }
