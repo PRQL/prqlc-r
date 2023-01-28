@@ -15,7 +15,7 @@ It can either output the results of the actual query execution or display a SQL 
 
 ### Use with `{DBI}` connections
 
-If using with database connections,
+If using with database connections (set the name of `{DBI}` connection to the `connection` chunk option),
 PRQL code chunks pass the output SQL to `{knitr}`'s SQL engine and
 behaves like [SQL code chunks](https://bookdown.org/yihui/rmarkdown/language-engines.html#sql).
 So, usage is the same as for SQL code chunks.
@@ -68,6 +68,7 @@ Table: 3 records
 
 Note that the syntax highlighting of Elm is the best for PRQL,
 so the output code blocks are marked as `elm`.
+This can be changed by setting the `lang` chunk option.
 
 ### Without database connections
 
