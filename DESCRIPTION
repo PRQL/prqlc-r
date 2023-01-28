@@ -12,7 +12,7 @@ BugReports: https://github.com/eitsupi/prqlr/issues
 Depends:
     R (>= 4.2)
 Suggests:
-    knitr (>= 1.37),
+    knitr (>= 1.38),
     rmarkdown,
     DBI,
     RSQLite,

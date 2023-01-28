@@ -15,7 +15,7 @@ eng_prql <- function(options) {
     prql_compile(dialect = dialect, signature_comment = signature_comment)
 
   # elm coincidentally provides the best syntax highlight for prql.
-  options$engine <- "elm"
+  options$lang <- options$lang %||% "elm"
 
   # Prints a SQL code block if there is no connection
   if (is.null(options$connection)) {
