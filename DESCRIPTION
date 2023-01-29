@@ -32,7 +32,7 @@ Config/testthat/edition: 3
 Config/rextendr/version: 0.2.0.9000
 Config/Needs/dev:
     devtools,
-    extendr/rextendr,
+    rextendr,
     data.table,
     dplyr,
     lintr,
@@ -41,4 +41,4 @@ Config/Needs/dev:
     RcppTOML
 Config/Needs/website:
     pkgdown,
-    extendr/rextendr
+    rextendr
