@@ -1,0 +1,91 @@
+version: "3"
+
+env:
+  NOT_CRAN: true
+
+tasks:
+  setup-dev:
+    desc: Install tools for development.
+    deps:
+      - install-r-tools
+      - install-rust-tools
+
+  install-r-tools:
+    internal: true
+    desc: Install R packages for development.
+    cmds:
+      - Rscript -e
+        'pak::repo_add(extendr = "https://extendr.r-universe.dev");
+        pak::local_install_deps(dependencies = c("all", "Config/Needs/dev", "Config/Needs/website"))'
+
+  install-rust-tools:
+    internal: true
+    desc: Install Rust packages for development.
+    cmds:
+      - cargo install cargo-license
+
+  build-all:
+    desc: Build the R package, generate documents, run all tests, and update files.
+    deps:
+      - build-documents
+    cmds:
+      - task: test-all
+      - task: build-license-note
+      - task: build-readme
+
+  test-all:
+    desc: Run all tests.
+    sources:
+      - tests/**
+      - R/*
+    cmds:
+      - Rscript -e 'devtools::load_all(); devtools::test()'
+
+  build-documents:
+    desc: Build the R package and generate documents.
+    sources:
+      - R/*
+    generates:
+      - man/*.Rd
+    status:
+      - Rscript -e 'desc::desc_get("RoxygenNote") == packageVersion("roxygen2")' | grep 'TRUE'
+    deps:
+      - build-extendr-wrappers
+    cmds:
+      - Rscript -e 'devtools::document()'
+
+  build-extendr-wrappers:
+    internal: true
+    desc: Build the extendr wrappers.
+    sources:
+      - src/rust/Cargo.toml
+      - src/rust/src/*.rs
+    generates:
+      - R/extendr-wrappers.R
+    status:
+      - Rscript -e 'desc::desc_get("Config/rextendr/version") == packageVersion("rextendr")' | grep 'TRUE'
+    cmds:
+      - Rscript -e 'rextendr::document()'
+
+  build-license-note:
+    internal: true
+    desc: Build LICENSE.note
+    sources:
+      - src/rust/Cargo.lock
+      - dev/generate-license-note.R
+    generates:
+      - LICENSE.note
+    cmds:
+      - Rscript dev/generate-license-note.R
+
+  build-readme:
+    internal: true
+    desc: Build README.md
+    sources:
+      - README.Rmd
+    generates:
+      - README.md
+    cmds:
+      - Rscript -e
+        'devtools::load_all();
+        rmarkdown::render(input = "README.Rmd", output_file = "README.md")'

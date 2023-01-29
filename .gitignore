@@ -1,1 +1,5 @@
+# pkgdown files
 docs
+
+# Task cache
+.task

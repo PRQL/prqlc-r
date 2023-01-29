@@ -11,3 +11,5 @@
 ^CRAN-SUBMISSION$
 ^dev$
 ^README\.Rmd$
+^Taskfile\.yml$
+^\.task$
