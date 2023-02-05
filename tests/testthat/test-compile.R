@@ -16,6 +16,13 @@ test_that("Unsupported dialect", {
   )
 })
 
+test_that("Options", {
+  withr::local_options(list(prqlr.dialect = "mssql", prqlr.format = FALSE, prqlr.signature_comment = FALSE))
+  expect_equal(prql_compile("from a | take 1"), "SELECT TOP (1) * FROM a")
+  withr::local_options(list(prqlr.dialect = "postgres", prqlr.format = FALSE, prqlr.signature_comment = FALSE))
+  expect_equal(prql_compile("from a | take 1"), "SELECT * FROM a LIMIT 1")
+})
+
 test_that("PRQL query", {
   expect_snapshot(cat(prql_compile("from a | select [b]")))
   expect_snapshot(cat(prql_compile("from a | select [b]", NA, FALSE, FALSE)))

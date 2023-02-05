@@ -8,8 +8,8 @@ eng_prql <- function(options) {
   prql_code <- options$code |>
     paste0(collapse = "\n")
 
-  dialect <- .get_engine_opt(options, "dialect")
-  signature_comment <- .get_engine_opt(options, "signature_comment", TRUE)
+  dialect <- .get_engine_opt(options, "dialect", getOption("prqlr.dialect"))
+  signature_comment <- .get_engine_opt(options, "signature_comment", getOption("prqlr.signature_comment", TRUE))
 
   sql_code <- prql_code |>
     prql_compile(dialect = dialect, signature_comment = signature_comment)

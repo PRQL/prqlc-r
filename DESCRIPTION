@@ -20,7 +20,8 @@ Suggests:
     nycflights13,
     dplyr,
     testthat (>= 3.0.0),
-    patrick
+    patrick,
+    withr
 License: MIT + file LICENSE
 Language: en-US
 Encoding: UTF-8

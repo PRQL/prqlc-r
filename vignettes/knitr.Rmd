@@ -110,6 +110,8 @@ cat("````markdown", res_without_con, "````", sep = "")
 
 We can pass some options of `prql_compile()` via the chunk option `engine-opts` (or `engine.opts`).
 
+Note that the `format` option is always `TRUE` for PRQL code chunks.
+
 ````{verbatim}
 #| lang: markdown
 

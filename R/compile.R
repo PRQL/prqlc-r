@@ -32,7 +32,11 @@
 #'   prql_compile() |>
 #'   cat()
 #' @export
-prql_compile <- function(prql_query, dialect = NA, format = TRUE, signature_comment = TRUE) {
+prql_compile <- function(
+    prql_query,
+    dialect = getOption("prqlr.dialect"),
+    format = getOption("prqlr.format", TRUE),
+    signature_comment = getOption("prqlr.signature_comment", TRUE)) {
   if (length(dialect) == 1 && !(dialect %in% c(NA, dialects))) {
     stop("Unsupported dialect. Please check with the 'prql_available_dialects()' function for available dialects.")
   }
