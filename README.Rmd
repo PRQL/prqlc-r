@@ -15,7 +15,7 @@ knitr::opts_chunk$set(
 )
 ```
 
-# prqlr
+# prqlr <img src="man/figures/logo.png" align="right" width="150"/>
 
 <!-- badges: start -->
 [![prqlr status badge](https://eitsupi.r-universe.dev/badges/prqlr)](https://eitsupi.r-universe.dev)
