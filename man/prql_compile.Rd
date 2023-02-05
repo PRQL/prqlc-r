@@ -5,7 +5,12 @@
 \alias{prql_to_sql}
 \title{Compile a PRQL query into a SQL query}
 \usage{
-prql_compile(prql_query, dialect = NA, format = TRUE, signature_comment = TRUE)
+prql_compile(
+  prql_query,
+  dialect = getOption("prqlr.dialect"),
+  format = getOption("prqlr.format", TRUE),
+  signature_comment = getOption("prqlr.signature_comment", TRUE)
+)
 
 prql_to_sql(prql)
 }
