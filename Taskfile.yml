@@ -36,7 +36,7 @@ tasks:
   test-all:
     desc: Run all tests.
     sources:
-      - tests/**
+      - tests/**/*
       - R/*
     cmds:
       - Rscript -e 'devtools::load_all(); devtools::test()'
@@ -59,7 +59,7 @@ tasks:
     desc: Build the extendr wrappers.
     sources:
       - src/rust/Cargo.toml
-      - src/rust/src/*.rs
+      - src/rust/src/**/*.rs
     generates:
       - R/extendr-wrappers.R
     status:
