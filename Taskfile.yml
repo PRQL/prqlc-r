@@ -35,6 +35,12 @@ tasks:
 
   test-all:
     desc: Run all tests.
+    deps:
+      - test-source
+      - test-vignettes
+
+  test-source:
+    desc: Run all tests for source.
     sources:
       - tests/**/*
       - R/*
@@ -43,6 +49,20 @@ tasks:
       - src/rust/src/**/*.rs
     cmds:
       - Rscript -e 'devtools::load_all(); devtools::test()'
+
+  test-vignettes:
+    desc: Check if vignettes can be rendered.
+    sources:
+      - vignettes/**/*.Rmd
+      - R/*
+      - src/Makevars*
+      - src/rust/Cargo.toml
+      - src/rust/src/**/*.rs
+    cmds:
+      - Rscript -e
+        'devtools::load_all();
+        list.files("vignettes/", pattern = ".Rmd", recursive = TRUE, full.names = TRUE) |>
+          purrr::walk(\(x) rmarkdown::render(x, output_dir = tempdir()))'
 
   build-documents:
     desc: Build the R package and generate documents.
