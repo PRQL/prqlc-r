@@ -22,16 +22,16 @@ pub fn compile(
         .map(From::from)
         .ok();
 
-    let options: Option<prql_compiler::sql::Options> = Some(prql_compiler::sql::Options {
+    let options: prql_compiler::Options = prql_compiler::Options {
         format,
-        dialect,
+        target: prql_compiler::Target::Sql(dialect),
         signature_comment,
-    });
+    };
 
     let result = Ok(prql_query)
         .and_then(prql_compiler::prql_to_pl)
         .and_then(prql_compiler::pl_to_rq)
-        .and_then(|rq| prql_compiler::rq_to_sql(rq, options.map(prql_compiler::sql::Options::from)))
+        .and_then(|rq| prql_compiler::rq_to_sql(rq, options))
         .map_err(|e| e.composed("", prql_query, false));
 
     r_result_list(result)
@@ -63,7 +63,7 @@ pub fn pl_to_rq(pl_json: &str) -> List {
 pub fn rq_to_sql(rq_json: &str) -> List {
     let result = Ok(rq_json)
         .and_then(prql_compiler::json::to_rq)
-        .and_then(|x| prql_compiler::rq_to_sql(x, None));
+        .and_then(|x| prql_compiler::rq_to_sql(x, prql_compiler::Options::default()));
 
     r_result_list(result)
 }
