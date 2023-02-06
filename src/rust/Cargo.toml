@@ -2,7 +2,7 @@
 name = "prqlr"
 version = "0.1.0"
 edition = "2021"
-rust-version = "1.63"
+rust-version = "1.65"
 
 [lib]
 crate-type = ['staticlib']
@@ -11,7 +11,6 @@ name = "prqlr"
 [dependencies]
 # extendr-api = "0.3.1"
 extendr-api = { git = "https://github.com/extendr/extendr", rev = "f511254b1be180528a1711e4c87473966a1010d0" }
-# prql-compiler = { version = "0.4.1", default-features = false }
-# prql-compiler 0.4.2 is not compatible with Rust 1.64, so a slightly modified version is installed from the fork. https://github.com/PRQL/prql/pull/1561
-prql-compiler = { git = "https://github.com/eitsupi/prql", rev = "7aae8c979117410f5036ddb35b01997f2e163d20", default-features = false }
+# prql-compiler = { version = "0.4.2", default-features = false }
+prql-compiler = { git = "https://github.com/PRQL/prql", rev = "58d4bccda5dd35c7579dd33ffef546d863b85c65", default-features = false }
 anyhow = "1.0.68"

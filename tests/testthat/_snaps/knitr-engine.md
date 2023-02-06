@@ -1,7 +1,7 @@
-# Snapshot test of knitr-engine file_name=r-style-opts.Rmd
+# Snapshot test of knitr-engine
 
     Code
-      .knit_file(file_name)
+      .knit_file("r-style-opts.Rmd")
     Output
       
       
@@ -9,13 +9,16 @@
       ```elm
       from mtcars
       filter cyl > 6
-      select [mpg]
+      select [cyl, mpg]
+      derive [mpg_int = round 0 mpg]
       take 3
       ```
       
       ```sql
       SELECT
-        TOP (3) mpg
+        TOP (3) cyl,
+        mpg,
+        ROUND(mpg, 0) AS mpg_int
       FROM
         mtcars
       WHERE
@@ -43,10 +46,10 @@
       |   8| 16.4|      16|
       
 
-# Snapshot test of knitr-engine file_name=yaml-style-opts.Rmd
+---
 
     Code
-      .knit_file(file_name)
+      .knit_file("yaml-style-opts.Rmd")
     Output
       
       
@@ -54,13 +57,16 @@
       ```elm
       from mtcars
       filter cyl > 6
-      select [mpg]
+      select [cyl, mpg]
+      derive [mpg_int = round 0 mpg]
       take 3
       ```
       
       ```sql
       SELECT
-        TOP (3) mpg
+        TOP (3) cyl,
+        mpg,
+        ROUND(mpg, 0) AS mpg_int
       FROM
         mtcars
       WHERE

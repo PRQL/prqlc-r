@@ -112,9 +112,11 @@ We can pass some options of `prql_compile()` via the chunk option `engine-opts` 
 
 Note that the `format` option is always `TRUE` for PRQL code chunks.
 
-````{verbatim}
-#| lang: markdown
+````{r}
+#| echo: false
+#| results: asis
 
+src_engine_opts <- r"(
 ```{r}
 #| echo: false
 
@@ -125,7 +127,7 @@ library(prqlr)
 
 ```{prql}
 #| engine-opts:
-#|   dialect: mssql
+#|   target: sql.mssql
 #|   signature_comment: false
 
 from mtcars
@@ -134,8 +136,14 @@ take 3
 
 ## R-style
 
-```{prql engine.opts=list(dialect="mssql", signature_comment=FALSE)}
+```{prql engine.opts=list(target="sql.mssql", signature_comment=FALSE)}
 from mtcars
 take 3
 ```
+)"
+
+# Check if it can be rendered
+invisible(knitr::knit_child(text = src_engine_opts, quiet = TRUE))
+
+cat("````markdown", src_engine_opts, "````", sep = "")
 ````

@@ -6,7 +6,7 @@ use crate::utils::r_result_list;
 
 /// @title Compile a PRQL query into a SQL query
 /// @param prql_query a PRQL query string.
-/// @param dialect a SQL dialect name to use. If it is not a valid value, the dialect contained in the query will be used.
+/// @param target a compile target name to use. If it is not a valid value, the target contained in the query will be used.
 /// @param format a logical flag. Whether to format the SQL query.
 /// @param signature_comment a logical flag. Whether to add a signature comment to the output SQL query.
 /// @return a list contains a SQL string or an error message.
@@ -14,24 +14,28 @@ use crate::utils::r_result_list;
 #[extendr(use_try_from = true)]
 pub fn compile(
     prql_query: &str,
-    dialect: Option<String>,
+    target: Option<String>,
     format: bool,
     signature_comment: bool,
 ) -> List {
-    let dialect = prql_compiler::sql::Dialect::from_str(dialect.as_deref().unwrap_or_default())
-        .map(From::from)
-        .ok();
+    let target = prql_compiler::sql::Dialect::from_str(
+        Some(target.unwrap_or_default().replacen("sql.", "", 1))
+            .as_deref()
+            .unwrap_or_default(),
+    )
+    .map(From::from)
+    .ok();
 
-    let options: Option<prql_compiler::sql::Options> = Some(prql_compiler::sql::Options {
+    let options: prql_compiler::Options = prql_compiler::Options {
         format,
-        dialect,
+        target: prql_compiler::Target::Sql(target),
         signature_comment,
-    });
+    };
 
     let result = Ok(prql_query)
         .and_then(prql_compiler::prql_to_pl)
         .and_then(prql_compiler::pl_to_rq)
-        .and_then(|rq| prql_compiler::rq_to_sql(rq, options.map(prql_compiler::sql::Options::from)))
+        .and_then(|rq| prql_compiler::rq_to_sql(rq, options))
         .map_err(|e| e.composed("", prql_query, false));
 
     r_result_list(result)
@@ -63,7 +67,7 @@ pub fn pl_to_rq(pl_json: &str) -> List {
 pub fn rq_to_sql(rq_json: &str) -> List {
     let result = Ok(rq_json)
         .and_then(prql_compiler::json::to_rq)
-        .and_then(|x| prql_compiler::rq_to_sql(x, None));
+        .and_then(|x| prql_compiler::rq_to_sql(x, prql_compiler::Options::default()));
 
     r_result_list(result)
 }
