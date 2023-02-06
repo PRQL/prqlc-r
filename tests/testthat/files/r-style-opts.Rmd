@@ -4,7 +4,7 @@ con <- dbConnect(RSQLite::SQLite(), ":memory:")
 dbWriteTable(con, "mtcars", mtcars)
 ```
 
-```{prql engine.opts=list(dialect="mssql", signature_comment=FALSE), file="simple.prql"}
+```{prql engine.opts=list(target="sql.mssql", signature_comment=FALSE), file="simple.prql"}
 ```
 
 ```{prql, connection=con, file="simple.prql"}

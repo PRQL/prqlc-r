@@ -6,7 +6,7 @@ use crate::utils::r_result_list;
 
 /// @title Compile a PRQL query into a SQL query
 /// @param prql_query a PRQL query string.
-/// @param dialect a SQL dialect name to use. If it is not a valid value, the dialect contained in the query will be used.
+/// @param target a compile target name to use. If it is not a valid value, the target contained in the query will be used.
 /// @param format a logical flag. Whether to format the SQL query.
 /// @param signature_comment a logical flag. Whether to add a signature comment to the output SQL query.
 /// @return a list contains a SQL string or an error message.
@@ -14,17 +14,21 @@ use crate::utils::r_result_list;
 #[extendr(use_try_from = true)]
 pub fn compile(
     prql_query: &str,
-    dialect: Option<String>,
+    target: Option<String>,
     format: bool,
     signature_comment: bool,
 ) -> List {
-    let dialect = prql_compiler::sql::Dialect::from_str(dialect.as_deref().unwrap_or_default())
-        .map(From::from)
-        .ok();
+    let target = prql_compiler::sql::Dialect::from_str(
+        Some(target.unwrap_or_default().replacen("sql.", "", 1))
+            .as_deref()
+            .unwrap_or_default(),
+    )
+    .map(From::from)
+    .ok();
 
     let options: prql_compiler::Options = prql_compiler::Options {
         format,
-        target: prql_compiler::Target::Sql(dialect),
+        target: prql_compiler::Target::Sql(target),
         signature_comment,
     };
 

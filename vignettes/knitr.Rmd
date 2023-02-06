@@ -125,7 +125,7 @@ library(prqlr)
 
 ```{prql}
 #| engine-opts:
-#|   dialect: mssql
+#|   target: mssql
 #|   signature_comment: false
 
 from mtcars
@@ -134,7 +134,7 @@ take 3
 
 ## R-style
 
-```{prql engine.opts=list(dialect="mssql", signature_comment=FALSE)}
+```{prql engine.opts=list(target="mssql", signature_comment=FALSE)}
 from mtcars
 take 3
 ```

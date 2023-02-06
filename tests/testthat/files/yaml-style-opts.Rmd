@@ -8,7 +8,7 @@ dbWriteTable(con, "mtcars", mtcars)
 
 ```{prql}
 #| engine-opts:
-#|   dialect: mssql
+#|   target: sql.mssql
 #|   signature_comment: false
 #| file: simple.prql
 ```

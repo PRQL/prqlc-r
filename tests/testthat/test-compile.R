@@ -9,17 +9,17 @@ test_that("Not a string object", {
   )
 })
 
-test_that("Unsupported dialect", {
+test_that("Unsupported target", {
   expect_error(
     prql_compile("from a | select [b]", "foo"),
-    r"(Please check with the 'prql_available_dialects\(\)' function)"
+    r"(Please check with the 'prql_available_targets\(\)' function)"
   )
 })
 
 test_that("Options", {
-  withr::local_options(list(prqlr.dialect = "mssql", prqlr.format = FALSE, prqlr.signature_comment = FALSE))
+  withr::local_options(list(prqlr.target = "sql.mssql", prqlr.format = FALSE, prqlr.signature_comment = FALSE))
   expect_equal(prql_compile("from a | take 1"), "SELECT TOP (1) * FROM a")
-  withr::local_options(list(prqlr.dialect = "postgres", prqlr.format = FALSE, prqlr.signature_comment = FALSE))
+  withr::local_options(list(prqlr.target = "sql.postgres", prqlr.format = FALSE, prqlr.signature_comment = FALSE))
   expect_equal(prql_compile("from a | take 1"), "SELECT * FROM a LIMIT 1")
 })
 
@@ -37,7 +37,7 @@ test_that("PRQL query", {
   )
 })
 
-patrick::with_parameters_test_that("Dialects",
+patrick::with_parameters_test_that("Targets",
   {
     query <- "
 from flights
@@ -52,9 +52,9 @@ group [origin, dest] (
 sort [-origin, avg_delay]
 take 2
 "
-    expect_snapshot(cat(prql_compile(query, dialect, TRUE, FALSE)))
+    expect_snapshot(cat(prql_compile(query, target, TRUE, FALSE)))
   },
-  dialect = prql_available_dialects()
+  target = prql_available_targets()
 )
 
 test_that("prql-compiler's version", {

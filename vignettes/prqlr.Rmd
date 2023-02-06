@@ -75,9 +75,9 @@ take 3
   dbGetQuery(con, statement = _)
 ```
 
-Since SQLite is used here via `{RSQLite}`, the `dialect` option of `prql_compile()` is set to `"sqlite"`.
+Since SQLite is used here via `{RSQLite}`, the `target` option of `prql_compile()` is set to `"sqlite"`.
 
-Available dialect names can be found with the `prql_available_dialects()` function.
+Available target names can be found with the `prql_available_targets()` function.
 
 ## Work with R Data Frames
 
