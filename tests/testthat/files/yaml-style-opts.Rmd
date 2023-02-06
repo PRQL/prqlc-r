@@ -10,11 +10,7 @@ dbWriteTable(con, "mtcars", mtcars)
 #| engine-opts:
 #|   dialect: mssql
 #|   signature_comment: false
-
-from mtcars
-filter cyl > 6
-select [mpg]
-take 3
+#| file: simple.prql
 ```
 
 ```{prql}

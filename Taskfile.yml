@@ -38,6 +38,9 @@ tasks:
     sources:
       - tests/**/*
       - R/*
+      - src/Makevars*
+      - src/rust/Cargo.toml
+      - src/rust/src/**/*.rs
     cmds:
       - Rscript -e 'devtools::load_all(); devtools::test()'
 
@@ -58,6 +61,7 @@ tasks:
     internal: true
     desc: Build the extendr wrappers.
     sources:
+      - src/Makevars*
       - src/rust/Cargo.toml
       - src/rust/src/**/*.rs
     generates:

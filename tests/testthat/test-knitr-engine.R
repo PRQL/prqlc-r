@@ -14,9 +14,7 @@ test_that("Set prql knitr engine", {
     cat()
 }
 
-patrick::with_parameters_test_that("Snapshot test of knitr-engine",
-  {
-    expect_snapshot(.knit_file(file_name), cran = TRUE)
-  },
-  file_name = c("r-style-opts.Rmd", "yaml-style-opts.Rmd")
-)
+test_that("Snapshot test of knitr-engine", {
+  expect_snapshot(.knit_file("r-style-opts.Rmd"), cran = TRUE)
+  expect_snapshot(.knit_file("yaml-style-opts.Rmd"), cran = TRUE)
+})
