@@ -24,7 +24,7 @@ eng_prql <- function(options) {
     sql_code <- paste0(
       "```sql\n",
       sql_code,
-      "\n```\n"
+      "```\n"
     )
     return(knitr::engine_output(options, prql_code, sql_code))
   }

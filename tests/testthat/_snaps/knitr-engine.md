@@ -23,7 +23,6 @@
         mtcars
       WHERE
         cyl > 6
-      
       ```
       
       
@@ -72,7 +71,6 @@
         mtcars
       WHERE
         cyl > 6
-      
       ```
       
       
