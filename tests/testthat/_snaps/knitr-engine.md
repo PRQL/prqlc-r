@@ -94,3 +94,29 @@
       |   8| 16.4|      16|
       
 
+---
+
+    Code
+      withr::with_options(list(prqlr.target = "sql.mssql", prqlr.format = FALSE,
+        prqlr.signature_comment = FALSE), .knit_file("minimal.Rmd"))
+    Output
+      
+      ```elm
+      from mtcars
+      filter cyl > 6
+      select [cyl, mpg]
+      derive [mpg_int = round 0 mpg]
+      take 3
+      ```
+      
+      ```sql
+      SELECT
+        TOP (3) cyl,
+        mpg,
+        ROUND(mpg, 0) AS mpg_int
+      FROM
+        mtcars
+      WHERE
+        cyl > 6
+      ```
+
