@@ -19,8 +19,9 @@ pub fn compile(
     signature_comment: bool,
 ) -> List {
     let target = prql_compiler::sql::Dialect::from_str(
-        Some(target.unwrap_or_default().replacen("sql.", "", 1))
-            .as_deref()
+        target
+            .unwrap_or_default()
+            .strip_prefix("sql.")
             .unwrap_or_default(),
     )
     .map(From::from)
