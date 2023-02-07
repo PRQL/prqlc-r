@@ -31,7 +31,7 @@ test_that("PRQL query", {
     select [star_wars.*]
     select ![jar_jar_binks, midichlorians]"
     |>
-      compile("duckdb", TRUE, TRUE) |>
+      compile("sql.duckdb", TRUE, TRUE) |>
       unwrap() |>
       cat()
   )
