@@ -12,7 +12,7 @@ eng_prql <- function(options) {
   signature_comment <- .get_engine_opt(options, "signature_comment", getOption("prqlr.signature_comment", TRUE))
 
   sql_code <- prql_code |>
-    prql_compile(target = target, signature_comment = signature_comment)
+    prql_compile(target = target, format = TRUE, signature_comment = signature_comment)
 
   # elm coincidentally provides the best syntax highlight for prql.
   options$lang <- options$lang %||% "elm"
