@@ -18,14 +18,9 @@ pub fn compile(
     format: bool,
     signature_comment: bool,
 ) -> List {
-    let target = prql_compiler::sql::Dialect::from_str(
-        target
-            .unwrap_or_default()
-            .strip_prefix("sql.")
-            .unwrap_or_default(),
-    )
-    .map(From::from)
-    .ok();
+    let target = prql_compiler::sql::Dialect::from_str(&target.unwrap_or_default())
+        .map(From::from)
+        .ok();
 
     let options: prql_compiler::Options = prql_compiler::Options {
         format,
@@ -84,7 +79,7 @@ pub fn compiler_version() -> String {
 /// @noRd
 #[extendr]
 pub fn dialects() -> Vec<&'static str> {
-    prql_compiler::sql::DIALECT_NAMES.to_vec()
+    prql_compiler::sql::Dialect::names()
 }
 
 extendr_module! {
