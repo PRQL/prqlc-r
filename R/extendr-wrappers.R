@@ -34,5 +34,8 @@ rq_to_sql <- function(rq_json) .Call(wrap__rq_to_sql, rq_json)
 #' @noRd
 compiler_version <- function() .Call(wrap__compiler_version)
 
+#' @noRd
+dialects <- function() .Call(wrap__dialects)
+
 
 # nolint end

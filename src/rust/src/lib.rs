@@ -81,6 +81,12 @@ pub fn compiler_version() -> String {
     prql_compiler::PRQL_VERSION.to_string()
 }
 
+/// @noRd
+#[extendr]
+pub fn dialects() -> Vec<&'static str> {
+    prql_compiler::sql::DIALECT_NAMES.to_vec()
+}
+
 extendr_module! {
     mod prqlr;
     fn compile;
@@ -88,4 +94,5 @@ extendr_module! {
     fn pl_to_rq;
     fn rq_to_sql;
     fn compiler_version;
+    fn dialects;
 }
