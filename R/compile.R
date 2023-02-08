@@ -37,27 +37,13 @@ prql_compile <- function(
     target = getOption("prqlr.target"),
     format = getOption("prqlr.format", TRUE),
     signature_comment = getOption("prqlr.signature_comment", TRUE)) {
-  if (length(target) == 1 && !(target %in% c(NA, targets))) {
+  if (length(target) == 1 && !(target %in% c(NA, prql_available_targets()))) {
     stop("Unsupported target. Please check with the 'prql_available_targets()' function for available targets.")
   }
 
   compile(prql_query, target, format, signature_comment) |>
     unwrap()
 }
-
-targets <- c(
-  "sql.ansi",
-  "sql.bigquery",
-  "sql.clickhouse",
-  "sql.generic",
-  "sql.hive",
-  "sql.mssql",
-  "sql.mysql",
-  "sql.postgres",
-  "sql.sqlite",
-  "sql.snowflake",
-  "sql.duckdb"
-)
 
 #' @title Available target names
 #' @description Available targets for the `target` option of the [prql_compile()] function.
@@ -66,7 +52,7 @@ targets <- c(
 #' prql_available_targets()
 #' @export
 prql_available_targets <- function() {
-  targets
+  dialects()
 }
 
 #' @rdname prql_compile
