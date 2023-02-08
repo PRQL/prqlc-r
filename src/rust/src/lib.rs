@@ -18,9 +18,14 @@ pub fn compile(
     format: bool,
     signature_comment: bool,
 ) -> List {
-    let target = prql_compiler::sql::Dialect::from_str(&target.unwrap_or_default())
-        .map(From::from)
-        .ok();
+    let target = prql_compiler::sql::Dialect::from_str(
+        target
+            .unwrap_or_default()
+            .strip_prefix("sql.")
+            .unwrap_or_default(),
+    )
+    .map(From::from)
+    .ok();
 
     let options: prql_compiler::Options = prql_compiler::Options {
         format,
@@ -76,10 +81,15 @@ pub fn compiler_version() -> String {
     prql_compiler::PRQL_VERSION.to_string()
 }
 
-/// @noRd
+/// @title Available target names
+/// @description Available targets for the `target` option of the [prql_compile()] function.
+/// @return a character vector of target names.
+/// @examples
+/// prql_available_targets()
+/// @export
 #[extendr]
-pub fn dialects() -> Vec<&'static str> {
-    prql_compiler::sql::Dialect::names()
+pub fn prql_available_targets() -> Vec<String> {
+    prql_compiler::Target::names()
 }
 
 extendr_module! {
@@ -89,5 +99,5 @@ extendr_module! {
     fn pl_to_rq;
     fn rq_to_sql;
     fn compiler_version;
-    fn dialects;
+    fn prql_available_targets;
 }

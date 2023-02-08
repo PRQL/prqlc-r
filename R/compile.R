@@ -45,16 +45,6 @@ prql_compile <- function(
     unwrap()
 }
 
-#' @title Available target names
-#' @description Available targets for the `target` option of the [prql_compile()] function.
-#' @return a character vector of target names.
-#' @examples
-#' prql_available_targets()
-#' @export
-prql_available_targets <- function() {
-  dialects()
-}
-
 #' @rdname prql_compile
 #' @export
 prql_to_sql <- function(prql) {
