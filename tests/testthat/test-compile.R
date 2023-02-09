@@ -1,3 +1,10 @@
+test_that("target set in the header ", {
+  expect_equal(
+    prql_compile("prql target:sql.mssql\nfrom a | take 1", format = FALSE, signature_comment = FALSE),
+    "SELECT TOP (1) * FROM a"
+  )
+})
+
 test_that("Not a string object", {
   expect_error(
     1 |> prql_compile(),
