@@ -110,6 +110,10 @@ tasks:
     desc: Build README.md
     sources:
       - README.Rmd
+      - R/*
+      - src/Makevars*
+      - src/rust/Cargo.toml
+      - src/rust/src/**/*.rs
     generates:
       - README.md
     cmds:
