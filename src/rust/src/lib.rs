@@ -18,18 +18,11 @@ pub fn compile(
     format: bool,
     signature_comment: bool,
 ) -> List {
-    let target = prql_compiler::sql::Dialect::from_str(
-        target
-            .unwrap_or_default()
-            .strip_prefix("sql.")
-            .unwrap_or_default(),
-    )
-    .map(From::from)
-    .ok();
+    let target = prql_compiler::Target::from_str(&target.unwrap_or_default()).unwrap_or_default();
 
     let options: prql_compiler::Options = prql_compiler::Options {
         format,
-        target: prql_compiler::Target::Sql(target),
+        target,
         signature_comment,
     };
 
