@@ -12,5 +12,5 @@ name = "prqlr"
 # extendr-api = "0.3.1"
 extendr-api = { git = "https://github.com/extendr/extendr", rev = "974cddc4ee5a4c3ab10e8bf85772b74c0a182f32" }
 # prql-compiler = { version = "0.5.0", default-features = false }
-prql-compiler = { git = "https://github.com/PRQL/prql", rev = "d6713be4f7010de4acaa58511fa6b2b15da559ad", default-features = false }
+prql-compiler = { git = "https://github.com/eitsupi/prql", rev = "bf7a49c9ee4d2c234c79a204623a4ecd111050c8", default-features = false }
 anyhow = "1.0.68"
