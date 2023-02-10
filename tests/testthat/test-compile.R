@@ -1,7 +1,13 @@
 test_that("target set in the header ", {
+  mssql_query <- "prql target:sql.mssql\nfrom a | take 1"
+
   expect_equal(
-    prql_compile("prql target:sql.mssql\nfrom a | take 1", format = FALSE, signature_comment = FALSE),
+    prql_compile(mssql_query, format = FALSE, signature_comment = FALSE),
     "SELECT TOP (1) * FROM a"
+  )
+  expect_equal(
+    prql_compile(mssql_query, target = "sql.generic", format = FALSE, signature_comment = FALSE),
+    "SELECT * FROM a LIMIT 1"
   )
 })
 
