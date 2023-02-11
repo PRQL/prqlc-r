@@ -13,3 +13,4 @@
 ^README\.Rmd$
 ^Taskfile\.yml$
 ^\.task$
+^src/\.cargo$
