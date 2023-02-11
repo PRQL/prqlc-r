@@ -2,7 +2,7 @@
 
 ## Breaking changes
 
-- Based on [`prql-compiler`](https://github.com/prql/prql) 0.5.0 (#71, #77)
+- Based on unreleased version [`prql-compiler`](https://github.com/prql/prql) (#71, #77)
 - The option name of `prql_compile()` for specifying the compile target has been changed from `dialect` to `target`.
   The following two changes have also been made as a result of this change. (#71)
   - SQL dialects must be specified with the `sql.` prefix if they are to be targeted
