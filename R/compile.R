@@ -38,7 +38,12 @@ prql_compile <- function(
     format = getOption("prqlr.format", TRUE),
     signature_comment = getOption("prqlr.signature_comment", TRUE)) {
   if (length(target) == 1 && !(target %in% c(NA, prql_available_targets()))) {
-    stop("Unsupported target. Please check with the 'prql_available_targets()' function for available targets.")
+    paste0(
+      r"(Unsupported target `")",
+      target,
+      r"("`. Please check with the `prql_available_targets()` function for available targets.)"
+    ) |>
+      stop()
   }
 
   compile(prql_query, target, format, signature_comment) |>
