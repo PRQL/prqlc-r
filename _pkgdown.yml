@@ -1,3 +1,5 @@
 url: https://eitsupi.github.io/prqlr
 template:
   bootstrap: 5
+development:
+  mode: auto
