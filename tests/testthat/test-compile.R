@@ -27,6 +27,14 @@ test_that("Unsupported target", {
     prql_compile("from a | select [b]", "foo"),
     r"(Please check with the 'prql_available_targets\(\)' function)"
   )
+  expect_error(
+    prql_compile("prql target:foo\nfrom a | select [b]"),
+    r"(target `"foo"` not found)"
+  )
+    expect_error(
+    prql_compile("prql target:sql.foo\nfrom a | select [b]"),
+    r"(target `"sql.foo"` not found)"
+  )
 })
 
 test_that("Options", {
