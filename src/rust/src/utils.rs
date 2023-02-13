@@ -10,8 +10,8 @@ where
         Ok(x) => list!(ok = x.into_robj(), err = extendr_api::NULL),
         Err(x) => list!(ok = extendr_api::NULL, err = x.to_string()),
     }
-    .set_class(&["Result"])
-    .unwrap()
+    .set_class(&["rust_result"])
+    .unwrap_or_default()
     .as_list()
-    .unwrap()
+    .unwrap_or_default()
 }
