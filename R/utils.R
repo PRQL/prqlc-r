@@ -17,7 +17,7 @@
 #' @noRd
 unwrap <- function(result, call = sys.call(1L)) {
   # if not result
-  if (!inherits(result, "Result") && (!is.list(result) || !all(names(result) %in% c("ok", "err")))) {
+  if (!inherits(result, "rust_result") && (!is.list(result) || !all(names(result) %in% c("ok", "err")))) {
     stop("Internal error: cannot unwrap non result")
   }
 
