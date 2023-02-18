@@ -10,7 +10,7 @@
     
     <a class="navbar-brand me-2" href="../index.html">prqlr</a>
 
-    <small class="nav-text text-danger me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="In-development version">0.1.0.9005</small>
+    <small class="nav-text text-danger me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="In-development version">0.2.0.9000</small>
 
     
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -55,8 +55,11 @@
 
     <div class="section level2">
 <h2 class="pkg-version" data-toc-text="development version" id="prqlr-development-version">prqlr (development version)<a class="anchor" aria-label="anchor" href="#prqlr-development-version"></a></h2>
+</div>
+    <div class="section level2">
+<h2 class="pkg-version" data-toc-text="0.2.0" id="prqlr-020">prqlr 0.2.0<a class="anchor" aria-label="anchor" href="#prqlr-020"></a></h2>
 <div class="section level3">
-<h3 id="breaking-changes-development-version">Breaking changes<a class="anchor" aria-label="anchor" href="#breaking-changes-development-version"></a></h3>
+<h3 id="breaking-changes-0-2-0">Breaking changes<a class="anchor" aria-label="anchor" href="#breaking-changes-0-2-0"></a></h3>
 <ul><li>Based on <a href="https://github.com/prql/prql" class="external-link"><code>prql-compiler</code></a> 0.5.1 (<a href="https://github.com/eitsupi/prqlr/issues/71" class="external-link">#71</a>, <a href="https://github.com/eitsupi/prqlr/issues/77" class="external-link">#77</a>, <a href="https://github.com/eitsupi/prqlr/issues/86" class="external-link">#86</a>)</li>
 <li>The option name of <code><a href="../reference/prql_compile.html">prql_compile()</a></code> for specifying the compile target has been changed from <code>dialect</code> to <code>target</code>. The following two changes have also been made as a result of this change.
 <ul><li>SQL dialects must be specified with the <code>sql.</code> prefix if they are to be targeted (e.g. <code>"duckdb"</code> -&gt; <code>"sql.duckdb"</code>). (<a href="https://github.com/eitsupi/prqlr/issues/71" class="external-link">#71</a>)</li>
@@ -65,15 +68,15 @@
 </ul></li>
 </ul></div>
 <div class="section level3">
-<h3 id="new-features-development-version">New features<a class="anchor" aria-label="anchor" href="#new-features-development-version"></a></h3>
+<h3 id="new-features-0-2-0">New features<a class="anchor" aria-label="anchor" href="#new-features-0-2-0"></a></h3>
 <ul><li>
 <a href="https://eitsupi.github.io/prqlr/">prqlr</a> registers <code>prql</code> engine for <a href="https://yihui.org/knitr/" class="external-link">knitr</a> when loaded. See the vignette <code><a href="../articles/knitr.html">vignette("knitr", "prqlr")</a></code> for details. (<a href="https://github.com/eitsupi/prqlr/issues/53" class="external-link">#53</a>, <a href="https://github.com/eitsupi/prqlr/issues/57" class="external-link">#57</a>, <a href="https://github.com/eitsupi/prqlr/issues/62" class="external-link">#62</a>)</li>
-<li>New function <code><a href="../reference/prql_version.html">prql_version()</a></code> which returns buit-in prql-compiler version. (<a href="https://github.com/eitsupi/prqlr/issues/51" class="external-link">#51</a>)</li>
+<li>New function <code><a href="../reference/prql_version.html">prql_version()</a></code> which returns built-in prql-compiler version. (<a href="https://github.com/eitsupi/prqlr/issues/51" class="external-link">#51</a>)</li>
 <li>
 <code><a href="../reference/prql_compile.html">prql_compile()</a></code>’s options can be set by <code><a href="https://rdrr.io/r/base/options.html" class="external-link">options()</a></code>. (<a href="https://github.com/eitsupi/prqlr/issues/70" class="external-link">#70</a>)</li>
 </ul></div>
 <div class="section level3">
-<h3 id="other-improvements-development-version">Other improvements<a class="anchor" aria-label="anchor" href="#other-improvements-development-version"></a></h3>
+<h3 id="other-improvements-0-2-0">Other improvements<a class="anchor" aria-label="anchor" href="#other-improvements-0-2-0"></a></h3>
 <ul><li>
 <code><a href="../reference/prql_compile.html">prql_compile()</a></code> no longer leaks memory when an error occurs. (Thanks <a href="https://github.com/sorhawell" class="external-link">@sorhawell</a>, <a href="https://github.com/eitsupi/prqlr/issues/46" class="external-link">#46</a>, <a href="https://github.com/eitsupi/prqlr/issues/52" class="external-link">#52</a>)</li>
 </ul></div>
