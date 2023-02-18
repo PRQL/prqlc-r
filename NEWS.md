@@ -13,7 +13,7 @@
 
 - `{prqlr}` registers `prql` engine for `{knitr}` when loaded.
   See the vignette `vignette("knitr", "prqlr")` for details. (#53, #57, #62)
-- New function `prql_version()` which returns buit-in prql-compiler version. (#51)
+- New function `prql_version()` which returns built-in prql-compiler version. (#51)
 - `prql_compile()`'s options can be set by `options()`. (#70)
 
 ## Other improvements
