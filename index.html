@@ -10,6 +10,12 @@
     Combined with other R functions that take SQL as an argument,
     PRQL can be used on R.">
 <title>R Bindings for the prql-compiler Rust Library • prqlr</title>
+<!-- favicons --><link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+<link rel="apple-touch-icon" type="image/png" sizes="180x180" href="apple-touch-icon.png">
+<link rel="apple-touch-icon" type="image/png" sizes="120x120" href="apple-touch-icon-120x120.png">
+<link rel="apple-touch-icon" type="image/png" sizes="76x76" href="apple-touch-icon-76x76.png">
+<link rel="apple-touch-icon" type="image/png" sizes="60x60" href="apple-touch-icon-60x60.png">
 <script src="deps/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link href="deps/bootstrap-5.2.2/bootstrap.min.css" rel="stylesheet">
 <script src="deps/bootstrap-5.2.2/bootstrap.bundle.min.js"></script><!-- Font Awesome icons --><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css" integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk=" crossorigin="anonymous">
@@ -19,6 +25,7 @@
     Provides a function to convert PRQL strings to SQL strings.
     Combined with other R functions that take SQL as an argument,
     PRQL can be used on R.">
+<meta property="og:image" content="https://eitsupi.github.io/prqlr/logo.png">
 <!-- mathjax --><script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js" integrity="sha256-nvJJv9wWKEm88qvoQl9ekL2J+k/RWIsaSScxxlsrv8k=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/config/TeX-AMS-MML_HTMLorMML.js" integrity="sha256-84DKXVJXs0/F8OTMzX4UR909+jtl4G7SPypPavF+GfA=" crossorigin="anonymous"></script><!--[if lt IE 9]>
 <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
 <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
@@ -32,7 +39,7 @@
     
     <a class="navbar-brand me-2" href="index.html">prqlr</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.1.0</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Released version">0.2.0</small>
 
     
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -46,6 +53,12 @@
 </li>
 <li class="nav-item">
   <a class="nav-link" href="reference/index.html">Reference</a>
+</li>
+<li class="nav-item dropdown">
+  <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown" role="button" aria-expanded="false" aria-haspopup="true" id="dropdown-articles">Articles</a>
+  <div class="dropdown-menu" aria-labelledby="dropdown-articles">
+    <a class="dropdown-item" href="articles/knitr.html">Use PRQL with knitr</a>
+  </div>
 </li>
 <li class="nav-item">
   <a class="nav-link" href="news/index.html">Changelog</a>
@@ -70,8 +83,10 @@
 </nav><div class="container template-home">
 <div class="row">
   <main id="main" class="col-md-9"><div class="section level1">
-<div class="page-header"><h1 id="prqlr">prqlr<a class="anchor" aria-label="anchor" href="#prqlr"></a>
-</h1></div>
+<div class="page-header">
+<img src="logo.png" class="logo" alt=""><h1 id="prqlr-">prqlr <a class="anchor" aria-label="anchor" href="#prqlr-"></a>
+</h1>
+</div>
 <!-- badges: start -->
 
 <p>R bindings for <a href="https://github.com/prql/prql" class="external-link">the <code>prql-compiler</code> Rust library</a>, powered by <a href="https://extendr.github.io/" class="external-link">the <code>extendr</code> framework</a>.</p>
@@ -79,7 +94,7 @@
 <h2 id="installation">Installation<a class="anchor" aria-label="anchor" href="#installation"></a>
 </h2>
 <p>Requires R 4.2.0 or later.</p>
-<p>This package can be installed from CRAN or <a href="https://eitsupi.r-universe.dev/ui#package:prqlr" class="external-link">R-universe</a>. If available, a binary package will be installed.</p>
+<p>This package can be installed from CRAN or <a href="https://eitsupi.r-universe.dev/prqlr" class="external-link">R-universe</a>. If available, a binary package will be installed.</p>
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Install from CRAN</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html" class="external-link">install.packages</a></span><span class="op">(</span><span class="st">"prqlr"</span><span class="op">)</span></span></code></pre></div>
@@ -104,7 +119,7 @@
 <span><span class="co">#&gt; WHERE</span></span>
 <span><span class="co">#&gt;   cyl &gt; 6</span></span>
 <span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; -- Generated by PRQL compiler version 0.4.0 (https://prql-lang.org)</span></span></code></pre></div>
+<span><span class="co">#&gt; -- Generated by PRQL compiler version:0.5.1 (https://prql-lang.org)</span></span></code></pre></div>
 <p>PRQL’s pipelines can be joined by the newline character (<code>\n</code>), or actual newlines in addition to <code>|</code>.</p>
 <div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="st">"from mtcars \n filter cyl &gt; 6 \n select [cyl, mpg]"</span> <span class="op">|&gt;</span></span>
@@ -118,7 +133,7 @@
 <span><span class="co">#&gt; WHERE</span></span>
 <span><span class="co">#&gt;   cyl &gt; 6</span></span>
 <span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; -- Generated by PRQL compiler version 0.4.0 (https://prql-lang.org)</span></span></code></pre></div>
+<span><span class="co">#&gt; -- Generated by PRQL compiler version:0.5.1 (https://prql-lang.org)</span></span></code></pre></div>
 <div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="st">"from mtcars</span></span>
 <span><span class="st">filter cyl &gt; 6</span></span>
@@ -133,7 +148,7 @@
 <span><span class="co">#&gt; WHERE</span></span>
 <span><span class="co">#&gt;   cyl &gt; 6</span></span>
 <span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; -- Generated by PRQL compiler version 0.4.0 (https://prql-lang.org)</span></span></code></pre></div>
+<span><span class="co">#&gt; -- Generated by PRQL compiler version:0.5.1 (https://prql-lang.org)</span></span></code></pre></div>
 <p>Thanks to the <a href="https://github.com/ianmcook/tidyquery" class="external-link">tidyquery</a> package, we can even convert a PRQL query to a SQL query and then to a <a href="https://dplyr.tidyverse.org" class="external-link">dplyr</a> query!</p>
 <div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="st">"from mtcars</span></span>
@@ -154,6 +169,7 @@
   </main><aside class="col-md-3"><div class="links">
 <h2 data-toc-skip>Links</h2>
 <ul class="list-unstyled">
+<li><a href="https://cloud.r-project.org/package=prqlr" class="external-link">View on CRAN</a></li>
 <li><a href="https://github.com/eitsupi/prqlr/" class="external-link">Browse source code</a></li>
 <li><a href="https://github.com/eitsupi/prqlr/issues" class="external-link">Report a bug</a></li>
 </ul>
@@ -182,13 +198,7 @@
 </ul>
 </div>
 
-<div class="dev-status">
-<h2 data-toc-skip>Dev status</h2>
-<ul class="list-unstyled">
-<li><a href="https://eitsupi.r-universe.dev" class="external-link"><img src="https://eitsupi.r-universe.dev/badges/prqlr" alt="prqlr status badge"></a></li>
-<li><a href="https://CRAN.R-project.org/package=prqlr" class="external-link"><img src="https://www.r-pkg.org/badges/version/prqlr" alt="CRAN status"></a></li>
-</ul>
-</div>
+
 
   </aside>
 </div>

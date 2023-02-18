@@ -13,6 +13,9 @@
     <loc>https://eitsupi.github.io/prqlr/articles/index.html</loc>
   </url>
   <url>
+    <loc>https://eitsupi.github.io/prqlr/articles/knitr.html</loc>
+  </url>
+  <url>
     <loc>https://eitsupi.github.io/prqlr/articles/prqlr.html</loc>
   </url>
   <url>
@@ -28,9 +31,12 @@
     <loc>https://eitsupi.github.io/prqlr/reference/index.html</loc>
   </url>
   <url>
-    <loc>https://eitsupi.github.io/prqlr/reference/prql_available_dialects.html</loc>
+    <loc>https://eitsupi.github.io/prqlr/reference/prql_compile.html</loc>
   </url>
   <url>
-    <loc>https://eitsupi.github.io/prqlr/reference/prql_compile.html</loc>
+    <loc>https://eitsupi.github.io/prqlr/reference/prql_get_targets.html</loc>
+  </url>
+  <url>
+    <loc>https://eitsupi.github.io/prqlr/reference/prql_version.html</loc>
   </url>
 </urlset>

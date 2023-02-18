@@ -7,12 +7,19 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta name="description" content="prqlr">
 <title>Use PRQL on R • prqlr</title>
+<!-- favicons --><link rel="icon" type="image/png" sizes="16x16" href="../favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="../favicon-32x32.png">
+<link rel="apple-touch-icon" type="image/png" sizes="180x180" href="../apple-touch-icon.png">
+<link rel="apple-touch-icon" type="image/png" sizes="120x120" href="../apple-touch-icon-120x120.png">
+<link rel="apple-touch-icon" type="image/png" sizes="76x76" href="../apple-touch-icon-76x76.png">
+<link rel="apple-touch-icon" type="image/png" sizes="60x60" href="../apple-touch-icon-60x60.png">
 <script src="../deps/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link href="../deps/bootstrap-5.2.2/bootstrap.min.css" rel="stylesheet">
 <script src="../deps/bootstrap-5.2.2/bootstrap.bundle.min.js"></script><!-- Font Awesome icons --><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css" integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk=" crossorigin="anonymous">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/v4-shims.min.css" integrity="sha256-wZjR52fzng1pJHwx4aV2AO3yyTOXrcDW7jBpJtTwVxw=" crossorigin="anonymous">
 <!-- bootstrap-toc --><script src="https://cdn.jsdelivr.net/gh/afeld/bootstrap-toc@v1.0.1/dist/bootstrap-toc.min.js" integrity="sha256-4veVQbu7//Lk5TSmc7YV48MxtMy98e26cf5MrgZYnwo=" crossorigin="anonymous"></script><!-- headroom.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/headroom.min.js" integrity="sha256-AsUX4SJE1+yuDu5+mAVzJbuYNPHj/WroHuZ8Ir/CkE0=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/jQuery.headroom.min.js" integrity="sha256-ZX/yNShbjqsohH1k95liqY9Gd8uOiE1S4vZc+9KQ1K4=" crossorigin="anonymous"></script><!-- clipboard.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><!-- search --><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><!-- pkgdown --><script src="../pkgdown.js"></script><meta property="og:title" content="Use PRQL on R">
 <meta property="og:description" content="prqlr">
+<meta property="og:image" content="https://eitsupi.github.io/prqlr/logo.png">
 <!-- mathjax --><script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js" integrity="sha256-nvJJv9wWKEm88qvoQl9ekL2J+k/RWIsaSScxxlsrv8k=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/config/TeX-AMS-MML_HTMLorMML.js" integrity="sha256-84DKXVJXs0/F8OTMzX4UR909+jtl4G7SPypPavF+GfA=" crossorigin="anonymous"></script><!--[if lt IE 9]>
 <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
 <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
@@ -26,7 +33,7 @@
     
     <a class="navbar-brand me-2" href="../index.html">prqlr</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.1.0</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Released version">0.2.0</small>
 
     
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -40,6 +47,12 @@
 </li>
 <li class="nav-item">
   <a class="nav-link" href="../reference/index.html">Reference</a>
+</li>
+<li class="nav-item dropdown">
+  <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown" role="button" aria-expanded="false" aria-haspopup="true" id="dropdown-articles">Articles</a>
+  <div class="dropdown-menu" aria-labelledby="dropdown-articles">
+    <a class="dropdown-item" href="../articles/knitr.html">Use PRQL with knitr</a>
+  </div>
 </li>
 <li class="nav-item">
   <a class="nav-link" href="../news/index.html">Changelog</a>
@@ -68,7 +81,7 @@
 
 <div class="row">
   <main id="main" class="col-md-9"><div class="page-header">
-      <img src="" class="logo" alt=""><h1>Use PRQL on R</h1>
+      <img src="../logo.png" class="logo" alt=""><h1>Use PRQL on R</h1>
             
       
       <small class="dont-index">Source: <a href="https://github.com/eitsupi/prqlr/blob/HEAD/vignettes/prqlr.Rmd" class="external-link"><code>vignettes/prqlr.Rmd</code></a></small>
@@ -84,20 +97,18 @@ data, can be compiled to SQL.</p>
 string to a SQL string.</p>
 <p>For example, the following PRQL query can be converted to the below
 SQL query.</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode elm"><code class="sourceCode elm"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="op">#</span> <span class="dt">This</span> <span class="fu">is</span> <span class="fu">a</span> <span class="dt">PRQL</span> <span class="fu">query</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">from</span> <span class="fu">mtcars</span></span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">filter</span> <span class="fu">cyl</span> <span class="op">&gt;</span> <span class="dv">6</span></span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="fu">select</span> [<span class="fu">cyl</span><span class="op">,</span> <span class="fu">mpg</span>]</span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="fu">derive</span> [<span class="fu">mpg_int</span> <span class="op">=</span> <span class="fu">round</span> <span class="dv">0</span> <span class="fu">mpg</span>]</span></code></pre></div>
-<div class="sourceCode" id="cb2"><pre class="sourceCode sql"><code class="sourceCode sql"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co">-- This is a SQL query</span></span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span></span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>  cyl,</span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>  mpg,</span>
-<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ROUND</span>(mpg, <span class="dv">0</span>) <span class="kw">AS</span> mpg_int</span>
-<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="kw">FROM</span></span>
-<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>  mtcars</span>
-<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a><span class="kw">WHERE</span></span>
-<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>  cyl <span class="op">&gt;</span> <span class="dv">6</span></span></code></pre></div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode elm"><code class="sourceCode elm"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">from</span> <span class="fu">mtcars</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">filter</span> <span class="fu">cyl</span> <span class="op">&gt;</span> <span class="dv">6</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">select</span> [<span class="fu">cyl</span><span class="op">,</span> <span class="fu">mpg</span>]</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="fu">derive</span> [<span class="fu">mpg_int</span> <span class="op">=</span> <span class="fu">round</span> <span class="dv">0</span> <span class="fu">mpg</span>]</span></code></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode sql"><code class="sourceCode sql"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>  cyl,</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>  mpg,</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ROUND</span>(mpg, <span class="dv">0</span>) <span class="kw">AS</span> mpg_int</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="kw">FROM</span></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>  mtcars</span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a><span class="kw">WHERE</span></span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>  cyl <span class="op">&gt;</span> <span class="dv">6</span></span></code></pre></div>
 <p>Just pass the PRQL query string to the <code><a href="../reference/prql_compile.html">prql_compile()</a></code>
 function, like this.</p>
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
@@ -120,9 +131,9 @@ function, like this.</p>
 <span><span class="co">#&gt; WHERE</span></span>
 <span><span class="co">#&gt;   cyl &gt; 6</span></span>
 <span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; -- Generated by PRQL compiler version 0.4.1 (https://prql-lang.org)</span></span></code></pre></div>
-<p>This outputted SQL query string can be used with already existing
-great packages that manipulate data with SQL.</p>
+<span><span class="co">#&gt; -- Generated by PRQL compiler version:0.5.1 (https://prql-lang.org)</span></span></code></pre></div>
+<p>This output SQL query string can be used with already existing great
+packages that manipulate data with SQL.</p>
 <div class="section level2">
 <h2 id="work-with-db">Work with DB<a class="anchor" aria-label="anchor" href="#work-with-db"></a>
 </h2>
@@ -145,17 +156,17 @@ queries against the database.</p>
 <span><span class="st">derive [mpg_int = round 0 mpg]</span></span>
 <span><span class="st">take 3</span></span>
 <span><span class="st">"</span> <span class="op">|&gt;</span></span>
-<span>  <span class="fu"><a href="../reference/prql_compile.html">prql_compile</a></span><span class="op">(</span><span class="st">"sqlite"</span><span class="op">)</span> <span class="op">|&gt;</span></span>
+<span>  <span class="fu"><a href="../reference/prql_compile.html">prql_compile</a></span><span class="op">(</span><span class="st">"sql.sqlite"</span><span class="op">)</span> <span class="op">|&gt;</span></span>
 <span>  <span class="fu"><a href="https://dbi.r-dbi.org/reference/dbGetQuery.html" class="external-link">dbGetQuery</a></span><span class="op">(</span><span class="va">con</span>, statement <span class="op">=</span> <span class="va">_</span><span class="op">)</span></span>
 <span><span class="co">#&gt;   cyl  mpg mpg_int</span></span>
 <span><span class="co">#&gt; 1   8 18.7      19</span></span>
 <span><span class="co">#&gt; 2   8 14.3      14</span></span>
 <span><span class="co">#&gt; 3   8 16.4      16</span></span></code></pre></div>
 <p>Since SQLite is used here via <a href="https://rsqlite.r-dbi.org" class="external-link">RSQLite</a>, the
-<code>dialect</code> option of <code><a href="../reference/prql_compile.html">prql_compile()</a></code> is set to
-<code>"sqlite"</code>.</p>
-<p>Available dialect names can be found with the
-<code><a href="../reference/prql_available_dialects.html">prql_available_dialects()</a></code> function.</p>
+<code>target</code> option of <code><a href="../reference/prql_compile.html">prql_compile()</a></code> is set to
+<code>"sql.sqlite"</code>.</p>
+<p>Available target names can be found with the
+<code><a href="../reference/prql_get_targets.html">prql_get_targets()</a></code> function.</p>
 </div>
 <div class="section level2">
 <h2 id="work-with-r-data-frames">Work with R Data Frames<a class="anchor" aria-label="anchor" href="#work-with-r-data-frames"></a>
