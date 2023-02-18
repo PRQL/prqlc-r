@@ -52,13 +52,6 @@ License:     Apache-2.0 OR MIT
 
 -------------------------------------------------------------
 
-Name:        bstr
-Repository:  https://github.com/BurntSushi/bstr
-Authors:     Andrew Gallant
-License:     Apache-2.0 OR MIT
-
--------------------------------------------------------------
-
 Name:        cfg-if
 Repository:  https://github.com/alexcrichton/cfg-if
 Authors:     Alex Crichton
@@ -167,13 +160,6 @@ License:     Apache-2.0 OR MIT
 Name:        itertools
 Repository:  https://github.com/rust-itertools/itertools
 Authors:     bluss
-License:     Apache-2.0 OR MIT
-
--------------------------------------------------------------
-
-Name:        itoa
-Repository:  https://github.com/dtolnay/itoa
-Authors:     David Tolnay
 License:     Apache-2.0 OR MIT
 
 -------------------------------------------------------------
@@ -322,13 +308,6 @@ Name:        regex
 Repository:  https://github.com/rust-lang/regex
 Authors:     The Rust Project Developers
 License:     Apache-2.0 OR MIT
-
--------------------------------------------------------------
-
-Name:        regex-automata
-Repository:  https://github.com/BurntSushi/regex-automata
-Authors:     Andrew Gallant
-License:     MIT OR Unlicense
 
 -------------------------------------------------------------
 
