@@ -20,8 +20,8 @@ framework](https://extendr.github.io/).
 Requires R 4.2.0 or later.
 
 This package can be installed from CRAN or
-[R-universe](https://eitsupi.r-universe.dev/ui#package:prqlr). If
-available, a binary package will be installed.
+[R-universe](https://eitsupi.r-universe.dev/prqlr). If available, a
+binary package will be installed.
 
 ``` r
 # Install from CRAN
