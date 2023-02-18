@@ -10,7 +10,7 @@
     
     <a class="navbar-brand me-2" href="../index.html">prqlr</a>
 
-    <small class="nav-text text-danger me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="In-development version">0.1.0.9004</small>
+    <small class="nav-text text-danger me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="In-development version">0.1.0.9005</small>
 
     
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -58,10 +58,10 @@
 <div class="section level3">
 <h3 id="breaking-changes-development-version">Breaking changes<a class="anchor" aria-label="anchor" href="#breaking-changes-development-version"></a></h3>
 <ul><li>Based on unreleased version <a href="https://github.com/prql/prql" class="external-link"><code>prql-compiler</code></a> (<a href="https://github.com/eitsupi/prqlr/issues/71" class="external-link">#71</a>, <a href="https://github.com/eitsupi/prqlr/issues/77" class="external-link">#77</a>)</li>
-<li>The option name of <code><a href="../reference/prql_compile.html">prql_compile()</a></code> for specifying the compile target has been changed from <code>dialect</code> to <code>target</code>. The following two changes have also been made as a result of this change. (<a href="https://github.com/eitsupi/prqlr/issues/71" class="external-link">#71</a>)
-<ul><li>SQL dialects must be specified with the <code>sql.</code> prefix if they are to be targeted (e.g. <code>"duckdb"</code> -&gt; <code>"sql.duckdb"</code>).</li>
+<li>The option name of <code><a href="../reference/prql_compile.html">prql_compile()</a></code> for specifying the compile target has been changed from <code>dialect</code> to <code>target</code>. The following two changes have also been made as a result of this change.
+<ul><li>SQL dialects must be specified with the <code>sql.</code> prefix if they are to be targeted (e.g. <code>"duckdb"</code> -&gt; <code>"sql.duckdb"</code>). (<a href="https://github.com/eitsupi/prqlr/issues/71" class="external-link">#71</a>)</li>
 <li>
-<code>prql_available_dialects()</code> is renamed to <code><a href="../reference/prql_available_targets.html">prql_available_targets()</a></code>.</li>
+<code>prql_available_dialects()</code> is renamed to <code><a href="../reference/prql_get_targets.html">prql_get_targets()</a></code>. (<a href="https://github.com/eitsupi/prqlr/issues/85" class="external-link">#85</a>)</li>
 </ul></li>
 </ul></div>
 <div class="section level3">

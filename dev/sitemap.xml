@@ -28,10 +28,10 @@
     <loc>https://eitsupi.github.io/prqlr/dev/reference/index.html</loc>
   </url>
   <url>
-    <loc>https://eitsupi.github.io/prqlr/dev/reference/prql_available_targets.html</loc>
+    <loc>https://eitsupi.github.io/prqlr/dev/reference/prql_compile.html</loc>
   </url>
   <url>
-    <loc>https://eitsupi.github.io/prqlr/dev/reference/prql_compile.html</loc>
+    <loc>https://eitsupi.github.io/prqlr/dev/reference/prql_get_targets.html</loc>
   </url>
   <url>
     <loc>https://eitsupi.github.io/prqlr/dev/reference/prql_version.html</loc>
