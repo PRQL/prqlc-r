@@ -34,13 +34,13 @@ rq_to_sql <- function(rq_json) .Call(wrap__rq_to_sql, rq_json)
 #' @noRd
 compiler_version <- function() .Call(wrap__compiler_version)
 
-#' @title Available target names
-#' @description Available targets for the `target` option of the [prql_compile()] function.
+#' @title Get available target names
+#' @description Get available target names for the `target` option of the [prql_compile()] function.
 #' @return a character vector of target names.
 #' @examples
-#' prql_available_targets()
+#' prql_get_targets()
 #' @export
-prql_available_targets <- function() .Call(wrap__prql_available_targets)
+prql_get_targets <- function() .Call(wrap__prql_get_targets)
 
 
 # nolint end

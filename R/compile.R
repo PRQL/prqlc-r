@@ -5,7 +5,7 @@
 #' @param signature_comment a logical flag. Whether to add a signature comment to the output SQL query.
 #' @return a SQL query string
 #' @details [prql_to_sql] is deprecated in favor of [prql_compile].
-#' @seealso [prql_available_targets]
+#' @seealso [prql_get_targets]
 #' @examples
 #' "from mtcars | filter cyl > 6 | select [cyl, mpg]" |>
 #'   prql_compile()
@@ -37,11 +37,11 @@ prql_compile <- function(
     target = getOption("prqlr.target"),
     format = getOption("prqlr.format", TRUE),
     signature_comment = getOption("prqlr.signature_comment", TRUE)) {
-  if (length(target) == 1 && !(target %in% c(NA, prql_available_targets()))) {
+  if (length(target) == 1 && !(target %in% c(NA, prql_get_targets()))) {
     paste0(
       r"(Unsupported target `")",
       target,
-      r"("`. Please check with the `prql_available_targets()` function for available targets.)"
+      r"("`. Please check with the `prql_get_targets()` function for available targets.)"
     ) |>
       stop()
   }
