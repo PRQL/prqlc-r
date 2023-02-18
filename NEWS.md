@@ -4,10 +4,10 @@
 
 - Based on unreleased version [`prql-compiler`](https://github.com/prql/prql) (#71, #77)
 - The option name of `prql_compile()` for specifying the compile target has been changed from `dialect` to `target`.
-  The following two changes have also been made as a result of this change. (#71)
+  The following two changes have also been made as a result of this change.
   - SQL dialects must be specified with the `sql.` prefix if they are to be targeted
-    (e.g. `"duckdb"` -> `"sql.duckdb"`).
-  - `prql_available_dialects()` is renamed to `prql_get_targets()`.
+    (e.g. `"duckdb"` -> `"sql.duckdb"`). (#71)
+  - `prql_available_dialects()` is renamed to `prql_get_targets()`. (#85)
 
 ## New features
 
