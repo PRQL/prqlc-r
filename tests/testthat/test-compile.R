@@ -25,7 +25,7 @@ test_that("Not a string object", {
 test_that("Unsupported target", {
   expect_error(
     prql_compile("from a | select [b]", "foo"),
-    r"(Please check with the `prql_available_targets\(\)` function)"
+    r"(Please check with the `prql_get_targets\(\)` function)"
   )
   expect_error(
     prql_compile("prql target:foo\nfrom a | select [b]"),
@@ -75,7 +75,7 @@ take 2
 "
     expect_snapshot(cat(prql_compile(query, target, TRUE, FALSE)))
   },
-  target = prql_available_targets()
+  target = prql_get_targets()
 )
 
 test_that("prql-compiler's version", {
