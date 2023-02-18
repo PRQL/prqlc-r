@@ -59,5 +59,5 @@ select ![cyl]
   cat()
 }
 \seealso{
-\link{prql_available_targets}
+\link{prql_get_targets}
 }

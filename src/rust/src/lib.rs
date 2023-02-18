@@ -78,10 +78,10 @@ pub fn compiler_version() -> String {
 /// @description Available targets for the `target` option of the [prql_compile()] function.
 /// @return a character vector of target names.
 /// @examples
-/// prql_available_targets()
+/// prql_get_targets()
 /// @export
 #[extendr]
-pub fn prql_available_targets() -> Vec<String> {
+pub fn prql_get_targets() -> Vec<String> {
     prql_compiler::Target::names()
 }
 
@@ -92,5 +92,5 @@ extendr_module! {
     fn pl_to_rq;
     fn rq_to_sql;
     fn compiler_version;
-    fn prql_available_targets;
+    fn prql_get_targets;
 }

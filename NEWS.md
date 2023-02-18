@@ -7,7 +7,7 @@
   The following two changes have also been made as a result of this change. (#71)
   - SQL dialects must be specified with the `sql.` prefix if they are to be targeted
     (e.g. `"duckdb"` -> `"sql.duckdb"`).
-  - `prql_available_dialects()` is renamed to `prql_available_targets()`.
+  - `prql_available_dialects()` is renamed to `prql_get_targets()`.
 
 ## New features
 

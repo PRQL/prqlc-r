@@ -77,7 +77,7 @@ take 3
 
 Since SQLite is used here via `{RSQLite}`, the `target` option of `prql_compile()` is set to `"sql.sqlite"`.
 
-Available target names can be found with the `prql_available_targets()` function.
+Available target names can be found with the `prql_get_targets()` function.
 
 ## Work with R Data Frames
 

@@ -38,9 +38,9 @@ compiler_version <- function() .Call(wrap__compiler_version)
 #' @description Available targets for the `target` option of the [prql_compile()] function.
 #' @return a character vector of target names.
 #' @examples
-#' prql_available_targets()
+#' prql_get_targets()
 #' @export
-prql_available_targets <- function() .Call(wrap__prql_available_targets)
+prql_get_targets <- function() .Call(wrap__prql_get_targets)
 
 
 # nolint end
