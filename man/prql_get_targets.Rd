@@ -2,7 +2,7 @@
 % Please edit documentation in R/extendr-wrappers.R
 \name{prql_get_targets}
 \alias{prql_get_targets}
-\title{Available target names}
+\title{Get available target names}
 \usage{
 prql_get_targets()
 }
@@ -10,7 +10,7 @@ prql_get_targets()
 a character vector of target names.
 }
 \description{
-Available targets for the \code{target} option of the \code{\link[=prql_compile]{prql_compile()}} function.
+Get available target names for the \code{target} option of the \code{\link[=prql_compile]{prql_compile()}} function.
 }
 \examples{
 prql_get_targets()

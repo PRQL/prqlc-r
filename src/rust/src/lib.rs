@@ -74,8 +74,8 @@ pub fn compiler_version() -> String {
     prql_compiler::PRQL_VERSION.to_string()
 }
 
-/// @title Available target names
-/// @description Available targets for the `target` option of the [prql_compile()] function.
+/// @title Get available target names
+/// @description Get available target names for the `target` option of the [prql_compile()] function.
 /// @return a character vector of target names.
 /// @examples
 /// prql_get_targets()
