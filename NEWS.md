@@ -1,5 +1,9 @@
 # prqlr (development version)
 
+## Bug fixes
+
+- Thanks to new version of `extendr` and `libR-sys`, it can now be installed on arm64 Linux. (#90)
+
 # prqlr 0.2.0
 
 ## Breaking changes
