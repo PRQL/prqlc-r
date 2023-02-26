@@ -117,7 +117,7 @@ License:     Apache-2.0 OR MIT
 
 Name:        extendr-api
 Repository:  https://github.com/extendr/extendr
-Authors:     andy-thomason, Thomas Down, Mossa Merhi Reimert, Claus O. Wilke, Hiroaki Yutani, Ilia A. Kosenkov
+Authors:     andy-thomason, Thomas Down, Mossa Merhi Reimert, Claus O. Wilke, Hiroaki Yutani, Ilia A. Kosenkov, Michael Milton
 License:     MIT
 
 -------------------------------------------------------------
@@ -179,8 +179,8 @@ License:     Apache-2.0 OR MIT
 -------------------------------------------------------------
 
 Name:        libR-sys
-Repository:  
-Authors:     andy-thomason, Thomas Down, Mossa Merhi Reimert, Claus O. Wilke, Ilia Kosenkov, Hiroaki Yutani
+Repository:  https://github.com/extendr/libR-sys
+Authors:     andy-thomason, Thomas Down, Mossa Merhi Reimert, Claus O. Wilke, Ilia A. Kosenkov, Hiroaki Yutani
 License:     MIT
 
 -------------------------------------------------------------
