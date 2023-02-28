@@ -1,9 +1,11 @@
 # prqlr (development version)
 
+# prqlr 0.2.1
+
 ## Bug fixes
 
-- Thanks to new version of `extendr` and `libR-sys`, it can now be installed on arm64 Linux. (#90)
-- Now buildable with Rust version 1.60 (#94)
+- Thanks to new version of `extendr` and `libR-sys`, `prqlr` can now be installed on arm64 Linux. (#90)
+- Now buildable with Rust version 1.60 again (#94)
 
 # prqlr 0.2.0
 
