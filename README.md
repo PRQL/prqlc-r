@@ -33,8 +33,9 @@ install.packages("prqlr")
 install.packages("prqlr", repos = "https://eitsupi.r-universe.dev")
 ```
 
-For source installation, the Rust toolchain must be configured. Please
-check the <https://github.com/r-rust/hellorust> repository.
+For source installation, the Rust toolchain (Rust 1.60 or later) must be
+configured. Please check the <https://github.com/r-rust/hellorust>
+repository for about Rust code in R packages.
 
 ## Example
 
