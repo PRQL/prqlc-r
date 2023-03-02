@@ -7,9 +7,9 @@
 \usage{
 prql_compile(
   prql_query,
-  target = getOption("prqlr.target"),
-  format = getOption("prqlr.format", TRUE),
-  signature_comment = getOption("prqlr.signature_comment", TRUE)
+  target = getOption("prqlr.target", default = NULL),
+  format = getOption("prqlr.format", default = TRUE),
+  signature_comment = getOption("prqlr.signature_comment", default = TRUE)
 )
 
 prql_to_sql(prql)
@@ -47,7 +47,8 @@ select ![cyl]
   prql_compile("sql.duckdb") |>
   cat()
 
-# Target can also be written in the PRQL query.
+# If the `target` argument is `NULL` (default) or `NA` or `"sql.any"`,
+# the target specified in the header of the query will be used.
 "
 prql target:sql.duckdb
 

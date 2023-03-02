@@ -66,27 +66,6 @@ License:     MIT
 
 -------------------------------------------------------------
 
-Name:        const-random
-Repository:  https://github.com/tkaitchuck/constrandom
-Authors:     Tom Kaitchuck
-License:     Apache-2.0 OR MIT
-
--------------------------------------------------------------
-
-Name:        const-random-macro
-Repository:  https://github.com/tkaitchuck/constrandom
-Authors:     Tom Kaitchuck
-License:     Apache-2.0 OR MIT
-
--------------------------------------------------------------
-
-Name:        crunchy
-Repository:  
-Authors:     Vurich
-License:     MIT
-
--------------------------------------------------------------
-
 Name:        csv
 Repository:  https://github.com/BurntSushi/rust-csv
 Authors:     Andrew Gallant
@@ -146,6 +125,13 @@ License:     Apache-2.0 OR MIT
 Name:        gimli
 Repository:  https://github.com/gimli-rs/gimli
 Authors:     gimli authors
+License:     Apache-2.0 OR MIT
+
+-------------------------------------------------------------
+
+Name:        hashbrown
+Repository:  https://github.com/rust-lang/hashbrown
+Authors:     Amanieu d'Antras
 License:     Apache-2.0 OR MIT
 
 -------------------------------------------------------------
@@ -248,41 +234,6 @@ License:     Apache-2.0 OR MIT
 
 -------------------------------------------------------------
 
-Name:        pest
-Repository:  https://github.com/pest-parser/pest
-Authors:     Dragoș Tiselice
-License:     Apache-2.0 OR MIT
-
--------------------------------------------------------------
-
-Name:        pest_derive
-Repository:  https://github.com/pest-parser/pest
-Authors:     Dragoș Tiselice
-License:     Apache-2.0 OR MIT
-
--------------------------------------------------------------
-
-Name:        pest_generator
-Repository:  https://github.com/pest-parser/pest
-Authors:     Dragoș Tiselice
-License:     Apache-2.0 OR MIT
-
--------------------------------------------------------------
-
-Name:        pest_meta
-Repository:  https://github.com/pest-parser/pest
-Authors:     Dragoș Tiselice
-License:     Apache-2.0 OR MIT
-
--------------------------------------------------------------
-
-Name:        proc-macro-hack
-Repository:  https://github.com/dtolnay/proc-macro-hack
-Authors:     David Tolnay
-License:     Apache-2.0 OR MIT
-
--------------------------------------------------------------
-
 Name:        proc-macro2
 Repository:  https://github.com/dtolnay/proc-macro2
 Authors:     David Tolnay, Alex Crichton
@@ -294,6 +245,13 @@ Name:        prql-compiler
 Repository:  https://github.com/PRQL/prql
 Authors:     prql-compiler authors
 License:     Apache-2.0
+
+-------------------------------------------------------------
+
+Name:        psm
+Repository:  https://github.com/rust-lang/stacker/
+Authors:     Simonas Kazlauskas
+License:     Apache-2.0 OR MIT
 
 -------------------------------------------------------------
 
@@ -381,6 +339,13 @@ License:     Apache-2.0
 
 -------------------------------------------------------------
 
+Name:        stacker
+Repository:  https://github.com/rust-lang/stacker
+Authors:     Alex Crichton, Simonas Kazlauskas
+License:     Apache-2.0 OR MIT
+
+-------------------------------------------------------------
+
 Name:        strum
 Repository:  https://github.com/Peternator7/strum
 Authors:     Peter Glotfelty
@@ -398,34 +363,6 @@ License:     MIT
 Name:        syn
 Repository:  https://github.com/dtolnay/syn
 Authors:     David Tolnay
-License:     Apache-2.0 OR MIT
-
--------------------------------------------------------------
-
-Name:        thiserror
-Repository:  https://github.com/dtolnay/thiserror
-Authors:     David Tolnay
-License:     Apache-2.0 OR MIT
-
--------------------------------------------------------------
-
-Name:        thiserror-impl
-Repository:  https://github.com/dtolnay/thiserror
-Authors:     David Tolnay
-License:     Apache-2.0 OR MIT
-
--------------------------------------------------------------
-
-Name:        tiny-keccak
-Repository:  
-Authors:     debris
-License:     CC0-1.0
-
--------------------------------------------------------------
-
-Name:        ucd-trie
-Repository:  https://github.com/BurntSushi/ucd-generate
-Authors:     Andrew Gallant
 License:     Apache-2.0 OR MIT
 
 -------------------------------------------------------------
@@ -448,6 +385,27 @@ Name:        wasi
 Repository:  https://github.com/bytecodealliance/wasi
 Authors:     The Cranelift Project Developers
 License:     Apache-2.0 OR Apache-2.0 WITH LLVM-exception OR MIT
+
+-------------------------------------------------------------
+
+Name:        winapi
+Repository:  https://github.com/retep998/winapi-rs
+Authors:     Peter Atashian
+License:     Apache-2.0 OR MIT
+
+-------------------------------------------------------------
+
+Name:        winapi-i686-pc-windows-gnu
+Repository:  https://github.com/retep998/winapi-rs
+Authors:     Peter Atashian
+License:     Apache-2.0 OR MIT
+
+-------------------------------------------------------------
+
+Name:        winapi-x86_64-pc-windows-gnu
+Repository:  https://github.com/retep998/winapi-rs
+Authors:     Peter Atashian
+License:     Apache-2.0 OR MIT
 
 -------------------------------------------------------------
 

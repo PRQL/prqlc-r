@@ -6,6 +6,10 @@ test_that("target set in the header ", {
     "SELECT TOP (1) * FROM a"
   )
   expect_equal(
+    prql_compile(mssql_query, target = "sql.any", format = FALSE, signature_comment = FALSE),
+    "SELECT TOP (1) * FROM a"
+  )
+  expect_equal(
     prql_compile(mssql_query, target = "sql.generic", format = FALSE, signature_comment = FALSE),
     "SELECT * FROM a LIMIT 1"
   )
@@ -79,5 +83,5 @@ take 2
 )
 
 test_that("prql-compiler's version", {
-  expect_equal(prql_version(), numeric_version("0.5.1"))
+  expect_equal(prql_version(), numeric_version("0.5.2"))
 })
