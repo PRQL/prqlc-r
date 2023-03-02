@@ -1,5 +1,12 @@
 # prqlr (development version)
 
+## New features
+
+- Based on unreleased version [`prql-compiler`](https://github.com/prql/prql). (#97)
+- A new compile target `"sql.any"` can be specified in `prql_compile()`'s `target` option.
+  This is the same as the traditional unspecified (`NULL`) target
+  with respect to using the target specified in the header of the query as the target. (#97)
+
 # prqlr 0.2.1
 
 ## Bug fixes
