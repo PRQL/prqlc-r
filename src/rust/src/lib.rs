@@ -18,21 +18,41 @@ pub fn compile(
     format: bool,
     signature_comment: bool,
 ) -> List {
-    let target = prql_compiler::Target::from_str(&target.unwrap_or_default()).unwrap_or_default();
-
-    let options: prql_compiler::Options = prql_compiler::Options {
+    let options = convert_options(CompileOptions {
         format,
-        target,
+        target: target.unwrap_or("sql.any".to_string()),
         signature_comment,
-    };
+    });
 
-    let result = Ok(prql_query)
-        .and_then(prql_compiler::prql_to_pl)
-        .and_then(prql_compiler::pl_to_rq)
-        .and_then(|rq| prql_compiler::rq_to_sql(rq, options))
+    let result = options
+        .and_then(|opts| {
+            Ok(prql_query)
+                .and_then(prql_compiler::prql_to_pl)
+                .and_then(prql_compiler::pl_to_rq)
+                .and_then(|rq| prql_compiler::rq_to_sql(rq, &opts))
+        })
         .map_err(|e| e.composed("", prql_query, false));
 
     r_result_list(result)
+}
+
+struct CompileOptions {
+    format: bool,
+    target: String,
+    signature_comment: bool,
+}
+
+fn convert_options(
+    o: CompileOptions,
+) -> core::result::Result<prql_compiler::Options, prql_compiler::ErrorMessages> {
+    let target = prql_compiler::Target::from_str(&o.target)
+        .map_err(|e| prql_compiler::downcast(e.into()))?;
+
+    Ok(prql_compiler::Options {
+        format: o.format,
+        target,
+        signature_comment: o.signature_comment,
+    })
 }
 
 /// @noRd
@@ -61,7 +81,7 @@ pub fn pl_to_rq(pl_json: &str) -> List {
 pub fn rq_to_sql(rq_json: &str) -> List {
     let result = Ok(rq_json)
         .and_then(prql_compiler::json::to_rq)
-        .and_then(|x| prql_compiler::rq_to_sql(x, prql_compiler::Options::default()));
+        .and_then(|x| prql_compiler::rq_to_sql(x, &prql_compiler::Options::default()));
 
     r_result_list(result)
 }
