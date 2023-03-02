@@ -6,6 +6,10 @@ test_that("target set in the header ", {
     "SELECT TOP (1) * FROM a"
   )
   expect_equal(
+    prql_compile(mssql_query, target = "sql.any", format = FALSE, signature_comment = FALSE),
+    "SELECT TOP (1) * FROM a"
+  )
+  expect_equal(
     prql_compile(mssql_query, target = "sql.generic", format = FALSE, signature_comment = FALSE),
     "SELECT * FROM a LIMIT 1"
   )
