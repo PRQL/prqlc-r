@@ -15,6 +15,7 @@ Suggests:
     knitr (>= 1.38),
     rmarkdown,
     DBI,
+    glue,
     RSQLite,
     tidyquery,
     nycflights13,
