@@ -8,6 +8,10 @@ eng_prql <- function(options) {
   prql_code <- options$code |>
     paste0(collapse = "\n")
 
+  if (.get_engine_opt(options, "glue", FALSE)) {
+    prql_code <- glue::glue(prql_code, .open = "{{", .close = "}}")
+  }
+
   target <- .get_engine_opt(options, "target", getOption("prqlr.target"))
   signature_comment <- .get_engine_opt(options, "signature_comment", getOption("prqlr.signature_comment", TRUE))
 
