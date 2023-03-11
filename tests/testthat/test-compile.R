@@ -83,5 +83,5 @@ take 2
 )
 
 test_that("prql-compiler's version", {
-  expect_equal(prql_version(), numeric_version("0.5.2"))
+  expect_equal(prql_version(), numeric_version("0.6.0"))
 })
