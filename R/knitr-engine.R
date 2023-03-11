@@ -9,7 +9,7 @@ eng_prql <- function(options) {
     paste0(collapse = "\n")
 
   if (.get_engine_opt(options, "glue", FALSE)) {
-    prql_code <- glue::glue(prql_code, .open = "{{", .close = "}}")
+    prql_code <- glue::glue(prql_code, .open = "{{", .close = "}}", .envir = knitr::knit_global())
   }
 
   target <- .get_engine_opt(options, "target", getOption("prqlr.target"))
