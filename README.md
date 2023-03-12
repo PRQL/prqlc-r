@@ -109,8 +109,8 @@ select [cyl, mpg]" |>
 ## `{knitr}` integration
 
 Using `{prqlr}` with `{knitr}` makes it easy to create documents that
-convert PRQL to SQL, or actually manipulate the database with PRQL to
-get results (requires the `{DBI}` package and DBI backends).
+lists PRQL queries and a translated SQL queries, or documents that lists
+PRQL queries and tables of data retrieved by PRQL queries.
 
 Please check the vignette `vignette("knitr", "prqlr")` for details.
 
