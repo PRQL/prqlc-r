@@ -120,3 +120,27 @@
         cyl > 6
       ```
 
+---
+
+    Code
+      .knit_file("glue.Rmd")
+    Output
+      
+      ```r
+      a <- "hello"
+      b <- "world"
+      ```
+      
+      
+      ```elm
+      from hello
+      select world
+      ```
+      
+      ```sql
+      SELECT
+        world
+      FROM
+        hello
+      ```
+

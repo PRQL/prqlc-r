@@ -1,0 +1,9 @@
+```{r}
+a <- "hello"
+b <- "world"
+```
+
+```{prql, engine.opts=list(use_glue=TRUE, signature_comment=FALSE)}
+from {{a}}
+select {{b}}
+```
