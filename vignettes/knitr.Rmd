@@ -108,6 +108,8 @@ cat("````markdown", res_without_con, "````", sep = "")
 
 ## Engine options
 
+### Compiler options
+
 We can pass some options of `prql_compile()` via the chunk option `engine-opts` (or `engine.opts`).
 
 Note that the `format` option is always `TRUE` for PRQL code chunks.
@@ -146,4 +148,50 @@ take 3
 invisible(knitr::knit_child(text = src_engine_opts, quiet = TRUE))
 
 cat("````markdown", src_engine_opts, "````", sep = "")
+````
+
+### Parameterized PRQL code blocks
+
+The experimental engine option `use_glue` can be used to insert R variables into PRQL queries.
+
+Characters enclosed in `{{` and `}}` are replaced by the `glue::glue()` function
+before being passed to the `prql_compile()` function.
+
+````{r}
+#| echo: false
+#| results: asis
+
+src_glue <- r"(
+```{r}
+#| echo: false
+
+library(prqlr)
+
+cyl_min <- 6
+derive_or_select <- "derive"
+```
+
+```{prql}
+#| engine-opts:
+#|   use_glue: true
+
+from mtcars
+filter cyl > {{cyl_min}}
+select [cyl, mpg]
+{{derive_or_select}} [mpg_int = round 0 mpg]
+take 3
+```
+)"
+
+cat("````markdown", src_glue, "````", sep = "")
+````
+
+The R Markdown file above will be converted to the Markdown file below.
+
+````{r}
+#| echo: false
+#| results: asis
+
+res_glue <- knitr::knit_child(text = src_glue, quiet = TRUE)
+cat("````markdown", res_glue, "````", sep = "")
 ````
