@@ -7,3 +7,25 @@ b <- "world"
 from {{a}}
 select {{b}}
 ```
+
+```{r}
+#| echo: false
+
+library(DBI)
+con <- dbConnect(RSQLite::SQLite(), ":memory:")
+dbWriteTable(con, "mtcars", mtcars)
+```
+
+```{prql}
+#| connection: con
+#| engine-opts:
+#|   target: sql.sqlite
+#|   signature_comment: false
+#|   use_glue: true
+from mtcars
+select {{a}}
+```
+
+```{r, echo=FALSE}
+dbDisconnect(con)
+```

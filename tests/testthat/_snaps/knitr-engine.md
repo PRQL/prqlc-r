@@ -143,4 +143,17 @@
       FROM
         hello
       ```
+      
+      
+      
+      
+      ```elm
+      from mtcars
+      select hello
+      ```
+      
+      ```
+      ## Error: no such column: hello
+      ```
+      
 
