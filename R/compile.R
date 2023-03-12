@@ -1,5 +1,5 @@
 #' @title Compile a PRQL query into a SQL query
-#' @param prql_query,prql a PRQL query string.
+#' @param prql_query a PRQL query string.
 #' @param target a compile target name to use. If not specified, the target contained in the query will be used.
 #' @param format a logical flag. Whether to format the SQL query.
 #' @param signature_comment a logical flag. Whether to add a signature comment to the output SQL query.

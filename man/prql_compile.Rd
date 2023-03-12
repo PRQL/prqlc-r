@@ -12,7 +12,7 @@ prql_compile(
 )
 }
 \arguments{
-\item{prql_query, prql}{a PRQL query string.}
+\item{prql_query}{a PRQL query string.}
 
 \item{target}{a compile target name to use. If not specified, the target contained in the query will be used.}
 
