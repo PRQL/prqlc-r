@@ -9,6 +9,8 @@
 - A new compile target `"sql.any"` can be specified in `prql_compile()`'s `target` option.
   This is the same as the traditional unspecified (`NULL`) target
   with respect to using the target specified in the header of the query as the target. (#97)
+- Experimental new engine option `use_glue` of `prql` engine on `{knitr}` documents.
+  See the vignette `vignette("knitr", "prqlr")` for details.
 
 # prqlr 0.2.1
 
