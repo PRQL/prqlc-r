@@ -2,6 +2,5 @@
 
 export(prql_compile)
 export(prql_get_targets)
-export(prql_to_sql)
 export(prql_version)
 useDynLib(prqlr, .registration = TRUE)
