@@ -3,6 +3,7 @@
 ## Breaking changes
 
 - Based on unreleased version [`prql-compiler`](https://github.com/prql/prql) (#97, #99, #101)
+- The `prql_to_sql()` function (deprecated in favor of `prql_compile()` from `prqlr` 0.1.0) is removed. (#105)
 
 ## New features
 
