@@ -74,7 +74,7 @@ tasks:
     generates:
       - man/*.Rd
     status:
-      - Rscript -e 'desc::desc_get("RoxygenNote") == packageVersion("roxygen2")' | grep 'TRUE'
+      - Rscript -e 'if (desc::desc_get("RoxygenNote") < packageVersion("roxygen2")) quit(status = 1)'
     deps:
       - build-extendr-wrappers
     cmds:
@@ -90,7 +90,7 @@ tasks:
     generates:
       - R/extendr-wrappers.R
     status:
-      - Rscript -e 'desc::desc_get("Config/rextendr/version") == packageVersion("rextendr")' | grep 'TRUE'
+      - Rscript -e 'if (desc::desc_get("Config/rextendr/version") < packageVersion("rextendr")) quit(status = 1)'
     cmds:
       - Rscript -e 'rextendr::document()'
 
