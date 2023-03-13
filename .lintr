@@ -2,3 +2,6 @@ linters: linters_with_defaults(
     line_length_linter(120)
     )
 encoding: "UTF-8"
+exclusions: list(
+    "vignettes/knitr.Rmd" = Inf # https://github.com/r-lib/lintr/issues/1928
+    )

@@ -3,6 +3,12 @@ version: "3"
 env:
   NOT_CRAN: true
 
+vars:
+  MANIFEST: src/rust/Cargo.toml
+  R_SOURCE: R/*
+  VIGNETTES: vignettes/**/*.Rmd
+  RUST_SOURCE: src/rust/src/**/*.rs
+
 tasks:
   setup-dev:
     desc: Install tools for development.
@@ -44,10 +50,10 @@ tasks:
     internal: true
     sources:
       - tests/**/*
-      - R/*
+      - "{{.R_SOURCE}}"
       - src/Makevars*
-      - src/rust/Cargo.toml
-      - src/rust/src/**/*.rs
+      - "{{.MANIFEST}}"
+      - "{{.RUST_SOURCE}}"
     cmds:
       - Rscript -e 'devtools::load_all(); devtools::test()'
 
@@ -55,11 +61,11 @@ tasks:
     desc: Check if vignettes can be rendered.
     internal: true
     sources:
-      - vignettes/**/*.Rmd
-      - R/*
+      - "{{.VIGNETTES}}"
+      - "{{.R_SOURCE}}"
       - src/Makevars*
-      - src/rust/Cargo.toml
-      - src/rust/src/**/*.rs
+      - "{{.MANIFEST}}"
+      - "{{.RUST_SOURCE}}"
     cmds:
       - Rscript -e
         'devtools::load_all();
@@ -70,11 +76,11 @@ tasks:
     desc: Build the R package and generate documents.
     internal: true
     sources:
-      - R/*
+      - "{{.R_SOURCE}}"
     generates:
       - man/*.Rd
     status:
-      - Rscript -e 'desc::desc_get("RoxygenNote") == packageVersion("roxygen2")' | grep 'TRUE'
+      - Rscript -e 'if (desc::desc_get("RoxygenNote") < packageVersion("roxygen2")) quit(status = 1)'
     deps:
       - build-extendr-wrappers
     cmds:
@@ -85,12 +91,12 @@ tasks:
     desc: Build the extendr wrappers.
     sources:
       - src/Makevars*
-      - src/rust/Cargo.toml
-      - src/rust/src/**/*.rs
+      - "{{.MANIFEST}}"
+      - "{{.RUST_SOURCE}}"
     generates:
       - R/extendr-wrappers.R
     status:
-      - Rscript -e 'desc::desc_get("Config/rextendr/version") == packageVersion("rextendr")' | grep 'TRUE'
+      - Rscript -e 'if (desc::desc_get("Config/rextendr/version") < packageVersion("rextendr")) quit(status = 1)'
     cmds:
       - Rscript -e 'rextendr::document()'
 
@@ -110,13 +116,49 @@ tasks:
     desc: Build README.md
     sources:
       - README.Rmd
-      - R/*
+      - "{{.R_SOURCE}}"
       - src/Makevars*
-      - src/rust/Cargo.toml
-      - src/rust/src/**/*.rs
+      - "{{.MANIFEST}}"
+      - "{{.RUST_SOURCE}}"
     generates:
       - README.md
     cmds:
       - Rscript -e
         'devtools::load_all();
         rmarkdown::render(input = "README.Rmd", output_file = "README.md")'
+
+  test-snapshot-accept:
+    desc: Accept all test snapshots. (Shortcut to accept snapshots after running tests)
+    cmds:
+      - Rscript -e 'testthat::snapshot_accept()'
+
+  lint-and-format:
+    desc: Lint and auto-format R and Rust code.
+    deps:
+      - lint-and-format-r
+      - lint-and-format-rust
+
+  lint-and-format-r:
+    internal: true
+    desc: Lint and auto-format R code.
+    sources:
+      - "{{.R_SOURCE}}"
+      - "{{.VIGNETTES}}"
+    deps:
+      - build-extendr-wrappers
+    cmds:
+      - Rscript -e
+        'devtools::load_all();
+        lintr::lint_package();
+        styler::style_pkg()'
+
+  lint-and-format-rust:
+    internal: true
+    desc: Lint and auto-format Rust code.
+    sources:
+      - "{{.MANIFEST}}"
+      - src/rust/Cargo.lock
+      - "{{.RUST_SOURCE}}"
+    cmds:
+      - cargo clippy --manifest-path {{.MANIFEST}}
+      - cargo fmt --manifest-path {{.MANIFEST}}
