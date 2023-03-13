@@ -120,3 +120,8 @@ tasks:
       - Rscript -e
         'devtools::load_all();
         rmarkdown::render(input = "README.Rmd", output_file = "README.md")'
+
+  test-snapshot-accept:
+    desc: Accept all test snapshots. (Shortcut to accept snapshots after running tests)
+    cmds:
+      - Rscript -e 'testthat::snapshot_accept()'
