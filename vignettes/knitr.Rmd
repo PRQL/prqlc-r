@@ -61,8 +61,12 @@ After rendering, a Markdown file named `test.md` is generated with the following
 #| echo: false
 #| results: asis
 
-res_with_con <- knitr::knit_child(text = src_with_con, quiet = TRUE)
-cat("````markdown", res_with_con, "````", sep = "")
+cat(
+  "````markdown",
+  knitr::knit_child(text = src_with_con, quiet = TRUE),
+  "````",
+  sep = ""
+)
 ````
 
 Note that the syntax highlighting of Elm is the best for PRQL,
@@ -102,8 +106,12 @@ The R Markdown file above will be converted to the Markdown file below.
 #| echo: false
 #| results: asis
 
-res_without_con <- knitr::knit_child(text = src_without_con, quiet = TRUE)
-cat("````markdown", res_without_con, "````", sep = "")
+cat(
+  "````markdown",
+  knitr::knit_child(text = src_without_con, quiet = TRUE),
+  "````",
+  sep = ""
+)
 ````
 
 ## Engine options
