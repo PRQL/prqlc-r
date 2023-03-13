@@ -125,3 +125,9 @@ tasks:
     desc: Accept all test snapshots. (Shortcut to accept snapshots after running tests)
     cmds:
       - Rscript -e 'testthat::snapshot_accept()'
+
+  lint-r:
+    internal: true
+    desc: Lint R code.
+    cmds:
+      - Rscript -e 'devtools::load_all(); lintr::lint_package()'
