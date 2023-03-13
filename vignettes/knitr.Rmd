@@ -192,6 +192,53 @@ The R Markdown file above will be converted to the Markdown file below.
 #| echo: false
 #| results: asis
 
-res_glue <- knitr::knit_child(text = src_glue, quiet = TRUE)
-cat("````markdown", res_glue, "````", sep = "")
+cat(
+  "````markdown",
+  knitr::knit_child(text = src_glue, quiet = TRUE),
+  "````",
+  sep = ""
+)
+````
+
+### Use query strings in R code blocks
+
+With the experimental `use_glue` option, the query string can even be defined completely in R side.
+
+````{r}
+#| echo: false
+#| results: asis
+
+src_query_from_r <- r"(
+```{r}
+#| echo: false
+
+library(prqlr)
+
+prql_query <- "from mtcars
+select cyl"
+```
+
+```{prql}
+#| engine-opts:
+#|   use_glue: true
+
+{{prql_query}}
+```
+)"
+
+cat("````markdown", src_query_from_r, "````", sep = "")
+````
+
+This example outputs the following.
+
+````{r}
+#| echo: false
+#| results: asis
+
+cat(
+  "````markdown",
+  knitr::knit_child(text = src_query_from_r, quiet = TRUE),
+  "````",
+  sep = ""
+)
 ````
