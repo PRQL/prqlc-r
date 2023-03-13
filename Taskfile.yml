@@ -3,6 +3,9 @@ version: "3"
 env:
   NOT_CRAN: true
 
+vars:
+  MANIFEST: src/rust/Cargo.toml
+
 tasks:
   setup-dev:
     desc: Install tools for development.
@@ -46,7 +49,7 @@ tasks:
       - tests/**/*
       - R/*
       - src/Makevars*
-      - src/rust/Cargo.toml
+      - "{{.MANIFEST}}"
       - src/rust/src/**/*.rs
     cmds:
       - Rscript -e 'devtools::load_all(); devtools::test()'
@@ -58,7 +61,7 @@ tasks:
       - vignettes/**/*.Rmd
       - R/*
       - src/Makevars*
-      - src/rust/Cargo.toml
+      - "{{.MANIFEST}}"
       - src/rust/src/**/*.rs
     cmds:
       - Rscript -e
@@ -85,7 +88,7 @@ tasks:
     desc: Build the extendr wrappers.
     sources:
       - src/Makevars*
-      - src/rust/Cargo.toml
+      - "{{.MANIFEST}}"
       - src/rust/src/**/*.rs
     generates:
       - R/extendr-wrappers.R
@@ -112,7 +115,7 @@ tasks:
       - README.Rmd
       - R/*
       - src/Makevars*
-      - src/rust/Cargo.toml
+      - "{{.MANIFEST}}"
       - src/rust/src/**/*.rs
     generates:
       - README.md
@@ -126,8 +129,29 @@ tasks:
     cmds:
       - Rscript -e 'testthat::snapshot_accept()'
 
-  lint-r:
+  lint-and-format:
+    desc: Lint and auto-format R and Rust code.
+    deps:
+      - lint-and-format-r
+      - lint-and-format-rust
+
+  lint-and-format-r:
     internal: true
-    desc: Lint R code.
+    desc: Lint and auto-format R code.
+    sources:
+      - R/*
+      - vignettes/**/*.Rmd
+    deps:
+      - build-extendr-wrappers
     cmds:
-      - Rscript -e 'devtools::load_all(); lintr::lint_package()'
+      - Rscript -e
+        'devtools::load_all();
+        lintr::lint_package();
+        styler::style_pkg()'
+
+  lint-and-format-rust:
+    internal: true
+    desc: Lint and auto-format Rust code.
+    cmds:
+      - cargo clippy --manifest-path {{.MANIFEST}}
+      - cargo fmt --manifest-path {{.MANIFEST}}
