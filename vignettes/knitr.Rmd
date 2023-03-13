@@ -61,8 +61,12 @@ After rendering, a Markdown file named `test.md` is generated with the following
 #| echo: false
 #| results: asis
 
-res_with_con <- knitr::knit_child(text = src_with_con, quiet = TRUE)
-cat("````markdown", res_with_con, "````", sep = "")
+cat(
+  "````markdown",
+  knitr::knit_child(text = src_with_con, quiet = TRUE),
+  "````",
+  sep = ""
+)
 ````
 
 Note that the syntax highlighting of Elm is the best for PRQL,
@@ -102,11 +106,17 @@ The R Markdown file above will be converted to the Markdown file below.
 #| echo: false
 #| results: asis
 
-res_without_con <- knitr::knit_child(text = src_without_con, quiet = TRUE)
-cat("````markdown", res_without_con, "````", sep = "")
+cat(
+  "````markdown",
+  knitr::knit_child(text = src_without_con, quiet = TRUE),
+  "````",
+  sep = ""
+)
 ````
 
 ## Engine options
+
+### Compiler options
 
 We can pass some options of `prql_compile()` via the chunk option `engine-opts` (or `engine.opts`).
 
@@ -146,4 +156,97 @@ take 3
 invisible(knitr::knit_child(text = src_engine_opts, quiet = TRUE))
 
 cat("````markdown", src_engine_opts, "````", sep = "")
+````
+
+### Parameterized PRQL code blocks
+
+The experimental engine option `use_glue` can be used to insert R variables into PRQL queries.
+
+Characters enclosed in `{{` and `}}` are replaced by the `glue::glue()` function
+before being passed to the `prql_compile()` function.
+
+````{r}
+#| echo: false
+#| results: asis
+
+src_glue <- r"(
+```{r}
+#| echo: false
+
+library(prqlr)
+
+cyl_min <- 6
+derive_or_select <- "derive"
+```
+
+```{prql}
+#| engine-opts:
+#|   use_glue: true
+
+from mtcars
+filter cyl > {{cyl_min}}
+select [cyl, mpg]
+{{derive_or_select}} [mpg_int = round 0 mpg]
+take 3
+```
+)"
+
+cat("````markdown", src_glue, "````", sep = "")
+````
+
+The R Markdown file above will be converted to the Markdown file below.
+
+````{r}
+#| echo: false
+#| results: asis
+
+cat(
+  "````markdown",
+  knitr::knit_child(text = src_glue, quiet = TRUE),
+  "````",
+  sep = ""
+)
+````
+
+### Use query strings in R code blocks
+
+With the experimental `use_glue` option, the query string can even be defined completely in R side.
+
+````{r}
+#| echo: false
+#| results: asis
+
+src_query_from_r <- r"(
+```{r}
+#| echo: false
+
+library(prqlr)
+
+prql_query <- "from mtcars
+select cyl"
+```
+
+```{prql}
+#| engine-opts:
+#|   use_glue: true
+
+{{prql_query}}
+```
+)"
+
+cat("````markdown", src_query_from_r, "````", sep = "")
+````
+
+This example outputs the following.
+
+````{r}
+#| echo: false
+#| results: asis
+
+cat(
+  "````markdown",
+  knitr::knit_child(text = src_query_from_r, quiet = TRUE),
+  "````",
+  sep = ""
+)
 ````

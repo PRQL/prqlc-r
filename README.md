@@ -39,7 +39,7 @@ For source installation, the Rust toolchain (Rust 1.65 or later) must be
 configured. Please check the <https://github.com/r-rust/hellorust>
 repository for about Rust code in R packages.
 
-## Example
+## Examples
 
 ``` r
 library(prqlr)
@@ -105,6 +105,14 @@ select [cyl, mpg]" |>
 #>   filter(cyl > 6) %>%
 #>   select(cyl, mpg)
 ```
+
+## `{knitr}` integration
+
+Using `{prqlr}` with `{knitr}` makes it easy to create documents that
+lists PRQL queries and a translated SQL queries, or documents that lists
+PRQL queries and tables of data retrieved by PRQL queries.
+
+Please check the vignette `vignette("knitr", "prqlr")` for details.
 
 ## Development
 
