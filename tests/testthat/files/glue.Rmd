@@ -1,0 +1,28 @@
+```{r}
+a <- "hello"
+b <- "world"
+```
+
+```{prql, engine.opts=list(use_glue=TRUE, signature_comment=FALSE)}
+from {{a}}
+select {{b}}
+```
+
+```{r}
+#| echo: false
+#| file: set-db.R
+```
+
+```{prql}
+#| connection: con
+#| engine-opts:
+#|   target: sql.sqlite
+#|   signature_comment: false
+#|   use_glue: true
+from mtcars
+select {{a}}
+```
+
+```{r, echo=FALSE}
+dbDisconnect(con)
+```

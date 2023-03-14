@@ -2,13 +2,16 @@
 
 ## Breaking changes
 
-- Based on unreleased version [`prql-compiler`](https://github.com/prql/prql) (#97, #99, #101)
+- Based on [`prql-compiler`](https://github.com/prql/prql) 0.6.1  (#97, #99, #101, #106)
+- The `prql_to_sql()` function (deprecated in favor of `prql_compile()` from `prqlr` 0.1.0) is removed. (#105)
 
 ## New features
 
 - A new compile target `"sql.any"` can be specified in `prql_compile()`'s `target` option.
   This is the same as the traditional unspecified (`NULL`) target
   with respect to using the target specified in the header of the query as the target. (#97)
+- An experimental new engine option `use_glue` of `prql` engine on `{knitr}` documents powered by the `{glue}` package.
+  See the vignette `vignette("knitr", "prqlr")` for details. (#103)
 
 # prqlr 0.2.1
 

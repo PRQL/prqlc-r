@@ -8,6 +8,10 @@ eng_prql <- function(options) {
   prql_code <- options$code |>
     paste0(collapse = "\n")
 
+  if (.get_engine_opt(options, "use_glue", FALSE)) {
+    prql_code <- glue::glue(prql_code, .open = "{{", .close = "}}", .envir = knitr::knit_global())
+  }
+
   target <- .get_engine_opt(options, "target", getOption("prqlr.target"))
   signature_comment <- .get_engine_opt(options, "signature_comment", getOption("prqlr.signature_comment", TRUE))
 
@@ -16,6 +20,10 @@ eng_prql <- function(options) {
 
   # elm coincidentally provides the best syntax highlight for prql.
   options$lang <- options$lang %||% "elm"
+
+  # Workaround for Quarto CLI 1.3
+  # https://github.com/quarto-dev/quarto-cli/pull/4735
+  options$engine <- "elm"
 
   # Prints a SQL code block if there is no connection
   if (is.null(options$connection)) {

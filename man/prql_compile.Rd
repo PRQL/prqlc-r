@@ -2,7 +2,6 @@
 % Please edit documentation in R/compile.R
 \name{prql_compile}
 \alias{prql_compile}
-\alias{prql_to_sql}
 \title{Compile a PRQL query into a SQL query}
 \usage{
 prql_compile(
@@ -11,11 +10,9 @@ prql_compile(
   format = getOption("prqlr.format", default = TRUE),
   signature_comment = getOption("prqlr.signature_comment", default = TRUE)
 )
-
-prql_to_sql(prql)
 }
 \arguments{
-\item{prql_query, prql}{a PRQL query string.}
+\item{prql_query}{a PRQL query string.}
 
 \item{target}{a compile target name to use. If not specified, the target contained in the query will be used.}
 
@@ -28,9 +25,6 @@ a SQL query string
 }
 \description{
 Compile a PRQL query into a SQL query
-}
-\details{
-\link{prql_to_sql} is deprecated in favor of \link{prql_compile}.
 }
 \examples{
 "from mtcars | filter cyl > 6 | select [cyl, mpg]" |>
