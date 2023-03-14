@@ -1,17 +1,14 @@
+```{prql, file="simple.prql", lang="prql"}
+```
+
 ```{r}
 #| echo: false
 #| file: set-db.R
 ```
 
 ```{prql}
-#| engine-opts:
-#|   target: sql.mssql
-#|   signature_comment: false
-#| file: simple.prql
-```
-
-```{prql}
 #| connection: con
+#| lang: foo
 #| file: simple.prql
 ```
 

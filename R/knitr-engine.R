@@ -21,6 +21,10 @@ eng_prql <- function(options) {
   # elm coincidentally provides the best syntax highlight for prql.
   options$lang <- options$lang %||% "elm"
 
+  # Workaround for Quarto CLI 1.3
+  # https://github.com/quarto-dev/quarto-cli/pull/4735
+  options$engine <- "elm"
+
   # Prints a SQL code block if there is no connection
   if (is.null(options$connection)) {
     options$comment <- ""
