@@ -162,3 +162,13 @@ tasks:
     cmds:
       - cargo clippy --manifest-path {{.MANIFEST}}
       - cargo fmt --manifest-path {{.MANIFEST}}
+
+  release-prep:
+    desc: "Prepare for a release. args: VERSION: major, minor, or patch"
+    deps:
+      - build-all
+      - lint-and-format
+    cmds:
+      - Rscript -e '
+        usethis::use_version(which = "{{.VERSION}}");
+        usethis::use_cran_comments()'
