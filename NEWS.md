@@ -13,6 +13,10 @@
 - An experimental new engine option `use_glue` of `prql` engine on `{knitr}` documents powered by the `{glue}` package.
   See the vignette `vignette("knitr", "prqlr")` for details. (#103)
 
+## Bug fixes
+
+- `prql` knitr engine compatibility with Quarto CLI 1.3 pre-release version. (Thanks @cderv, #110)
+
 # prqlr 0.2.1
 
 ## Bug fixes
