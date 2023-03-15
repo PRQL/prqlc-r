@@ -4,4 +4,5 @@ DISABLE_LINTERS:
   - SPELL_CSPELL
 C_CPPLINT_FILTER_REGEX_EXCLUDE: "src/entrypoint\\.c"
 RUST_CLIPPY_ARGUMENTS:
-  - --manifest-path src/rust/Cargo.toml
+  - --manifest-path
+  - src/rust/Cargo.toml
