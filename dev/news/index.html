@@ -10,7 +10,7 @@
     
     <a class="navbar-brand me-2" href="../index.html">prqlr</a>
 
-    <small class="nav-text text-danger me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="In-development version">0.2.1.9004</small>
+    <small class="nav-text text-danger me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="In-development version">0.3.0.9000</small>
 
     
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -55,18 +55,21 @@
 
     <div class="section level2">
 <h2 class="pkg-version" data-toc-text="development version" id="prqlr-development-version">prqlr (development version)<a class="anchor" aria-label="anchor" href="#prqlr-development-version"></a></h2>
+</div>
+    <div class="section level2">
+<h2 class="pkg-version" data-toc-text="0.3.0" id="prqlr-030">prqlr 0.3.0<a class="anchor" aria-label="anchor" href="#prqlr-030"></a></h2><p class="text-muted">CRAN release: 2023-03-16</p>
 <div class="section level3">
-<h3 id="breaking-changes-development-version">Breaking changes<a class="anchor" aria-label="anchor" href="#breaking-changes-development-version"></a></h3>
+<h3 id="breaking-changes-0-3-0">Breaking changes<a class="anchor" aria-label="anchor" href="#breaking-changes-0-3-0"></a></h3>
 <ul><li>Based on <a href="https://github.com/prql/prql" class="external-link"><code>prql-compiler</code></a> 0.6.1 (<a href="https://github.com/eitsupi/prqlr/issues/97" class="external-link">#97</a>, <a href="https://github.com/eitsupi/prqlr/issues/99" class="external-link">#99</a>, <a href="https://github.com/eitsupi/prqlr/issues/101" class="external-link">#101</a>, <a href="https://github.com/eitsupi/prqlr/issues/106" class="external-link">#106</a>, <a href="https://github.com/eitsupi/prqlr/issues/113" class="external-link">#113</a>)</li>
 <li>The <code>prql_to_sql()</code> function (deprecated in favor of <code><a href="../reference/prql_compile.html">prql_compile()</a></code> from <code>prqlr</code> 0.1.0) is removed. (<a href="https://github.com/eitsupi/prqlr/issues/105" class="external-link">#105</a>)</li>
 </ul></div>
 <div class="section level3">
-<h3 id="new-features-development-version">New features<a class="anchor" aria-label="anchor" href="#new-features-development-version"></a></h3>
+<h3 id="new-features-0-3-0">New features<a class="anchor" aria-label="anchor" href="#new-features-0-3-0"></a></h3>
 <ul><li>A new compile target <code>"sql.any"</code> can be specified in <code><a href="../reference/prql_compile.html">prql_compile()</a></code>’s <code>target</code> option. This is the same as the traditional unspecified (<code>NULL</code>) target with respect to using the target specified in the header of the query as the target. (<a href="https://github.com/eitsupi/prqlr/issues/97" class="external-link">#97</a>)</li>
 <li>An experimental new engine option <code>use_glue</code> of <code>prql</code> engine on <a href="https://yihui.org/knitr/" class="external-link">knitr</a> documents powered by the <a href="https://github.com/tidyverse/glue" class="external-link">glue</a> package. See the vignette <code><a href="../articles/knitr.html">vignette("knitr", "prqlr")</a></code> for details. (<a href="https://github.com/eitsupi/prqlr/issues/103" class="external-link">#103</a>)</li>
 </ul></div>
 <div class="section level3">
-<h3 id="bug-fixes-development-version">Bug fixes<a class="anchor" aria-label="anchor" href="#bug-fixes-development-version"></a></h3>
+<h3 id="bug-fixes-0-3-0">Bug fixes<a class="anchor" aria-label="anchor" href="#bug-fixes-0-3-0"></a></h3>
 <ul><li>
 <code>prql</code> knitr engine compatibility with Quarto CLI 1.3 pre-release version. (Thanks <a href="https://github.com/cderv" class="external-link">@cderv</a>, <a href="https://github.com/eitsupi/prqlr/issues/110" class="external-link">#110</a>)</li>
 </ul></div>
