@@ -6,3 +6,4 @@ C_CPPLINT_FILTER_REGEX_EXCLUDE: "src/entrypoint\\.c"
 RUST_CLIPPY_ARGUMENTS:
   - --manifest-path
   - src/rust/Cargo.toml
+LOG_LEVEL: DEBUG
