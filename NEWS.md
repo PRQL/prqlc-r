@@ -1,8 +1,10 @@
 # prqlr (development version)
 
+# prqlr 0.3.0
+
 ## Breaking changes
 
-- Based on [`prql-compiler`](https://github.com/prql/prql) 0.6.1  (#97, #99, #101, #106)
+- Based on [`prql-compiler`](https://github.com/prql/prql) 0.6.1  (#97, #99, #101, #106, #113)
 - The `prql_to_sql()` function (deprecated in favor of `prql_compile()` from `prqlr` 0.1.0) is removed. (#105)
 
 ## New features
@@ -12,6 +14,10 @@
   with respect to using the target specified in the header of the query as the target. (#97)
 - An experimental new engine option `use_glue` of `prql` engine on `{knitr}` documents powered by the `{glue}` package.
   See the vignette `vignette("knitr", "prqlr")` for details. (#103)
+
+## Bug fixes
+
+- `prql` knitr engine compatibility with Quarto CLI 1.3 pre-release version. (Thanks @cderv, #110)
 
 # prqlr 0.2.1
 
