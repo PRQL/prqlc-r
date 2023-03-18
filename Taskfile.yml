@@ -22,7 +22,7 @@ tasks:
     cmds:
       - Rscript -e
         'renv::install(
-          dependencies = c("config/needs/dev", "config/needs/website"),
+          dependencies = c("Imports", "Depends", "LinkingTo", "Config/Needs/dev", "Config/Needs/website"),
           repos = c(getOption("repos"), extendr = "https://extendr.r-universe.dev")
         )'
 
