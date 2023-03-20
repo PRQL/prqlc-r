@@ -28,8 +28,8 @@ list_license <- processx::run(
 )$stdout |>
   jsonlite::parse_json()
 
-.prep_authors <- function(authors, name) {
-  ifelse(!is.null(authors), authors, paste0(name, " authors")) |>
+.prep_authors <- function(authors, package) {
+  ifelse(!is.null(authors), authors, paste0(package, " authors")) |>
     gsub(r"(\ <.+?>)", "", x = _) |>
     gsub(r"(\|)", ", ", x = _)
 }
