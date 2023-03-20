@@ -35,10 +35,10 @@ Config/rextendr/version: 0.2.0.9000
 Config/Needs/dev:
     devtools,
     rextendr,
-    data.table,
-    dplyr,
     lintr,
     styler,
+    processx,
+    jsonlite,
     purrr,
     RcppTOML
 Config/Needs/website:

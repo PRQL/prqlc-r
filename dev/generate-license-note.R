@@ -15,31 +15,35 @@ note_header <- paste0(
 
 package_name <- RcppTOML::parseTOML(manifest_path)$package$name
 
-df_license <- processx::run(
+list_license <- processx::run(
   "cargo",
-  c("license", "--authors", "--tsv", "--avoid-build-deps", "--manifest-path", manifest_path)
-)$stdout |>
-  data.table::fread() |>
-  dplyr::select(name, repository, authors, license) |>
-  dplyr::filter(name != package_name) |>
-  dplyr::mutate(
-    authors = dplyr::case_when(
-      authors == "" ~ paste0(name, " authors"),
-      TRUE ~ authors
-    ) |>
-      stringr::str_remove_all(r"(\ <.+?>)") |>
-      stringr::str_replace_all(r"(\|)", ", ")
+  c(
+    "license",
+    "--authors",
+    "--json",
+    "--avoid-build-deps",
+    "--avoid-dev-deps",
+    "--manifest-path", manifest_path
   )
+)$stdout |>
+  jsonlite::parse_json()
 
-license_note <- df_license |>
-  purrr::pmap_chr(
-    \(name, repository, authors, license) {
+.prep_authors <- function(authors, package) {
+  ifelse(!is.null(authors), authors, paste0(package, " authors")) |>
+    gsub(r"(\ <.+?>)", "", x = _) |>
+    gsub(r"(\|)", ", ", x = _)
+}
+
+license_note <- list_license |>
+  purrr::keep(\(x) x$name != package_name) |>
+  purrr::map_chr(
+    \(x) {
       paste0(
         "\n",
-        "Name:        ", name, "\n",
-        "Repository:  ", repository, "\n",
-        "Authors:     ", authors, "\n",
-        "License:     ", license, "\n",
+        "Name:        ", x$name, "\n",
+        "Repository:  ", x$repository, "\n",
+        "Authors:     ", .prep_authors(x$authors, x$name), "\n",
+        "License:     ", x$license, "\n",
         "\n",
         "-------------------------------------------------------------"
       )
