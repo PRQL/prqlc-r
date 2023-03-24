@@ -21,7 +21,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-      - uses: baptiste0928/cargo-install@v1
+      - uses: baptiste0928/cargo-install@v2
         with:
           crate: cargo-msrv
       - name: Verify minimum rust version
