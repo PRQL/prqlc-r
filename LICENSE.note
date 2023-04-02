@@ -143,6 +143,13 @@ License:     Apache-2.0 OR MIT
 
 -------------------------------------------------------------
 
+Name:        indexmap
+Repository:  https://github.com/bluss/indexmap
+Authors:     indexmap authors
+License:     Apache-2.0 OR MIT
+
+-------------------------------------------------------------
+
 Name:        itertools
 Repository:  https://github.com/rust-itertools/itertools
 Authors:     bluss
@@ -325,6 +332,13 @@ License:     Apache-2.0 OR MIT
 
 -------------------------------------------------------------
 
+Name:        serde_yaml
+Repository:  https://github.com/dtolnay/serde-yaml
+Authors:     David Tolnay
+License:     Apache-2.0 OR MIT
+
+-------------------------------------------------------------
+
 Name:        sqlformat
 Repository:  https://github.com/shssoichiro/sqlformat-rs
 Authors:     Josh Holmer
@@ -367,6 +381,13 @@ License:     Apache-2.0 OR MIT
 
 -------------------------------------------------------------
 
+Name:        syn
+Repository:  https://github.com/dtolnay/syn
+Authors:     David Tolnay
+License:     Apache-2.0 OR MIT
+
+-------------------------------------------------------------
+
 Name:        unicode-ident
 Repository:  https://github.com/dtolnay/unicode-ident
 Authors:     David Tolnay
@@ -374,10 +395,24 @@ License:     (MIT OR Apache-2.0) AND Unicode-DFS-2016
 
 -------------------------------------------------------------
 
+Name:        unicode-width
+Repository:  https://github.com/unicode-rs/unicode-width
+Authors:     kwantam, Manish Goregaokar
+License:     Apache-2.0 OR MIT
+
+-------------------------------------------------------------
+
 Name:        unicode_categories
 Repository:  https://github.com/swgillespie/unicode-categories
 Authors:     Sean Gillespie
 License:     Apache-2.0 OR MIT
+
+-------------------------------------------------------------
+
+Name:        unsafe-libyaml
+Repository:  https://github.com/dtolnay/unsafe-libyaml
+Authors:     David Tolnay
+License:     MIT
 
 -------------------------------------------------------------
 
