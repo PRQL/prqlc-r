@@ -52,6 +52,7 @@ fn convert_options(
         format: o.format,
         target,
         signature_comment: o.signature_comment,
+        color: false,
     })
 }
 
