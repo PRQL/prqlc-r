@@ -26,4 +26,5 @@ test_that("Snapshot test of knitr-engine", {
   )
   expect_snapshot(.knit_file("glue.Rmd"), cran = TRUE)
   expect_snapshot(.knit_file("change-lang.Rmd"), cran = TRUE)
+  expect_snapshot(.knit_file("info-string.Rmd"), cran = TRUE)
 })

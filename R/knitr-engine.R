@@ -29,8 +29,10 @@ eng_prql <- function(options) {
   if (is.null(options$connection)) {
     options$comment <- ""
     options$results <- "asis"
+    info_string <- .get_engine_opt(options, "info_string", "sql")
+
     sql_code <- paste0(
-      "```sql\n",
+      "```", info_string, "\n",
       sql_code,
       "```\n"
     )

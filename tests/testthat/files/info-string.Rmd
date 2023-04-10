@@ -1,0 +1,5 @@
+```{prql}
+#| file: simple.prql
+#| engine-opts:
+#|   info_string: '{.sql filename="SQL"}'
+```
