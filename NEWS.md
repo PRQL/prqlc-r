@@ -1,5 +1,10 @@
 # prqlr (development version)
 
+## New features
+
+- A new engine option `info_string` of `prql` engine on `{knitr}` documents.
+  See the vignette `vignette("knitr", "prqlr")` for details. (#120)
+
 # prqlr 0.3.0
 
 ## Breaking changes
