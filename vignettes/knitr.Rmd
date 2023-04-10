@@ -208,7 +208,7 @@ cat(
 )
 ````
 
-### Use query strings in R code blocks
+#### Use query strings in R code blocks
 
 With the experimental `use_glue` option, the query string can even be defined completely in R side.
 
@@ -246,6 +246,49 @@ This example outputs the following.
 cat(
   "````markdown",
   knitr::knit_child(text = src_query_from_r, quiet = TRUE),
+  "````",
+  sep = ""
+)
+````
+
+### Set special info string to output SQL code blocks
+
+When making SQL code blocks output without a DB connection,
+the `info_string` option can be used to control the info string of the output code block.
+This is convenient when we want to add special attributes that are used in Quarto Markdown files.
+The default value is `"sql"`.
+
+For example, the following R Markdown file will be converted to the following Markdown file.
+
+````{r}
+#| echo: false
+#| results: asis
+
+src_info_string <- r"(
+```{r}
+#| echo: false
+
+library(prqlr)
+```
+
+```{prql}
+#| engine-opts:
+#|   info_string: '{.sql filename="SQL"}'
+from mtcars
+take 3
+```
+)"
+
+cat("````markdown", src_info_string, "````", sep = "")
+````
+
+````{r}
+#| echo: false
+#| results: asis
+
+cat(
+  "````markdown",
+  knitr::knit_child(text = src_info_string, quiet = TRUE),
   "````",
   sep = ""
 )
