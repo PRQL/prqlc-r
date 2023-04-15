@@ -1,5 +1,9 @@
 # prqlr (development version)
 
+## Breaking changes
+
+- Based on [`prql-compiler`](https://github.com/prql/prql) 0.8.0 (#121)
+
 ## New features
 
 - A new engine option `info_string` of `prql` engine on `{knitr}` documents.
@@ -9,7 +13,7 @@
 
 ## Breaking changes
 
-- Based on [`prql-compiler`](https://github.com/prql/prql) 0.6.1  (#97, #99, #101, #106, #113)
+- Based on [`prql-compiler`](https://github.com/prql/prql) 0.6.1 (#97, #99, #101, #106, #113)
 - The `prql_to_sql()` function (deprecated in favor of `prql_compile()` from `prqlr` 0.1.0) is removed. (#105)
 
 ## New features
