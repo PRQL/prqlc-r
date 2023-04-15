@@ -4,7 +4,7 @@ Description:
     Provides a function to convert 'PRQL' strings to 'SQL' strings.
     Combined with other R functions that take 'SQL' as an argument,
     'PRQL' can be used on R.
-Version: 0.3.0.9001
+Version: 0.3.0.9002
 Authors@R:
     person("Tatsuya", "Shima", email = "ts1s1andn@gmail.com", role = c("aut", "cre"))
 URL: https://eitsupi.github.io/prqlr/, https://github.com/eitsupi/prqlr
