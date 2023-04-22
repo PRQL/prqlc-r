@@ -22,27 +22,33 @@ is a modern language for transforming data, can be compiled to SQL.
 
 This package provides a simple function to convert a PRQL query string to a SQL string.
 
-For example, the following PRQL query can be converted to the below SQL query.
+For example, this is a PRQL query.
 
 ```{prql}
-#| engine-opts:
-#|   signature_comment: false
+#| label: sample
+#| eval: false
 from mtcars
 filter cyl > 6
 select [cyl, mpg]
 derive [mpg_int = round 0 mpg]
 ```
 
-Just pass the PRQL query string to the `prql_compile()` function, like this.
+And, this is the SQL query that is compiled from the PRQL query.
+
+```{prql}
+#| label: sample
+#| echo: false
+#| engine-opts:
+#|   signature_comment: false
+```
+
+To compile a PRQL string, just pass the query string to the `prql_compile()` function, like this.
 
 ```{r}
 library(prqlr)
 
 "
-from mtcars
-filter cyl > 6
-select [cyl, mpg]
-derive [mpg_int = round 0 mpg]
+<<sample>>
 " |>
   prql_compile() |>
   cat()
@@ -61,14 +67,11 @@ library(DBI)
 con <- dbConnect(RSQLite::SQLite(), ":memory:")
 
 # Create a table inclueds `mtcars` data
-dbWriteTable(con, "mtcars_table", mtcars)
+dbWriteTable(con, "mtcars", mtcars)
 
 # Execute a PRQL query
 "
-from mtcars_table
-filter cyl > 6
-select [cyl, mpg]
-derive [mpg_int = round 0 mpg]
+<<sample>>
 take 3
 " |>
   prql_compile("sql.sqlite") |>
