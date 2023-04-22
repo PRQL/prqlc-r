@@ -13,3 +13,10 @@
 #| eval: false
 #| connection: con
 ```
+
+```{prql}
+#| eval: false
+#| engine-opts:
+#|   use_glue: true
+from {{foo}}
+```

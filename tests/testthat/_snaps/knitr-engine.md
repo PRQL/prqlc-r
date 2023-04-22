@@ -262,4 +262,9 @@
       derive [mpg_int = round 0 mpg]
       take 3
       ```
+      
+      
+      ```elm
+      from {{foo}}
+      ```
 
