@@ -1,0 +1,22 @@
+```{r}
+#| echo: false
+#| file: set-db.R
+```
+
+```{prql}
+#| file: simple.prql
+#| eval: false
+```
+
+```{prql}
+#| file: simple.prql
+#| eval: false
+#| connection: con
+```
+
+```{prql}
+#| eval: false
+#| engine-opts:
+#|   use_glue: true
+from {{foo}}
+```
