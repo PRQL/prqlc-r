@@ -9,6 +9,10 @@
 - A new engine option `info_string` of `prql` engine on `{knitr}` documents.
   See the vignette `vignette("knitr", "prqlr")` for details. (#120)
 
+## Bug fixes
+
+- `prql` knitr engine respect the `eval` chunk option. (#123)
+
 # prqlr 0.3.0
 
 ## Breaking changes
