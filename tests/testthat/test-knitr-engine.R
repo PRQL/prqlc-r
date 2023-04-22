@@ -5,7 +5,11 @@ test_that("Set prql knitr engine", {
 .knit_file <- function(file_name) {
   file <- file.path("files", file_name)
   output <- tempfile(fileext = "md")
-  on.exit(unlink(output))
+  opts <- options(knitr.sql.html_div = FALSE)
+  on.exit({
+    unlink(output)
+    options(opts)
+  })
 
   suppressWarnings(knitr::knit(file, output, quiet = TRUE, envir = new.env()))
 
