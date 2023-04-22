@@ -31,12 +31,15 @@ eng_prql <- function(options) {
     options$results <- "asis"
     info_string <- .get_engine_opt(options, "info_string", "sql")
 
-    sql_code <- paste0(
+    out <- paste0(
       "```", info_string, "\n",
       sql_code,
       "```\n"
     )
-    return(knitr::engine_output(options, prql_code, sql_code))
+
+    if (isFALSE(options$eval)) out <- ""
+
+    return(knitr::engine_output(options, prql_code, out))
   }
 
   options$code <- sql_code
