@@ -1,5 +1,7 @@
 # prqlr (development version)
 
+# prqlr 0.4.0
+
 ## Breaking changes
 
 - Based on [`prql-compiler`](https://github.com/prql/prql) 0.8.1 (#121, #125)
@@ -12,6 +14,10 @@
 ## Bug fixes
 
 - `prql` knitr engine respect the `eval` chunk option. (#123)
+
+## Internal changes
+
+- knitr engine tests were updated for adapt to the new `{knitr}` version. (Thanks @yihui, #122)
 
 # prqlr 0.3.0
 
