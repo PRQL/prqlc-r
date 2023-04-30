@@ -13,6 +13,10 @@
 
 - `prql` knitr engine respect the `eval` chunk option. (#123)
 
+## Internal changes
+
+- knitr engine tests were updated for adapt to the new `{knitr}` version. (Thanks @yihui, #122)
+
 # prqlr 0.3.0
 
 ## Breaking changes
