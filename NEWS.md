@@ -2,7 +2,7 @@
 
 ## Breaking changes
 
-- Based on [`prql-compiler`](https://github.com/prql/prql) 0.8.0 (#121)
+- Based on [`prql-compiler`](https://github.com/prql/prql) 0.8.1 (#121, #125)
 
 ## New features
 
