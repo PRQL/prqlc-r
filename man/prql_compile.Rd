@@ -14,7 +14,8 @@ prql_compile(
 \arguments{
 \item{prql_query}{a PRQL query string.}
 
-\item{target}{a compile target name to use. If not specified, the target contained in the query will be used.}
+\item{target}{a compile target name to use. If not specified, the target contained in the query will be used.
+All available target names can be listed with the \link{prql_get_targets} function.}
 
 \item{format}{a logical flag. Whether to format the SQL query.}
 
