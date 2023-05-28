@@ -28,16 +28,16 @@ a SQL query string
 Compile a PRQL query into a SQL query
 }
 \examples{
-"from mtcars | filter cyl > 6 | select [cyl, mpg]" |>
+"from mtcars | filter cyl > 6 | select {cyl, mpg}" |>
   prql_compile()
 
-"from mtcars | filter cyl > 6 | select [cyl, mpg]" |>
+"from mtcars | filter cyl > 6 | select {cyl, mpg}" |>
   prql_compile(format = FALSE, signature_comment = FALSE)
 
 "
 from mtcars
 filter cyl > 6
-select ![cyl]
+select !{cyl}
 " |>
   prql_compile("sql.duckdb") |>
   cat()
@@ -49,7 +49,7 @@ prql target:sql.duckdb
 
 from mtcars
 filter cyl > 6
-select ![cyl]
+select !{cyl}
 " |>
   prql_compile() |>
   cat()

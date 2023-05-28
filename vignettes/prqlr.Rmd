@@ -29,8 +29,8 @@ For example, this is a PRQL query.
 #| eval: false
 from mtcars
 filter cyl > 6
-select [cyl, mpg]
-derive [mpg_int = round 0 mpg]
+select {cyl, mpg}
+derive {mpg_int = round 0 mpg}
 ```
 
 And, this is the SQL query that is compiled from the PRQL query.
@@ -99,13 +99,13 @@ library(nycflights13)
 from flights
 filter (distance | in 200..300)
 filter air_time != null
-group [origin, dest] (
-  aggregate [
+group {origin, dest} (
+  aggregate {
     num_flts = count,
     avg_delay = (average arr_delay | round 0)
-  ]
+  }
 )
-sort [-origin, avg_delay]
+sort {-origin, avg_delay}
 take 2
 " |>
   prql_compile() |>

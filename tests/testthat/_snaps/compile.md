@@ -1,7 +1,7 @@
 # PRQL query
 
     Code
-      cat(prql_compile("from a | select [b]"))
+      cat(prql_compile("from a | select {b}"))
     Output
       SELECT
         b
@@ -13,7 +13,7 @@
 ---
 
     Code
-      cat(prql_compile("from a | select [b]", NA, FALSE, FALSE))
+      cat(prql_compile("from a | select {b}", NA, FALSE, FALSE))
     Output
       SELECT b FROM a
 
@@ -21,7 +21,7 @@
 
     Code
       cat(unwrap(compile(
-        "from star_wars\n    select [star_wars.*]\n    select ![jar_jar_binks, midichlorians]",
+        "from star_wars\n    select {star_wars.*}\n    select !{jar_jar_binks, midichlorians}",
         "sql.duckdb", TRUE, TRUE)))
     Output
       SELECT
@@ -58,7 +58,7 @@
          │                                      ╰── Expected * or an identifier, but didn't find anything before the end.
       ───╯
 
-# Syntax error query=from a | select {b}
+# Syntax error query=from a | select [b]
 
     Code
       cat(prql_compile(query, "sql.any", TRUE, FALSE))
@@ -66,16 +66,11 @@
       Error:
          ╭─[:1:17]
          │
-       1 │ from a | select {b}
-         │                 ┬
-         │                 ╰── unexpected {
-      ───╯
-      Error:
-         ╭─[:1:19]
+       1 │ from a | select [b]
+         │                 ─┬─
+         │                  ╰─── unexpected `[_frame.a.b]`
          │
-       1 │ from a | select {b}
-         │                   ┬
-         │                   ╰── unexpected }
+         │ Help: this is probably a 'bad type' error (we are working on that)
       ───╯
 
 # Syntax error query=from a | select {{{b
@@ -84,11 +79,11 @@
       cat(prql_compile(query, "sql.any", TRUE, FALSE))
     Error <simpleError>
       Error:
-         ╭─[:1:17]
+         ╭─[:1:20]
          │
        1 │ from a | select {{{b
-         │                 ┬
-         │                 ╰── unexpected {
+         │                    ┬
+         │                    ╰── unexpected end of input while parsing function call
       ───╯
 
 # Targets target=sql.any
