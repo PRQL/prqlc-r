@@ -9,8 +9,8 @@
       ```elm
       from mtcars
       filter cyl > 6
-      select [cyl, mpg]
-      derive [mpg_int = round 0 mpg]
+      select {cyl, mpg}
+      derive {mpg_int = round 0 mpg}
       take 3
       ```
       
@@ -29,8 +29,8 @@
       ```elm
       from mtcars
       filter cyl > 6
-      select [cyl, mpg]
-      derive [mpg_int = round 0 mpg]
+      select {cyl, mpg}
+      derive {mpg_int = round 0 mpg}
       take 3
       ```
       
@@ -57,8 +57,8 @@
       ```elm
       from mtcars
       filter cyl > 6
-      select [cyl, mpg]
-      derive [mpg_int = round 0 mpg]
+      select {cyl, mpg}
+      derive {mpg_int = round 0 mpg}
       take 3
       ```
       
@@ -77,8 +77,8 @@
       ```elm
       from mtcars
       filter cyl > 6
-      select [cyl, mpg]
-      derive [mpg_int = round 0 mpg]
+      select {cyl, mpg}
+      derive {mpg_int = round 0 mpg}
       take 3
       ```
       
@@ -104,8 +104,8 @@
       ```elm
       from mtcars
       filter cyl > 6
-      select [cyl, mpg]
-      derive [mpg_int = round 0 mpg]
+      select {cyl, mpg}
+      derive {mpg_int = round 0 mpg}
       take 3
       ```
       
@@ -166,8 +166,8 @@
       ```prql
       from mtcars
       filter cyl > 6
-      select [cyl, mpg]
-      derive [mpg_int = round 0 mpg]
+      select {cyl, mpg}
+      derive {mpg_int = round 0 mpg}
       take 3
       ```
       
@@ -192,8 +192,8 @@
       ```foo
       from mtcars
       filter cyl > 6
-      select [cyl, mpg]
-      derive [mpg_int = round 0 mpg]
+      select {cyl, mpg}
+      derive {mpg_int = round 0 mpg}
       take 3
       ```
       
@@ -218,8 +218,8 @@
       ```elm
       from mtcars
       filter cyl > 6
-      select [cyl, mpg]
-      derive [mpg_int = round 0 mpg]
+      select {cyl, mpg}
+      derive {mpg_int = round 0 mpg}
       take 3
       ```
       
@@ -249,8 +249,8 @@
       ```elm
       from mtcars
       filter cyl > 6
-      select [cyl, mpg]
-      derive [mpg_int = round 0 mpg]
+      select {cyl, mpg}
+      derive {mpg_int = round 0 mpg}
       take 3
       ```
       
@@ -258,8 +258,8 @@
       ```elm
       from mtcars
       filter cyl > 6
-      select [cyl, mpg]
-      derive [mpg_int = round 0 mpg]
+      select {cyl, mpg}
+      derive {mpg_int = round 0 mpg}
       take 3
       ```
       

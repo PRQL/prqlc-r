@@ -28,15 +28,15 @@ test_that("Not a string object", {
 
 test_that("Unsupported target", {
   expect_error(
-    prql_compile("from a | select [b]", "foo"),
+    prql_compile("from a | select {b}", "foo"),
     r"(target `"foo"` not found)"
   )
   expect_error(
-    prql_compile("prql target:foo\nfrom a | select [b]"),
+    prql_compile("prql target:foo\nfrom a | select {b}"),
     r"(target `"foo"` not found)"
   )
   expect_error(
-    prql_compile("prql target:sql.foo\nfrom a | select [b]"),
+    prql_compile("prql target:sql.foo\nfrom a | select {b}"),
     r"(target `"sql.foo"` not found)"
   )
 })
@@ -49,12 +49,12 @@ test_that("Options", {
 })
 
 test_that("PRQL query", {
-  expect_snapshot(cat(prql_compile("from a | select [b]")))
-  expect_snapshot(cat(prql_compile("from a | select [b]", NA, FALSE, FALSE)))
+  expect_snapshot(cat(prql_compile("from a | select {b}")))
+  expect_snapshot(cat(prql_compile("from a | select {b}", NA, FALSE, FALSE)))
   expect_snapshot(
     "from star_wars
-    select [star_wars.*]
-    select ![jar_jar_binks, midichlorians]"
+    select {star_wars.*}
+    select !{jar_jar_binks, midichlorians}"
     |>
       compile("sql.duckdb", TRUE, TRUE) |>
       unwrap() |>
@@ -66,7 +66,7 @@ patrick::with_parameters_test_that("Syntax error",
   {
     expect_snapshot(cat(prql_compile(query, "sql.any", TRUE, FALSE)), error = TRUE)
   },
-  query = c("Mississippi has four S’s and four I’s.", "from a | select {b}", "from a | select {{{b")
+  query = c("Mississippi has four S’s and four I’s.", "from a | select [b]", "from a | select {{{b")
 )
 
 patrick::with_parameters_test_that("Targets",
@@ -75,13 +75,13 @@ patrick::with_parameters_test_that("Targets",
 from flights
 filter (distance | in 200..300)
 filter air_time != null
-group [origin, dest] (
-  aggregate [
+group {origin, dest} (
+  aggregate {
     num_flts = count,
     avg_delay = (average arr_delay | round 0)
-  ]
+  }
 )
-sort [-origin, avg_delay]
+sort {-origin, avg_delay}
 take 2
 "
     expect_snapshot(cat(prql_compile(query, target, TRUE, FALSE)))

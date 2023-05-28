@@ -43,7 +43,7 @@ repository for about Rust code in R packages.
 
 ``` r
 library(prqlr)
-"from mtcars | filter cyl > 6 | select [cyl, mpg]" |>
+"from mtcars | filter cyl > 6 | select {cyl, mpg}" |>
   prql_compile() |>
   cat()
 #> SELECT
@@ -61,7 +61,7 @@ PRQL’s pipelines can be joined by the newline character (`\n`), or
 actual newlines in addition to `|`.
 
 ``` r
-"from mtcars \n filter cyl > 6 \n select [cyl, mpg]" |>
+"from mtcars \n filter cyl > 6 \n select {cyl, mpg}" |>
   prql_compile() |>
   cat()
 #> SELECT
@@ -78,7 +78,7 @@ actual newlines in addition to `|`.
 ``` r
 "from mtcars
 filter cyl > 6
-select [cyl, mpg]" |>
+select {cyl, mpg}" |>
   prql_compile() |>
   cat()
 #> SELECT
@@ -98,7 +98,7 @@ a SQL query and then to a `{dplyr}` query!
 ``` r
 "from mtcars
 filter cyl > 6
-select [cyl, mpg]" |>
+select {cyl, mpg}" |>
   prql_compile() |>
   tidyquery::show_dplyr()
 #> mtcars %>%
