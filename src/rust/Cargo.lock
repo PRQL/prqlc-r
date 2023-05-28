@@ -319,7 +319,7 @@ dependencies = [
 [[package]]
 name = "prql-compiler"
 version = "0.8.1"
-source = "git+https://github.com/eitsupi/prql?rev=a3841742ad740370896a695b97f0e9c3f2374261#a3841742ad740370896a695b97f0e9c3f2374261"
+source = "git+https://github.com/PRQL/prql?rev=d786a8b4969a2f7423cbffe4bffef2bc84b982fa#d786a8b4969a2f7423cbffe4bffef2bc84b982fa"
 dependencies = [
  "anyhow",
  "ariadne",
@@ -468,9 +468,9 @@ dependencies = [
 
 [[package]]
 name = "sqlparser"
-version = "0.33.0"
+version = "0.34.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "355dc4d4b6207ca8a3434fc587db0a8016130a574dbcdbfb93d7f7b5bc5b211a"
+checksum = "37d3706eefb17039056234df6b566b0014f303f867f2656108334a55b8096f59"
 dependencies = [
  "log",
  "serde",

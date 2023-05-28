@@ -31,7 +31,7 @@ pub fn compile(
                 .and_then(prql_compiler::pl_to_rq)
                 .and_then(|rq| prql_compiler::rq_to_sql(rq, &opts))
         })
-        .map_err(|e| e.composed("", prql_query, false));
+        .map_err(|e| e.composed(&prql_query.into(), false));
 
     r_result_list(result)
 }
@@ -92,7 +92,7 @@ pub fn rq_to_sql(rq_json: &str) -> List {
 /// @noRd
 #[extendr]
 pub fn compiler_version() -> String {
-    prql_compiler::PRQL_VERSION.to_string()
+    prql_compiler::COMPILER_VERSION.to_string()
 }
 
 /// @title Get available target names
