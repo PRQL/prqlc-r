@@ -5,6 +5,7 @@ env:
 
 vars:
   MANIFEST: src/rust/Cargo.toml
+  CARGO_LOCK: src/rust/Cargo.lock
   R_SOURCE: R/*
   VIGNETTES: vignettes/**/*.Rmd
   RUST_SOURCE: src/rust/src/**/*.rs
@@ -53,6 +54,7 @@ tasks:
       - "{{.R_SOURCE}}"
       - src/Makevars*
       - "{{.MANIFEST}}"
+      - "{{.CARGO_LOCK}}"
       - "{{.RUST_SOURCE}}"
     cmds:
       - Rscript -e 'devtools::load_all(); devtools::test()'
@@ -65,6 +67,7 @@ tasks:
       - "{{.R_SOURCE}}"
       - src/Makevars*
       - "{{.MANIFEST}}"
+      - "{{.CARGO_LOCK}}"
       - "{{.RUST_SOURCE}}"
     cmds:
       - Rscript -e
@@ -92,6 +95,7 @@ tasks:
     sources:
       - src/Makevars*
       - "{{.MANIFEST}}"
+      - "{{.CARGO_LOCK}}"
       - "{{.RUST_SOURCE}}"
     generates:
       - R/extendr-wrappers.R
@@ -104,7 +108,7 @@ tasks:
     internal: true
     desc: Build LICENSE.note
     sources:
-      - src/rust/Cargo.lock
+      - "{{.CARGO_LOCK}}"
     generates:
       - LICENSE.note
     cmds:
@@ -118,6 +122,7 @@ tasks:
       - "{{.R_SOURCE}}"
       - src/Makevars*
       - "{{.MANIFEST}}"
+      - "{{.CARGO_LOCK}}"
       - "{{.RUST_SOURCE}}"
     generates:
       - README.md
@@ -156,7 +161,7 @@ tasks:
     desc: Lint and auto-format Rust code.
     sources:
       - "{{.MANIFEST}}"
-      - src/rust/Cargo.lock
+      - "{{.CARGO_LOCK}}"
       - "{{.RUST_SOURCE}}"
     cmds:
       - cargo clippy --manifest-path {{.MANIFEST}}
