@@ -105,11 +105,10 @@ tasks:
     desc: Build LICENSE.note
     sources:
       - src/rust/Cargo.lock
-      - dev/generate-license-note.R
     generates:
       - LICENSE.note
     cmds:
-      - Rscript dev/generate-license-note.R
+      - Rscript -e 'rextendr::write_license_note(force = TRUE)'
 
   build-readme:
     internal: true
