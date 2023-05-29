@@ -18,6 +18,7 @@ Suggests:
     glue,
     RSQLite,
     tidyquery,
+    sqldf,
     nycflights13,
     dplyr,
     testthat (>= 3.0.0),
