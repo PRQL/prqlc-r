@@ -5,6 +5,7 @@
 		"ghcr.io/devcontainers/features/rust:1": {
 			"version": "latest"
 		},
+		"ghcr.io/rocker-org/devcontainer-features/renv-cache": {},
 		"ghcr.io/eitsupi/devcontainer-features/go-task": {}
 	},
 	"customizations": {
