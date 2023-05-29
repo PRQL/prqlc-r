@@ -37,7 +37,8 @@ Config/Needs/dev:
     rextendr,
     lintr,
     styler,
-    purrr
+    purrr,
+    RcppTOML
 Config/Needs/website:
     pkgdown,
     rextendr
