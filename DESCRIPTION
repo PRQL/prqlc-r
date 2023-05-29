@@ -37,8 +37,6 @@ Config/Needs/dev:
     rextendr,
     lintr,
     styler,
-    processx,
-    jsonlite,
     purrr,
     RcppTOML
 Config/Needs/website:
