@@ -22,8 +22,7 @@ tasks:
     desc: Install R packages for development.
     cmds:
       - Rscript -e
-        'pak::repo_add(extendr = "https://extendr.r-universe.dev");
-        pak::local_install_deps(dependencies = c("all", "Config/Needs/dev", "Config/Needs/website"))'
+        'pak::local_install_deps(dependencies = c("all", "Config/Needs/dev", "Config/Needs/website"))'
 
   install-rust-tools:
     internal: true
