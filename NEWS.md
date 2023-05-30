@@ -1,10 +1,33 @@
 # prqlr (development version)
 
+## Breaking changes
+
+- Based on [`prql-compiler`](https://github.com/prql/prql) 0.9.0 (#130)
+
+# prqlr 0.4.0
+
+## Breaking changes
+
+- Based on [`prql-compiler`](https://github.com/prql/prql) 0.8.1 (#121, #125)
+
+## New features
+
+- A new engine option `info_string` of `prql` engine on `{knitr}` documents.
+  See the vignette `vignette("knitr", "prqlr")` for details. (#120)
+
+## Bug fixes
+
+- `prql` knitr engine respect the `eval` chunk option. (#123)
+
+## Internal changes
+
+- knitr engine tests were updated for adapt to the new `{knitr}` version. (Thanks @yihui, #122)
+
 # prqlr 0.3.0
 
 ## Breaking changes
 
-- Based on [`prql-compiler`](https://github.com/prql/prql) 0.6.1  (#97, #99, #101, #106, #113)
+- Based on [`prql-compiler`](https://github.com/prql/prql) 0.6.1 (#97, #99, #101, #106, #113)
 - The `prql_to_sql()` function (deprecated in favor of `prql_compile()` from `prqlr` 0.1.0) is removed. (#105)
 
 ## New features

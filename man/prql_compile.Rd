@@ -14,7 +14,8 @@ prql_compile(
 \arguments{
 \item{prql_query}{a PRQL query string.}
 
-\item{target}{a compile target name to use. If not specified, the target contained in the query will be used.}
+\item{target}{a compile target name to use. If not specified, the target contained in the query will be used.
+All available target names can be listed with the \link{prql_get_targets} function.}
 
 \item{format}{a logical flag. Whether to format the SQL query.}
 
@@ -27,16 +28,16 @@ a SQL query string
 Compile a PRQL query into a SQL query
 }
 \examples{
-"from mtcars | filter cyl > 6 | select [cyl, mpg]" |>
+"from mtcars | filter cyl > 6 | select {cyl, mpg}" |>
   prql_compile()
 
-"from mtcars | filter cyl > 6 | select [cyl, mpg]" |>
+"from mtcars | filter cyl > 6 | select {cyl, mpg}" |>
   prql_compile(format = FALSE, signature_comment = FALSE)
 
 "
 from mtcars
 filter cyl > 6
-select ![cyl]
+select !{cyl}
 " |>
   prql_compile("sql.duckdb") |>
   cat()
@@ -48,7 +49,7 @@ prql target:sql.duckdb
 
 from mtcars
 filter cyl > 6
-select ![cyl]
+select !{cyl}
 " |>
   prql_compile() |>
   cat()

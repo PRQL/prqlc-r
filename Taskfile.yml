@@ -5,6 +5,7 @@ env:
 
 vars:
   MANIFEST: src/rust/Cargo.toml
+  CARGO_LOCK: src/rust/Cargo.lock
   R_SOURCE: R/*
   VIGNETTES: vignettes/**/*.Rmd
   RUST_SOURCE: src/rust/src/**/*.rs
@@ -43,6 +44,7 @@ tasks:
     desc: Run all tests.
     cmds:
       - task: test-source
+      - task: test-examples
       - task: test-vignettes
 
   test-source:
@@ -53,9 +55,22 @@ tasks:
       - "{{.R_SOURCE}}"
       - src/Makevars*
       - "{{.MANIFEST}}"
+      - "{{.CARGO_LOCK}}"
       - "{{.RUST_SOURCE}}"
     cmds:
       - Rscript -e 'devtools::load_all(); devtools::test()'
+
+  test-examples:
+    desc: Check if examples can be run.
+    internal: true
+    sources:
+      - "{{.R_SOURCE}}"
+      - src/Makevars*
+      - "{{.MANIFEST}}"
+      - "{{.CARGO_LOCK}}"
+      - "{{.RUST_SOURCE}}"
+    cmds:
+      - Rscript -e 'devtools::load_all(); devtools::run_examples()'
 
   test-vignettes:
     desc: Check if vignettes can be rendered.
@@ -65,6 +80,7 @@ tasks:
       - "{{.R_SOURCE}}"
       - src/Makevars*
       - "{{.MANIFEST}}"
+      - "{{.CARGO_LOCK}}"
       - "{{.RUST_SOURCE}}"
     cmds:
       - Rscript -e
@@ -92,6 +108,7 @@ tasks:
     sources:
       - src/Makevars*
       - "{{.MANIFEST}}"
+      - "{{.CARGO_LOCK}}"
       - "{{.RUST_SOURCE}}"
     generates:
       - R/extendr-wrappers.R
@@ -104,12 +121,11 @@ tasks:
     internal: true
     desc: Build LICENSE.note
     sources:
-      - src/rust/Cargo.lock
-      - dev/generate-license-note.R
+      - "{{.CARGO_LOCK}}"
     generates:
       - LICENSE.note
     cmds:
-      - Rscript dev/generate-license-note.R
+      - Rscript -e 'rextendr::write_license_note(force = TRUE)'
 
   build-readme:
     internal: true
@@ -119,6 +135,7 @@ tasks:
       - "{{.R_SOURCE}}"
       - src/Makevars*
       - "{{.MANIFEST}}"
+      - "{{.CARGO_LOCK}}"
       - "{{.RUST_SOURCE}}"
     generates:
       - README.md
@@ -157,7 +174,7 @@ tasks:
     desc: Lint and auto-format Rust code.
     sources:
       - "{{.MANIFEST}}"
-      - src/rust/Cargo.lock
+      - "{{.CARGO_LOCK}}"
       - "{{.RUST_SOURCE}}"
     cmds:
       - cargo clippy --manifest-path {{.MANIFEST}}
