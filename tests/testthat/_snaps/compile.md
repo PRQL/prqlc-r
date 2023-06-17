@@ -36,55 +36,55 @@
     Code
       cat(prql_compile(query, "sql.any", TRUE, FALSE))
     Error <simpleError>
-      Error:
-         ╭─[:1:23]
-         │
-       1 │ Mississippi has four S’s and four I’s.
-         │                       ┬
-         │                       ╰── unexpected ’
-      ───╯
-      Error:
-         ╭─[:1:36]
-         │
-       1 │ Mississippi has four S’s and four I’s.
-         │                                    ┬
-         │                                    ╰── unexpected ’
-      ───╯
-      Error:
-         ╭─[:1:38]
-         │
-       1 │ Mississippi has four S’s and four I’s.
-         │                                      ┬
-         │                                      ╰── Expected * or an identifier, but didn't find anything before the end.
-      ───╯
+      [31mError:[0m
+         [38;5;246m╭[0m[38;5;246m─[0m[38;5;246m[[0m:1:23[38;5;246m][0m
+         [38;5;246m│[0m
+       [38;5;246m1 │[0m [38;5;249mM[0m[38;5;249mi[0m[38;5;249ms[0m[38;5;249ms[0m[38;5;249mi[0m[38;5;249ms[0m[38;5;249ms[0m[38;5;249mi[0m[38;5;249mp[0m[38;5;249mp[0m[38;5;249mi[0m[38;5;249m [0m[38;5;249mh[0m[38;5;249ma[0m[38;5;249ms[0m[38;5;249m [0m[38;5;249mf[0m[38;5;249mo[0m[38;5;249mu[0m[38;5;249mr[0m[38;5;249m [0m[38;5;249mS[0m’[38;5;249ms[0m[38;5;249m [0m[38;5;249ma[0m[38;5;249mn[0m[38;5;249md[0m[38;5;249m [0m[38;5;249mf[0m[38;5;249mo[0m[38;5;249mu[0m[38;5;249mr[0m[38;5;249m [0m[38;5;249mI[0m[38;5;249m’[0m[38;5;249ms[0m[38;5;249m.[0m
+       [38;5;240m  │[0m                       ┬
+       [38;5;240m  │[0m                       ╰── unexpected ’
+      [38;5;246m───╯[0m
+      [31mError:[0m
+         [38;5;246m╭[0m[38;5;246m─[0m[38;5;246m[[0m:1:36[38;5;246m][0m
+         [38;5;246m│[0m
+       [38;5;246m1 │[0m [38;5;249mM[0m[38;5;249mi[0m[38;5;249ms[0m[38;5;249ms[0m[38;5;249mi[0m[38;5;249ms[0m[38;5;249ms[0m[38;5;249mi[0m[38;5;249mp[0m[38;5;249mp[0m[38;5;249mi[0m[38;5;249m [0m[38;5;249mh[0m[38;5;249ma[0m[38;5;249ms[0m[38;5;249m [0m[38;5;249mf[0m[38;5;249mo[0m[38;5;249mu[0m[38;5;249mr[0m[38;5;249m [0m[38;5;249mS[0m[38;5;249m’[0m[38;5;249ms[0m[38;5;249m [0m[38;5;249ma[0m[38;5;249mn[0m[38;5;249md[0m[38;5;249m [0m[38;5;249mf[0m[38;5;249mo[0m[38;5;249mu[0m[38;5;249mr[0m[38;5;249m [0m[38;5;249mI[0m’[38;5;249ms[0m[38;5;249m.[0m
+       [38;5;240m  │[0m                                    ┬
+       [38;5;240m  │[0m                                    ╰── unexpected ’
+      [38;5;246m───╯[0m
+      [31mError:[0m
+         [38;5;246m╭[0m[38;5;246m─[0m[38;5;246m[[0m:1:38[38;5;246m][0m
+         [38;5;246m│[0m
+       [38;5;246m1 │[0m [38;5;249mM[0m[38;5;249mi[0m[38;5;249ms[0m[38;5;249ms[0m[38;5;249mi[0m[38;5;249ms[0m[38;5;249ms[0m[38;5;249mi[0m[38;5;249mp[0m[38;5;249mp[0m[38;5;249mi[0m[38;5;249m [0m[38;5;249mh[0m[38;5;249ma[0m[38;5;249ms[0m[38;5;249m [0m[38;5;249mf[0m[38;5;249mo[0m[38;5;249mu[0m[38;5;249mr[0m[38;5;249m [0m[38;5;249mS[0m[38;5;249m’[0m[38;5;249ms[0m[38;5;249m [0m[38;5;249ma[0m[38;5;249mn[0m[38;5;249md[0m[38;5;249m [0m[38;5;249mf[0m[38;5;249mo[0m[38;5;249mu[0m[38;5;249mr[0m[38;5;249m [0m[38;5;249mI[0m[38;5;249m’[0m[38;5;249ms[0m.
+       [38;5;240m  │[0m                                      ┬
+       [38;5;240m  │[0m                                      ╰── Expected * or an identifier, but didn't find anything before the end.
+      [38;5;246m───╯[0m
 
 # Syntax error query=from a | select [b]
 
     Code
       cat(prql_compile(query, "sql.any", TRUE, FALSE))
     Error <simpleError>
-      Error:
-         ╭─[:1:17]
-         │
-       1 │ from a | select [b]
-         │                 ─┬─
-         │                  ╰─── unexpected `[_frame.a.b]`
-         │
-         │ Help: this is probably a 'bad type' error (we are working on that)
-      ───╯
+      [31mError:[0m
+         [38;5;246m╭[0m[38;5;246m─[0m[38;5;246m[[0m:1:17[38;5;246m][0m
+         [38;5;246m│[0m
+       [38;5;246m1 │[0m [38;5;249mf[0m[38;5;249mr[0m[38;5;249mo[0m[38;5;249mm[0m[38;5;249m [0m[38;5;249ma[0m[38;5;249m [0m[38;5;249m|[0m[38;5;249m [0m[38;5;249ms[0m[38;5;249me[0m[38;5;249ml[0m[38;5;249me[0m[38;5;249mc[0m[38;5;249mt[0m[38;5;249m [0m[b]
+       [38;5;240m  │[0m                 ─┬─
+       [38;5;240m  │[0m                  ╰─── unexpected `[_frame.a.b]`
+       [38;5;240m  │[0m
+       [38;5;240m  │[0m [38;5;115mHelp[0m: this is probably a 'bad type' error (we are working on that)
+      [38;5;246m───╯[0m
 
 # Syntax error query=from a | select {{{b
 
     Code
       cat(prql_compile(query, "sql.any", TRUE, FALSE))
     Error <simpleError>
-      Error:
-         ╭─[:1:20]
-         │
-       1 │ from a | select {{{b
-         │                    ┬
-         │                    ╰── unexpected end of input while parsing function call
-      ───╯
+      [31mError:[0m
+         [38;5;246m╭[0m[38;5;246m─[0m[38;5;246m[[0m:1:20[38;5;246m][0m
+         [38;5;246m│[0m
+       [38;5;246m1 │[0m [38;5;249mf[0m[38;5;249mr[0m[38;5;249mo[0m[38;5;249mm[0m[38;5;249m [0m[38;5;249ma[0m[38;5;249m [0m[38;5;249m|[0m[38;5;249m [0m[38;5;249ms[0m[38;5;249me[0m[38;5;249ml[0m[38;5;249me[0m[38;5;249mc[0m[38;5;249mt[0m[38;5;249m [0m[38;5;249m{[0m[38;5;249m{[0m[38;5;249m{[0mb
+       [38;5;240m  │[0m                    ┬
+       [38;5;240m  │[0m                    ╰── unexpected end of input while parsing function call
+      [38;5;246m───╯[0m
 
 # Targets target=sql.any
 
@@ -230,30 +230,6 @@
       LIMIT
         2
 
-# Targets target=sql.hive
-
-    Code
-      cat(prql_compile(query, target, TRUE, FALSE))
-    Output
-      SELECT
-        origin,
-        dest,
-        COUNT(*) AS num_flts,
-        ROUND(AVG(arr_delay), 0) AS avg_delay
-      FROM
-        flights
-      WHERE
-        distance BETWEEN 200 AND 300
-        AND air_time IS NOT NULL
-      GROUP BY
-        origin,
-        dest
-      ORDER BY
-        origin DESC,
-        avg_delay
-      LIMIT
-        2
-
 # Targets target=sql.mssql
 
     Code
@@ -309,7 +285,7 @@
         origin,
         dest,
         COUNT(*) AS num_flts,
-        ROUND(AVG(arr_delay), 0) AS avg_delay
+        ROUND((AVG(arr_delay)) :: numeric, 0) AS avg_delay
       FROM
         flights
       WHERE
