@@ -31,6 +31,41 @@ License:     MIT OR Unlicense
 
 -------------------------------------------------------------
 
+Name:        anstream
+Repository:  https://github.com/rust-cli/anstyle.git
+Authors:     anstream authors
+License:     Apache-2.0 OR MIT
+
+-------------------------------------------------------------
+
+Name:        anstyle
+Repository:  https://github.com/rust-cli/anstyle.git
+Authors:     anstyle authors
+License:     Apache-2.0 OR MIT
+
+-------------------------------------------------------------
+
+Name:        anstyle-parse
+Repository:  https://github.com/rust-cli/anstyle.git
+Authors:     anstyle-parse authors
+License:     Apache-2.0 OR MIT
+
+-------------------------------------------------------------
+
+Name:        anstyle-query
+Repository:  https://github.com/rust-cli/anstyle
+Authors:     anstyle-query authors
+License:     Apache-2.0 OR MIT
+
+-------------------------------------------------------------
+
+Name:        anstyle-wincon
+Repository:  https://github.com/rust-cli/anstyle.git
+Authors:     anstyle-wincon authors
+License:     Apache-2.0 OR MIT
+
+-------------------------------------------------------------
+
 Name:        anyhow
 Repository:  https://github.com/dtolnay/anyhow
 Authors:     David Tolnay
@@ -52,6 +87,13 @@ License:     Apache-2.0 OR MIT
 
 -------------------------------------------------------------
 
+Name:        bitflags
+Repository:  https://github.com/bitflags/bitflags
+Authors:     The Rust Project Developers
+License:     Apache-2.0 OR MIT
+
+-------------------------------------------------------------
+
 Name:        cfg-if
 Repository:  https://github.com/alexcrichton/cfg-if
 Authors:     Alex Crichton
@@ -63,6 +105,13 @@ Name:        chumsky
 Repository:  https://github.com/zesterer/chumsky
 Authors:     Joshua Barretto
 License:     MIT
+
+-------------------------------------------------------------
+
+Name:        colorchoice
+Repository:  https://github.com/rust-cli/anstyle
+Authors:     colorchoice authors
+License:     Apache-2.0 OR MIT
 
 -------------------------------------------------------------
 
@@ -91,6 +140,20 @@ Name:        enum-as-inner
 Repository:  https://github.com/bluejekyll/enum-as-inner
 Authors:     Benjamin Fry
 License:     Apache-2.0 OR MIT
+
+-------------------------------------------------------------
+
+Name:        errno
+Repository:  https://github.com/lambda-fairy/rust-errno
+Authors:     Chris Wong
+License:     Apache-2.0 OR MIT
+
+-------------------------------------------------------------
+
+Name:        errno-dragonfly
+Repository:  https://github.com/mneumann/errno-dragonfly-rs
+Authors:     Michael Neumann
+License:     MIT
 
 -------------------------------------------------------------
 
@@ -143,10 +206,31 @@ License:     Apache-2.0 OR MIT
 
 -------------------------------------------------------------
 
+Name:        hermit-abi
+Repository:  https://github.com/hermitcore/rusty-hermit
+Authors:     Stefan Lankes
+License:     Apache-2.0 OR MIT
+
+-------------------------------------------------------------
+
 Name:        indexmap
 Repository:  https://github.com/bluss/indexmap
 Authors:     indexmap authors
 License:     Apache-2.0 OR MIT
+
+-------------------------------------------------------------
+
+Name:        io-lifetimes
+Repository:  https://github.com/sunfishcode/io-lifetimes
+Authors:     Dan Gohman
+License:     Apache-2.0 OR Apache-2.0 WITH LLVM-exception OR MIT
+
+-------------------------------------------------------------
+
+Name:        is-terminal
+Repository:  https://github.com/sunfishcode/is-terminal
+Authors:     softprops, Dan Gohman
+License:     MIT
 
 -------------------------------------------------------------
 
@@ -182,6 +266,13 @@ Name:        libc
 Repository:  https://github.com/rust-lang/libc
 Authors:     The Rust Project Developers
 License:     Apache-2.0 OR MIT
+
+-------------------------------------------------------------
+
+Name:        linux-raw-sys
+Repository:  https://github.com/sunfishcode/linux-raw-sys
+Authors:     Dan Gohman
+License:     Apache-2.0 OR Apache-2.0 WITH LLVM-exception OR MIT
 
 -------------------------------------------------------------
 
@@ -287,6 +378,13 @@ Name:        rustc-demangle
 Repository:  https://github.com/alexcrichton/rustc-demangle
 Authors:     Alex Crichton
 License:     Apache-2.0 OR MIT
+
+-------------------------------------------------------------
+
+Name:        rustix
+Repository:  https://github.com/bytecodealliance/rustix
+Authors:     Dan Gohman, Jakub Konka
+License:     Apache-2.0 OR Apache-2.0 WITH LLVM-exception OR MIT
 
 -------------------------------------------------------------
 
@@ -416,6 +514,13 @@ License:     MIT
 
 -------------------------------------------------------------
 
+Name:        utf8parse
+Repository:  https://github.com/alacritty/vte
+Authors:     Joe Wilm, Christian Duerr
+License:     Apache-2.0 OR MIT
+
+-------------------------------------------------------------
+
 Name:        wasi
 Repository:  https://github.com/bytecodealliance/wasi
 Authors:     The Cranelift Project Developers
@@ -440,6 +545,69 @@ License:     Apache-2.0 OR MIT
 Name:        winapi-x86_64-pc-windows-gnu
 Repository:  https://github.com/retep998/winapi-rs
 Authors:     Peter Atashian
+License:     Apache-2.0 OR MIT
+
+-------------------------------------------------------------
+
+Name:        windows-sys
+Repository:  https://github.com/microsoft/windows-rs
+Authors:     Microsoft
+License:     Apache-2.0 OR MIT
+
+-------------------------------------------------------------
+
+Name:        windows-targets
+Repository:  https://github.com/microsoft/windows-rs
+Authors:     Microsoft
+License:     Apache-2.0 OR MIT
+
+-------------------------------------------------------------
+
+Name:        windows_aarch64_gnullvm
+Repository:  https://github.com/microsoft/windows-rs
+Authors:     Microsoft
+License:     Apache-2.0 OR MIT
+
+-------------------------------------------------------------
+
+Name:        windows_aarch64_msvc
+Repository:  https://github.com/microsoft/windows-rs
+Authors:     Microsoft
+License:     Apache-2.0 OR MIT
+
+-------------------------------------------------------------
+
+Name:        windows_i686_gnu
+Repository:  https://github.com/microsoft/windows-rs
+Authors:     Microsoft
+License:     Apache-2.0 OR MIT
+
+-------------------------------------------------------------
+
+Name:        windows_i686_msvc
+Repository:  https://github.com/microsoft/windows-rs
+Authors:     Microsoft
+License:     Apache-2.0 OR MIT
+
+-------------------------------------------------------------
+
+Name:        windows_x86_64_gnu
+Repository:  https://github.com/microsoft/windows-rs
+Authors:     Microsoft
+License:     Apache-2.0 OR MIT
+
+-------------------------------------------------------------
+
+Name:        windows_x86_64_gnullvm
+Repository:  https://github.com/microsoft/windows-rs
+Authors:     Microsoft
+License:     Apache-2.0 OR MIT
+
+-------------------------------------------------------------
+
+Name:        windows_x86_64_msvc
+Repository:  https://github.com/microsoft/windows-rs
+Authors:     Microsoft
 License:     Apache-2.0 OR MIT
 
 -------------------------------------------------------------

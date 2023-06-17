@@ -71,19 +71,19 @@ patrick::with_parameters_test_that("Syntax error",
 
 patrick::with_parameters_test_that("Targets",
   {
-    query <- "
+    query <- r"(
 from flights
 filter (distance | in 200..300)
 filter air_time != null
 group {origin, dest} (
   aggregate {
-    num_flts = count,
+    num_flts = count s"*",
     avg_delay = (average arr_delay | round 0)
   }
 )
 sort {-origin, avg_delay}
 take 2
-"
+)"
     expect_snapshot(cat(prql_compile(query, target, TRUE, FALSE)))
   },
   target = prql_get_targets()

@@ -230,30 +230,6 @@
       LIMIT
         2
 
-# Targets target=sql.hive
-
-    Code
-      cat(prql_compile(query, target, TRUE, FALSE))
-    Output
-      SELECT
-        origin,
-        dest,
-        COUNT(*) AS num_flts,
-        ROUND(AVG(arr_delay), 0) AS avg_delay
-      FROM
-        flights
-      WHERE
-        distance BETWEEN 200 AND 300
-        AND air_time IS NOT NULL
-      GROUP BY
-        origin,
-        dest
-      ORDER BY
-        origin DESC,
-        avg_delay
-      LIMIT
-        2
-
 # Targets target=sql.mssql
 
     Code
@@ -309,7 +285,7 @@
         origin,
         dest,
         COUNT(*) AS num_flts,
-        ROUND(AVG(arr_delay), 0) AS avg_delay
+        ROUND((AVG(arr_delay)) :: numeric, 0) AS avg_delay
       FROM
         flights
       WHERE
