@@ -459,6 +459,7 @@ dependencies = [
 name = "prqlr"
 version = "0.1.0"
 dependencies = [
+ "anstream",
  "extendr-api",
  "prql-compiler",
 ]

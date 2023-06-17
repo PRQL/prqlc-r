@@ -1,3 +1,4 @@
+use anstream::ColorChoice;
 use extendr_api::prelude::*;
 use std::str::FromStr;
 
@@ -32,6 +33,8 @@ pub fn compile(
                 .and_then(|rq| prql_compiler::rq_to_sql(rq, &opts))
         })
         .map_err(|e| e.composed(&prql_query.into()));
+
+    ColorChoice::write_global(self::ColorChoice::Never);
 
     r_result_list(result)
 }
