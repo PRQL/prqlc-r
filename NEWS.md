@@ -4,6 +4,10 @@
 
 - Based on [`prql-compiler`](https://github.com/prql/prql) 0.9.0 (#130, #137)
 
+## Bug fixes
+
+- Support Rust 1.70 on Windows. (Thanks @yutannihilation, #138)
+
 # prqlr 0.4.0
 
 ## Breaking changes
