@@ -241,6 +241,13 @@ License:     Apache-2.0 OR MIT
 
 -------------------------------------------------------------
 
+Name:        itertools
+Repository:  https://github.com/rust-itertools/itertools
+Authors:     bluss
+License:     Apache-2.0 OR MIT
+
+-------------------------------------------------------------
+
 Name:        itoa
 Repository:  https://github.com/dtolnay/itoa
 Authors:     David Tolnay
