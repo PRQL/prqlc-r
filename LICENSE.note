@@ -143,6 +143,13 @@ License:     Apache-2.0 OR MIT
 
 -------------------------------------------------------------
 
+Name:        equivalent
+Repository:  https://github.com/cuviper/equivalent
+Authors:     equivalent authors
+License:     Apache-2.0 OR MIT
+
+-------------------------------------------------------------
+
 Name:        errno
 Repository:  https://github.com/lambda-fairy/rust-errno
 Authors:     Chris Wong
@@ -199,6 +206,13 @@ License:     Apache-2.0 OR MIT
 
 -------------------------------------------------------------
 
+Name:        hashbrown
+Repository:  https://github.com/rust-lang/hashbrown
+Authors:     Amanieu d'Antras
+License:     Apache-2.0 OR MIT
+
+-------------------------------------------------------------
+
 Name:        heck
 Repository:  https://github.com/withoutboats/heck
 Authors:     Without Boats
@@ -220,17 +234,17 @@ License:     Apache-2.0 OR MIT
 
 -------------------------------------------------------------
 
-Name:        io-lifetimes
-Repository:  https://github.com/sunfishcode/io-lifetimes
-Authors:     Dan Gohman
-License:     Apache-2.0 OR Apache-2.0 WITH LLVM-exception OR MIT
-
--------------------------------------------------------------
-
 Name:        is-terminal
 Repository:  https://github.com/sunfishcode/is-terminal
 Authors:     softprops, Dan Gohman
 License:     MIT
+
+-------------------------------------------------------------
+
+Name:        itertools
+Repository:  https://github.com/rust-itertools/itertools
+Authors:     bluss
+License:     Apache-2.0 OR MIT
 
 -------------------------------------------------------------
 

@@ -68,7 +68,7 @@
          │
        1 │ from a | select [b]
          │                 ─┬─
-         │                  ╰─── unexpected `[_frame.a.b]`
+         │                  ╰─── unexpected `[this.a.b]`
          │
          │ Help: this is probably a 'bad type' error (we are working on that)
       ───╯
