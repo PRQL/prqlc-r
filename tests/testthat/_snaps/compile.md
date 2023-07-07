@@ -22,7 +22,7 @@
     Code
       cat(unwrap(compile(
         "from star_wars\n    select {star_wars.*}\n    select !{jar_jar_binks, midichlorians}",
-        "sql.duckdb", TRUE, TRUE)))
+        "sql.duckdb")))
     Output
       SELECT
         * EXCLUDE (jar_jar_binks, midichlorians)
