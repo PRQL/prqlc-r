@@ -143,13 +143,6 @@ License:     Apache-2.0 OR MIT
 
 -------------------------------------------------------------
 
-Name:        equivalent
-Repository:  https://github.com/cuviper/equivalent
-Authors:     equivalent authors
-License:     Apache-2.0 OR MIT
-
--------------------------------------------------------------
-
 Name:        errno
 Repository:  https://github.com/lambda-fairy/rust-errno
 Authors:     Chris Wong
@@ -206,13 +199,6 @@ License:     Apache-2.0 OR MIT
 
 -------------------------------------------------------------
 
-Name:        hashbrown
-Repository:  https://github.com/rust-lang/hashbrown
-Authors:     Amanieu d'Antras
-License:     Apache-2.0 OR MIT
-
--------------------------------------------------------------
-
 Name:        heck
 Repository:  https://github.com/withoutboats/heck
 Authors:     Without Boats
@@ -223,13 +209,6 @@ License:     Apache-2.0 OR MIT
 Name:        hermit-abi
 Repository:  https://github.com/hermitcore/rusty-hermit
 Authors:     Stefan Lankes
-License:     Apache-2.0 OR MIT
-
--------------------------------------------------------------
-
-Name:        indexmap
-Repository:  https://github.com/bluss/indexmap
-Authors:     indexmap authors
 License:     Apache-2.0 OR MIT
 
 -------------------------------------------------------------
@@ -353,9 +332,23 @@ License:     Apache-2.0 OR MIT
 
 -------------------------------------------------------------
 
+Name:        prql-ast
+Repository:  https://github.com/PRQL/prql
+Authors:     prql-ast authors
+License:     Apache-2.0
+
+-------------------------------------------------------------
+
 Name:        prql-compiler
 Repository:  https://github.com/PRQL/prql
 Authors:     prql-compiler authors
+License:     Apache-2.0
+
+-------------------------------------------------------------
+
+Name:        prql-parser
+Repository:  https://github.com/PRQL/prql
+Authors:     prql-parser authors
 License:     Apache-2.0
 
 -------------------------------------------------------------
@@ -376,14 +369,21 @@ License:     Apache-2.0 OR MIT
 
 Name:        regex
 Repository:  https://github.com/rust-lang/regex
-Authors:     The Rust Project Developers
+Authors:     The Rust Project Developers, Andrew Gallant
+License:     Apache-2.0 OR MIT
+
+-------------------------------------------------------------
+
+Name:        regex-automata
+Repository:  https://github.com/rust-lang/regex/tree/master/regex-automata
+Authors:     The Rust Project Developers, Andrew Gallant
 License:     Apache-2.0 OR MIT
 
 -------------------------------------------------------------
 
 Name:        regex-syntax
-Repository:  https://github.com/rust-lang/regex
-Authors:     The Rust Project Developers
+Repository:  https://github.com/rust-lang/regex/tree/master/regex-syntax
+Authors:     The Rust Project Developers, Andrew Gallant
 License:     Apache-2.0 OR MIT
 
 -------------------------------------------------------------
@@ -432,7 +432,7 @@ License:     Apache-2.0 OR MIT
 
 Name:        serde_derive
 Repository:  https://github.com/serde-rs/serde
-Authors:     Erick Tryzelaar, David Tolnay
+Authors:     David Tolnay
 License:     Apache-2.0 OR MIT
 
 -------------------------------------------------------------
@@ -440,13 +440,6 @@ License:     Apache-2.0 OR MIT
 Name:        serde_json
 Repository:  https://github.com/serde-rs/json
 Authors:     Erick Tryzelaar, David Tolnay
-License:     Apache-2.0 OR MIT
-
--------------------------------------------------------------
-
-Name:        serde_yaml
-Repository:  https://github.com/dtolnay/serde-yaml
-Authors:     David Tolnay
 License:     Apache-2.0 OR MIT
 
 -------------------------------------------------------------
@@ -518,13 +511,6 @@ Name:        unicode_categories
 Repository:  https://github.com/swgillespie/unicode-categories
 Authors:     Sean Gillespie
 License:     Apache-2.0 OR MIT
-
--------------------------------------------------------------
-
-Name:        unsafe-libyaml
-Repository:  https://github.com/dtolnay/unsafe-libyaml
-Authors:     David Tolnay
-License:     MIT
 
 -------------------------------------------------------------
 
