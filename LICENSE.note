@@ -332,6 +332,13 @@ License:     Apache-2.0 OR MIT
 
 -------------------------------------------------------------
 
+Name:        prql-ast
+Repository:  https://github.com/PRQL/prql
+Authors:     prql-ast authors
+License:     Apache-2.0
+
+-------------------------------------------------------------
+
 Name:        prql-compiler
 Repository:  https://github.com/PRQL/prql
 Authors:     prql-compiler authors
@@ -339,16 +346,9 @@ License:     Apache-2.0
 
 -------------------------------------------------------------
 
-Name:        prql_ast
+Name:        prql-parser
 Repository:  https://github.com/PRQL/prql
-Authors:     prql_ast authors
-License:     Apache-2.0
-
--------------------------------------------------------------
-
-Name:        prql_parser
-Repository:  https://github.com/PRQL/prql
-Authors:     prql_parser authors
+Authors:     prql-parser authors
 License:     Apache-2.0
 
 -------------------------------------------------------------

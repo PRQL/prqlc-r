@@ -412,9 +412,22 @@ dependencies = [
 ]
 
 [[package]]
+name = "prql-ast"
+version = "0.9.2"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "fdeec2a65ab31ec207e6b417a5c369da1d6625c181c4118f02f26410dbf823f3"
+dependencies = [
+ "enum-as-inner",
+ "semver",
+ "serde",
+ "strum",
+]
+
+[[package]]
 name = "prql-compiler"
-version = "0.9.0"
-source = "git+https://github.com/PRQL/prql?tag=0.9.0#af3298fc0b902d9f26c3649403572c5106933a13"
+version = "0.9.2"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "ed8afd1242b9d4bf5a544edc24f8d49aaf71052b4f1f799de81a977b795620ed"
 dependencies = [
  "anstream",
  "anyhow",
@@ -424,8 +437,8 @@ dependencies = [
  "itertools 0.11.0",
  "log",
  "once_cell",
- "prql_ast",
- "prql_parser",
+ "prql-ast",
+ "prql-parser",
  "regex",
  "semver",
  "serde",
@@ -437,24 +450,14 @@ dependencies = [
 ]
 
 [[package]]
-name = "prql_ast"
-version = "0.9.0"
-source = "git+https://github.com/PRQL/prql?tag=0.9.0#af3298fc0b902d9f26c3649403572c5106933a13"
-dependencies = [
- "enum-as-inner",
- "semver",
- "serde",
- "strum",
-]
-
-[[package]]
-name = "prql_parser"
-version = "0.9.0"
-source = "git+https://github.com/PRQL/prql?tag=0.9.0#af3298fc0b902d9f26c3649403572c5106933a13"
+name = "prql-parser"
+version = "0.9.2"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "bce7d986ef30a953fe266ead24224231e988a7c6310be109af620072842dfc5c"
 dependencies = [
  "chumsky",
  "itertools 0.11.0",
- "prql_ast",
+ "prql-ast",
  "semver",
 ]
 
