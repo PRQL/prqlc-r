@@ -1,18 +1,16 @@
 vendor_crates <- function(path = ".") {
-  withr::local_dir(path)
+  rust_dir <- rprojroot::find_package_root_file("src", "rust", path = path)
 
-  manifest_file <- file.path("src", "rust", "Cargo.toml")
-  vendor_dir <- file.path("src", "rust", "vendor")
-  out_file <- rprojroot::find_package_root_file("src", "rust", "vendor.tar.xz")
-  config_toml_file <- file.path("src", "rust", "vendor-config.toml")
+  out_file <- file.path(rust_dir, "vendor.tar.xz")
+  config_toml_file <- file.path(rust_dir, "vendor-config.toml")
+
+  withr::local_dir(rust_dir)
 
   config_toml_content <- processx::run(
     "cargo",
     c(
       "vendor",
-      "--locked",
-      "--manifest-path", manifest_file,
-      vendor_dir
+      "--locked"
     )
   )$stdout
 
@@ -25,9 +23,7 @@ vendor_crates <- function(path = ".") {
 
   tar_flags <- "--sort=name --mtime='1970-01-01 00:00:00Z' --owner=0 --group=0 --numeric-owner"
 
-  if (!dir.exists("tools")) dir.create("tools", recursive = TRUE)
-
-  withr::local_dir(vendor_dir)
+  withr::local_dir(file.path(rust_dir, "vendor"))
   tar(
     out_file,
     compression = "xz",
