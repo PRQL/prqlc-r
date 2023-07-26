@@ -10,6 +10,7 @@ on:
       - src/**
       - tests/**
       - vignettes/*
+      - configure*
       - DESCRIPTION
       - NAMESPACE
   pull_request:
@@ -21,6 +22,7 @@ on:
       - src/**
       - tests/**
       - vignettes/*
+      - configure*
       - DESCRIPTION
       - NAMESPACE
   workflow_dispatch:
