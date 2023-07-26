@@ -1,17 +1,24 @@
-vendor_crates <- function(path = ".") {
-  manifest_file <- rprojroot::find_package_root_file("src", "rust", "Cargo.toml", path = path)
-  vendor_dir <- rprojroot::find_package_root_file("vendor", path = path)
-  out_file <- rprojroot::find_package_root_file("tools", "vendored-sources.tar.xz", path = path)
+vendor_crates <- function() {
+  manifest_file <- file.path("src", "rust", "Cargo.toml")
+  vendor_dir <- file.path("vendor")
+  out_file <- file.path("tools", "vendored-sources.tar.xz")
+  config_toml_file <- file.path("tools", "vendor-config.toml")
 
-  processx::run(
+  config_toml_content <- processx::run(
     "cargo",
     c(
       "vendor",
       "--locked",
       "--manifest-path", manifest_file,
       vendor_dir
-    ),
-    echo = TRUE
+    )
+  )$stdout
+
+  rextendr:::write_file(
+    text = config_toml_content,
+    path = config_toml_file,
+    search_root_from = path,
+    quiet = TRUE
   )
 
   tar_flags <- "--sort=name --mtime='1970-01-01 00:00:00Z' --owner=0 --group=0 --numeric-owner"
