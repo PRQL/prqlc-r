@@ -6,7 +6,9 @@ Description:
     'PRQL' can be used on R.
 Version: 0.4.0.9003
 Authors@R:
-    person("Tatsuya", "Shima", email = "ts1s1andn@gmail.com", role = c("aut", "cre"))
+    c(person("Tatsuya", "Shima", email = "ts1s1andn@gmail.com", role = c("aut", "cre")),
+      person(given = "The authors of the dependency Rust crates", role = c("ctb"),
+             comment = "see inst/AUTHORS file for details"))
 URL: https://eitsupi.github.io/prqlr/, https://github.com/eitsupi/prqlr
 BugReports: https://github.com/eitsupi/prqlr/issues
 Depends:
