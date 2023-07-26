@@ -39,6 +39,7 @@ tasks:
     cmds:
       - task: test-all
       - task: build-license-note
+      - task: build-authors
       - task: build-readme
 
   test-all:
@@ -137,6 +138,17 @@ tasks:
       - LICENSE.note
     cmds:
       - Rscript -e 'rextendr::write_license_note(force = TRUE)'
+
+  build-authors:
+    internal: true
+    desc: Build inst/AUTHORS
+    sources:
+      - "{{.CARGO_LOCK}}"
+      - dev/generate-authors.R
+    generates:
+      - inst/AUTHORS
+    cmds:
+      - Rscript dev/generate-authors.R
 
   build-readme:
     internal: true
