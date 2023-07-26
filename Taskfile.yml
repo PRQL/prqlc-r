@@ -19,6 +19,8 @@ tasks:
 
   install-r-tools:
     internal: true
+    env:
+      PKG_SYSREQS: FALSE
     desc: Install R packages for development.
     cmds:
       - Rscript -e
