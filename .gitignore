@@ -4,5 +4,5 @@ docs
 # Task cache
 .task
 
-src/vendor
-src/vendored-sources.tar.xz
+src/rust/vendor
+src/rust/vendor.tar.xz

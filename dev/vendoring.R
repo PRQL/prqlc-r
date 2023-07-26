@@ -2,9 +2,9 @@ vendor_crates <- function(path = ".") {
   withr::local_dir(path)
 
   manifest_file <- file.path("src", "rust", "Cargo.toml")
-  vendor_dir <- file.path("src", "vendor")
-  out_file <- rprojroot::find_package_root_file("src", "vendored-sources.tar.xz")
-  config_toml_file <- file.path("src", "vendor-config.toml")
+  vendor_dir <- file.path("src", "rust", "vendor")
+  out_file <- rprojroot::find_package_root_file("src", "rust", "vendor.tar.xz")
+  config_toml_file <- file.path("src", "rust", "vendor-config.toml")
 
   config_toml_content <- processx::run(
     "cargo",
