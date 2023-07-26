@@ -4,5 +4,5 @@ docs
 # Task cache
 .task
 
-vendor
-tools/vendored-sources.tar.xz
+src/vendor
+src/vendored-sources.tar.xz
