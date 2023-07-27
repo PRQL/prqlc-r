@@ -14,3 +14,4 @@
 ^Taskfile\.yml$
 ^\.task$
 ^src/\.cargo$
+^src/rust/vendor$

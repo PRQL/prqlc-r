@@ -3,3 +3,6 @@ docs
 
 # Task cache
 .task
+
+src/rust/vendor
+src/rust/vendor.tar.xz

@@ -32,6 +32,16 @@ tasks:
     cmds:
       - cargo install cargo-license
 
+  build-vendor-sources:
+    desc: Vendor Rust sources.
+    sources:
+      - "{{.CARGO_LOCK}}"
+      - dev/vendoring.R
+    generates:
+      - src/rust/vendor.tar.xz
+    cmds:
+      - Rscript dev/vendoring.R
+
   build-all:
     desc: Build the R package, generate documents, run all tests, and update files.
     deps:
@@ -122,6 +132,8 @@ tasks:
       - "{{.MANIFEST}}"
       - "{{.CARGO_LOCK}}"
       - "{{.RUST_SOURCE}}"
+    deps:
+      - build-vendor-sources
     generates:
       - R/extendr-wrappers.R
     status:
