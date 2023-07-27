@@ -14,8 +14,8 @@ $(STATLIB):
 	if [ -f ./rust/vendor.tar.xz ]; then \
 		mkdir -p $(VENDOR_DIR) && \
 		$(TAR) --extract --xz --file ./rust/vendor.tar.xz -C $(VENDOR_DIR) && \
-		mkdir -p ./rust/.cargo && \
-		cp ./rust/vendor-config.toml ./rust/.cargo/config.toml; \
+		mkdir -p $(CARGOTMP) && \
+		cp ./rust/vendor-config.toml $(CARGOTMP)/config.toml; \
 	fi
 
 	# In some environments, ~/.cargo/bin might not be included in PATH, so we need
@@ -36,4 +36,4 @@ C_clean:
 	rm -Rf $(SHLIB) $(STATLIB) $(OBJECTS)
 
 clean:
-	rm -Rf $(SHLIB) $(STATLIB) $(OBJECTS) $(VENDOR_DIR) ./rust/target ./rust/.cargo
+	rm -Rf $(SHLIB) $(STATLIB) $(OBJECTS) $(VENDOR_DIR) ./rust/target
