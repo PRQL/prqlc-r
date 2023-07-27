@@ -4,6 +4,8 @@ vendor_crates <- function(path = ".") {
   out_file <- file.path(src_dir, "rust", "vendor.tar.xz")
   config_toml_file <- file.path(src_dir, "rust", "vendor-config.toml")
 
+  vendor_rel_path <- file.path("rust", "vendor")
+
   withr::local_dir(src_dir)
 
   config_toml_content <- processx::run(
@@ -12,7 +14,7 @@ vendor_crates <- function(path = ".") {
       "vendor",
       "--locked",
       "--manifest-path", file.path("rust", "Cargo.toml"),
-      file.path("rust", "vendor")
+      vendor_rel_path
     )
   )$stdout
 
@@ -23,7 +25,7 @@ vendor_crates <- function(path = ".") {
     quiet = TRUE
   )
 
-  withr::local_dir(file.path(src_dir, "rust", "vendor"))
+  withr::local_dir(file.path(src_dir, vendor_rel_path))
   withr::local_envvar(c(XZ_OPT = "-9"))
   processx::run(
     "tar",
