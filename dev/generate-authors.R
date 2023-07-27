@@ -8,8 +8,6 @@ write_authors <- function(path = ".", quiet = FALSE, force = TRUE) {
       "license",
       "--authors",
       "--json",
-      "--avoid-build-deps",
-      "--avoid-dev-deps",
       "--manifest-path", manifest_file
     )
   )$stdout |>

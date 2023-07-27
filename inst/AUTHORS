@@ -39,6 +39,9 @@ backtrace (version 0.3.68):
 bitflags (version 2.3.3):
   The Rust Project Developers
 
+cc (version 1.0.79):
+  Alex Crichton
+
 cfg-if (version 1.0.0):
   Alex Crichton
 
@@ -221,6 +224,9 @@ unicode_categories (version 0.1.1):
 
 utf8parse (version 0.2.1):
   Joe Wilm, Christian Duerr
+
+version_check (version 0.9.4):
+  Sergio Benitez
 
 wasi (version 0.11.0+wasi-snapshot-preview1):
   The Cranelift Project Developers
