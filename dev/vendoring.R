@@ -21,14 +21,21 @@ vendor_crates <- function(path = ".") {
     quiet = TRUE
   )
 
-  tar_flags <- "--sort=name --mtime='1970-01-01 00:00:00Z' --owner=0 --group=0 --numeric-owner"
-
   withr::local_dir(file.path(rust_dir, "vendor"))
-  tar(
-    out_file,
-    compression = "xz",
-    compression_level = 9,
-    extra_flags = tar_flags
+  withr::local_envvar(c(XZ_OPT = "-9"))
+  processx::run(
+    "tar",
+    c(
+      "-c",
+      "-f", out_file,
+      "--xz",
+      "--sort=name",
+      "--mtime=1970-01-01",
+      "--owner=0",
+      "--group=0",
+      "--numeric-owner",
+      "."
+    )
   )
 }
 
