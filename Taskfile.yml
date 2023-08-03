@@ -32,8 +32,19 @@ tasks:
     cmds:
       - cargo install cargo-license
 
+  cargo-update:
+    desc: Update the lock files.
+    sources:
+      - "{{.MANIFEST}}"
+    generates:
+      - "{{.CARGO_LOCK}}"
+    cmds:
+      - cargo update --manifest-path "{{.MANIFEST}}"
+
   build-vendor-sources:
     desc: Vendor Rust sources.
+    deps:
+      - cargo-update
     sources:
       - "{{.CARGO_LOCK}}"
       - dev/vendoring.R
