@@ -8,6 +8,16 @@
 
 - Support Rust 1.70 on Windows. (Thanks @yutannihilation, #138)
 
+## Miscellaneous
+
+- Some updates for adopting the (new) CRAN policy. (#148)
+  - This package now includes the `inst/AUTHORS` file. (#150, #154)
+  - Set `SystemRequirements: Cargo (Rust's package manager), rustc` in the DESCRIPTION file. (#153)
+  - This package now includes the `configure` and `configure.win` scripts to check the cargo command. (#149)
+  - Set `CARGO_BUILD_JOBS=2` if not `NOT_CRAN=true` during installation. (#151)
+  - Supports dependent Rust crates vendoring. (#152)
+  - Update the `LICENSE.note` file for Rust crates vendoring. (#156)
+
 # prqlr 0.4.0
 
 ## Breaking changes
