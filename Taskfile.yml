@@ -157,10 +157,11 @@ tasks:
     desc: Build LICENSE.note
     sources:
       - "{{.CARGO_LOCK}}"
+      - dev/generate-license-note.R
     generates:
       - LICENSE.note
     cmds:
-      - Rscript -e 'rextendr::write_license_note(force = TRUE)'
+      - Rscript dev/generate-license-note.R
 
   build-authors:
     internal: true
