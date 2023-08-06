@@ -38,8 +38,7 @@ $(STATLIB):
 		export LIBRARY_PATH="$${LIBRARY_PATH};$(CURDIR)/$(TARGET_DIR)/libgcc_mock" && \
 		cargo build --target=$(TARGET) --lib --release --manifest-path=./rust/Cargo.toml --target-dir $(TARGET_DIR)
 	if [ "$(NOT_CRAN)" != "true" ]; then \
-		rm -Rf $(CARGOTMP) && \
-		rm -Rf $(LIBDIR)/build; \
+		rm -Rf $(CARGOTMP) $(VENDOR_DIR) $(LIBDIR)/build; \
 	fi
 
 C_clean:

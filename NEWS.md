@@ -15,7 +15,7 @@
   - Set `SystemRequirements: Cargo (Rust's package manager), rustc` in the DESCRIPTION file. (#153)
   - This package now includes the `configure` and `configure.win` scripts to check the cargo command. (#149)
   - Set `CARGO_BUILD_JOBS=2` if not `NOT_CRAN=true` during installation. (#151)
-  - Supports dependent Rust crates vendoring. (#152)
+  - Supports dependent Rust crates vendoring. (#152, #159)
   - Update the `LICENSE.note` file for Rust crates vendoring. (#156)
 
 # prqlr 0.4.0
