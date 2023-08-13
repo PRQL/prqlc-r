@@ -11,7 +11,7 @@
 ## Miscellaneous
 
 - Some updates for adopting the (new) CRAN policy. (#148)
-  - This package now includes the `inst/AUTHORS` file. (#150, #154)
+  - This package now includes the `inst/AUTHORS` file. (#150, #154, #160)
   - Set `SystemRequirements: Cargo (Rust's package manager), rustc` in the DESCRIPTION file. (#153)
   - This package now includes the `configure` and `configure.win` scripts to check the cargo command. (#149)
   - Set `CARGO_BUILD_JOBS=2` if not `NOT_CRAN=true` during installation. (#151)

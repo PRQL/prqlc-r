@@ -7,7 +7,7 @@ Description:
 Version: 0.4.0.9003
 Authors@R:
     c(person("Tatsuya", "Shima", email = "ts1s1andn@gmail.com", role = c("aut", "cre")),
-      person(given = "The authors of the dependency Rust crates", role = c("ctb"),
+      person(given = "The authors of the dependency Rust crates", role = c("aut"),
              comment = "see inst/AUTHORS file for details"))
 URL: https://eitsupi.github.io/prqlr/, https://github.com/eitsupi/prqlr
 BugReports: https://github.com/eitsupi/prqlr/issues
