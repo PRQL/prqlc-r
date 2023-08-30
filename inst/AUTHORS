@@ -1,6 +1,6 @@
 The authors of the dependency Rust crates:
 
-addr2line (version 0.20.0):
+addr2line (version 0.21.0):
   addr2line authors
 
 adler (version 1.0.2):
@@ -9,13 +9,13 @@ adler (version 1.0.2):
 ahash (version 0.7.6):
   Tom Kaitchuck
 
-aho-corasick (version 1.0.2):
+aho-corasick (version 1.0.5):
   Andrew Gallant
 
 anstream (version 0.3.2):
   anstream authors
 
-anstyle (version 1.0.1):
+anstyle (version 1.0.2):
   anstyle authors
 
 anstyle-parse (version 0.2.1):
@@ -24,22 +24,22 @@ anstyle-parse (version 0.2.1):
 anstyle-query (version 1.0.0):
   anstyle-query authors
 
-anstyle-wincon (version 1.0.1):
+anstyle-wincon (version 1.0.2):
   anstyle-wincon authors
 
-anyhow (version 1.0.72):
+anyhow (version 1.0.75):
   David Tolnay
 
 ariadne (version 0.3.0):
   Joshua Barretto
 
-backtrace (version 0.3.68):
+backtrace (version 0.3.69):
   The Rust Project Developers
 
-bitflags (version 2.3.3):
+bitflags (version 2.4.0):
   The Rust Project Developers
 
-cc (version 1.0.81):
+cc (version 1.0.83):
   Alex Crichton
 
 cfg-if (version 1.0.0):
@@ -63,7 +63,7 @@ either (version 1.9.0):
 enum-as-inner (version 0.6.0):
   Benjamin Fry
 
-errno (version 0.3.2):
+errno (version 0.3.3):
   Chris Wong
 
 errno-dragonfly (version 0.1.2):
@@ -81,7 +81,7 @@ extendr-macros (version 0.4.0):
 getrandom (version 0.2.10):
   The Rand Project Developers
 
-gimli (version 0.27.3):
+gimli (version 0.28.0):
   gimli authors
 
 hashbrown (version 0.12.3):
@@ -117,10 +117,10 @@ libc (version 0.2.147):
 linux-raw-sys (version 0.4.5):
   Dan Gohman
 
-log (version 0.4.19):
+log (version 0.4.20):
   The Rust Project Developers
 
-memchr (version 2.5.0):
+memchr (version 2.6.1):
   Andrew Gallant, bluss
 
 minimal-lexical (version 0.2.1):
@@ -132,7 +132,7 @@ miniz_oxide (version 0.7.1):
 nom (version 7.1.3):
   contact@geoffroycouprie.com
 
-object (version 0.31.1):
+object (version 0.32.0):
   object authors
 
 once_cell (version 1.18.0):
@@ -144,34 +144,34 @@ paste (version 1.0.14):
 proc-macro2 (version 1.0.66):
   David Tolnay, Alex Crichton
 
-prql-ast (version 0.9.3):
+prql-ast (version 0.9.4):
   prql-ast authors
 
-prql-compiler (version 0.9.3):
+prql-compiler (version 0.9.4):
   prql-compiler authors
 
-prql-parser (version 0.9.3):
+prql-parser (version 0.9.4):
   prql-parser authors
 
 psm (version 0.1.21):
   Simonas Kazlauskas
 
-quote (version 1.0.32):
+quote (version 1.0.33):
   David Tolnay
 
-regex (version 1.9.1):
+regex (version 1.9.4):
   The Rust Project Developers, Andrew Gallant
 
-regex-automata (version 0.3.4):
+regex-automata (version 0.3.7):
   The Rust Project Developers, Andrew Gallant
 
-regex-syntax (version 0.7.4):
+regex-syntax (version 0.7.5):
   The Rust Project Developers, Andrew Gallant
 
 rustc-demangle (version 0.1.23):
   Alex Crichton
 
-rustix (version 0.38.6):
+rustix (version 0.38.10):
   Dan Gohman, Jakub Konka
 
 rustversion (version 1.0.14):
@@ -183,13 +183,13 @@ ryu (version 1.0.15):
 semver (version 1.0.18):
   David Tolnay
 
-serde (version 1.0.180):
+serde (version 1.0.188):
   Erick Tryzelaar, David Tolnay
 
-serde_derive (version 1.0.180):
-  David Tolnay
+serde_derive (version 1.0.188):
+  Erick Tryzelaar, David Tolnay
 
-serde_json (version 1.0.104):
+serde_json (version 1.0.105):
   Erick Tryzelaar, David Tolnay
 
 sqlformat (version 0.2.1):
@@ -204,13 +204,13 @@ stacker (version 0.1.15):
 strum (version 0.25.0):
   Peter Glotfelty
 
-strum_macros (version 0.25.1):
+strum_macros (version 0.25.2):
   Peter Glotfelty
 
 syn (version 1.0.109):
   David Tolnay
 
-syn (version 2.0.28):
+syn (version 2.0.29):
   David Tolnay
 
 unicode-ident (version 1.0.11):
@@ -243,28 +243,28 @@ winapi-x86_64-pc-windows-gnu (version 0.4.0):
 windows-sys (version 0.48.0):
   Microsoft
 
-windows-targets (version 0.48.1):
+windows-targets (version 0.48.5):
   Microsoft
 
-windows_aarch64_gnullvm (version 0.48.0):
+windows_aarch64_gnullvm (version 0.48.5):
   Microsoft
 
-windows_aarch64_msvc (version 0.48.0):
+windows_aarch64_msvc (version 0.48.5):
   Microsoft
 
-windows_i686_gnu (version 0.48.0):
+windows_i686_gnu (version 0.48.5):
   Microsoft
 
-windows_i686_msvc (version 0.48.0):
+windows_i686_msvc (version 0.48.5):
   Microsoft
 
-windows_x86_64_gnu (version 0.48.0):
+windows_x86_64_gnu (version 0.48.5):
   Microsoft
 
-windows_x86_64_gnullvm (version 0.48.0):
+windows_x86_64_gnullvm (version 0.48.5):
   Microsoft
 
-windows_x86_64_msvc (version 0.48.0):
+windows_x86_64_msvc (version 0.48.5):
   Microsoft
 
 yansi (version 0.5.1):
