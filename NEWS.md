@@ -1,5 +1,11 @@
 # prqlr 0.5.2
 
+0.5.1 was archived from the CRAN repository a few hours after it was accepted by CRAN
+because the Rust dependency was not vendored at the time of CRAN submission.
+This release is for resubmission on top of 0.5.1, including a tarball of Rust dependencies.
+
+Nothing has been changed other than the distribution strategy.
+
 # prqlr 0.5.1
 
 - Based on [`prql-compiler`](https://github.com/prql/prql) 0.9.4 (#164)
