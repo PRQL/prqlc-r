@@ -1,4 +1,4 @@
-# prqlr (development version)
+# prqlr 0.5.2
 
 # prqlr 0.5.1
 
