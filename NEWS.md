@@ -1,5 +1,9 @@
 # prqlr (development version)
 
+## Miscellaneous
+
+- Update the `Authors` field of the DESCRIPTION file and the `inst/AUTHORS` file's format. (#169)
+
 # prqlr 0.5.1
 
 - Based on [`prql-compiler`](https://github.com/prql/prql) 0.9.4 (#164)

@@ -26,22 +26,18 @@ write_authors <- function(path = ".", quiet = FALSE, force = TRUE) {
     purrr::pluck("packages") |>
     purrr::map_chr("name")
 
-  .prep_authors <- function(authors, package) {
-    ifelse(!is.null(authors), authors, paste0(package, " authors")) |>
-      stringi::stri_replace_all_regex(r"(\ <.+?>)", "") |>
-      stringi::stri_replace_all_regex(r"(\|)", ", ")
+  .prep_authors <- function(authors) {
+    stringi::stri_replace_all_regex(authors, r"(\|)", ", ")
   }
 
-  authors_header <- "The authors of the dependency Rust crates:"
+  authors_header <- "Authors of dependent Rust crates:"
 
   authors_body <- list_authors |>
-    purrr::discard(function(x) x$name %in% package_names) |>
+    purrr::discard(function(x) x$name %in% package_names || is.null(x$authors)) |>
     purrr::map_chr(
       function(x) {
         paste0(
-          "\n",
-          x$name, " (version ", x$version, "):\n",
-          "  ", .prep_authors(x$authors, x$name)
+          "  - ", x$name, " (version ", x$version, "): ", .prep_authors(x$authors)
         )
       }
     )
