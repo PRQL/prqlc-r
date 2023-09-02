@@ -2,7 +2,7 @@
 
 ## Miscellaneous
 
-- Update the `inst/AUTHORS` file's format. (#169)
+- Update the `Authors` field of the DESCRIPTION file and the `inst/AUTHORS` file's format. (#169)
 
 # prqlr 0.5.1
 
