@@ -1,5 +1,7 @@
 # prqlr (development version)
 
+# prqlr 0.5.2
+
 ## Miscellaneous
 
 - Update the `Authors` field of the DESCRIPTION file and the `inst/AUTHORS` file's format. (#169, #172)
