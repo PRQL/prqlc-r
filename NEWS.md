@@ -1,5 +1,9 @@
 # prqlr (development version)
 
+## Miscellaneous
+
+- `prql` knitr engine requires `{knitr}` 1.44 or later. (#175)
+
 # prqlr 0.5.2
 
 ## Miscellaneous
