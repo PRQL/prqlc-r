@@ -30,7 +30,7 @@ tasks:
     internal: true
     desc: Install Rust packages for development.
     cmds:
-      - cargo install cargo-license
+      - cargo install cargo-license cargo-outdated
 
   cargo-update:
     desc: Update the lock files.
@@ -39,7 +39,7 @@ tasks:
     generates:
       - "{{.CARGO_LOCK}}"
     cmds:
-      - cargo update --manifest-path "{{.MANIFEST}}"
+      - cargo outdated --manifest-path "{{.MANIFEST}}"
 
   build-vendor-sources:
     desc: Vendor Rust sources.

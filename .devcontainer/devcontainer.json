@@ -31,5 +31,5 @@
 			"type": "volume"
 		}
 	],
-	"postCreateCommand": "task setup-dev"
+	"updateContentCommand": "task setup-dev"
 }
