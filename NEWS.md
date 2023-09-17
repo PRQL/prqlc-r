@@ -1,5 +1,9 @@
 # prqlr (development version)
 
+## New features
+
+- Based on [`prql-compiler`](https://github.com/prql/prql) 0.9.5 (#179)
+
 ## Miscellaneous
 
 - `prql` knitr engine requires `{knitr}` 1.44 or later. (#175)

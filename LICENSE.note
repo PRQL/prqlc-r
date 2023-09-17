@@ -260,14 +260,6 @@ License:     MIT
 -------------------------------------------------------------
 
 Name:        itertools
-Version:     0.10.5
-Repository:  https://github.com/rust-itertools/itertools
-Authors:     bluss
-License:     Apache-2.0 OR MIT
-
--------------------------------------------------------------
-
-Name:        itertools
 Version:     0.11.0
 Repository:  https://github.com/rust-itertools/itertools
 Authors:     bluss
@@ -388,7 +380,7 @@ License:     Apache-2.0 OR MIT
 -------------------------------------------------------------
 
 Name:        prql-ast
-Version:     0.9.4
+Version:     0.9.5
 Repository:  https://github.com/PRQL/prql
 Authors:     prql-ast authors
 License:     Apache-2.0
@@ -396,7 +388,7 @@ License:     Apache-2.0
 -------------------------------------------------------------
 
 Name:        prql-compiler
-Version:     0.9.4
+Version:     0.9.5
 Repository:  https://github.com/PRQL/prql
 Authors:     prql-compiler authors
 License:     Apache-2.0
@@ -404,7 +396,7 @@ License:     Apache-2.0
 -------------------------------------------------------------
 
 Name:        prql-parser
-Version:     0.9.4
+Version:     0.9.5
 Repository:  https://github.com/PRQL/prql
 Authors:     prql-parser authors
 License:     Apache-2.0
@@ -428,7 +420,7 @@ License:     Apache-2.0 OR MIT
 -------------------------------------------------------------
 
 Name:        regex
-Version:     1.9.4
+Version:     1.9.5
 Repository:  https://github.com/rust-lang/regex
 Authors:     The Rust Project Developers, Andrew Gallant
 License:     Apache-2.0 OR MIT
@@ -436,7 +428,7 @@ License:     Apache-2.0 OR MIT
 -------------------------------------------------------------
 
 Name:        regex-automata
-Version:     0.3.7
+Version:     0.3.8
 Repository:  https://github.com/rust-lang/regex/tree/master/regex-automata
 Authors:     The Rust Project Developers, Andrew Gallant
 License:     Apache-2.0 OR MIT
@@ -516,7 +508,7 @@ License:     Apache-2.0 OR MIT
 -------------------------------------------------------------
 
 Name:        sqlformat
-Version:     0.2.1
+Version:     0.2.2
 Repository:  https://github.com/shssoichiro/sqlformat-rs
 Authors:     Josh Holmer
 License:     Apache-2.0 OR MIT
@@ -524,7 +516,7 @@ License:     Apache-2.0 OR MIT
 -------------------------------------------------------------
 
 Name:        sqlparser
-Version:     0.36.1
+Version:     0.37.0
 Repository:  https://github.com/sqlparser-rs/sqlparser-rs
 Authors:     Andy Grove
 License:     Apache-2.0
