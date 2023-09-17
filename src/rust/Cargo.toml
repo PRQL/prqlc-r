@@ -10,5 +10,5 @@ name = "prqlr"
 
 [dependencies]
 extendr-api = "0.4.0"
-prql-compiler = { version = "0.9.4", default-features = false }
+prql-compiler = { version = "0.9.5", default-features = false }
 anstream = { version = "0.3.2", features = ["auto"] }
