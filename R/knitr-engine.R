@@ -23,11 +23,12 @@ eng_prql <- function(options) {
     prql_code <- glue::glue(prql_code, .open = "{{", .close = "}}", .envir = knitr::knit_global())
   }
 
-  target <- options$engine.opts[["target"]] %||% getOption("prqlr.target")
-  signature_comment <- options$engine.opts[["signature_comment"]] %||% getOption("prqlr.signature_comment", TRUE)
-
   sql_code <- prql_code |>
-    prql_compile(target = target, format = TRUE, signature_comment = signature_comment)
+    prql_compile(
+      target = options$engine.opts[["target"]] %||% getOption("prqlr.target"),
+      format = TRUE,
+      signature_comment = options$engine.opts[["signature_comment"]] %||% getOption("prqlr.signature_comment", TRUE)
+    )
 
   # Prints a SQL code block if there is no connection
   if (is.null(options$connection)) {
