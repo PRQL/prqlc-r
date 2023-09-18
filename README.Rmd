@@ -52,6 +52,7 @@ Please check the <https://github.com/r-rust/hellorust> repository for about Rust
 
 ```{r}
 library(prqlr)
+
 "from mtcars | filter cyl > 6 | select {cyl, mpg}" |>
   prql_compile() |>
   cat()
