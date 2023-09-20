@@ -43,6 +43,7 @@ repository for about Rust code in R packages.
 
 ``` r
 library(prqlr)
+
 "from mtcars | filter cyl > 6 | select {cyl, mpg}" |>
   prql_compile() |>
   cat()

@@ -1,4 +1,4 @@
-TARGET_DIR = ./rust/target
+TARGET_DIR = $(CURDIR)/rust/target
 LIBDIR = $(TARGET_DIR)/release
 STATLIB = $(LIBDIR)/libprqlr.a
 PKG_LIBS = -L$(LIBDIR) -lprqlr
@@ -8,31 +8,31 @@ all: C_clean
 $(SHLIB): $(STATLIB)
 
 CARGOTMP = $(CURDIR)/.cargo
-VENDOR_DIR = ./rust/vendor
+VENDOR_DIR = $(CURDIR)/rust/vendor
 
 $(STATLIB):
-	if [ -f ./rust/vendor.tar.xz ]; then \
-		mkdir -p $(VENDOR_DIR) && \
-		$(TAR) --extract --xz --file ./rust/vendor.tar.xz -C $(VENDOR_DIR) && \
-		mkdir -p $(CARGOTMP) && \
-		cp ./rust/vendor-config.toml $(CARGOTMP)/config.toml; \
+	if [ -f "$(CURDIR)/rust/vendor.tar.xz" ]; then \
+		mkdir -p "$(VENDOR_DIR)" && \
+		$(TAR) --extract --xz --file "$(CURDIR)/rust/vendor.tar.xz" -C "$(VENDOR_DIR)" && \
+		mkdir -p "$(CARGOTMP)" && \
+		cp "$(CURDIR)/rust/vendor-config.toml" "$(CARGOTMP)/config.toml"; \
 	fi
 
 	# In some environments, ~/.cargo/bin might not be included in PATH, so we need
 	# to set it here to ensure cargo can be invoked. It is appended to PATH and
 	# therefore is only used if cargo is absent from the user's PATH.
 	if [ "$(NOT_CRAN)" != "true" ]; then \
-		export CARGO_HOME=$(CARGOTMP); \
+		export CARGO_HOME="$(CARGOTMP)"; \
 		export CARGO_BUILD_JOBS=2; \
 	fi && \
 		export PATH="$(PATH):$(HOME)/.cargo/bin" && \
-		cargo build --lib --release --manifest-path=./rust/Cargo.toml --target-dir $(TARGET_DIR)
+		cargo build --lib --release --manifest-path="$(CURDIR)/rust/Cargo.toml" --target-dir "$(TARGET_DIR)"
 	if [ "$(NOT_CRAN)" != "true" ]; then \
-		rm -Rf $(CARGOTMP) $(VENDOR_DIR) $(LIBDIR)/build; \
+		rm -Rf "$(CARGOTMP)" "$(VENDOR_DIR)" "$(LIBDIR)/build"; \
 	fi
 
 C_clean:
-	rm -Rf $(SHLIB) $(STATLIB) $(OBJECTS)
+	rm -Rf "$(SHLIB)" "$(STATLIB)" "$(OBJECTS)"
 
 clean:
-	rm -Rf $(SHLIB) $(STATLIB) $(OBJECTS) ./rust/target
+	rm -Rf "$(SHLIB)" "$(STATLIB)" "$(OBJECTS)" "$(CURDIR)/rust/target"

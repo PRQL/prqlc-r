@@ -258,7 +258,7 @@ the `info_string` option can be used to control the info string of the output co
 This is convenient when we want to add special attributes that are used in Quarto Markdown files.
 The default value is `"sql"`.
 
-For example, the following R Markdown file will be converted to the following Markdown file.
+For example, the following R Markdown file includes a PRQL code block with the `info_string` option will be converted to...
 
 ````{r}
 #| echo: false
@@ -281,6 +281,8 @@ take 3
 
 cat("````markdown", src_info_string, "````", sep = "")
 ````
+
+This Markdown file.
 
 ````{r}
 #| echo: false
