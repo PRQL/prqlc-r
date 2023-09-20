@@ -1,4 +1,4 @@
-# prqlr (development version)
+# prqlr 0.5.3
 
 ## New features
 
