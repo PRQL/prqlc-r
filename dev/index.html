@@ -110,6 +110,7 @@
 </h2>
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://eitsupi.github.io/prqlr/">prqlr</a></span><span class="op">)</span></span>
+<span></span>
 <span><span class="st">"from mtcars | filter cyl &gt; 6 | select {cyl, mpg}"</span> <span class="op">|&gt;</span></span>
 <span>  <span class="fu"><a href="reference/prql_compile.html">prql_compile</a></span><span class="op">(</span><span class="op">)</span> <span class="op">|&gt;</span></span>
 <span>  <span class="fu"><a href="https://rdrr.io/r/base/cat.html" class="external-link">cat</a></span><span class="op">(</span><span class="op">)</span></span>
