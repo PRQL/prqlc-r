@@ -1,5 +1,7 @@
 # prqlr (development version)
 
+# prqlr 0.5.3
+
 ## New features
 
 - Based on [`prql-compiler`](https://github.com/prql/prql) 0.9.5 (#179)

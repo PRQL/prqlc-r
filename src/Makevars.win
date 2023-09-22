@@ -35,7 +35,7 @@ $(STATLIB):
 		export CARGO_BUILD_JOBS=2; \
 	fi && \
 		export CARGO_TARGET_X86_64_PC_WINDOWS_GNU_LINKER="$(CARGO_LINKER)" && \
-		export LIBRARY_PATH="$${LIBRARY_PATH};$(CURDIR)/$(TARGET_DIR)/libgcc_mock" && \
+		export LIBRARY_PATH="$${LIBRARY_PATH};$(TARGET_DIR)/libgcc_mock" && \
 		cargo build --target="$(TARGET)" --lib --release --manifest-path="$(CURDIR)/rust/Cargo.toml" --target-dir "$(TARGET_DIR)"
 	if [ "$(NOT_CRAN)" != "true" ]; then \
 		rm -Rf "$(CARGOTMP)" "$(VENDOR_DIR)" "$(LIBDIR)/build"; \
