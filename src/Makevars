@@ -1,4 +1,4 @@
-TARGET ?= $(shell rustc -vV | sed -n 's|host: ||p')
+TARGET ?= $(shell rustc -vV | grep host | cut -d" " -f2)
 PRQLR_PROFILE ?= release
 PRQLR_FEATURES ?=
 
