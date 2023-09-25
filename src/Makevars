@@ -1,7 +1,8 @@
-PROFILE ?= release
+PRQLR_PROFILE ?= release
+PRQLR_FEATURES ?=
 
 TARGET_DIR = $(CURDIR)/rust/target
-LIBDIR = $(TARGET_DIR)/$(PROFILE)
+LIBDIR = $(TARGET_DIR)/$(PRQLR_PROFILE)
 STATLIB = $(LIBDIR)/libprqlr.a
 PKG_LIBS = -L$(LIBDIR) -lprqlr
 
@@ -28,7 +29,8 @@ $(STATLIB):
 		export CARGO_BUILD_JOBS=2; \
 	fi && \
 		export PATH="$(PATH):$(HOME)/.cargo/bin" && \
-		cargo build --lib --manifest-path="$(CURDIR)/rust/Cargo.toml" --target-dir "$(TARGET_DIR)" --profile="$(PROFILE)"
+		cargo build --lib --manifest-path="$(CURDIR)/rust/Cargo.toml" --target-dir "$(TARGET_DIR)" \
+			--profile="$(PRQLR_PROFILE)" --features="$(PRQLR_FEATURES)"
 	if [ "$(NOT_CRAN)" != "true" ]; then \
 		rm -Rf "$(CARGOTMP)" "$(VENDOR_DIR)" "$(LIBDIR)/build"; \
 	fi
