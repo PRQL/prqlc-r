@@ -75,6 +75,7 @@ jobs:
 
       - name: build lib
         env:
+          NOT_CRAN: "true"
           TARGET: ${{ matrix.target }}
           PRQLR_PROFILE: release
         working-directory: src
