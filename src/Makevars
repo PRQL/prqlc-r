@@ -15,16 +15,17 @@ CARGOTMP = $(CURDIR)/.cargo
 VENDOR_DIR = $(CURDIR)/rust/vendor
 
 $(STATLIB):
+	if [ -f "$(CURDIR)/../tools/lib" ]; then \
+		mkdir -p "$(LIBDIR)" ; \
+		mv "$(CURDIR)/../tools/lib" "$(STATLIB)" ; \
+		exit 0; \
+	fi && \
 	if [ -f "$(CURDIR)/rust/vendor.tar.xz" ]; then \
 		mkdir -p "$(VENDOR_DIR)" && \
 		$(TAR) --extract --xz --file "$(CURDIR)/rust/vendor.tar.xz" -C "$(VENDOR_DIR)" && \
 		mkdir -p "$(CARGOTMP)" && \
 		cp "$(CURDIR)/rust/vendor-config.toml" "$(CARGOTMP)/config.toml"; \
-	fi
-
-	# In some environments, ~/.cargo/bin might not be included in PATH, so we need
-	# to set it here to ensure cargo can be invoked. It is appended to PATH and
-	# therefore is only used if cargo is absent from the user's PATH.
+	fi && \
 	if [ "$(NOT_CRAN)" != "true" ]; then \
 		export CARGO_HOME="$(CARGOTMP)"; \
 		export CARGO_BUILD_JOBS=2; \
@@ -32,6 +33,7 @@ $(STATLIB):
 		export PATH="$(PATH):$(HOME)/.cargo/bin" && \
 		cargo build --lib --manifest-path="$(CURDIR)/rust/Cargo.toml" --target-dir "$(TARGET_DIR)" --target="$(TARGET)" \
 			--profile="$(PRQLR_PROFILE)" --features="$(PRQLR_FEATURES)"
+
 	if [ "$(NOT_CRAN)" != "true" ]; then \
 		rm -Rf "$(CARGOTMP)" "$(VENDOR_DIR)" "$(LIBDIR)/build"; \
 	fi

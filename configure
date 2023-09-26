@@ -2,7 +2,8 @@
 
 export PATH="$PATH:$HOME/.cargo/bin"
 
-if [ ! "$(command -v cargo)" ]; then
+check_cargo() {
+  if [ ! "$(command -v cargo)" ]; then
     echo "----------------------- [RUST NOT FOUND]---------------------------"
     echo "The 'cargo' command was not found on the PATH. Please install rustc"
     echo "from: https://www.rust-lang.org/tools/install"
@@ -14,6 +15,9 @@ if [ ! "$(command -v cargo)" ]; then
     echo "-------------------------------------------------------------------"
     echo ""
     exit 1
-fi
+  fi
+}
+
+check_cargo
 
 exit 0
