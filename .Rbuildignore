@@ -15,4 +15,4 @@
 ^\.task$
 ^src/\.cargo$
 ^src/rust/vendor$
-^tools/lib$
+^tools/libprqlr\.a$
