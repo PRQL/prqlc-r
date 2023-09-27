@@ -116,13 +116,18 @@ jobs:
           name: libs
           path: libs
 
-      - name: prep lib
+      - name: prep Rust
+        working-directory: src/rust
         run: |
           LIB_VERSION="$(cargo metadata --format-version=1 --no-deps | jq --raw-output '.packages[0].version')"
+          echo "LIB_VERSION=${LIB_VERSION}" >>"$GITHUB_ENV"
+          rm "$(rustup which cargo)"
+
+      - name: prep lib
+        run: |
           ARTIFACT_NAME="${LIB_NAME}-${LIB_VERSION}-${{ matrix.target }}.tar.gz"
           tar -xzf "libs/${ARTIFACT_NAME}" -C "tools"
           rm -rf "libs"
-          rm "$(rustup which cargo)"
 
       - uses: r-lib/actions/setup-pandoc@v2
 
