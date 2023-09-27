@@ -92,8 +92,59 @@ jobs:
           name: libs
           path: ${{ env.ARTIFACT_NAME }}
 
-  release:
+  test:
     needs: build
+    runs-on: ${{ matrix.os }}
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - os: ubuntu-latest
+            target: x86_64-unknown-linux-musl
+          - os: macos-latest
+            target: x86_64-apple-darwin
+          - os: windows-latest
+            target: x86_64-pc-windows-gnu
+    permissions:
+      contents: read
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/download-artifact@v3
+        with:
+          name: libs
+          path: libs
+
+      - name: prep lib
+        run: |
+          LIB_VERSION="$(cargo metadata --format-version=1 --no-deps | jq --raw-output '.packages[0].version')"
+          ARTIFACT_NAME="${LIB_NAME}-${LIB_VERSION}-${{ matrix.target }}.tar.gz"
+          tar -xzf "libs/${ARTIFACT_NAME}" -C "tools"
+          rm -rf "libs"
+          rm "$(rustup which cargo)"
+
+      - uses: r-lib/actions/setup-pandoc@v2
+
+      - uses: r-lib/actions/setup-r@v2
+        with:
+          r-version: release
+          use-public-rspm: true
+          Ncpus: "2"
+
+      - uses: r-lib/actions/setup-r-dependencies@v2
+        with:
+          extra-packages: any::rcmdcheck
+          needs: check
+
+      - uses: r-lib/actions/check-r-package@v2
+        with:
+          upload-snapshots: true
+
+  release:
+    needs:
+      - build
+      - test
     runs-on: ubuntu-latest
     if: startsWith(github.ref, 'refs/tags/')
     permissions:
