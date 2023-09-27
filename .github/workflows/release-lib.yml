@@ -127,6 +127,7 @@ jobs:
         run: |
           ARTIFACT_NAME="${LIB_NAME}-${LIB_VERSION}-${{ matrix.target }}.tar.gz"
           tar -xzf "libs/${ARTIFACT_NAME}" -C "tools"
+          sed -i '/^\^tools/d' .Rbuildignore
           rm -rf "libs"
 
       - uses: r-lib/actions/setup-pandoc@v2
