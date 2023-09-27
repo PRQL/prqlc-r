@@ -89,5 +89,33 @@ jobs:
       - name: upload artifact
         uses: actions/upload-artifact@v3
         with:
-          name: ${{ matrix.target }}
+          name: libs
           path: ${{ env.ARTIFACT_NAME }}
+
+  release:
+    needs: build
+    runs-on: ubuntu-latest
+    if: startsWith(github.ref, 'refs/tags/')
+    permissions:
+      contents: read
+      packages: write
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/download-artifact@v3
+        with:
+          name: libs
+          path: libs
+
+      - name: create checksums
+        working-directory: libs
+        run: |
+          md5sum * >"../md5sums.txt"
+
+      - name: create release
+        uses: softprops/action-gh-release@v1
+        with:
+          files: |
+            libs/*
+            md5sums.txt
