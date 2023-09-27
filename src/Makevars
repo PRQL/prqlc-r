@@ -2,9 +2,10 @@ TARGET ?= $(shell export PATH="$(PATH):$(HOME)/.cargo/bin" && rustc -vV | grep h
 PRQLR_PROFILE ?= release
 PRQLR_FEATURES ?=
 
+LIBNAME = libprqlr.a
 TARGET_DIR = $(CURDIR)/rust/target
 LIBDIR = $(TARGET_DIR)/$(TARGET)/$(PRQLR_PROFILE)
-STATLIB = $(LIBDIR)/libprqlr.a
+STATLIB = $(LIBDIR)/$(LIBNAME)
 PKG_LIBS = -L$(LIBDIR) -lprqlr
 
 all: C_clean
@@ -15,9 +16,9 @@ CARGOTMP = $(CURDIR)/.cargo
 VENDOR_DIR = $(CURDIR)/rust/vendor
 
 $(STATLIB):
-	if [ -f "$(CURDIR)/../tools/lib" ]; then \
+	if [ -f "$(CURDIR)/../tools/$(LIBNAME)" ]; then \
 		mkdir -p "$(LIBDIR)" ; \
-		mv "$(CURDIR)/../tools/lib" "$(STATLIB)" ; \
+		mv "$(CURDIR)/../tools/$(LIBNAME)" "$(STATLIB)" ; \
 		exit 0; \
 	fi && \
 	if [ -f "$(CURDIR)/rust/vendor.tar.xz" ]; then \
