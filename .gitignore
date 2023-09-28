@@ -6,5 +6,4 @@ docs
 
 src/rust/vendor
 src/rust/vendor.tar.xz
-src/Makevars
 tools/libprqlr.a
