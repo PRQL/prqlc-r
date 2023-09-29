@@ -1,11 +1,48 @@
-if (identical(.Platform$OS.type, "windows")) {
+check_sha256 <- function(file, sum, os = c("linux", "macos", "windows")) {
+  message("Checking SHA256 hash to <", sum, "> for <", file, ">...")
+
+  if (match.arg(os) == "linux") {
+    out <- system2("sha256sum", args = file, stdout = TRUE) |>
+      gsub(r"(\s.*)", "", x = _)
+  } else if (match.arg(os) == "macos") {
+    out <- system2("shasum", args = c("-a", "256", file), stdout = TRUE) |>
+      gsub(r"(\s.*)", "", x = _)
+  } else if (match.arg(os) == "windows") {
+    out <- system2("certutil", args = c("-hashfile", file, "SHA256"), stdout = TRUE) |>
+      _[2]
+  } else {
+    stop("Unsupported OS: ", os)
+  }
+
+  if (out != sum) {
+    stop("SHA256 mismatch for <", file, ">. Expected: <", sum, ">. Got: <", out, ">")
+  }
+
+  message("SHA256 matches for <", file, ">.")
+
+  invisible()
+}
+
+which_os <- function() {
+  if (identical(.Platform$OS.type, "windows")) {
+    "windows"
+  } else if (grepl("^darwin", R.version$os)) {
+    "macos"
+  } else if (identical(R.version$os, "linux-gnu")) {
+    "linux"
+  } else {
+    stop("Pre built binaries are not available for OS: ", R.version$os)
+  }
+}
+
+current_os <- which_os()
+
+if (identical(current_os, "windows")) {
   vendor_sys_abi <- "pc-windows-gnu"
-} else if (grepl("^darwin", R.version$os)) {
+} else if (identical(current_os, "macos")) {
   vendor_sys_abi <- "apple-darwin"
-} else if (identical(R.version$os, "linux-gnu")) {
+} else if (identical(current_os, "linux")) {
   vendor_sys_abi <- "unknown-linux-musl"
-} else {
-  stop("Pre built binaries are not available for OS: ", R.version$os)
 }
 
 if ((R.version$arch %in% c("amd64", "x86_64"))) {
@@ -38,11 +75,14 @@ lib_sum <- lib_data |>
 
 if (!length(lib_sum)) stop("No pre built binary found at <", target_url, ">")
 
-message("Found pre built binary at <", target_url, ">. Downloading...")
+message("Found pre built binary at <", target_url, ">.\nDownloading...")
 
 destfile <- tempfile(fileext = ".tar.gz")
+on.exit(unlink(destfile))
 
 utils::download.file(target_url, destfile, quiet = TRUE, mode = "wb")
-outfile <- utils::untar(destfile, exdir = "tools", list = TRUE)
+check_sha256(destfile, lib_sum, os = current_os)
 
-message("Extracted pre built binary to <", file.path("tools", outfile), ">")
+utils::untar(destfile, exdir = "tools")
+
+message("Extracted pre built binary to <tools> directory.")
