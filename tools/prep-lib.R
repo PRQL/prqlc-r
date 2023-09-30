@@ -26,9 +26,9 @@ check_sha256 <- function(file, sum, os = c("linux", "macos", "windows")) {
 which_os <- function() {
   if (identical(.Platform$OS.type, "windows")) {
     "windows"
-  } else if (grepl("^darwin", R.version$os)) {
+  } else if (Sys.info()["sysname"] == "Darwin") {
     "macos"
-  } else if (identical(R.version$os, "linux-gnu")) {
+  } else if (Sys.info()["sysname"] == "Linux") {
     "linux"
   } else {
     stop("Pre built binaries are not available for OS: ", R.version$os)
@@ -45,12 +45,12 @@ if (identical(current_os, "windows")) {
   vendor_sys_abi <- "unknown-linux-musl"
 }
 
-if ((R.version$arch %in% c("amd64", "x86_64"))) {
+if ((Sys.info()[["machine"]] %in% c("amd64", "x86_64"))) {
   vendor_cpu_abi <- "x86_64"
-} else if (R.version$arch %in% c("arm64", "aarch64")) {
+} else if (Sys.info()[["machine"]] %in% c("arm64", "aarch64")) {
   vendor_cpu_abi <- "aarch64"
 } else {
-  stop("Pre built binaries are not available for Arch: ", R.version$arch)
+  stop("Pre built binaries are not available for Arch: ", Sys.info()[["machine"]])
 }
 
 target_triple <- paste0(vendor_cpu_abi, "-", vendor_sys_abi)
