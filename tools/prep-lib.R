@@ -8,8 +8,7 @@ check_sha256 <- function(file, sum, os = c("linux", "macos", "windows")) {
     out <- system2("shasum", args = c("-a", "256", file), stdout = TRUE) |>
       gsub(r"(\s.*)", "", x = _)
   } else if (match.arg(os) == "windows") {
-    out <- system2("certutil", args = c("-hashfile", file, "SHA256"), stdout = TRUE) |>
-      _[2]
+    out <- system2("certutil", args = c("-hashfile", file, "SHA256"), stdout = TRUE)[2]
   } else {
     stop("Unsupported OS: ", os)
   }
@@ -71,7 +70,7 @@ target_url <- sprintf(
 
 lib_sum <- lib_data |>
   subset(url == target_url) |>
-  _$sha256sum
+  (\(x) x$sha256sum)()
 
 if (!length(lib_sum)) stop("No pre built binary found at <", target_url, ">")
 
