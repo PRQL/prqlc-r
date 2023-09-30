@@ -1,5 +1,5 @@
 check_sha256 <- function(file, sum, os = c("linux", "macos", "windows")) {
-  message("Checking SHA256 hash to <", sum, "> for <", file, ">...")
+  message("Checking SHA256 for <", file, ">...")
 
   if (match.arg(os) == "linux") {
     out <- system2("sha256sum", args = file, stdout = TRUE) |>
