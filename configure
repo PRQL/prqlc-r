@@ -43,6 +43,12 @@ check_bin_lib() {
     echo ""
     sed -e "s|@RUST_TARGET@||" src/Makevars.in >src/Makevars
     exit 0
+  else
+    echo ""
+    echo "----------------------- [LIBRARY NOT FOUND]------------------------"
+    echo "The library was not found at ${LIBPRQLR_PATH}."
+    echo "-------------------------------------------------------------------"
+    echo ""
   fi
 }
 

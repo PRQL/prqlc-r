@@ -1,5 +1,11 @@
 #!/bin/sh
 
+NOT_CRAN=${NOT_CRAN:-"false"}
+LIBPRQLR_BUILD=${LIBPRQLR_BUILD:-""}
+
+LIBNAME="libprqlr.a"
+LIBPRQLR_PATH="tools/${LIBNAME}"
+
 export PATH="$PATH:$HOME/.cargo/bin"
 
 check_cargo() {
@@ -13,6 +19,35 @@ check_cargo() {
   fi
 }
 
+check_bin_lib() {
+  if [ "${NOT_CRAN}" = "true" ] && [ -z "${LIBPRQLR_BUILD}"  ]; then
+    LIBPRQLR_BUILD="false"
+  fi
+
+  if [ "${LIBPRQLR_BUILD}" = "false" ] && [ -f "tools/lib-sums.tsv" ] && [ ! -f "${LIBPRQLR_PATH}" ] ; then
+    echo "Try to download pre-built binary..."
+    LIBPRQLR_PATH="tools/${LIBNAME}"
+    Rscript "tools/prep-lib.R" || echo "Failed to download pre-built binary..."
+  fi
+
+  if [ "${LIBPRQLR_BUILD}" = "false" ] && [ -f "${LIBPRQLR_PATH}" ]; then
+    echo ""
+    echo "----------------------- [LIBRARY FOUND]----------------------------"
+    echo "The library was found at ${LIBPRQLR_PATH}. No need to build it."
+    echo "-------------------------------------------------------------------"
+    echo ""
+    sed -e "s|@RUST_TARGET@||" src/Makevars.in >src/Makevars
+    exit 0
+  else
+    echo ""
+    echo "----------------------- [LIBRARY NOT FOUND]------------------------"
+    echo "The library was not found at ${LIBPRQLR_PATH}."
+    echo "-------------------------------------------------------------------"
+    echo ""
+  fi
+}
+
+check_bin_lib
 check_cargo
 
 exit 0
