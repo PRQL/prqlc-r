@@ -2,7 +2,7 @@ name: release-lib
 on:
   push:
     tags:
-      - "lib-*"
+      - "lib-v*"
   pull_request:
     branches:
       - main
