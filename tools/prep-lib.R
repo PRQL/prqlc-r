@@ -44,7 +44,7 @@ if (identical(current_os, "windows")) {
   vendor_sys_abi <- "unknown-linux-musl"
 }
 
-if ((Sys.info()[["machine"]] %in% c("amd64", "x86_64"))) {
+if ((Sys.info()[["machine"]] %in% c("amd64", "x86_64", "x86-64"))) {
   vendor_cpu_abi <- "x86_64"
 } else if (Sys.info()[["machine"]] %in% c("arm64", "aarch64")) {
   vendor_cpu_abi <- "aarch64"
