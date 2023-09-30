@@ -10,12 +10,21 @@ export PATH="$PATH:$HOME/.cargo/bin"
 
 check_cargo() {
   if [ ! "$(command -v cargo)" ]; then
-    echo "----------------------- [RUST NOT FOUND]---------------------------"
+    echo ""
+    echo "------------------------- [RUST NOT FOUND] -------------------------"
     echo "The 'cargo' command was not found on the PATH. Please install rustc"
     echo "from: https://www.rust-lang.org/tools/install"
-    echo "-------------------------------------------------------------------"
+    echo "--------------------------------------------------------------------"
     echo ""
     exit 1
+  else
+    echo ""
+    echo "--------------------------- [RUST FOUND] ---------------------------"
+    "$(cargo -V)"
+    echo ""
+    "$(rustc -vV)"
+    echo "--------------------------------------------------------------------"
+    echo ""
   fi
 }
 
@@ -32,16 +41,16 @@ check_bin_lib() {
 
   if [ "${LIBPRQLR_BUILD}" = "false" ] && [ -f "${LIBPRQLR_PATH}" ]; then
     echo ""
-    echo "----------------------- [LIBRARY FOUND]----------------------------"
-    echo "The library was found at ${LIBPRQLR_PATH}. No need to build it."
+    echo "------------------------- [LIBRARY FOUND] -------------------------"
+    echo "The library was found at <${LIBPRQLR_PATH}>. No need to build it."
     echo "-------------------------------------------------------------------"
     echo ""
     sed -e "s|@RUST_TARGET@||" src/Makevars.in >src/Makevars
     exit 0
-  else
+  elif [ "${LIBPRQLR_BUILD}" = "false" ]; then
     echo ""
-    echo "----------------------- [LIBRARY NOT FOUND]------------------------"
-    echo "The library was not found at ${LIBPRQLR_PATH}."
+    echo "----------------------- [LIBRARY NOT FOUND] -----------------------"
+    echo "The library was not found at <${LIBPRQLR_PATH}>."
     echo "-------------------------------------------------------------------"
     echo ""
   fi
