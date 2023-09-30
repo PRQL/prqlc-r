@@ -44,8 +44,17 @@ install.packages("prqlr")
 install.packages("prqlr", repos = "https://eitsupi.r-universe.dev")
 ```
 
-For source installation,
-the Rust toolchain (Rust `r RcppTOML::parseTOML("src/rust/Cargo.toml")$package$"rust-version"` or later) must be configured.
+For source installation, pre-built Rust libraries may be available
+if the environment variable `NOT_CRAN` is set to `"true"`. (Or, set `LIBPRQLR_BUILD` to `"false"`)
+
+```r
+Sys.setenv(NOT_CRAN = "true")
+install.packages("prqlr")
+```
+
+Or, the Rust toolchain (Rust `r RcppTOML::parseTOML("src/rust/Cargo.toml")$package$"rust-version"` or later)
+must be configured to build the Rust library.
+
 Please check the <https://github.com/r-rust/hellorust> repository for about Rust code in R packages.
 
 ## Examples
