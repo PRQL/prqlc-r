@@ -169,6 +169,7 @@ jobs:
         working-directory: libs
         run: |
           sha256sum * >"../sha256sums.txt"
+          md5sum * >"../md5sums.txt"
 
       - name: create release
         uses: softprops/action-gh-release@v1
@@ -176,3 +177,4 @@ jobs:
           files: |
             libs/*
             sha256sums.txt
+            md5sums.txt
