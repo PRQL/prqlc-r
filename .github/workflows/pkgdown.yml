@@ -6,12 +6,15 @@ on:
     branches:
       - main
     paths:
+      - .github/workflows/pkgdown.yml
       - R/**
       - src/**
       - vignetts/**
       - _pkgdown.yml
       - DESCRIPTION
       - README.md
+    tags:
+      - v*
   pull_request:
     branches:
       - main
@@ -21,9 +24,6 @@ on:
       - vignetts/**
       - _pkgdown.yml
       - DESCRIPTION
-  release:
-    types:
-      - published
   workflow_dispatch:
 
 concurrency:
