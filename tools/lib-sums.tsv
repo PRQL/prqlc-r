@@ -1,6 +1,0 @@
-url	sha256sum
-https://github.com/eitsupi/prqlr/releases/download/lib-0.1.0/libprqlr-0.1.0-aarch64-apple-darwin.tar.gz	2b4a7d38fab3dc56d4502aa54adf5bfe9480f14bf2b9a2bc6d952d5c5f15285b
-https://github.com/eitsupi/prqlr/releases/download/lib-0.1.0/libprqlr-0.1.0-aarch64-unknown-linux-musl.tar.gz	a81a8643eb6dce90c249dbd704759759d54a295b38cc23525e8b1aa1da9bd570
-https://github.com/eitsupi/prqlr/releases/download/lib-0.1.0/libprqlr-0.1.0-x86_64-apple-darwin.tar.gz	e49045b9418083a2a7a1cb0fc5f301e6d630618a26e048948ad6cc039043c4f6
-https://github.com/eitsupi/prqlr/releases/download/lib-0.1.0/libprqlr-0.1.0-x86_64-pc-windows-gnu.tar.gz	c0e97ac0424b1700088e52878ca599c5c241344646526755335590867725bd3e
-https://github.com/eitsupi/prqlr/releases/download/lib-0.1.0/libprqlr-0.1.0-x86_64-unknown-linux-musl.tar.gz	6a25a5c7ea446dce24683fbc64845c1ffb51badff76b05e1b02bd28221c35bfb

@@ -1,7 +1,8 @@
 version: "3"
 
 env:
-  NOT_CRAN: true
+  NOT_CRAN: "true"
+  LIBPRQLR_BUILD: "true"
 
 vars:
   MANIFEST: src/rust/Cargo.toml
@@ -53,9 +54,22 @@ tasks:
     cmds:
       - Rscript dev/vendoring.R
 
+  build-lib-sums:
+    desc: Build lib-sums.tsv.
+    sources:
+      - dev/generate-lib-sums.R
+      - DESCRIPTION
+      - "{{.CARGO_LOCK}}"
+    generates:
+      - tools/lib-sums.tsv
+      - tools/prep-lib.R
+    cmds:
+      - Rscript dev/generate-lib-sums.R
+
   build-all:
     desc: Build the R package, generate documents, run all tests, and update files.
     deps:
+      - build-lib-sums
       - build-documents
     cmds:
       - task: test-all
@@ -118,7 +132,7 @@ tasks:
       - Rscript -e
         'devtools::load_all();
         list.files("vignettes/", pattern = r"(\.Rmd$)", recursive = TRUE, full.names = TRUE) |>
-          purrr::walk(\(x) rmarkdown::render(x, output_dir = tempdir()))'
+        purrr::walk(\(x) rmarkdown::render(x, output_dir = tempdir()))'
 
   build-documents:
     desc: Build the R package and generate documents.

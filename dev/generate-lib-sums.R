@@ -36,5 +36,5 @@ if (identical(current_lib_version, latest_released_lib_version)) {
   )
 } else {
   message("Current lib version is not available via binary releases.")
-  fs::file_delete(lib_data_file_path)
+  if (fs::file_exists(lib_data_file_path)) fs::file_delete(lib_data_file_path)
 }
