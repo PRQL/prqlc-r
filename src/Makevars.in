@@ -1,4 +1,4 @@
-TARGET ?= $(shell export PATH="$(PATH):$(HOME)/.cargo/bin" && rustc -vV | grep host | cut -d" " -f2)
+TARGET ?= @RUST_TARGET@
 PRQLR_PROFILE ?= release
 PRQLR_FEATURES ?=
 
@@ -43,4 +43,4 @@ C_clean:
 	rm -Rf "$(SHLIB)" "$(STATLIB)" "$(OBJECTS)"
 
 clean:
-	rm -Rf "$(SHLIB)" "$(STATLIB)" "$(OBJECTS)" "$(CURDIR)/rust/target"
+	rm -Rf "$(SHLIB)" "$(STATLIB)" "$(OBJECTS)" "$(TARGET_DIR)"

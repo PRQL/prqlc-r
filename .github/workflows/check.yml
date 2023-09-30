@@ -31,6 +31,10 @@ concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
   cancel-in-progress: true
 
+defaults:
+  run:
+    shell: bash
+
 jobs:
   R-CMD-check:
     runs-on: ${{ matrix.config.os }}
@@ -41,15 +45,16 @@ jobs:
       fail-fast: false
       matrix:
         config:
-          - {os: macos-latest,   r: 'release'}
-          - {os: windows-latest, r: 'release'}
-          - {os: ubuntu-latest,   r: 'devel', http-user-agent: 'release'}
-          - {os: ubuntu-latest,   r: 'release'}
-          - {os: ubuntu-latest,   r: 'oldrel-1'}
+          - { os: macos-latest, r: "release" }
+          - { os: windows-latest, r: "release" }
+          - { os: ubuntu-latest, r: "devel", http-user-agent: "release" }
+          - { os: ubuntu-latest, r: "release" }
+          - { os: ubuntu-latest, r: "oldrel-1" }
 
     env:
       GITHUB_PAT: ${{ secrets.GITHUB_TOKEN }}
       R_KEEP_PKG_SOURCE: yes
+      LIBPRQLR_BUILD: "true"
 
     steps:
       - uses: actions/checkout@v4
@@ -72,3 +77,56 @@ jobs:
       - uses: r-lib/actions/check-r-package@v2
         with:
           upload-snapshots: true
+
+  source-with-bin-check:
+    runs-on: ${{ matrix.os }}
+
+    name: ${{ matrix.os }} with pre-built binary (${{ matrix.r }})
+
+    strategy:
+      fail-fast: false
+      matrix:
+        os:
+          - macos-latest
+          - windows-latest
+          - ubuntu-latest
+        r:
+          - release
+
+    env:
+      NOT_CRAN: "true"
+      LIB_SUMS_PATH: "tools/lib-sums.tsv"
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Check for pre-built binary
+        run: |
+          if [[ -f "${LIB_SUMS_PATH}" ]]; then
+            echo "TEST_BIN_LIB=true" >>"${GITHUB_ENV}"
+            rm -f "$(rustup which cargo)"
+          else
+            echo "TEST_BIN_LIB=false" >>"${GITHUB_ENV}"
+          fi
+
+      - uses: r-lib/actions/setup-pandoc@v2
+        if: env.TEST_BIN_LIB == 'true'
+
+      - uses: r-lib/actions/setup-r@v2
+        if: env.TEST_BIN_LIB == 'true'
+        with:
+          r-version: ${{ matrix.r }}
+          use-public-rspm: true
+          Ncpus: "2"
+
+      - uses: r-lib/actions/setup-r-dependencies@v2
+        with:
+          extra-packages: any::rcmdcheck, any::devtools
+          needs: check
+
+      - name: Install with pre-built binary
+        if: env.TEST_BIN_LIB == 'true'
+        shell: Rscript {0}
+        run: |
+          remotes::install_local()
+          devtools::test()
