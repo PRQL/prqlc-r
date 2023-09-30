@@ -1,6 +1,6 @@
 base_url <- "https://github.com/eitsupi/prqlr/releases/download/"
 
-tag_prefix <- "lib-"
+tag_prefix <- "lib-v"
 
 lib_data_file_path <- file.path("tools", "lib-sums.tsv")
 

@@ -58,7 +58,7 @@ lib_data <- utils::read.table("tools/lib-sums.tsv", header = TRUE, stringsAsFact
 
 package_name <- read.dcf("DESCRIPTION", fields = "Package", all = TRUE)
 lib_version <- read.dcf("DESCRIPTION", fields = sprintf("Config/%s/LibVersion", package_name), all = TRUE)
-lib_tag_prefix <- "lib-"
+lib_tag_prefix <- "lib-v"
 
 target_url <- sprintf(
   "https://github.com/eitsupi/prqlr/releases/download/%s%s/libprqlr-%s-%s.tar.gz",
