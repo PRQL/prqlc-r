@@ -14,7 +14,11 @@ check_sha256 <- function(file, sum, os = c("linux", "macos", "windows")) {
   }
 
   if (out != sum) {
-    stop("SHA256 mismatch for <", file, ">. Expected: <", sum, ">. Got: <", out, ">")
+    stop(
+      "SHA256 mismatch for <", file, ">.\n",
+      "- Expected: ", sum, "\n",
+      "- Got:      ", out
+    )
   }
 
   message("SHA256 matches for <", file, ">.")
@@ -30,7 +34,7 @@ which_os <- function() {
   } else if (Sys.info()["sysname"] == "Linux") {
     "linux"
   } else {
-    stop("Pre built binaries are not available for OS: ", R.version$os)
+    stop("Pre-built binaries are not available for OS: ", R.version$os)
   }
 }
 
@@ -49,7 +53,7 @@ if ((Sys.info()[["machine"]] %in% c("amd64", "x86_64", "x86-64"))) {
 } else if (Sys.info()[["machine"]] %in% c("arm64", "aarch64")) {
   vendor_cpu_abi <- "aarch64"
 } else {
-  stop("Pre built binaries are not available for Arch: ", Sys.info()[["machine"]])
+  stop("Pre-built binaries are not available for Arch: ", Sys.info()[["machine"]])
 }
 
 target_triple <- paste0(vendor_cpu_abi, "-", vendor_sys_abi)
@@ -72,9 +76,9 @@ lib_sum <- lib_data |>
   subset(url == target_url) |>
   (\(x) x$sha256sum)()
 
-if (!length(lib_sum)) stop("No pre built binary found at <", target_url, ">")
+if (!length(lib_sum)) stop("No pre-built binary found at <", target_url, ">")
 
-message("Found pre built binary at <", target_url, ">.\nDownloading...")
+message("Found pre-built binary at <", target_url, ">.\nDownloading...")
 
 destfile <- tempfile(fileext = ".tar.gz")
 on.exit(unlink(destfile))
@@ -84,4 +88,4 @@ check_sha256(destfile, lib_sum, os = current_os)
 
 utils::untar(destfile, exdir = "tools")
 
-message("Extracted pre built binary to <tools> directory.")
+message("Extracted pre-built binary to <", file.path(getwd(), "tools"), "> directory.")
