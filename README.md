@@ -35,9 +35,20 @@ install.packages("prqlr")
 install.packages("prqlr", repos = "https://eitsupi.r-universe.dev")
 ```
 
-For source installation, the Rust toolchain (Rust 1.65 or later) must be
-configured. Please check the <https://github.com/r-rust/hellorust>
-repository for about Rust code in R packages.
+For source installation, pre-built Rust libraries may be available if
+the environment variable `NOT_CRAN` is set to `"true"`. (Or, set
+`LIBPRQLR_BUILD` to `"false"`)
+
+``` r
+Sys.setenv(NOT_CRAN = "true")
+install.packages("prqlr")
+```
+
+Or, the Rust toolchain (Rust 1.65 or later) must be configured to build
+the Rust library.
+
+Please check the <https://github.com/r-rust/hellorust> repository for
+about Rust code in R packages.
 
 ## Examples
 
