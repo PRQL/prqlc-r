@@ -10,6 +10,7 @@ on:
       - .github/workflows/release-lib.yml
       - src/rust/**
       - src/Makevars*
+      - tools/**
   workflow_dispatch:
 
 concurrency:

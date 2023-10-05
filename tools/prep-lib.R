@@ -38,7 +38,18 @@ which_os <- function() {
   }
 }
 
+which_arch <- function() {
+  if ((Sys.info()[["machine"]] %in% c("amd64", "x86_64", "x86-64"))) {
+    "x86_64"
+  } else if (Sys.info()[["machine"]] %in% c("arm64", "aarch64")) {
+    "aarch64"
+  } else {
+    stop("Pre-built binaries are not available for Arch: ", Sys.info()[["machine"]])
+  }
+}
+
 current_os <- which_os()
+current_arch <- which_arch()
 
 if (identical(current_os, "windows")) {
   vendor_sys_abi <- "pc-windows-gnu"
@@ -48,15 +59,7 @@ if (identical(current_os, "windows")) {
   vendor_sys_abi <- "unknown-linux-musl"
 }
 
-if ((Sys.info()[["machine"]] %in% c("amd64", "x86_64", "x86-64"))) {
-  vendor_cpu_abi <- "x86_64"
-} else if (Sys.info()[["machine"]] %in% c("arm64", "aarch64")) {
-  vendor_cpu_abi <- "aarch64"
-} else {
-  stop("Pre-built binaries are not available for Arch: ", Sys.info()[["machine"]])
-}
-
-target_triple <- paste0(vendor_cpu_abi, "-", vendor_sys_abi)
+target_triple <- paste0(current_arch, "-", vendor_sys_abi)
 
 lib_data <- utils::read.table("tools/lib-sums.tsv", header = TRUE, stringsAsFactors = FALSE)
 
