@@ -188,23 +188,15 @@ License:     MIT
 -------------------------------------------------------------
 
 Name:        extendr-api
-Version:     0.4.0
+Version:     0.6.0
 Repository:  https://github.com/extendr/extendr
 Authors:     andy-thomason, Thomas Down, Mossa Merhi Reimert, Claus O. Wilke, Hiroaki Yutani, Ilia A. Kosenkov, Michael Milton
 License:     MIT
 
 -------------------------------------------------------------
 
-Name:        extendr-engine
-Version:     0.4.0
-Repository:  https://github.com/extendr/extendr
-Authors:     andy-thomason, Thomas Down, Mossa Merhi Reimert, Claus O. Wilke, Hiroaki Yutani, Ilia A. Kosenkov
-License:     MIT
-
--------------------------------------------------------------
-
 Name:        extendr-macros
-Version:     0.4.0
+Version:     0.6.0
 Repository:  https://github.com/extendr/extendr
 Authors:     andy-thomason, Thomas Down, Mossa Merhi Reimert, Claus O. Wilke, Hiroaki Yutani, Ilia A. Kosenkov
 License:     MIT
@@ -275,16 +267,8 @@ License:     Apache-2.0 OR MIT
 
 -------------------------------------------------------------
 
-Name:        lazy_static
-Version:     1.4.0
-Repository:  https://github.com/rust-lang-nursery/lazy-static.rs
-Authors:     Marvin Löbel
-License:     Apache-2.0 OR MIT
-
--------------------------------------------------------------
-
 Name:        libR-sys
-Version:     0.4.0
+Version:     0.6.0
 Repository:  https://github.com/extendr/libR-sys
 Authors:     andy-thomason, Thomas Down, Mossa Merhi Reimert, Claus O. Wilke, Ilia A. Kosenkov, Hiroaki Yutani
 License:     MIT
@@ -544,14 +528,6 @@ Version:     0.25.2
 Repository:  https://github.com/Peternator7/strum
 Authors:     Peter Glotfelty
 License:     MIT
-
--------------------------------------------------------------
-
-Name:        syn
-Version:     1.0.109
-Repository:  https://github.com/dtolnay/syn
-Authors:     David Tolnay
-License:     Apache-2.0 OR MIT
 
 -------------------------------------------------------------
 
