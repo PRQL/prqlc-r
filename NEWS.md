@@ -1,12 +1,14 @@
 # prqlr (development version)
 
+# prqlr 0.5.4
+
 ## New features
 
 - `{prqlr}` can now be installed with "R source package with Rust library binary",
   inspired by the [arrow](https://arrow.apache.org/docs/r/) package,
   the [string2path](https://yutannihilation.github.io/string2path/) package,
   and the [polars](https://rpolars.github.io/) package.
-  Available on all currently supported platforms (amd64 and arm64 Linux or macOS, and amd64 Winodws).
+  Available on all currently supported platforms (amd64 and arm64 Linux or macOS, and amd64 Windows).
 
   When `NOT_CRAN=ture` or `LIBPRQLR_BUILD=false` is set,
   the script `tools/prep-lib.R` will search the Internet for the available binary.
