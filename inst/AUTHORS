@@ -23,7 +23,6 @@ Owners of dependent Rust crates. This list is generated from Crates.io Data <htt
   - errno: Chris Wong <https://github.com/lambda-fairy>, Dan Gohman <https://github.com/sunfishcode>
   - errno-dragonfly: Michael Neumann <https://github.com/mneumann>
   - extendr-api: Andy Thomson <https://github.com/andy-thomason>, Claus Wilke <https://github.com/clauswilke>, Hiroaki Yutani <https://github.com/yutannihilation>, Michael Milton <https://github.com/multimeric>, Ilia Kosenkov <https://github.com/Ilia-Kosenkov>
-  - extendr-engine: Claus Wilke <https://github.com/clauswilke>, Andy Thomson <https://github.com/andy-thomason>, Hiroaki Yutani <https://github.com/yutannihilation>, Michael Milton <https://github.com/multimeric>, Ilia Kosenkov <https://github.com/Ilia-Kosenkov>
   - extendr-macros: Andy Thomson <https://github.com/andy-thomason>, Claus Wilke <https://github.com/clauswilke>, Hiroaki Yutani <https://github.com/yutannihilation>, Michael Milton <https://github.com/multimeric>, Ilia Kosenkov <https://github.com/Ilia-Kosenkov>
   - getrandom: Diggory Hardy <https://github.com/dhardy>
   - gimli: Nick Fitzgerald <https://github.com/fitzgen>, Philip Craig <https://github.com/philipc>
@@ -33,7 +32,6 @@ Owners of dependent Rust crates. This list is generated from Crates.io Data <htt
   - is-terminal: Dan Gohman <https://github.com/sunfishcode>
   - itertools: bluss <https://github.com/bluss>, Jack Wrenn <https://github.com/jswrenn>
   - itoa: David Tolnay <https://github.com/dtolnay>
-  - lazy_static: Marvin Löbel <https://github.com/Kimundi>
   - libR-sys: Andy Thomson <https://github.com/andy-thomason>, Claus Wilke <https://github.com/clauswilke>, Hiroaki Yutani <https://github.com/yutannihilation>, Michael Milton <https://github.com/multimeric>, Ilia Kosenkov <https://github.com/Ilia-Kosenkov>
   - libc: Huon Wilson <https://github.com/huonw>, ember arlynx <https://github.com/emberian>, gnzlbg <https://github.com/gnzlbg>, Yuki Okushi <https://github.com/JohnTitor>, Alex Crichton <https://github.com/alexcrichton>, Josh Triplett <https://github.com/joshtriplett>, Sebastian Dröge <https://github.com/sdroege>
   - linux-raw-sys: Dan Gohman <https://github.com/sunfishcode>
