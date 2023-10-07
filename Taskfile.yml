@@ -25,7 +25,8 @@ tasks:
     desc: Install R packages for development.
     cmds:
       - Rscript -e
-        'pak::local_install_deps(dependencies = c("all", "Config/Needs/dev", "Config/Needs/website"))'
+        'pak::repo_add("https://cloud.r-project.org/");
+        pak::local_install_deps(dependencies = c("all", "Config/Needs/dev", "Config/Needs/website"))'
 
   install-rust-tools:
     internal: true
