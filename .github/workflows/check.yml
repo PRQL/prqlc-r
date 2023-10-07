@@ -122,6 +122,7 @@ jobs:
           Ncpus: "2"
 
       - uses: r-lib/actions/setup-r-dependencies@v2
+        if: env.TEST_BIN_LIB == 'true'
         with:
           extra-packages: any::rcmdcheck, any::testthat, any::remotes
           needs: check
