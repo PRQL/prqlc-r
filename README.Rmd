@@ -6,7 +6,9 @@ output:
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
-```{r, include = FALSE}
+```{r}
+#| include: false
+
 knitr::opts_chunk$set(
   collapse = TRUE,
   comment = "#>",
@@ -44,6 +46,7 @@ install.packages("prqlr")
 install.packages("prqlr", repos = "https://eitsupi.r-universe.dev")
 ```
 
+````{asis, echo = file.exists("tools/lib-sums.tsv")}
 For source installation, pre-built Rust libraries may be available
 if the environment variable `NOT_CRAN` is set to `"true"`. (Or, set `LIBPRQLR_BUILD` to `"false"`)
 
@@ -51,6 +54,7 @@ if the environment variable `NOT_CRAN` is set to `"true"`. (Or, set `LIBPRQLR_BU
 Sys.setenv(NOT_CRAN = "true")
 install.packages("prqlr")
 ```
+````
 
 Or, the Rust toolchain (Rust `r RcppTOML::parseTOML("src/rust/Cargo.toml")$package$"rust-version"` or later)
 must be configured to build the Rust library.
