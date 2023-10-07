@@ -35,8 +35,9 @@
 
     Code
       cat(prql_compile(query, "sql.any", TRUE, FALSE))
-    Error <simpleError>
-      Error:
+    Condition
+      Error in `unwrap()`:
+      ! Error:
          ╭─[:1:23]
          │
        1 │ Mississippi has four S’s and four I’s.
@@ -62,8 +63,9 @@
 
     Code
       cat(prql_compile(query, "sql.any", TRUE, FALSE))
-    Error <simpleError>
-      Error:
+    Condition
+      Error in `unwrap()`:
+      ! Error:
          ╭─[:1:17]
          │
        1 │ from a | select [b]
@@ -77,8 +79,9 @@
 
     Code
       cat(prql_compile(query, "sql.any", TRUE, FALSE))
-    Error <simpleError>
-      Error:
+    Condition
+      Error in `unwrap()`:
+      ! Error:
          ╭─[:1:20]
          │
        1 │ from a | select {{{b
