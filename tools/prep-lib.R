@@ -48,16 +48,21 @@ which_arch <- function() {
   }
 }
 
-current_os <- which_os()
-current_arch <- which_arch()
-
-if (identical(current_os, "windows")) {
-  vendor_sys_abi <- "pc-windows-gnu"
-} else if (identical(current_os, "macos")) {
-  vendor_sys_abi <- "apple-darwin"
-} else if (identical(current_os, "linux")) {
-  vendor_sys_abi <- "unknown-linux-musl"
+which_vendor_sys_abi <- function(os = c("linux", "macos", "windows")) {
+  if (match.arg(os) == "linux") {
+    "unknown-linux-musl"
+  } else if (match.arg(os) == "macos") {
+    "apple-darwin"
+  } else if (match.arg(os) == "windows") {
+    "pc-windows-gnu"
+  } else {
+    stop("Unsupported OS: ", os)
+  }
 }
+
+current_os <- which_os()
+vendor_sys_abi <- which_vendor_sys_abi(current_os)
+current_arch <- which_arch()
 
 target_triple <- paste0(current_arch, "-", vendor_sys_abi)
 
