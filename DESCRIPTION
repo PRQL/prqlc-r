@@ -23,7 +23,7 @@ Suggests:
     sqldf,
     nycflights13,
     dplyr,
-    testthat (>= 3.0.0),
+    testthat (>= 3.2.0),
     patrick,
     withr
 License: MIT + file LICENSE
