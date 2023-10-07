@@ -45,4 +45,4 @@ Config/Needs/dev:
 Config/Needs/website:
     pkgdown,
     rextendr
-Config/prqlr/LibVersion: 0.9.0
+Config/prqlr/LibVersion: 0.9.1
