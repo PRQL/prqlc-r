@@ -11,8 +11,10 @@ latest_released_lib_version <- gert::git_remote_ls(remote = "https://github.com/
   dplyr::pull(ref) |>
   stringr::str_subset(stringr::str_c(r"(^refs/tags/)", tag_prefix)) |>
   stringr::str_remove(stringr::str_c(".*", tag_prefix)) |>
-  sort(decreasing = TRUE) |>
-  _[1]
+  numeric_version() |>
+  sort() |>
+  tail(1) |>
+  as.character()
 
 write_bin_lib_data <- function(path, sums_url, libs_base_url) {
   df <- readr::read_table(sums_url, col_names = FALSE, show_col_types = FALSE) |>
