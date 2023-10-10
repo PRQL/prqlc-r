@@ -4,7 +4,7 @@ NOT_CRAN=${NOT_CRAN:-"false"}
 LIBPRQLR_BUILD=${LIBPRQLR_BUILD:-""}
 
 LIBNAME="libprqlr.a"
-LIBPRQLR_PATH="tools/${LIBNAME}"
+LIBPRQLR_PATH="$(pwd)/tools/${LIBNAME}"
 
 export PATH="$PATH:$HOME/.cargo/bin"
 
@@ -41,7 +41,6 @@ check_bin_lib() {
   if [ "${LIBPRQLR_BUILD}" = "false" ] && [ -f "tools/lib-sums.tsv" ] && [ ! -f "${LIBPRQLR_PATH}" ] ; then
     echo ""
     echo "--------------- [ TRY TO DOWNLOAD PRE-BUILT BINARY ] ---------------"
-    LIBPRQLR_PATH="tools/${LIBNAME}"
     Rscript "tools/prep-lib.R" || echo "Failed to download pre-built binary."
     echo "--------------------------------------------------------------------"
     echo ""
