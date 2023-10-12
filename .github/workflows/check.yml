@@ -93,7 +93,9 @@ jobs:
           - windows-latest
           - ubuntu-latest
         r:
+          - oldrel-1
           - release
+          - devel
 
     env:
       NOT_CRAN: "true"
