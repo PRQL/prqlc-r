@@ -107,6 +107,12 @@ jobs:
           - oldrel-1
           - release
           - devel
+        exclude:
+          - os: macos-latest
+            r: devel
+          - os: macos-latest
+            r: oldrel-1
+
     permissions:
       contents: read
 
