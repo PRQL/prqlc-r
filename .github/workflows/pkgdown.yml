@@ -44,6 +44,11 @@ jobs:
           use-public-rspm: true
           Ncpus: "2"
 
+      - uses: Swatinem/rust-cache@v2
+        with:
+          workspaces: "src/rust -> target"
+          shared-key: x86_64-unknown-linux-gnu
+
       - uses: r-lib/actions/setup-r-dependencies@v2
         with:
           extra-packages: any::pkgdown, local::.

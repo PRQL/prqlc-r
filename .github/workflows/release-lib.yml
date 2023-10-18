@@ -58,7 +58,7 @@ jobs:
       - uses: Swatinem/rust-cache@v2
         with:
           workspaces: "src/rust -> target"
-          shared-key: build
+          shared-key: ${{ matrix.target }}
 
       - name: prep for musl
         if: runner.os == 'Linux'
