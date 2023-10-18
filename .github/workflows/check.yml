@@ -70,17 +70,6 @@ jobs:
           use-public-rspm: true
           Ncpus: "2"
 
-      - name: check target
-        id: check-target
-        shell: bash
-        run: |
-          echo "target=$(rustc -vV | grep host | cut -d' ' -f2)" >>"$GITHUB_OUTPUT"
-
-      - uses: Swatinem/rust-cache@v2
-        with:
-          workspaces: "src/rust -> target"
-          shared-key: ${{ steps.check-target.outputs.target }}
-
       - uses: r-lib/actions/setup-r-dependencies@v2
         with:
           extra-packages: any::rcmdcheck
