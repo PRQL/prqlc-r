@@ -41,7 +41,7 @@ check_bin_lib() {
   if [ "${LIBPRQLR_BUILD}" = "false" ] && [ -f "tools/lib-sums.tsv" ] && [ ! -f "${LIBPRQLR_PATH}" ] ; then
     echo ""
     echo "--------------- [ TRY TO DOWNLOAD PRE-BUILT BINARY ] ---------------"
-    Rscript "tools/prep-lib.R" || echo "Failed to download pre-built binary."
+    "${R_HOME}/bin${R_ARCH_BIN}/Rscript" "tools/prep-lib.R" || echo "Failed to download pre-built binary."
     echo "--------------------------------------------------------------------"
     echo ""
   fi
