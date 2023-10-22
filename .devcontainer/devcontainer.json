@@ -7,7 +7,8 @@
 		"ghcr.io/rocker-org/devcontainer-features/apt-packages:1": {
 			"packages": "xz-utils"
 		},
-		"ghcr.io/eitsupi/devcontainer-features/go-task:1": {}
+		"ghcr.io/eitsupi/devcontainer-features/go-task:1": {},
+		"ghcr.io/rocker-org/devcontainer-features/r-history": {}
 	},
 	"customizations": {
 		"vscode": {
