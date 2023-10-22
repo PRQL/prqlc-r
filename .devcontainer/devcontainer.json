@@ -1,11 +1,14 @@
 {
-	"name": "${localWorkspaceFolderBasename}",
 	"image": "ghcr.io/rocker-org/devcontainer/r-ver:4",
 	"features": {
 		"ghcr.io/devcontainers/features/rust:1": {
 			"version": "latest"
 		},
-		"ghcr.io/eitsupi/devcontainer-features/go-task": {}
+		"ghcr.io/rocker-org/devcontainer-features/apt-packages:1": {
+			"packages": "xz-utils"
+		},
+		"ghcr.io/eitsupi/devcontainer-features/go-task:1": {},
+		"ghcr.io/rocker-org/devcontainer-features/r-history": {}
 	},
 	"customizations": {
 		"vscode": {
@@ -31,5 +34,7 @@
 			"type": "volume"
 		}
 	],
-	"updateContentCommand": "task setup-dev"
+	"updateContentCommand": {
+		"prqlr-build-deps": "task setup-dev"
+	}
 }
