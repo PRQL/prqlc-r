@@ -4,7 +4,8 @@ NOT_CRAN=${NOT_CRAN:-"false"}
 LIBPRQLR_BUILD=${LIBPRQLR_BUILD:-""}
 
 LIBNAME="libprqlr.a"
-LIBPRQLR_PATH="$(pwd)/tools/${LIBNAME}"
+LIBPRQLR_DEFAULT_PATH="$(pwd)/tools/${LIBNAME}"
+LIBPRQLR_PATH=${LIBPRQLR_PATH:-${LIBPRQLR_DEFAULT_PATH}}
 
 export PATH="$PATH:$HOME/.cargo/bin"
 
@@ -53,6 +54,14 @@ check_bin_lib() {
     echo "--------------------------------------------------------------------"
     echo ""
     sed -e "s|@RUST_TARGET@||" src/Makevars.in >src/Makevars
+    if [ "${LIBPRQLR_PATH}" != "${LIBPRQLR_DEFAULT_PATH}" ]; then
+      echo ""
+      echo "------------------------ [COPYING BINARY] ------------------------"
+      echo "Copying <${LIBPRQLR_PATH}> to <${LIBPRQLR_DEFAULT_PATH}>."
+      cp "${LIBPRQLR_PATH}" "${LIBPRQLR_DEFAULT_PATH}" || echo "Failed to copy binary."
+      echo "------------------------------------------------------------------"
+      echo ""
+    fi
     exit 0
   elif [ "${LIBPRQLR_BUILD}" = "false" ]; then
     echo ""
