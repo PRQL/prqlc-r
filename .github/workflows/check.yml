@@ -75,7 +75,32 @@ jobs:
           extra-packages: any::rcmdcheck
           needs: check
 
+      - id: rust-target
+        name: Set Rust target
+        run: |
+          if [ "${{ runner.os }}" == "Windows" ]; then
+            echo "TARGET=x86_64-pc-windows-gnu" >>$GITHUB_OUTPUT
+          elif [ "${{ runner.os }}" == "macOS" ]; then
+            echo "TARGET=x86_64-apple-darwin" >>$GITHUB_OUTPUT
+          else
+            echo "TARGET=x86_64-unknown-linux-gnu" >>$GITHUB_OUTPUT
+          fi
+
+      - uses: Swatinem/rust-cache@v2
+        with:
+          workspaces: "src/rust -> target"
+          shared-key: ${{ steps.rust-target.outputs.TARGET }}
+
+      - name: Build lib
+        env:
+          NOT_CRAN: "true"
+        run: |
+          Rscript -e 'pkgbuild::compile_dll()'
+          echo "LIBPRQLR_PATH=$(pwd)/src/rust/target/${{ steps.rust-target.outputs.TARGET }}/release/libprqlr.a" >>$GITHUB_ENV
+
       - uses: r-lib/actions/check-r-package@v2
+        env:
+          LIBPRQLR_BUILD: "false"
         with:
           upload-snapshots: true
 
