@@ -83,7 +83,7 @@ jobs:
           elif [ "${{ runner.os }}" == "macOS" ]; then
             echo "TARGET=x86_64-apple-darwin" >>$GITHUB_OUTPUT
           else
-            echo "TARGET=x86_64-unknown-linux-musl" >>$GITHUB_OUTPUT
+            echo "TARGET=x86_64-unknown-linux-gnu" >>$GITHUB_OUTPUT
           fi
 
       - uses: Swatinem/rust-cache@v2
