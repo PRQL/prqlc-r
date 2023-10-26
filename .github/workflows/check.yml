@@ -80,10 +80,8 @@ jobs:
         run: |
           if [ "${{ runner.os }}" == "Windows" ]; then
             echo "TARGET=x86_64-pc-windows-gnu" >>$GITHUB_OUTPUT
-          elif [ "${{ runner.os }}" == "macOS" ]; then
-            echo "TARGET=x86_64-apple-darwin" >>$GITHUB_OUTPUT
           else
-            echo "TARGET=x86_64-unknown-linux-gnu" >>$GITHUB_OUTPUT
+            echo "TARGET=$(rustc -vV | grep host | cut -d' ' -f2)" >>$GITHUB_OUTPUT
           fi
 
       - uses: Swatinem/rust-cache@v2
