@@ -41,8 +41,10 @@ Config/Needs/dev:
     lintr,
     styler,
     purrr,
-    RcppTOML
+    RcppTOML,
+    readr,
+    tidyr
 Config/Needs/website:
     pkgdown,
     rextendr
-Config/prqlr/LibVersion: 0.9.1
+Config/prqlr/LibVersion: 0.10.0

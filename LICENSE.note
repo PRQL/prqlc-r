@@ -140,7 +140,7 @@ License:     Apache-2.0 OR MIT
 -------------------------------------------------------------
 
 Name:        csv
-Version:     1.2.2
+Version:     1.3.0
 Repository:  https://github.com/BurntSushi/rust-csv
 Authors:     Andrew Gallant
 License:     MIT OR Unlicense
@@ -148,7 +148,7 @@ License:     MIT OR Unlicense
 -------------------------------------------------------------
 
 Name:        csv-core
-Version:     0.1.10
+Version:     0.1.11
 Repository:  https://github.com/BurntSushi/rust-csv
 Authors:     Andrew Gallant
 License:     MIT OR Unlicense
@@ -363,26 +363,26 @@ License:     Apache-2.0 OR MIT
 
 -------------------------------------------------------------
 
-Name:        prql-ast
-Version:     0.9.5
-Repository:  https://github.com/PRQL/prql
-Authors:     prql-ast authors
-License:     Apache-2.0
-
--------------------------------------------------------------
-
 Name:        prql-compiler
-Version:     0.9.5
+Version:     0.10.0
 Repository:  https://github.com/PRQL/prql
 Authors:     prql-compiler authors
 License:     Apache-2.0
 
 -------------------------------------------------------------
 
-Name:        prql-parser
-Version:     0.9.5
+Name:        prqlc-ast
+Version:     0.10.0
 Repository:  https://github.com/PRQL/prql
-Authors:     prql-parser authors
+Authors:     prqlc-ast authors
+License:     Apache-2.0
+
+-------------------------------------------------------------
+
+Name:        prqlc-parser
+Version:     0.10.0
+Repository:  https://github.com/PRQL/prql
+Authors:     prqlc-parser authors
 License:     Apache-2.0
 
 -------------------------------------------------------------
@@ -404,7 +404,7 @@ License:     Apache-2.0 OR MIT
 -------------------------------------------------------------
 
 Name:        regex
-Version:     1.9.5
+Version:     1.10.2
 Repository:  https://github.com/rust-lang/regex
 Authors:     The Rust Project Developers, Andrew Gallant
 License:     Apache-2.0 OR MIT
@@ -412,7 +412,7 @@ License:     Apache-2.0 OR MIT
 -------------------------------------------------------------
 
 Name:        regex-automata
-Version:     0.3.8
+Version:     0.4.3
 Repository:  https://github.com/rust-lang/regex/tree/master/regex-automata
 Authors:     The Rust Project Developers, Andrew Gallant
 License:     Apache-2.0 OR MIT
@@ -420,7 +420,7 @@ License:     Apache-2.0 OR MIT
 -------------------------------------------------------------
 
 Name:        regex-syntax
-Version:     0.7.5
+Version:     0.8.2
 Repository:  https://github.com/rust-lang/regex/tree/master/regex-syntax
 Authors:     The Rust Project Developers, Andrew Gallant
 License:     Apache-2.0 OR MIT
@@ -460,7 +460,7 @@ License:     Apache-2.0 OR BSL-1.0
 -------------------------------------------------------------
 
 Name:        semver
-Version:     1.0.18
+Version:     1.0.20
 Repository:  https://github.com/dtolnay/semver
 Authors:     David Tolnay
 License:     Apache-2.0 OR MIT
@@ -468,7 +468,7 @@ License:     Apache-2.0 OR MIT
 -------------------------------------------------------------
 
 Name:        serde
-Version:     1.0.188
+Version:     1.0.190
 Repository:  https://github.com/serde-rs/serde
 Authors:     Erick Tryzelaar, David Tolnay
 License:     Apache-2.0 OR MIT
@@ -476,7 +476,7 @@ License:     Apache-2.0 OR MIT
 -------------------------------------------------------------
 
 Name:        serde_derive
-Version:     1.0.188
+Version:     1.0.190
 Repository:  https://github.com/serde-rs/serde
 Authors:     Erick Tryzelaar, David Tolnay
 License:     Apache-2.0 OR MIT
@@ -484,7 +484,7 @@ License:     Apache-2.0 OR MIT
 -------------------------------------------------------------
 
 Name:        serde_json
-Version:     1.0.105
+Version:     1.0.107
 Repository:  https://github.com/serde-rs/json
 Authors:     Erick Tryzelaar, David Tolnay
 License:     Apache-2.0 OR MIT
@@ -500,7 +500,7 @@ License:     Apache-2.0 OR MIT
 -------------------------------------------------------------
 
 Name:        sqlparser
-Version:     0.37.0
+Version:     0.38.0
 Repository:  https://github.com/sqlparser-rs/sqlparser-rs
 Authors:     Andy Grove
 License:     Apache-2.0
@@ -524,7 +524,7 @@ License:     MIT
 -------------------------------------------------------------
 
 Name:        strum_macros
-Version:     0.25.2
+Version:     0.25.3
 Repository:  https://github.com/Peternator7/strum
 Authors:     Peter Glotfelty
 License:     MIT

@@ -43,9 +43,9 @@ Owners of dependent Rust crates. This list is generated from Crates.io Data <htt
   - once_cell: Alex Kladov <https://github.com/matklad>, Michal 'vorner' Vaner <https://github.com/vorner>
   - paste: David Tolnay <https://github.com/dtolnay>
   - proc-macro2: David Tolnay <https://github.com/dtolnay>
-  - prql-ast: Maximilian Roos <https://github.com/max-sixty>
   - prql-compiler: Maximilian Roos <https://github.com/max-sixty>
-  - prql-parser: Maximilian Roos <https://github.com/max-sixty>
+  - prqlc-ast: Maximilian Roos <https://github.com/max-sixty>
+  - prqlc-parser: Maximilian Roos <https://github.com/max-sixty>
   - psm: Simonas Kazlauskas <https://github.com/nagisa>
   - quote: David Tolnay <https://github.com/dtolnay>
   - regex: Andrew Gallant <https://github.com/BurntSushi>, ember arlynx <https://github.com/emberian>, Alex Crichton <https://github.com/alexcrichton>
