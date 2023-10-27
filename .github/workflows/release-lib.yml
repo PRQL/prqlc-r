@@ -11,6 +11,7 @@ on:
       - src/rust/**
       - src/Makevars*
       - tools/**
+      - "!tools/lib-sums.tsv"
   workflow_dispatch:
 
 concurrency:

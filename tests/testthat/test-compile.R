@@ -90,5 +90,6 @@ take 2
 )
 
 test_that("prql-compiler's version", {
-  expect_equal(prql_version(), numeric_version("0.10.0"))
+  expect_snapshot(prql_version())
+  expect_s3_class(prql_version(), "numeric_version")
 })
