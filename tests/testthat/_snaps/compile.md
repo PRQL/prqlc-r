@@ -375,3 +375,10 @@
       LIMIT
         2
 
+# prql-compiler's version
+
+    Code
+      prql_version()
+    Output
+      [1] '0.10.0'
+
