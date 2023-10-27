@@ -125,8 +125,3 @@ lists PRQL queries and a translated SQL queries, or documents that lists
 PRQL queries and tables of data retrieved by PRQL queries.
 
 Please check the vignette `vignette("knitr", "prqlr")` for details.
-
-## Development
-
-Use the `rextendr::document()` function to generate R source code from
-Rust source code in the `src` directory.
