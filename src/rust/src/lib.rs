@@ -1,3 +1,4 @@
+use anstream::ColorChoice;
 use extendr_api::prelude::*;
 use std::str::FromStr;
 
@@ -6,7 +7,7 @@ use crate::utils::r_result_list;
 
 /// @title Compile a PRQL query into a SQL query
 /// @param prql_query a PRQL query string.
-/// @param target a compile target name to use. If it is not a valid value, the target contained in the query will be used.
+/// @param target a compile target name to use.
 /// @param format a logical flag. Whether to format the SQL query.
 /// @param signature_comment a logical flag. Whether to add a signature comment to the output SQL query.
 /// @return a list contains a SQL string or an error message.
@@ -14,9 +15,9 @@ use crate::utils::r_result_list;
 #[extendr(use_try_from = true)]
 pub fn compile(
     prql_query: &str,
-    target: Option<String>,
-    format: bool,
-    signature_comment: bool,
+    #[default = r#""sql.any""#] target: Option<String>,
+    #[default = "TRUE"] format: bool,
+    #[default = "TRUE"] signature_comment: bool,
 ) -> List {
     let options = convert_options(CompileOptions {
         format,
@@ -31,7 +32,9 @@ pub fn compile(
                 .and_then(prql_compiler::pl_to_rq)
                 .and_then(|rq| prql_compiler::rq_to_sql(rq, &opts))
         })
-        .map_err(|e| e.composed(&prql_query.into(), false));
+        .map_err(|e| e.composed(&prql_query.into()));
+
+    ColorChoice::write_global(self::ColorChoice::Never);
 
     r_result_list(result)
 }

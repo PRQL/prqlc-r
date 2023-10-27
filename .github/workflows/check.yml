@@ -9,7 +9,9 @@ on:
       - R/**
       - src/**
       - tests/**
+      - tools/**
       - vignettes/*
+      - configure*
       - DESCRIPTION
       - NAMESPACE
   pull_request:
@@ -20,7 +22,9 @@ on:
       - R/**
       - src/**
       - tests/**
+      - tools/**
       - vignettes/*
+      - configure*
       - DESCRIPTION
       - NAMESPACE
   workflow_dispatch:
@@ -28,6 +32,10 @@ on:
 concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
   cancel-in-progress: true
+
+defaults:
+  run:
+    shell: bash
 
 jobs:
   R-CMD-check:
@@ -39,18 +47,19 @@ jobs:
       fail-fast: false
       matrix:
         config:
-          - {os: macos-latest,   r: 'release'}
-          - {os: windows-latest, r: 'release'}
-          - {os: ubuntu-latest,   r: 'devel', http-user-agent: 'release'}
-          - {os: ubuntu-latest,   r: 'release'}
-          - {os: ubuntu-latest,   r: 'oldrel-1'}
+          - { os: macos-latest, r: "release" }
+          - { os: windows-latest, r: "release" }
+          - { os: ubuntu-latest, r: "devel", http-user-agent: "release" }
+          - { os: ubuntu-latest, r: "release" }
+          - { os: ubuntu-latest, r: "oldrel-1" }
 
     env:
       GITHUB_PAT: ${{ secrets.GITHUB_TOKEN }}
       R_KEEP_PKG_SOURCE: yes
+      LIBPRQLR_BUILD: "true"
 
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
 
       - uses: r-lib/actions/setup-pandoc@v2
 
@@ -59,7 +68,6 @@ jobs:
           r-version: ${{ matrix.config.r }}
           http-user-agent: ${{ matrix.config.http-user-agent }}
           use-public-rspm: true
-          rtools-version: ${{ matrix.config.rtools-version }}
           Ncpus: "2"
 
       - uses: r-lib/actions/setup-r-dependencies@v2
@@ -67,6 +75,90 @@ jobs:
           extra-packages: any::rcmdcheck
           needs: check
 
+      - id: rust-target
+        name: Set Rust target
+        run: |
+          if [ "${{ runner.os }}" == "Windows" ]; then
+            echo "TARGET=x86_64-pc-windows-gnu" >>$GITHUB_OUTPUT
+          else
+            echo "TARGET=$(rustc -vV | grep host | cut -d' ' -f2)" >>$GITHUB_OUTPUT
+          fi
+
+      - uses: Swatinem/rust-cache@v2
+        with:
+          workspaces: "src/rust -> target"
+          shared-key: ${{ steps.rust-target.outputs.TARGET }}
+
+      - name: Build lib
+        env:
+          NOT_CRAN: "true"
+        run: |
+          Rscript -e 'pkgbuild::compile_dll()'
+          echo "LIBPRQLR_PATH=$(pwd)/src/rust/target/${{ steps.rust-target.outputs.TARGET }}/release/libprqlr.a" >>$GITHUB_ENV
+
       - uses: r-lib/actions/check-r-package@v2
+        env:
+          LIBPRQLR_BUILD: "false"
         with:
           upload-snapshots: true
+
+  source-with-bin-check:
+    runs-on: ${{ matrix.os }}
+
+    name: ${{ matrix.os }} with pre-built binary (${{ matrix.r }})
+
+    strategy:
+      fail-fast: false
+      matrix:
+        os:
+          - macos-latest
+          - windows-latest
+          - ubuntu-latest
+        r:
+          - oldrel-1
+          - release
+          - devel
+        exclude:
+          - os: macos-latest
+            r: devel
+          - os: macos-latest
+            r: oldrel-1
+
+    env:
+      NOT_CRAN: "true"
+      LIB_SUMS_PATH: "tools/lib-sums.tsv"
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Check for pre-built binary
+        run: |
+          if [[ -f "${LIB_SUMS_PATH}" ]]; then
+            echo "TEST_BIN_LIB=true" >>"${GITHUB_ENV}"
+            rm -f "$(rustup which cargo)"
+          else
+            echo "TEST_BIN_LIB=false" >>"${GITHUB_ENV}"
+          fi
+
+      - uses: r-lib/actions/setup-pandoc@v2
+        if: env.TEST_BIN_LIB == 'true'
+
+      - uses: r-lib/actions/setup-r@v2
+        if: env.TEST_BIN_LIB == 'true'
+        with:
+          r-version: ${{ matrix.r }}
+          use-public-rspm: true
+          Ncpus: "2"
+
+      - uses: r-lib/actions/setup-r-dependencies@v2
+        if: env.TEST_BIN_LIB == 'true'
+        with:
+          extra-packages: any::rcmdcheck, any::testthat, any::remotes
+          needs: check
+
+      - name: Install with pre-built binary
+        if: env.TEST_BIN_LIB == 'true'
+        shell: Rscript {0}
+        run: |
+          remotes::install_local(force = TRUE)
+          testthat::test_dir("tests")

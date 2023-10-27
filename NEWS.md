@@ -2,7 +2,72 @@
 
 ## Breaking changes
 
-- Based on [`prql-compiler`](https://github.com/prql/prql) 0.9.0 (#130)
+- Based on [`prql-compiler`](https://github.com/prql/prql) 0.10.0 (#221)
+
+# prqlr 0.5.4
+
+## New features
+
+- `{prqlr}` can now be installed with "R source package with Rust library binary",
+  inspired by the [arrow](https://arrow.apache.org/docs/r/) package,
+  the [string2path](https://yutannihilation.github.io/string2path/) package,
+  and the [polars](https://rpolars.github.io/) package.
+  Available on all currently supported platforms (amd64 and arm64 Linux or macOS, and amd64 Windows).
+
+  When `NOT_CRAN=ture` or `LIBPRQLR_BUILD=false` is set,
+  the script `tools/prep-lib.R` will search the Internet for the available binary.
+
+  ```r
+  Sys.setenv(NOT_CRAN = "true")
+  install.packages("prqlr")
+  ```
+
+  The URL and SHA256 hash of the available binaries are recorded in `tools/lib-sums.tsv`.
+  (#187, #189, #190, #191)
+
+# prqlr 0.5.3
+
+## New features
+
+- Based on [`prql-compiler`](https://github.com/prql/prql) 0.9.5 (#179)
+
+## Miscellaneous
+
+- `prql` knitr engine requires `{knitr}` 1.44 or later. (#175)
+
+# prqlr 0.5.2
+
+From this version, CRAN releases include vendored dependent Rust crates source code.
+
+## Miscellaneous
+
+- Update the `Authors` field of the DESCRIPTION file and the `inst/AUTHORS` file's format. (#169, #172)
+
+# prqlr 0.5.1
+
+## Bug fixes
+
+- Based on [`prql-compiler`](https://github.com/prql/prql) 0.9.4 (#164)
+
+# prqlr 0.5.0
+
+## Breaking changes
+
+- Based on [`prql-compiler`](https://github.com/prql/prql) 0.9.3 (#130, #137, #142, #145, #155)
+
+## Bug fixes
+
+- Support Rust 1.70 on Windows. (Thanks @yutannihilation, #138)
+
+## Miscellaneous
+
+- Some updates for adopting the (new) CRAN policy. (#148)
+  - This package now includes the `inst/AUTHORS` file. (#150, #154, #160)
+  - Set `SystemRequirements: Cargo (Rust's package manager), rustc` in the DESCRIPTION file. (#153)
+  - This package now includes the `configure` and `configure.win` scripts to check the cargo command. (#149)
+  - Set `CARGO_BUILD_JOBS=2` if not `NOT_CRAN=true` during installation. (#151)
+  - Supports dependent Rust crates vendoring. (#152, #159)
+  - Update the `LICENSE.note` file for Rust crates vendoring. (#156)
 
 # prqlr 0.4.0
 

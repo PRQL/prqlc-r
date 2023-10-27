@@ -4,15 +4,17 @@ Description:
     Provides a function to convert 'PRQL' strings to 'SQL' strings.
     Combined with other R functions that take 'SQL' as an argument,
     'PRQL' can be used on R.
-Version: 0.4.0.9001
+Version: 0.5.4.9000
 Authors@R:
-    person("Tatsuya", "Shima", email = "ts1s1andn@gmail.com", role = c("aut", "cre"))
+    c(person("Tatsuya", "Shima", email = "ts1s1andn@gmail.com", role = c("aut", "cre")),
+      person("Authors of the dependency Rust crates", role = "aut",
+             comment = "see inst/AUTHORS file for details"))
 URL: https://eitsupi.github.io/prqlr/, https://github.com/eitsupi/prqlr
 BugReports: https://github.com/eitsupi/prqlr/issues
 Depends:
     R (>= 4.2)
 Suggests:
-    knitr (>= 1.38),
+    knitr (>= 1.44),
     rmarkdown,
     DBI,
     glue,
@@ -21,7 +23,7 @@ Suggests:
     sqldf,
     nycflights13,
     dplyr,
-    testthat (>= 3.0.0),
+    testthat (>= 3.2.0),
     patrick,
     withr
 License: MIT + file LICENSE
@@ -29,17 +31,20 @@ Language: en-US
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.2.3
-SystemRequirements: Cargo (rustc package manager)
+SystemRequirements: Cargo (Rust's package manager), rustc
 VignetteBuilder: knitr
 Config/testthat/edition: 3
-Config/rextendr/version: 0.2.0.9000
+Config/rextendr/version: 0.3.1
 Config/Needs/dev:
     devtools,
     rextendr,
     lintr,
     styler,
     purrr,
-    RcppTOML
+    RcppTOML,
+    readr,
+    tidyr
 Config/Needs/website:
     pkgdown,
     rextendr
+Config/prqlr/LibVersion: 0.10.0

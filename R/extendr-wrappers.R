@@ -13,12 +13,12 @@ NULL
 
 #' @title Compile a PRQL query into a SQL query
 #' @param prql_query a PRQL query string.
-#' @param target a compile target name to use. If it is not a valid value, the target contained in the query will be used.
+#' @param target a compile target name to use.
 #' @param format a logical flag. Whether to format the SQL query.
 #' @param signature_comment a logical flag. Whether to add a signature comment to the output SQL query.
 #' @return a list contains a SQL string or an error message.
 #' @noRd
-compile <- function(prql_query, target, format, signature_comment) .Call(wrap__compile, prql_query, target, format, signature_comment)
+compile <- function(prql_query, target = "sql.any", format = TRUE, signature_comment = TRUE) .Call(wrap__compile, prql_query, target, format, signature_comment)
 
 #' @noRd
 prql_to_pl <- function(prql_query) .Call(wrap__prql_to_pl, prql_query)

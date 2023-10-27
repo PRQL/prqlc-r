@@ -14,3 +14,6 @@
 ^Taskfile\.yml$
 ^\.task$
 ^src/\.cargo$
+^src/rust/vendor$
+^src/Makevars$
+^tools/libprqlr\.a$

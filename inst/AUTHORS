@@ -1,0 +1,86 @@
+Owners of dependent Rust crates. This list is generated from Crates.io Data <https://crates.io/data-access>:
+  - addr2line: Nick Fitzgerald <https://github.com/fitzgen>, Philip Craig <https://github.com/philipc>
+  - adler: Jonas Schievink <https://github.com/jonas-schievink>
+  - ahash: Tom Kaitchuck <https://github.com/tkaitchuck>
+  - aho-corasick: Andrew Gallant <https://github.com/BurntSushi>
+  - anstream: Ed Page <https://github.com/epage>
+  - anstyle: Ed Page <https://github.com/epage>
+  - anstyle-parse: Ed Page <https://github.com/epage>
+  - anstyle-query: Ed Page <https://github.com/epage>
+  - anstyle-wincon: Ed Page <https://github.com/epage>
+  - anyhow: David Tolnay <https://github.com/dtolnay>
+  - ariadne: Joshua Barretto <https://github.com/zesterer>
+  - backtrace: ember arlynx <https://github.com/emberian>, Alex Crichton <https://github.com/alexcrichton>
+  - bitflags: Huon Wilson <https://github.com/huonw>, Alex Crichton <https://github.com/alexcrichton>, Ashley Mannix <https://github.com/KodrAus>
+  - cc: ember arlynx <https://github.com/emberian>
+  - cfg-if: ember arlynx <https://github.com/emberian>, Alex Crichton <https://github.com/alexcrichton>
+  - chumsky: Joshua Barretto <https://github.com/zesterer>
+  - colorchoice: Ed Page <https://github.com/epage>
+  - csv: Andrew Gallant <https://github.com/BurntSushi>
+  - csv-core: Andrew Gallant <https://github.com/BurntSushi>
+  - either: bluss <https://github.com/bluss>, Josh Stone <https://github.com/cuviper>
+  - enum-as-inner: Benjamin Fry <https://github.com/bluejekyll>
+  - errno: Chris Wong <https://github.com/lambda-fairy>, Dan Gohman <https://github.com/sunfishcode>
+  - errno-dragonfly: Michael Neumann <https://github.com/mneumann>
+  - extendr-api: Andy Thomson <https://github.com/andy-thomason>, Claus Wilke <https://github.com/clauswilke>, Hiroaki Yutani <https://github.com/yutannihilation>, Michael Milton <https://github.com/multimeric>, Ilia Kosenkov <https://github.com/Ilia-Kosenkov>
+  - extendr-macros: Andy Thomson <https://github.com/andy-thomason>, Claus Wilke <https://github.com/clauswilke>, Hiroaki Yutani <https://github.com/yutannihilation>, Michael Milton <https://github.com/multimeric>, Ilia Kosenkov <https://github.com/Ilia-Kosenkov>
+  - getrandom: Diggory Hardy <https://github.com/dhardy>
+  - gimli: Nick Fitzgerald <https://github.com/fitzgen>, Philip Craig <https://github.com/philipc>
+  - hashbrown: Amanieu d'Antras <https://github.com/Amanieu>
+  - heck: Saoirse Shipwreckt <https://github.com/withoutboats>, Jonas Platte <https://github.com/jplatte>
+  - hermit-abi: Stefan Lankes <https://github.com/stlankes>, Martin Kröning <https://github.com/mkroening>
+  - is-terminal: Dan Gohman <https://github.com/sunfishcode>
+  - itertools: bluss <https://github.com/bluss>, Jack Wrenn <https://github.com/jswrenn>
+  - itoa: David Tolnay <https://github.com/dtolnay>
+  - libR-sys: Andy Thomson <https://github.com/andy-thomason>, Claus Wilke <https://github.com/clauswilke>, Hiroaki Yutani <https://github.com/yutannihilation>, Michael Milton <https://github.com/multimeric>, Ilia Kosenkov <https://github.com/Ilia-Kosenkov>
+  - libc: Huon Wilson <https://github.com/huonw>, ember arlynx <https://github.com/emberian>, gnzlbg <https://github.com/gnzlbg>, Yuki Okushi <https://github.com/JohnTitor>, Alex Crichton <https://github.com/alexcrichton>, Josh Triplett <https://github.com/joshtriplett>, Sebastian Dröge <https://github.com/sdroege>
+  - linux-raw-sys: Dan Gohman <https://github.com/sunfishcode>
+  - log: Huon Wilson <https://github.com/huonw>, Steven Fackler <https://github.com/sfackler>, Alex Crichton <https://github.com/alexcrichton>, Ashley Mannix <https://github.com/KodrAus>
+  - memchr: Andrew Gallant <https://github.com/BurntSushi>
+  - minimal-lexical: Alexander Huszagh <https://github.com/Alexhuszagh>
+  - nom: Geoffroy Couprie <https://github.com/Geal>
+  - object: Nick Fitzgerald <https://github.com/fitzgen>, Philip Craig <https://github.com/philipc>
+  - once_cell: Alex Kladov <https://github.com/matklad>, Michal 'vorner' Vaner <https://github.com/vorner>
+  - paste: David Tolnay <https://github.com/dtolnay>
+  - proc-macro2: David Tolnay <https://github.com/dtolnay>
+  - prql-compiler: Maximilian Roos <https://github.com/max-sixty>
+  - prqlc-ast: Maximilian Roos <https://github.com/max-sixty>
+  - prqlc-parser: Maximilian Roos <https://github.com/max-sixty>
+  - psm: Simonas Kazlauskas <https://github.com/nagisa>
+  - quote: David Tolnay <https://github.com/dtolnay>
+  - regex: Andrew Gallant <https://github.com/BurntSushi>, ember arlynx <https://github.com/emberian>, Alex Crichton <https://github.com/alexcrichton>
+  - regex-automata: Andrew Gallant <https://github.com/BurntSushi>
+  - regex-syntax: Andrew Gallant <https://github.com/BurntSushi>, Alex Crichton <https://github.com/alexcrichton>, ember arlynx <https://github.com/emberian>
+  - rustc-demangle: Alex Crichton <https://github.com/alexcrichton>
+  - rustix: Dan Gohman <https://github.com/sunfishcode>
+  - rustversion: David Tolnay <https://github.com/dtolnay>
+  - ryu: David Tolnay <https://github.com/dtolnay>
+  - semver: David Tolnay <https://github.com/dtolnay>
+  - serde: David Tolnay <https://github.com/dtolnay>
+  - serde_derive: David Tolnay <https://github.com/dtolnay>
+  - serde_json: David Tolnay <https://github.com/dtolnay>
+  - sqlformat: Josh Holmer <https://github.com/shssoichiro>
+  - sqlparser: Andy Grove <https://github.com/andygrove>, Daniël Heres <https://github.com/Dandandan>, Max Countryman <https://github.com/maxcountryman>, Nickolay Ponomarev <https://github.com/nickolay>, Andrew Lamb <https://github.com/alamb>
+  - stacker: Simonas Kazlauskas <https://github.com/nagisa>, Alex Crichton <https://github.com/alexcrichton>
+  - strum: Peter Glotfelty <https://github.com/Peternator7>
+  - strum_macros: Peter Glotfelty <https://github.com/Peternator7>
+  - syn: David Tolnay <https://github.com/dtolnay>
+  - unicode-ident: David Tolnay <https://github.com/dtolnay>
+  - unicode-width: Riad S. Wahby <https://github.com/kwantam>, Huon Wilson <https://github.com/huonw>, Simon Sapin <https://github.com/SimonSapin>, Manish Goregaokar <https://github.com/Manishearth>, Sujay Jayakar <https://github.com/sujayakar>, Alex Crichton <https://github.com/alexcrichton>
+  - unicode_categories: Sean Gillespie <https://github.com/swgillespie>
+  - utf8parse: Joe Wilm <https://github.com/jwilm>, Christian Duerr <https://github.com/chrisduerr>, Tyler Berry <https://github.com/Tahler>
+  - version_check: Sergio Benitez <https://github.com/SergioBenitez>
+  - wasi: Dan Gohman <https://github.com/sunfishcode>, Alex Crichton <https://github.com/alexcrichton>
+  - winapi: Peter Atashian <https://github.com/retep998>
+  - winapi-i686-pc-windows-gnu: Peter Atashian <https://github.com/retep998>
+  - winapi-x86_64-pc-windows-gnu: Peter Atashian <https://github.com/retep998>
+  - windows-sys: Kenny Kerr <https://github.com/kennykerr>
+  - windows-targets: Kenny Kerr <https://github.com/kennykerr>
+  - windows_aarch64_gnullvm: Kenny Kerr <https://github.com/kennykerr>
+  - windows_aarch64_msvc: Kenny Kerr <https://github.com/kennykerr>
+  - windows_i686_gnu: Kenny Kerr <https://github.com/kennykerr>
+  - windows_i686_msvc: Kenny Kerr <https://github.com/kennykerr>
+  - windows_x86_64_gnu: Kenny Kerr <https://github.com/kennykerr>
+  - windows_x86_64_gnullvm: Kenny Kerr <https://github.com/kennykerr>
+  - windows_x86_64_msvc: Kenny Kerr <https://github.com/kennykerr>
+  - yansi: Sergio Benitez <https://github.com/SergioBenitez>

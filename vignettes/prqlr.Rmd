@@ -112,7 +112,7 @@ filter (distance | in 200..300)
 filter air_time != null
 group {origin, dest} (
   aggregate {
-    num_flts = count,
+    num_flts = count this,
     avg_delay = (average arr_delay | round 0)
   }
 )

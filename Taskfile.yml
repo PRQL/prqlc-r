@@ -1,7 +1,8 @@
 version: "3"
 
 env:
-  NOT_CRAN: true
+  NOT_CRAN: "true"
+  LIBPRQLR_BUILD: "true"
 
 vars:
   MANIFEST: src/rust/Cargo.toml
@@ -19,25 +20,62 @@ tasks:
 
   install-r-tools:
     internal: true
+    env:
+      PKG_SYSREQS: FALSE
     desc: Install R packages for development.
     cmds:
       - Rscript -e
-        'pak::repo_add(extendr = "https://extendr.r-universe.dev");
+        'pak::repo_add("https://cloud.r-project.org/");
         pak::local_install_deps(dependencies = c("all", "Config/Needs/dev", "Config/Needs/website"))'
 
   install-rust-tools:
     internal: true
     desc: Install Rust packages for development.
     cmds:
-      - cargo install cargo-license
+      - cargo install cargo-license cargo-outdated
+
+  cargo-update:
+    desc: Update the lock files.
+    sources:
+      - "{{.MANIFEST}}"
+    generates:
+      - "{{.CARGO_LOCK}}"
+    cmds:
+      - cargo outdated --manifest-path "{{.MANIFEST}}"
+
+  build-vendor-sources:
+    desc: Vendor Rust sources.
+    deps:
+      - cargo-update
+    sources:
+      - "{{.CARGO_LOCK}}"
+      - dev/vendoring.R
+    generates:
+      - src/rust/vendor.tar.xz
+    cmds:
+      - Rscript dev/vendoring.R
+
+  build-lib-sums:
+    desc: Build lib-sums.tsv.
+    sources:
+      - dev/generate-lib-sums.R
+      - DESCRIPTION
+      - "{{.CARGO_LOCK}}"
+    generates:
+      - tools/lib-sums.tsv
+      - tools/prep-lib.R
+    cmds:
+      - Rscript dev/generate-lib-sums.R
 
   build-all:
     desc: Build the R package, generate documents, run all tests, and update files.
     deps:
+      - build-lib-sums
       - build-documents
     cmds:
       - task: test-all
       - task: build-license-note
+      - task: build-authors
       - task: build-readme
 
   test-all:
@@ -54,9 +92,12 @@ tasks:
       - tests/**/*
       - "{{.R_SOURCE}}"
       - src/Makevars*
+      - configure*
       - "{{.MANIFEST}}"
       - "{{.CARGO_LOCK}}"
       - "{{.RUST_SOURCE}}"
+    deps:
+      - build-extendr-wrappers
     cmds:
       - Rscript -e 'devtools::load_all(); devtools::test()'
 
@@ -66,9 +107,12 @@ tasks:
     sources:
       - "{{.R_SOURCE}}"
       - src/Makevars*
+      - configure*
       - "{{.MANIFEST}}"
       - "{{.CARGO_LOCK}}"
       - "{{.RUST_SOURCE}}"
+    deps:
+      - build-extendr-wrappers
     cmds:
       - Rscript -e 'devtools::load_all(); devtools::run_examples()'
 
@@ -79,14 +123,17 @@ tasks:
       - "{{.VIGNETTES}}"
       - "{{.R_SOURCE}}"
       - src/Makevars*
+      - configure*
       - "{{.MANIFEST}}"
       - "{{.CARGO_LOCK}}"
       - "{{.RUST_SOURCE}}"
+    deps:
+      - build-extendr-wrappers
     cmds:
       - Rscript -e
         'devtools::load_all();
         list.files("vignettes/", pattern = r"(\.Rmd$)", recursive = TRUE, full.names = TRUE) |>
-          purrr::walk(\(x) rmarkdown::render(x, output_dir = tempdir()))'
+        purrr::walk(\(x) rmarkdown::render(x, output_dir = tempdir()))'
 
   build-documents:
     desc: Build the R package and generate documents.
@@ -107,9 +154,12 @@ tasks:
     desc: Build the extendr wrappers.
     sources:
       - src/Makevars*
+      - configure*
       - "{{.MANIFEST}}"
       - "{{.CARGO_LOCK}}"
       - "{{.RUST_SOURCE}}"
+    deps:
+      - build-vendor-sources
     generates:
       - R/extendr-wrappers.R
     status:
@@ -122,10 +172,22 @@ tasks:
     desc: Build LICENSE.note
     sources:
       - "{{.CARGO_LOCK}}"
+      - dev/generate-license-note.R
     generates:
       - LICENSE.note
     cmds:
-      - Rscript -e 'rextendr::write_license_note(force = TRUE)'
+      - Rscript dev/generate-license-note.R
+
+  build-authors:
+    internal: true
+    desc: Build inst/AUTHORS
+    sources:
+      - "{{.CARGO_LOCK}}"
+      - dev/generate-authors.R
+    generates:
+      - inst/AUTHORS
+    cmds:
+      - Rscript dev/generate-authors.R
 
   build-readme:
     internal: true
@@ -134,11 +196,15 @@ tasks:
       - README.Rmd
       - "{{.R_SOURCE}}"
       - src/Makevars*
+      - configure*
       - "{{.MANIFEST}}"
       - "{{.CARGO_LOCK}}"
       - "{{.RUST_SOURCE}}"
+      - tools/lib-sums.tsv
     generates:
       - README.md
+    deps:
+      - build-extendr-wrappers
     cmds:
       - Rscript -e
         'devtools::load_all();

@@ -56,7 +56,7 @@ test_that("PRQL query", {
     select {star_wars.*}
     select !{jar_jar_binks, midichlorians}"
     |>
-      compile("sql.duckdb", TRUE, TRUE) |>
+      compile("sql.duckdb") |>
       unwrap() |>
       cat()
   )
@@ -77,7 +77,7 @@ filter (distance | in 200..300)
 filter air_time != null
 group {origin, dest} (
   aggregate {
-    num_flts = count,
+    num_flts = count this,
     avg_delay = (average arr_delay | round 0)
   }
 )
@@ -90,5 +90,5 @@ take 2
 )
 
 test_that("prql-compiler's version", {
-  expect_equal(prql_version(), numeric_version("0.8.1"))
+  expect_equal(prql_version(), numeric_version("0.10.0"))
 })
