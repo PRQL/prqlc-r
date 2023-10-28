@@ -58,6 +58,7 @@ check_bin_lib() {
       echo ""
       echo "------------------------ [COPYING BINARY] ------------------------"
       echo "Copying <${LIBPRQLR_PATH}> to <${LIBPRQLR_DEFAULT_PATH}>."
+      mkdir -p "$(dirname "${LIBPRQLR_DEFAULT_PATH}")"
       cp "${LIBPRQLR_PATH}" "${LIBPRQLR_DEFAULT_PATH}" || echo "Failed to copy binary."
       echo "------------------------------------------------------------------"
       echo ""
