@@ -45,6 +45,5 @@ Config/Needs/dev:
     readr,
     tidyr
 Config/Needs/website:
-    pkgdown,
-    rextendr
+    pkgdown
 Config/prqlr/LibVersion: 0.10.0
