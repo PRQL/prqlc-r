@@ -135,7 +135,7 @@ jobs:
           elif [[ "${{ runner.os }}" == "Linux" ]]; then
             echo "LIB_TARGET=x86_64-unknown-linux-musl" >>"$GITHUB_ENV"
           else
-            echo "LIB_TARGET=x86_64-apple-darwin" >>"$GITHUB_ENV"
+            echo "LIB_TARGET=$(rustc -vV | grep host | cut -d' ' -f2)" >>"$GITHUB_ENV"
           fi
           rm "$(rustup which cargo)"
 
