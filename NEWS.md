@@ -2,7 +2,7 @@
 
 ## Breaking changes
 
-- Based on [`prql-compiler`](https://github.com/prql/prql) 0.10.0 (#221)
+- Based on [`prql-compiler`](https://github.com/prql/prql) 0.10.1 (#221, #229)
 
 # prqlr 0.5.4
 
