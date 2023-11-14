@@ -1,4 +1,4 @@
-# prqlr (development version)
+# prqlr 0.6.0
 
 ## Breaking changes
 
