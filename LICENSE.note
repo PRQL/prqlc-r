@@ -364,7 +364,7 @@ License:     Apache-2.0 OR MIT
 -------------------------------------------------------------
 
 Name:        prql-compiler
-Version:     0.10.0
+Version:     0.10.1
 Repository:  https://github.com/PRQL/prql
 Authors:     prql-compiler authors
 License:     Apache-2.0
@@ -372,7 +372,7 @@ License:     Apache-2.0
 -------------------------------------------------------------
 
 Name:        prqlc-ast
-Version:     0.10.0
+Version:     0.10.1
 Repository:  https://github.com/PRQL/prql
 Authors:     prqlc-ast authors
 License:     Apache-2.0
@@ -380,7 +380,7 @@ License:     Apache-2.0
 -------------------------------------------------------------
 
 Name:        prqlc-parser
-Version:     0.10.0
+Version:     0.10.1
 Repository:  https://github.com/PRQL/prql
 Authors:     prqlc-parser authors
 License:     Apache-2.0
@@ -468,7 +468,7 @@ License:     Apache-2.0 OR MIT
 -------------------------------------------------------------
 
 Name:        serde
-Version:     1.0.190
+Version:     1.0.192
 Repository:  https://github.com/serde-rs/serde
 Authors:     Erick Tryzelaar, David Tolnay
 License:     Apache-2.0 OR MIT
@@ -476,7 +476,7 @@ License:     Apache-2.0 OR MIT
 -------------------------------------------------------------
 
 Name:        serde_derive
-Version:     1.0.190
+Version:     1.0.192
 Repository:  https://github.com/serde-rs/serde
 Authors:     Erick Tryzelaar, David Tolnay
 License:     Apache-2.0 OR MIT
@@ -484,7 +484,7 @@ License:     Apache-2.0 OR MIT
 -------------------------------------------------------------
 
 Name:        serde_json
-Version:     1.0.107
+Version:     1.0.108
 Repository:  https://github.com/serde-rs/json
 Authors:     Erick Tryzelaar, David Tolnay
 License:     Apache-2.0 OR MIT
