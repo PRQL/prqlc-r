@@ -68,7 +68,7 @@ License:     Apache-2.0 OR MIT
 -------------------------------------------------------------
 
 Name:        anstyle
-Version:     1.0.4
+Version:     1.0.2
 Repository:  https://github.com/rust-cli/anstyle.git
 Authors:     anstyle authors
 License:     Apache-2.0 OR MIT
@@ -76,7 +76,7 @@ License:     Apache-2.0 OR MIT
 -------------------------------------------------------------
 
 Name:        anstyle-parse
-Version:     0.2.3
+Version:     0.2.1
 Repository:  https://github.com/rust-cli/anstyle.git
 Authors:     anstyle-parse authors
 License:     Apache-2.0 OR MIT
@@ -84,7 +84,7 @@ License:     Apache-2.0 OR MIT
 -------------------------------------------------------------
 
 Name:        anstyle-query
-Version:     1.0.2
+Version:     1.0.0
 Repository:  https://github.com/rust-cli/anstyle
 Authors:     anstyle-query authors
 License:     Apache-2.0 OR MIT
