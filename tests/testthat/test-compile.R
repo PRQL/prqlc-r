@@ -3,11 +3,11 @@ test_that("target set in the header ", {
 
   expect_equal(
     prql_compile(mssql_query, format = FALSE, signature_comment = FALSE),
-    "SELECT TOP (1) * FROM a"
+    "SELECT * FROM a ORDER BY (SELECT NULL) OFFSET 0 ROWS FETCH FIRST 1 ROWS ONLY"
   )
   expect_equal(
     prql_compile(mssql_query, target = "sql.any", format = FALSE, signature_comment = FALSE),
-    "SELECT TOP (1) * FROM a"
+    "SELECT * FROM a ORDER BY (SELECT NULL) OFFSET 0 ROWS FETCH FIRST 1 ROWS ONLY"
   )
   expect_equal(
     prql_compile(mssql_query, target = "sql.generic", format = FALSE, signature_comment = FALSE),
@@ -43,7 +43,7 @@ test_that("Unsupported target", {
 
 test_that("Options", {
   withr::local_options(list(prqlr.target = "sql.mssql", prqlr.format = FALSE, prqlr.signature_comment = FALSE))
-  expect_equal(prql_compile("from a | take 1"), "SELECT TOP (1) * FROM a")
+  expect_equal(prql_compile("from a | take 1"), "SELECT * FROM a ORDER BY (SELECT NULL) OFFSET 0 ROWS FETCH FIRST 1 ROWS ONLY")
   withr::local_options(list(prqlr.target = "sql.postgres", prqlr.format = FALSE, prqlr.signature_comment = FALSE))
   expect_equal(prql_compile("from a | take 1"), "SELECT * FROM a LIMIT 1")
 })
@@ -78,7 +78,7 @@ filter air_time != null
 group {origin, dest} (
   aggregate {
     num_flts = count this,
-    avg_delay = (average arr_delay | round 0)
+    avg_delay = (average arr_delay | math.round 0)
   }
 )
 sort {-origin, avg_delay}

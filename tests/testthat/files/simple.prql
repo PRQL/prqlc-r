@@ -1,5 +1,5 @@
 from mtcars
 filter cyl > 6
 select {cyl, mpg}
-derive {mpg_int = round 0 mpg}
+derive {mpg_int = math.round 0 mpg}
 take 3
