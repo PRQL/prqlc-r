@@ -178,28 +178,9 @@ jobs:
 
       - uses: actions/download-artifact@v4
         with:
-          name: libs-x86_64-unknown-linux-musl
+          pattern: libs-*
           path: libs
-
-      - uses: actions/download-artifact@v4
-        with:
-          name: libs-aarch64-unknown-linux-musl
-          path: libs
-
-      - uses: actions/download-artifact@v4
-        with:
-          name: libs-x86_64-apple-darwin
-          path: libs
-
-      - uses: actions/download-artifact@v4
-        with:
-          name: libs-aarch64-apple-darwin
-          path: libs
-
-      - uses: actions/download-artifact@v4
-        with:
-          name: libs-x86_64-pc-windows-gnu
-          path: libs
+          merge-multiple: true
 
       - name: create checksums
         working-directory: libs
