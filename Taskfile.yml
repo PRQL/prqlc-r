@@ -59,11 +59,11 @@ tasks:
     desc: Build lib-sums.tsv.
     sources:
       - dev/generate-lib-sums.R
+      - tools/prep-lib.R
       - DESCRIPTION
       - "{{.CARGO_LOCK}}"
     generates:
       - tools/lib-sums.tsv
-      - tools/prep-lib.R
     cmds:
       - Rscript dev/generate-lib-sums.R
 
@@ -99,7 +99,7 @@ tasks:
     deps:
       - build-extendr-wrappers
     cmds:
-      - Rscript -e 'devtools::load_all(); devtools::test()'
+      - Rscript -e 'devtools::test()'
 
   test-examples:
     desc: Check if examples can be run.
@@ -114,7 +114,7 @@ tasks:
     deps:
       - build-extendr-wrappers
     cmds:
-      - Rscript -e 'devtools::load_all(); devtools::run_examples()'
+      - Rscript -e 'devtools::run_examples(document = FALSE)'
 
   test-vignettes:
     desc: Check if vignettes can be rendered.
