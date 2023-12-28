@@ -68,9 +68,23 @@ dependencies = [
  "anstyle",
  "anstyle-parse",
  "anstyle-query",
- "anstyle-wincon",
+ "anstyle-wincon 1.0.2",
  "colorchoice",
  "is-terminal",
+ "utf8parse",
+]
+
+[[package]]
+name = "anstream"
+version = "0.6.5"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "d664a92ecae85fd0a7392615844904654d1d5f5514837f471ddef4a057aba1b6"
+dependencies = [
+ "anstyle",
+ "anstyle-parse",
+ "anstyle-query",
+ "anstyle-wincon 3.0.2",
+ "colorchoice",
  "utf8parse",
 ]
 
@@ -106,6 +120,16 @@ checksum = "c677ab05e09154296dd37acecd46420c17b9713e8366facafa8fc0885167cf4c"
 dependencies = [
  "anstyle",
  "windows-sys 0.48.0",
+]
+
+[[package]]
+name = "anstyle-wincon"
+version = "3.0.2"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "1cd54b81ec8d6180e24654d0b371ad22fc3dd083b6ff8ba325b72e00c87660a7"
+dependencies = [
+ "anstyle",
+ "windows-sys 0.52.0",
 ]
 
 [[package]]
@@ -468,7 +492,7 @@ name = "prql-compiler"
 version = "0.11.1"
 source = "git+https://github.com/PRQL/prql?rev=a639012e44ae0a1439564633af6e726bc93f9e42#a639012e44ae0a1439564633af6e726bc93f9e42"
 dependencies = [
- "anstream",
+ "anstream 0.3.2",
  "anyhow",
  "ariadne",
  "chrono",
@@ -516,7 +540,7 @@ dependencies = [
 name = "prqlr"
 version = "0.11.0"
 dependencies = [
- "anstream",
+ "anstream 0.6.5",
  "extendr-api",
  "prql-compiler",
 ]
