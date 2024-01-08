@@ -90,7 +90,7 @@ detect_target_option() {
   while [ $# -gt 0 ]; do
     case "${options}" in
     --build=*)
-      specified_target="$(echo "${options}" | sed -e 's/--build=//')"
+      specified_target="$(echo "${options}" | sed -e 's/--build=//' | sed -E 's/[0-9]+$//')"
       echo ""
       echo "------------------------------ [DETECTED TARGET] ------------------------------"
       echo "The target was specified as <${specified_target}>."
