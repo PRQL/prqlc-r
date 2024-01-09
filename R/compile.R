@@ -38,8 +38,8 @@ prql_compile <- function(
     target = getOption("prqlr.target", default = NULL),
     format = getOption("prqlr.format", default = TRUE),
     signature_comment = getOption("prqlr.signature_comment", default = TRUE)) {
-  compile(prql_query, target, format, signature_comment) |>
-    unwrap()
+  target <- vctrs::vec_cast(target %||% "sql.any", character())
+  compile(prql_query, target, format, signature_comment)
 }
 
 #' @title prql-compiler's version

@@ -261,29 +261,6 @@ dependencies = [
 ]
 
 [[package]]
-name = "extendr-api"
-version = "0.6.0"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "c7d55a0174c4df17c467fb59b3f836bec31d1af6d56c4182cfdf34a62d1553a4"
-dependencies = [
- "extendr-macros",
- "libR-sys",
- "once_cell",
- "paste",
-]
-
-[[package]]
-name = "extendr-macros"
-version = "0.6.0"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "33833971650cade4bfa3097b979506bf2b4934b60392e110f95b94c2406cbb84"
-dependencies = [
- "proc-macro2",
- "quote",
- "syn",
-]
-
-[[package]]
 name = "gimli"
 version = "0.28.1"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -370,12 +347,6 @@ dependencies = [
 ]
 
 [[package]]
-name = "libR-sys"
-version = "0.6.0"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "a34aaa68a201f71eab5df5a67d1326add8aaf029434e939353bcab0534919ff1"
-
-[[package]]
 name = "libc"
 version = "0.2.151"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -449,12 +420,6 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "3fdb12b2476b595f9358c5161aa467c2438859caa136dec86c26fdd2efe17b92"
 
 [[package]]
-name = "paste"
-version = "1.0.14"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "de3145af08024dea9fa9914f381a17b8fc6034dfb00f3a84013f7ff43f29ed4c"
-
-[[package]]
 name = "proc-macro2"
 version = "1.0.71"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -517,8 +482,8 @@ name = "prqlr"
 version = "0.11.0"
 dependencies = [
  "anstream",
- "extendr-api",
  "prql-compiler",
+ "savvy",
 ]
 
 [[package]]
@@ -598,6 +563,47 @@ name = "ryu"
 version = "1.0.16"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "f98d2aa92eebf49b69786be48e4477826b256916e84a57ff2a4f21923b48eb4c"
+
+[[package]]
+name = "savvy"
+version = "0.2.1"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "f62f6c42db1030bd60d5273346098b8380d7719184be16b3b96cb84ab20ae009"
+dependencies = [
+ "cc",
+ "once_cell",
+ "savvy-ffi",
+ "savvy-macro",
+]
+
+[[package]]
+name = "savvy-bindgen"
+version = "0.2.1"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "dede24fdcf4944399a56fe612557420f5e8aa2d5edde83ba75cea5dfaf7aca2d"
+dependencies = [
+ "proc-macro2",
+ "quote",
+ "syn",
+]
+
+[[package]]
+name = "savvy-ffi"
+version = "0.2.0"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "07df7257352b7364b51556c190bf94650bee9afb55aed955ecbb4d3ffcd52919"
+
+[[package]]
+name = "savvy-macro"
+version = "0.2.1"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "33dfd311e9c2001ed7fee480c37febe1ab385a56037d56ac89e41696cf543bb0"
+dependencies = [
+ "proc-macro2",
+ "quote",
+ "savvy-bindgen",
+ "syn",
+]
 
 [[package]]
 name = "semver"
