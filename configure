@@ -85,26 +85,18 @@ check_bin_lib() {
 }
 
 detect_target_option() {
-  options="$1"
-
-  while [ $# -gt 0 ]; do
-    case "${options}" in
+  for option in "$@"; do
+    case "${option}" in
     --build=*)
-      specified_target="$(echo "${options}" | sed -e 's/--build=//' | sed -E 's/([0-9]+\.)*[0-9]+$//')"
+      specified_target="$(echo "${option}" | sed -e 's/--build=//' | sed -E 's/([0-9]+\.)*[0-9]+$//')"
       echo ""
       echo "------------------------------ [DETECTED TARGET] ------------------------------"
-      echo "The target was specified as <${specified_target}>."
+      echo "The target was specified as <${specified_target}> via the '--build' option."
       echo "-------------------------------------------------------------------------------"
       echo ""
       export TARGET="${specified_target}"
       ;;
-    *)
-      echo ""
-      echo "------------------------------ [INVALID OPTION] ------------------------------"
-      echo "The option <${options}> is not valid. Please use '--build=<target>' instead."
-      echo "------------------------------------------------------------------------------"
-      echo ""
-      ;;
+    *) ;;
     esac
     shift
   done
