@@ -15,4 +15,4 @@ extendr-api = "0.6.0"
 # prql-compiler 0.11.0 is not compatible with Rust 1.65, so a slightly modified version is installed
 # See https://github.com/PRQL/prql/pull/4001
 prql-compiler = { git = "https://github.com/PRQL/prql", rev = "a639012e44ae0a1439564633af6e726bc93f9e42", default-features = false }
-anstream = { version = "0.3.2", features = ["auto"] }
+anstream = { version = "0.6.8", features = ["auto"] }
