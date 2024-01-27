@@ -19,7 +19,6 @@ pub fn compile(
     let options = convert_options(CompileOptions {
         format,
         target: target.to_string(),
-        // target: target.unwrap_or("sql.any".to_string()),
         signature_comment,
     });
 
