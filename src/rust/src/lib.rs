@@ -35,7 +35,7 @@ pub fn compile(
 
     match result {
         Ok(msg) => msg.try_into(),
-        Err(e) => Err(savvy::Error::new(&e.to_string())),
+        Err(e) => Err(e.to_string().into()),
     }
 }
 
@@ -68,7 +68,7 @@ pub fn prql_to_pl(prql_query: &str) -> savvy::Result<Sexp> {
 
     match result {
         Ok(msg) => msg.try_into(),
-        Err(e) => Err(savvy::Error::new(&e.to_string())),
+        Err(e) => Err(e.to_string().into()),
     }
 }
 
@@ -82,7 +82,7 @@ pub fn pl_to_rq(pl_json: &str) -> savvy::Result<Sexp> {
 
     match result {
         Ok(msg) => msg.try_into(),
-        Err(e) => Err(savvy::Error::new(&e.to_string())),
+        Err(e) => Err(e.to_string().into()),
     }
 }
 
@@ -95,7 +95,7 @@ pub fn rq_to_sql(rq_json: &str) -> savvy::Result<Sexp> {
 
     match result {
         Ok(msg) => msg.try_into(),
-        Err(e) => Err(savvy::Error::new(&e.to_string())),
+        Err(e) => Err(e.to_string().into()),
     }
 }
 
