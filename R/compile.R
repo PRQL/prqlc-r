@@ -38,7 +38,7 @@ prql_compile <- function(
     target = getOption("prqlr.target", default = NULL),
     format = getOption("prqlr.format", default = TRUE),
     signature_comment = getOption("prqlr.signature_comment", default = TRUE)) {
-  target <- vctrs::vec_cast(target %||% "sql.any", character())
+  target <- as.character(target %||% "sql.any")
   compile(prql_query, target, format, signature_comment)
 }
 
