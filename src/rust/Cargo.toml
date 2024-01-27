@@ -10,7 +10,7 @@ crate-type = ['staticlib']
 name = "prqlr"
 
 [dependencies]
-savvy = { git = "https://github.com/yutannihilation/savvy" }
+savvy = "0.2.9"
 # prql-compiler = { version = "0.11.0", default-features = false }
 # prql-compiler 0.11.0 is not compatible with Rust 1.65, so a slightly modified version is installed
 # See https://github.com/PRQL/prql/pull/4001
