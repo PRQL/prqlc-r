@@ -34,13 +34,13 @@ $(STATLIB):
 	export PATH="$(PATH):$(HOME)/.cargo/bin" && \
 	if [ "$(TARGET)" != "wasm32-unknown-emscripten" ]; then \
 	  cargo build --lib --manifest-path="$(CURDIR)/rust/Cargo.toml" --target-dir "$(TARGET_DIR)" --target="$(TARGET)" \
-	    --profile="$(PRQLR_PROFILE)" --features="$(PRQLR_FEATURES)"
+	    --profile="$(PRQLR_PROFILE)" --features="$(PRQLR_FEATURES)"; \
 	else \
 	  export CC="$(CC)" && \
 	  export CFLAGS="$(CFLAGS)" && \
 	  export CARGO_PROFILE_RELEASE_PANIC="abort" && \
 	  cargo +nightly build --lib --manifest-path="$(CURDIR)/rust/Cargo.toml" --target-dir "$(TARGET_DIR)" --target="$(TARGET)" \
-	    --profile="$(PRQLR_PROFILE)" --features="$(PRQLR_FEATURES)" -Zbuild-std=panic_abort,std
+	    --profile="$(PRQLR_PROFILE)" --features="$(PRQLR_FEATURES)" -Zbuild-std=panic_abort,std; \
 	fi
 
 	if [ "$(NOT_CRAN)" != "true" ]; then \
