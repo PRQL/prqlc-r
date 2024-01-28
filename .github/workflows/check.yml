@@ -84,6 +84,11 @@ jobs:
             echo "TARGET=$(rustc -vV | grep host | cut -d' ' -f2)" >>$GITHUB_OUTPUT
           fi
 
+      - uses: Swatinem/rust-cache@v2
+        with:
+          workspaces: "src/rust -> target"
+          shared-key: ${{ steps.rust-target.outputs.TARGET }}
+
       - name: Build lib
         env:
           NOT_CRAN: "true"
