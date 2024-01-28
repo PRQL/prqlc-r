@@ -34,10 +34,8 @@ RoxygenNote: 7.2.3
 SystemRequirements: Cargo (Rust's package manager), rustc
 VignetteBuilder: knitr
 Config/testthat/edition: 3
-Config/rextendr/version: 0.3.1
 Config/Needs/dev:
     devtools,
-    rextendr,
     lintr,
     styler,
     purrr,
@@ -46,4 +44,4 @@ Config/Needs/dev:
     tidyr
 Config/Needs/website:
     pkgdown
-Config/prqlr/LibVersion: 0.11.0
+Config/prqlr/LibVersion: 0.11.1
