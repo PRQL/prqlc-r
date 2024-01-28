@@ -56,11 +56,6 @@ jobs:
           echo "LIB_VERSION=${LIB_VERSION}" >>"$GITHUB_ENV"
           rustup target add ${{ matrix.target }}
 
-      - uses: Swatinem/rust-cache@v2
-        with:
-          workspaces: "src/rust -> target"
-          shared-key: ${{ matrix.target }}
-
       - name: prep for musl
         if: runner.os == 'Linux'
         run: |
