@@ -235,22 +235,6 @@ License:     Apache-2.0 OR MIT
 
 -------------------------------------------------------------
 
-Name:        extendr-api
-Version:     0.6.0
-Repository:  https://github.com/extendr/extendr
-Authors:     andy-thomason, Thomas Down, Mossa Merhi Reimert, Claus O. Wilke, Hiroaki Yutani, Ilia A. Kosenkov, Michael Milton
-License:     MIT
-
--------------------------------------------------------------
-
-Name:        extendr-macros
-Version:     0.6.0
-Repository:  https://github.com/extendr/extendr
-Authors:     andy-thomason, Thomas Down, Mossa Merhi Reimert, Claus O. Wilke, Hiroaki Yutani, Ilia A. Kosenkov
-License:     MIT
-
--------------------------------------------------------------
-
 Name:        gimli
 Version:     0.28.1
 Repository:  https://github.com/gimli-rs/gimli
@@ -331,14 +315,6 @@ License:     Apache-2.0 OR MIT
 
 -------------------------------------------------------------
 
-Name:        libR-sys
-Version:     0.6.0
-Repository:  https://github.com/extendr/libR-sys
-Authors:     andy-thomason, Thomas Down, Mossa Merhi Reimert, Claus O. Wilke, Ilia A. Kosenkov, Hiroaki Yutani
-License:     MIT
-
--------------------------------------------------------------
-
 Name:        libc
 Version:     0.2.151
 Repository:  https://github.com/rust-lang/libc
@@ -415,14 +391,6 @@ Name:        once_cell
 Version:     1.19.0
 Repository:  https://github.com/matklad/once_cell
 Authors:     Aleksey Kladov
-License:     Apache-2.0 OR MIT
-
--------------------------------------------------------------
-
-Name:        paste
-Version:     1.0.14
-Repository:  https://github.com/dtolnay/paste
-Authors:     David Tolnay
 License:     Apache-2.0 OR MIT
 
 -------------------------------------------------------------
@@ -528,6 +496,38 @@ Version:     1.0.16
 Repository:  https://github.com/dtolnay/ryu
 Authors:     David Tolnay
 License:     Apache-2.0 OR BSL-1.0
+
+-------------------------------------------------------------
+
+Name:        savvy
+Version:     0.2.9
+Repository:  https://github.com/yutannihilation/savvy/
+Authors:     Hiroaki Yutani
+License:     MIT
+
+-------------------------------------------------------------
+
+Name:        savvy-bindgen
+Version:     0.2.9
+Repository:  https://github.com/yutannihilation/savvy/
+Authors:     Hiroaki Yutani
+License:     MIT
+
+-------------------------------------------------------------
+
+Name:        savvy-ffi
+Version:     0.2.9
+Repository:  https://github.com/yutannihilation/savvy/
+Authors:     Hiroaki Yutani
+License:     MIT
+
+-------------------------------------------------------------
+
+Name:        savvy-macro
+Version:     0.2.9
+Repository:  https://github.com/yutannihilation/savvy/
+Authors:     Hiroaki Yutani
+License:     MIT
 
 -------------------------------------------------------------
 
