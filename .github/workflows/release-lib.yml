@@ -83,7 +83,7 @@ jobs:
         working-directory: src
         run: |
           # make sure savvy is built from source because rust-cache doesn't work well.
-          CARGO_HOME="$(pwd)/.cargo" cargo clean --manifest-path=rust/Cargo.toml -p savvy
+          CARGO_HOME="${{ github.workspace }}/.cargo" cargo clean --manifest-path=rust/Cargo.toml -p savvy
 
           LIB_PATH="$(pwd)/rust/target/${TARGET}/${PRQLR_PROFILE}/${LIB_NAME}.a"
           ARTIFACT_NAME="${LIB_NAME}-${LIB_VERSION}-${TARGET}.tar.gz"
