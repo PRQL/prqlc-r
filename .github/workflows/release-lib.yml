@@ -55,6 +55,9 @@ jobs:
           LIB_VERSION="$(cargo metadata --format-version=1 --no-deps | jq --raw-output '.packages[0].version')"
           echo "LIB_VERSION=${LIB_VERSION}" >>"$GITHUB_ENV"
           rustup target add ${{ matrix.target }}
+          # savvy needs R_INCLUDE_DIR envvar
+          echo R_INCLUDE_DIR=$(Rscript -e 'cat(normalizePath(R.home("include")))') >> "$GITHUB_ENV"
+
 
       - uses: Swatinem/rust-cache@v2
         with:
@@ -83,13 +86,14 @@ jobs:
         working-directory: src
         run: |
           # make sure savvy is built from source because rust-cache doesn't work well.
-          find ~/.cargo/registry/cache -regex '.*/savvy-[^-]+.crate' -delete || true
+          (find ~/.cargo/registry/ rust/target -name 'savvy-*' | xargs rm -rf) || true
 
           LIB_PATH="$(pwd)/rust/target/${TARGET}/${PRQLR_PROFILE}/${LIB_NAME}.a"
           ARTIFACT_NAME="${LIB_NAME}-${LIB_VERSION}-${TARGET}.tar.gz"
           make -f Makevars${{ runner.os == 'Windows' && '.win' || '.in' }} "${LIB_PATH}"
           tar -czf "../${ARTIFACT_NAME}" -C "rust/target/${TARGET}/${PRQLR_PROFILE}" "${LIB_NAME}.a"
           echo "ARTIFACT_NAME=${ARTIFACT_NAME}" >>"$GITHUB_ENV"
+        shell: bash
 
       - name: upload artifact
         uses: actions/upload-artifact@v4
