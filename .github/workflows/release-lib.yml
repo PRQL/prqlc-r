@@ -93,7 +93,6 @@ jobs:
           make -f Makevars${{ runner.os == 'Windows' && '.win' || '.in' }} "${LIB_PATH}"
           tar -czf "../${ARTIFACT_NAME}" -C "rust/target/${TARGET}/${PRQLR_PROFILE}" "${LIB_NAME}.a"
           echo "ARTIFACT_NAME=${ARTIFACT_NAME}" >>"$GITHUB_ENV"
-        shell: bash
 
       - name: upload artifact
         uses: actions/upload-artifact@v4
