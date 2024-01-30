@@ -75,16 +75,18 @@
 
 
 <dt>target</dt>
-<dd><p>a compile target name to use. If not specified, the target contained in the query will be used.
+<dd><p>a compile target name to use. If not specified (<code>NULL</code>),
+the target contained in the query will be used.
 All available target names can be listed with the <a href="prql_get_targets.html">prql_get_targets</a> function.</p></dd>
 
 
 <dt>format</dt>
-<dd><p>a logical flag. Whether to format the SQL query.</p></dd>
+<dd><p>a logical flag (default: <code>TRUE</code>). Whether to format the SQL query.</p></dd>
 
 
 <dt>signature_comment</dt>
-<dd><p>a logical flag. Whether to add a signature comment to the output SQL query.</p></dd>
+<dd><p>a logical flag. (default: <code>TRUE</code>).
+Whether to add a signature comment to the output SQL query.</p></dd>
 
 </dl></div>
     <div class="section level2">
