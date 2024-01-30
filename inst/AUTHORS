@@ -24,11 +24,9 @@ Owners of dependent Rust crates. This list is generated from Crates.io Data <htt
   - core-foundation-sys: Lars Bergstrom <https://github.com/larsbergstrom>, Steven Fackler <https://github.com/sfackler>
   - csv: Andrew Gallant <https://github.com/BurntSushi>
   - csv-core: Andrew Gallant <https://github.com/BurntSushi>
-  - either: bluss <https://github.com/bluss>, Josh Stone <https://github.com/cuviper>
+  - either: bluss <https://github.com/bluss>, Josh Stone <https://github.com/cuviper>, Jack Wrenn <https://github.com/jswrenn>
   - enum-as-inner: Benjamin Fry <https://github.com/bluejekyll>
   - errno: Chris Wong <https://github.com/lambda-fairy>, Dan Gohman <https://github.com/sunfishcode>
-  - extendr-api: Andy Thomson <https://github.com/andy-thomason>, Claus Wilke <https://github.com/clauswilke>, Hiroaki Yutani <https://github.com/yutannihilation>, Michael Milton <https://github.com/multimeric>, Ilia Kosenkov <https://github.com/Ilia-Kosenkov>
-  - extendr-macros: Andy Thomson <https://github.com/andy-thomason>, Claus Wilke <https://github.com/clauswilke>, Hiroaki Yutani <https://github.com/yutannihilation>, Michael Milton <https://github.com/multimeric>, Ilia Kosenkov <https://github.com/Ilia-Kosenkov>
   - gimli: Nick Fitzgerald <https://github.com/fitzgen>, Philip Craig <https://github.com/philipc>
   - hashbrown: Amanieu d'Antras <https://github.com/Amanieu>
   - heck: Saoirse Shipwreckt <https://github.com/withoutboats>, Jonas Platte <https://github.com/jplatte>
@@ -39,7 +37,6 @@ Owners of dependent Rust crates. This list is generated from Crates.io Data <htt
   - itertools: bluss <https://github.com/bluss>, Jack Wrenn <https://github.com/jswrenn>
   - itoa: David Tolnay <https://github.com/dtolnay>
   - js-sys: Nick Fitzgerald <https://github.com/fitzgen>, Alex Crichton <https://github.com/alexcrichton>
-  - libR-sys: Andy Thomson <https://github.com/andy-thomason>, Claus Wilke <https://github.com/clauswilke>, Hiroaki Yutani <https://github.com/yutannihilation>, Michael Milton <https://github.com/multimeric>, Ilia Kosenkov <https://github.com/Ilia-Kosenkov>
   - libc: Huon Wilson <https://github.com/huonw>, ember arlynx <https://github.com/emberian>, gnzlbg <https://github.com/gnzlbg>, Yuki Okushi <https://github.com/JohnTitor>, Alex Crichton <https://github.com/alexcrichton>, Josh Triplett <https://github.com/joshtriplett>, Sebastian Dröge <https://github.com/sdroege>
   - linux-raw-sys: Dan Gohman <https://github.com/sunfishcode>
   - log: Huon Wilson <https://github.com/huonw>, Steven Fackler <https://github.com/sfackler>, Alex Crichton <https://github.com/alexcrichton>, Ashley Mannix <https://github.com/KodrAus>
@@ -49,7 +46,6 @@ Owners of dependent Rust crates. This list is generated from Crates.io Data <htt
   - num-traits: Josh Stone <https://github.com/cuviper>, Łukasz Jan Niemier <https://github.com/hauleth>
   - object: Nick Fitzgerald <https://github.com/fitzgen>, Philip Craig <https://github.com/philipc>
   - once_cell: Alex Kladov <https://github.com/matklad>, Michal 'vorner' Vaner <https://github.com/vorner>
-  - paste: David Tolnay <https://github.com/dtolnay>
   - proc-macro2: David Tolnay <https://github.com/dtolnay>
   - prql-compiler: Maximilian Roos <https://github.com/max-sixty>
   - prqlc-ast: Maximilian Roos <https://github.com/max-sixty>
@@ -63,6 +59,10 @@ Owners of dependent Rust crates. This list is generated from Crates.io Data <htt
   - rustix: Dan Gohman <https://github.com/sunfishcode>
   - rustversion: David Tolnay <https://github.com/dtolnay>
   - ryu: David Tolnay <https://github.com/dtolnay>
+  - savvy: Hiroaki Yutani <https://github.com/yutannihilation>
+  - savvy-bindgen: Hiroaki Yutani <https://github.com/yutannihilation>
+  - savvy-ffi: Hiroaki Yutani <https://github.com/yutannihilation>
+  - savvy-macro: Hiroaki Yutani <https://github.com/yutannihilation>
   - semver: David Tolnay <https://github.com/dtolnay>
   - serde: David Tolnay <https://github.com/dtolnay>
   - serde_derive: David Tolnay <https://github.com/dtolnay>

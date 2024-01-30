@@ -32,7 +32,7 @@ tasks:
     internal: true
     desc: Install Rust packages for development.
     cmds:
-      - cargo install cargo-license cargo-outdated
+      - cargo install cargo-license cargo-outdated savvy-cli
 
   cargo-update:
     desc: Update the lock files.
@@ -97,7 +97,7 @@ tasks:
       - "{{.CARGO_LOCK}}"
       - "{{.RUST_SOURCE}}"
     deps:
-      - build-extendr-wrappers
+      - build-wrappers
     cmds:
       - Rscript -e 'devtools::test()'
 
@@ -112,7 +112,7 @@ tasks:
       - "{{.CARGO_LOCK}}"
       - "{{.RUST_SOURCE}}"
     deps:
-      - build-extendr-wrappers
+      - build-wrappers
     cmds:
       - Rscript -e 'devtools::run_examples(document = FALSE)'
 
@@ -128,7 +128,7 @@ tasks:
       - "{{.CARGO_LOCK}}"
       - "{{.RUST_SOURCE}}"
     deps:
-      - build-extendr-wrappers
+      - build-wrappers
     cmds:
       - Rscript -e
         'devtools::load_all();
@@ -145,13 +145,13 @@ tasks:
     status:
       - Rscript -e 'if (desc::desc_get("RoxygenNote") < packageVersion("roxygen2")) quit(status = 1)'
     deps:
-      - build-extendr-wrappers
+      - build-wrappers
     cmds:
       - Rscript -e 'devtools::document()'
 
-  build-extendr-wrappers:
+  build-wrappers:
     internal: true
-    desc: Build the extendr wrappers.
+    desc: Build the Rust wrappers.
     sources:
       - src/Makevars*
       - configure*
@@ -161,11 +161,9 @@ tasks:
     deps:
       - build-vendor-sources
     generates:
-      - R/extendr-wrappers.R
-    status:
-      - Rscript -e 'if (desc::desc_get("Config/rextendr/version") < packageVersion("rextendr")) quit(status = 1)'
+      - R/wrappers.R
     cmds:
-      - Rscript -e 'rextendr::document()'
+      - savvy-cli update .
 
   build-license-note:
     internal: true
@@ -204,7 +202,7 @@ tasks:
     generates:
       - README.md
     deps:
-      - build-extendr-wrappers
+      - build-wrappers
     cmds:
       - Rscript -e
         'devtools::load_all();
@@ -228,7 +226,7 @@ tasks:
       - "{{.R_SOURCE}}"
       - "{{.VIGNETTES}}"
     deps:
-      - build-extendr-wrappers
+      - build-wrappers
     cmds:
       - Rscript -e
         'devtools::load_all();

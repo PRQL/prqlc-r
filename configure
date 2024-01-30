@@ -106,7 +106,14 @@ detect_target_option "$@"
 check_bin_lib
 check_cargo
 
-RUST_TARGET="${TARGET:-$(rustc -vV | grep host | cut -d' ' -f2)}"
+# cf. https://github.com/r-wasm/rwasm/issues/18#issuecomment-1910198843
+if [ "$(uname)" = "Emscripten" ]; then
+  HOST_TRIPLE="wasm32-unknown-emscripten"
+else
+  HOST_TRIPLE="$(rustc -vV | grep host | cut -d' ' -f2)"
+fi
+
+RUST_TARGET="${TARGET:-${HOST_TRIPLE}}"
 sed -e "s|@RUST_TARGET@|${RUST_TARGET}|" src/Makevars.in >src/Makevars
 
 exit 0

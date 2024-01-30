@@ -55,6 +55,9 @@ jobs:
           LIB_VERSION="$(cargo metadata --format-version=1 --no-deps | jq --raw-output '.packages[0].version')"
           echo "LIB_VERSION=${LIB_VERSION}" >>"$GITHUB_ENV"
           rustup target add ${{ matrix.target }}
+          # savvy needs R_INCLUDE_DIR envvar
+          echo R_INCLUDE_DIR=$(Rscript -e 'cat(normalizePath(R.home("include")))') >> "$GITHUB_ENV"
+
 
       - uses: Swatinem/rust-cache@v2
         with:
@@ -82,6 +85,9 @@ jobs:
           PRQLR_PROFILE: release
         working-directory: src
         run: |
+          # make sure savvy is built from source because rust-cache doesn't work well.
+          (find ~/.cargo/registry/ rust/target -name 'savvy-*' | xargs rm -rf) || true
+
           LIB_PATH="$(pwd)/rust/target/${TARGET}/${PRQLR_PROFILE}/${LIB_NAME}.a"
           ARTIFACT_NAME="${LIB_NAME}-${LIB_VERSION}-${TARGET}.tar.gz"
           make -f Makevars${{ runner.os == 'Windows' && '.win' || '.in' }} "${LIB_PATH}"

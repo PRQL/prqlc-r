@@ -1,9 +1,11 @@
 #' @title Compile a PRQL query into a SQL query
 #' @param prql_query a PRQL query string.
-#' @param target a compile target name to use. If not specified, the target contained in the query will be used.
+#' @param target a compile target name to use. If not specified (`NULL`),
+#' the target contained in the query will be used.
 #' All available target names can be listed with the [prql_get_targets] function.
-#' @param format a logical flag. Whether to format the SQL query.
-#' @param signature_comment a logical flag. Whether to add a signature comment to the output SQL query.
+#' @param format a logical flag (default: `TRUE`). Whether to format the SQL query.
+#' @param signature_comment a logical flag. (default: `TRUE`).
+#' Whether to add a signature comment to the output SQL query.
 #' @return a SQL query string
 #' @seealso [prql_get_targets]
 #' @examples
@@ -38,8 +40,8 @@ prql_compile <- function(
     target = getOption("prqlr.target", default = NULL),
     format = getOption("prqlr.format", default = TRUE),
     signature_comment = getOption("prqlr.signature_comment", default = TRUE)) {
-  compile(prql_query, target, format, signature_comment) |>
-    unwrap()
+  target <- target %||% "sql.any"
+  compile(prql_query, target, format, signature_comment)
 }
 
 #' @title prql-compiler's version

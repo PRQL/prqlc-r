@@ -13,16 +13,16 @@
 ---
 
     Code
-      cat(prql_compile("from a | select {b}", NA, FALSE, FALSE))
+      cat(prql_compile("from a | select {b}", NULL, FALSE, FALSE))
     Output
       SELECT b FROM a
 
 ---
 
     Code
-      cat(unwrap(compile(
+      cat(compile(
         "from star_wars\n    select {star_wars.*}\n    select !{jar_jar_binks, midichlorians}",
-        "sql.duckdb")))
+        "sql.duckdb", TRUE, TRUE))
     Output
       SELECT
         * EXCLUDE (jar_jar_binks, midichlorians)
@@ -36,7 +36,7 @@
     Code
       cat(prql_compile(query, "sql.any", TRUE, FALSE))
     Condition
-      Error in `unwrap()`:
+      Error:
       ! Error:
          ╭─[:1:23]
          │
@@ -64,7 +64,7 @@
     Code
       cat(prql_compile(query, "sql.any", TRUE, FALSE))
     Condition
-      Error in `unwrap()`:
+      Error:
       ! Error:
          ╭─[:1:17]
          │
@@ -78,7 +78,7 @@
     Code
       cat(prql_compile(query, "sql.any", TRUE, FALSE))
     Condition
-      Error in `unwrap()`:
+      Error:
       ! Error:
          ╭─[:1:20]
          │
