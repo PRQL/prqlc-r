@@ -78,11 +78,9 @@ write_authors <- function(path = ".", quiet = FALSE, force = TRUE) {
 
   withr::local_dir(.old_wd)
 
-  rextendr:::write_file(
+  brio::write_lines(
     text = c(authors_header, authors_body),
-    path = outfile,
-    search_root_from = path,
-    quiet = quiet
+    path = outfile
   )
 }
 

@@ -18,11 +18,9 @@ vendor_crates <- function(path = ".") {
     )
   )$stdout
 
-  rextendr:::write_file(
+  brio::write_lines(
     text = config_toml_content,
-    path = config_toml_file,
-    search_root_from = path,
-    quiet = TRUE
+    path = config_toml_file
   )
 
   withr::local_dir(file.path(src_dir, vendor_rel_path))

@@ -58,11 +58,9 @@ write_license_note <- function(path = ".", quiet = FALSE, force = TRUE) {
       }
     )
 
-  rextendr:::write_file(
+  brio::write_lines(
     text = c(note_header, note_body),
-    path = outfile,
-    search_root_from = path,
-    quiet = quiet
+    path = outfile
   )
 }
 
