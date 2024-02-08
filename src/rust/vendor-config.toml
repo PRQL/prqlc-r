@@ -1,9 +1,9 @@
 [source.crates-io]
 replace-with = "vendored-sources"
 
-[source."git+https://github.com/PRQL/prql?rev=a639012e44ae0a1439564633af6e726bc93f9e42"]
+[source."git+https://github.com/PRQL/prql?rev=942102b4c3cebd20e62463d22394d39d89b6fb7b"]
 git = "https://github.com/PRQL/prql"
-rev = "a639012e44ae0a1439564633af6e726bc93f9e42"
+rev = "942102b4c3cebd20e62463d22394d39d89b6fb7b"
 replace-with = "vendored-sources"
 
 [source.vendored-sources]

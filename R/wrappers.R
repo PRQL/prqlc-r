@@ -28,8 +28,8 @@ rq_to_sql <- function(rq_json) {
   .Call(rq_to_sql__impl, rq_json)
 }
 
-#' @title prql-compiler's version
-#' @return a prql-compiler's version string
+#' @title prqlc's version
+#' @return a prqlc's version string
 #' @noRd
 compiler_version <- function() {
   .Call(compiler_version__impl)
