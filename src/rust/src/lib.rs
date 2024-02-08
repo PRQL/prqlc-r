@@ -25,9 +25,9 @@ pub fn compile(
     let result = options
         .and_then(|opts| {
             Ok(prql_query)
-                .and_then(prql_compiler::prql_to_pl)
-                .and_then(prql_compiler::pl_to_rq)
-                .and_then(|rq| prql_compiler::rq_to_sql(rq, &opts))
+                .and_then(prqlc::prql_to_pl)
+                .and_then(prqlc::pl_to_rq)
+                .and_then(|rq| prqlc::rq_to_sql(rq, &opts))
         })
         .map_err(|e| e.composed(&prql_query.into()));
 
@@ -47,11 +47,11 @@ struct CompileOptions {
 
 fn convert_options(
     o: CompileOptions,
-) -> core::result::Result<prql_compiler::Options, prql_compiler::ErrorMessages> {
-    let target = prql_compiler::Target::from_str(&o.target)
-        .map_err(|e| prql_compiler::downcast(e.into()))?;
+) -> core::result::Result<prqlc::Options, prqlc::ErrorMessages> {
+    let target = prqlc::Target::from_str(&o.target)
+        .map_err(|e| prqlc::downcast(e.into()))?;
 
-    Ok(prql_compiler::Options {
+    Ok(prqlc::Options {
         format: o.format,
         target,
         signature_comment: o.signature_comment,
@@ -63,8 +63,8 @@ fn convert_options(
 #[savvy]
 pub fn prql_to_pl(prql_query: &str) -> savvy::Result<Sexp> {
     let result = Ok(prql_query)
-        .and_then(prql_compiler::prql_to_pl)
-        .and_then(prql_compiler::json::from_pl);
+        .and_then(prqlc::prql_to_pl)
+        .and_then(prqlc::json::from_pl);
 
     match result {
         Ok(msg) => msg.try_into(),
@@ -76,9 +76,9 @@ pub fn prql_to_pl(prql_query: &str) -> savvy::Result<Sexp> {
 #[savvy]
 pub fn pl_to_rq(pl_json: &str) -> savvy::Result<Sexp> {
     let result = Ok(pl_json)
-        .and_then(prql_compiler::json::to_pl)
-        .and_then(prql_compiler::pl_to_rq)
-        .and_then(prql_compiler::json::from_rq);
+        .and_then(prqlc::json::to_pl)
+        .and_then(prqlc::pl_to_rq)
+        .and_then(prqlc::json::from_rq);
 
     match result {
         Ok(msg) => msg.try_into(),
@@ -90,8 +90,8 @@ pub fn pl_to_rq(pl_json: &str) -> savvy::Result<Sexp> {
 #[savvy]
 pub fn rq_to_sql(rq_json: &str) -> savvy::Result<Sexp> {
     let result = Ok(rq_json)
-        .and_then(prql_compiler::json::to_rq)
-        .and_then(|x| prql_compiler::rq_to_sql(x, &prql_compiler::Options::default()));
+        .and_then(prqlc::json::to_rq)
+        .and_then(|x| prqlc::rq_to_sql(x, &prqlc::Options::default()));
 
     match result {
         Ok(msg) => msg.try_into(),
@@ -99,12 +99,12 @@ pub fn rq_to_sql(rq_json: &str) -> savvy::Result<Sexp> {
     }
 }
 
-/// @title prql-compiler's version
-/// @return a prql-compiler's version string
+/// @title prqlc's version
+/// @return a prqlc's version string
 /// @noRd
 #[savvy]
 pub fn compiler_version() -> savvy::Result<Sexp> {
-    prql_compiler::COMPILER_VERSION.to_string().try_into()
+    prqlc::COMPILER_VERSION.to_string().try_into()
 }
 
 /// @title Get available target names
@@ -115,5 +115,5 @@ pub fn compiler_version() -> savvy::Result<Sexp> {
 /// @export
 #[savvy]
 pub fn prql_get_targets() -> savvy::Result<Sexp> {
-    prql_compiler::Target::names().try_into()
+    prqlc::Target::names().try_into()
 }

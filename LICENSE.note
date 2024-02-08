@@ -100,7 +100,7 @@ License:     Apache-2.0 OR MIT
 -------------------------------------------------------------
 
 Name:        anyhow
-Version:     1.0.76
+Version:     1.0.79
 Repository:  https://github.com/dtolnay/anyhow
 Authors:     David Tolnay
 License:     Apache-2.0 OR MIT
@@ -108,7 +108,7 @@ License:     Apache-2.0 OR MIT
 -------------------------------------------------------------
 
 Name:        ariadne
-Version:     0.3.0
+Version:     0.4.0
 Repository:  https://github.com/zesterer/ariadne
 Authors:     Joshua Barretto
 License:     MIT
@@ -164,7 +164,7 @@ License:     Apache-2.0 OR MIT
 -------------------------------------------------------------
 
 Name:        chrono
-Version:     0.4.31
+Version:     0.4.33
 Repository:  https://github.com/chronotope/chrono
 Authors:     chrono authors
 License:     Apache-2.0 OR MIT
@@ -227,6 +227,14 @@ License:     Apache-2.0 OR MIT
 
 -------------------------------------------------------------
 
+Name:        equivalent
+Version:     1.0.1
+Repository:  https://github.com/cuviper/equivalent
+Authors:     equivalent authors
+License:     Apache-2.0 OR MIT
+
+-------------------------------------------------------------
+
 Name:        errno
 Version:     0.3.8
 Repository:  https://github.com/lambda-fairy/rust-errno
@@ -279,6 +287,14 @@ Name:        iana-time-zone-haiku
 Version:     0.1.2
 Repository:  https://github.com/strawlab/iana-time-zone
 Authors:     René Kijewski
+License:     Apache-2.0 OR MIT
+
+-------------------------------------------------------------
+
+Name:        indexmap
+Version:     2.2.2
+Repository:  https://github.com/indexmap-rs/indexmap
+Authors:     indexmap authors
 License:     Apache-2.0 OR MIT
 
 -------------------------------------------------------------
@@ -403,16 +419,16 @@ License:     Apache-2.0 OR MIT
 
 -------------------------------------------------------------
 
-Name:        prql-compiler
-Version:     0.11.1
+Name:        prqlc
+Version:     0.11.2
 Repository:  https://github.com/PRQL/prql
-Authors:     prql-compiler authors
+Authors:     prqlc authors
 License:     Apache-2.0
 
 -------------------------------------------------------------
 
 Name:        prqlc-ast
-Version:     0.11.1
+Version:     0.11.2
 Repository:  https://github.com/PRQL/prql
 Authors:     prqlc-ast authors
 License:     Apache-2.0
@@ -420,7 +436,7 @@ License:     Apache-2.0
 -------------------------------------------------------------
 
 Name:        prqlc-parser
-Version:     0.11.1
+Version:     0.11.2
 Repository:  https://github.com/PRQL/prql
 Authors:     prqlc-parser authors
 License:     Apache-2.0
@@ -444,7 +460,7 @@ License:     Apache-2.0 OR MIT
 -------------------------------------------------------------
 
 Name:        regex
-Version:     1.10.2
+Version:     1.10.3
 Repository:  https://github.com/rust-lang/regex
 Authors:     The Rust Project Developers, Andrew Gallant
 License:     Apache-2.0 OR MIT
@@ -452,7 +468,7 @@ License:     Apache-2.0 OR MIT
 -------------------------------------------------------------
 
 Name:        regex-automata
-Version:     0.4.3
+Version:     0.4.5
 Repository:  https://github.com/rust-lang/regex/tree/master/regex-automata
 Authors:     The Rust Project Developers, Andrew Gallant
 License:     Apache-2.0 OR MIT
@@ -556,9 +572,17 @@ License:     Apache-2.0 OR MIT
 -------------------------------------------------------------
 
 Name:        serde_json
-Version:     1.0.108
+Version:     1.0.109
 Repository:  https://github.com/serde-rs/json
 Authors:     Erick Tryzelaar, David Tolnay
+License:     Apache-2.0 OR MIT
+
+-------------------------------------------------------------
+
+Name:        serde_yaml
+Version:     0.9.29
+Repository:  https://github.com/dtolnay/serde-yaml
+Authors:     David Tolnay
 License:     Apache-2.0 OR MIT
 
 -------------------------------------------------------------
@@ -572,7 +596,7 @@ License:     Apache-2.0 OR MIT
 -------------------------------------------------------------
 
 Name:        sqlparser
-Version:     0.41.0
+Version:     0.43.1
 Repository:  https://github.com/sqlparser-rs/sqlparser-rs
 Authors:     Andy Grove
 License:     Apache-2.0
@@ -588,7 +612,7 @@ License:     Apache-2.0 OR MIT
 -------------------------------------------------------------
 
 Name:        strum
-Version:     0.25.0
+Version:     0.26.1
 Repository:  https://github.com/Peternator7/strum
 Authors:     Peter Glotfelty
 License:     MIT
@@ -596,7 +620,7 @@ License:     MIT
 -------------------------------------------------------------
 
 Name:        strum_macros
-Version:     0.25.3
+Version:     0.26.1
 Repository:  https://github.com/Peternator7/strum
 Authors:     Peter Glotfelty
 License:     MIT
@@ -632,6 +656,14 @@ Version:     0.1.1
 Repository:  https://github.com/swgillespie/unicode-categories
 Authors:     Sean Gillespie
 License:     Apache-2.0 OR MIT
+
+-------------------------------------------------------------
+
+Name:        unsafe-libyaml
+Version:     0.2.10
+Repository:  https://github.com/dtolnay/unsafe-libyaml
+Authors:     David Tolnay
+License:     MIT
 
 -------------------------------------------------------------
 
