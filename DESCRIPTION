@@ -35,6 +35,7 @@ SystemRequirements: Cargo (Rust's package manager), rustc
 VignetteBuilder: knitr
 Config/testthat/edition: 3
 Config/Needs/dev:
+    brio,
     devtools,
     lintr,
     styler,

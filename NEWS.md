@@ -1,5 +1,7 @@
 # prqlr (development version)
 
+- Switch from `extendr` to `savvy`. (Thanks @yutannihilation, #252)
+
 # prqlr 0.7.0
 
 ## Breaking changes

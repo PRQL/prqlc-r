@@ -12,8 +12,8 @@ status](https://www.r-pkg.org/badges/version/prqlr)](https://CRAN.R-project.org/
 <!-- badges: end -->
 
 R bindings for [the `prql-compiler` Rust
-library](https://github.com/prql/prql), powered by [the `extendr`
-framework](https://extendr.github.io/).
+library](https://github.com/prql/prql), powered by
+[`savvy`](https://github.com/yutannihilation/savvy).
 
 This version supports PRQL 0.11.1.
 
