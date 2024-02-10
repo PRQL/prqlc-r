@@ -32,6 +32,14 @@ test_that("Unsupported target", {
     r"(target `"foo"` not found)"
   )
   expect_error(
+    prql_compile("from a | select {b}", NA),
+    "got logicals"
+  )
+  expect_error(
+    prql_compile("from a | select {b}", NA_character_),
+    "non-missing value"
+  )
+  expect_error(
     prql_compile("prql target:foo\nfrom a | select {b}"),
     r"(target `"foo"` not found)"
   )

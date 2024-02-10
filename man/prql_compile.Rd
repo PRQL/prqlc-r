@@ -44,7 +44,7 @@ select !{cyl}
   prql_compile("sql.duckdb") |>
   cat()
 
-# If the `target` argument is `NULL` (default) or `NA` or `"sql.any"`,
+# If the `target` argument is `NULL` (default) or `"sql.any"`,
 # the target specified in the header of the query will be used.
 "
 prql target:sql.duckdb

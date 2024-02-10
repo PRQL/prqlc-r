@@ -23,7 +23,7 @@
 #'   prql_compile("sql.duckdb") |>
 #'   cat()
 #'
-#' # If the `target` argument is `NULL` (default) or `NA` or `"sql.any"`,
+#' # If the `target` argument is `NULL` (default) or `"sql.any"`,
 #' # the target specified in the header of the query will be used.
 #' "
 #' prql target:sql.duckdb
@@ -40,8 +40,7 @@ prql_compile <- function(
     target = getOption("prqlr.target", default = NULL),
     format = getOption("prqlr.format", default = TRUE),
     signature_comment = getOption("prqlr.signature_comment", default = TRUE)) {
-  target <- target %||% "sql.any"
-  compile(prql_query, target, format, signature_comment)
+  compile(prql_query, target %||% "sql.any", format, signature_comment)
 }
 
 #' @title prql-compiler's version
