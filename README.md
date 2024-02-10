@@ -11,9 +11,8 @@ badge](https://eitsupi.r-universe.dev/badges/prqlr)](https://eitsupi.r-universe.
 status](https://www.r-pkg.org/badges/version/prqlr)](https://CRAN.R-project.org/package=prqlr)
 <!-- badges: end -->
 
-R bindings for [the `prql-compiler` Rust
-library](https://github.com/prql/prql), powered by
-[`savvy`](https://github.com/yutannihilation/savvy).
+R bindings for [the `prqlc` Rust library](https://github.com/prql/prql),
+powered by [`savvy`](https://github.com/yutannihilation/savvy).
 
 This version supports PRQL 0.11.2.
 

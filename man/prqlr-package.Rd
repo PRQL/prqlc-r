@@ -4,7 +4,7 @@
 \name{prqlr-package}
 \alias{prqlr}
 \alias{prqlr-package}
-\title{prqlr: R Bindings for the 'prql-compiler' Rust Library}
+\title{prqlr: R Bindings for the 'prqlc' Rust Library}
 \description{
 \if{html}{\figure{logo.png}{options: style='float: right' alt='logo' width='120'}}
 

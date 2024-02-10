@@ -2,15 +2,15 @@
 % Please edit documentation in R/compile.R
 \name{prql_version}
 \alias{prql_version}
-\title{prql-compiler's version}
+\title{prqlc's version}
 \usage{
 prql_version()
 }
 \value{
-a \link{numeric_version} with the version of the built-in prql-compiler.
+a \link{numeric_version} with the version of the built-in prqlc.
 }
 \description{
-prql-compiler's version
+prqlc's version
 }
 \examples{
 prql_version()

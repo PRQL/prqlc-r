@@ -43,8 +43,8 @@ prql_compile <- function(
   compile(prql_query, target %||% "sql.any", format, signature_comment)
 }
 
-#' @title prql-compiler's version
-#' @return a [numeric_version] with the version of the built-in prql-compiler.
+#' @title prqlc's version
+#' @return a [numeric_version] with the version of the built-in prqlc.
 #' @examples
 #' prql_version()
 #' @export

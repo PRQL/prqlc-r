@@ -24,7 +24,7 @@ knitr::opts_chunk$set(
 [![CRAN status](https://www.r-pkg.org/badges/version/prqlr)](https://CRAN.R-project.org/package=prqlr)
 <!-- badges: end -->
 
-R bindings for [the `prql-compiler` Rust library](https://github.com/prql/prql),
+R bindings for [the `prqlc` Rust library](https://github.com/prql/prql),
 powered by [`savvy`](https://github.com/yutannihilation/savvy).
 
 This version supports PRQL `r prqlr::prql_version()`.
