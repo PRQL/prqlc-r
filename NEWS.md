@@ -1,6 +1,10 @@
 # prqlr (development version)
 
+## Breaking changes
+
 - Switch from `extendr` to `savvy`. (Thanks @yutannihilation, #252)
+  - The error message has been completely changed.
+  - `prql_compile()`'s `target` option does not accept `NA` as `"sql.any"` anymore.
 
 # prqlr 0.7.0
 
