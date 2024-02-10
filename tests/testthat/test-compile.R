@@ -96,7 +96,7 @@ take 2
   target = prql_get_targets()
 )
 
-test_that("prql-compiler's version", {
+test_that("prqlc's version", {
   expect_snapshot(prql_version())
   expect_s3_class(prql_version(), "numeric_version")
 })

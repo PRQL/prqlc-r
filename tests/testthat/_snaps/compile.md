@@ -375,7 +375,7 @@
       LIMIT
         2
 
-# prql-compiler's version
+# prqlc's version
 
     Code
       prql_version()

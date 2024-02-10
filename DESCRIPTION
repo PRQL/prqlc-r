@@ -1,5 +1,5 @@
 Package: prqlr
-Title: R Bindings for the 'prql-compiler' Rust Library
+Title: R Bindings for the 'prqlc' Rust Library
 Description:
     Provides a function to convert 'PRQL' strings to 'SQL' strings.
     Combined with other R functions that take 'SQL' as an argument,
