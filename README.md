@@ -6,7 +6,7 @@
 <!-- badges: start -->
 
 [![prqlr status
-badge](https://eitsupi.r-universe.dev/badges/prqlr)](https://eitsupi.r-universe.dev)
+badge](https://prql.r-universe.dev/badges/prqlr)](https://prql.r-universe.dev)
 [![CRAN
 status](https://www.r-pkg.org/badges/version/prqlr)](https://CRAN.R-project.org/package=prqlr)
 <!-- badges: end -->
@@ -21,8 +21,8 @@ This version supports PRQL 0.11.2.
 Requires R 4.2.0 or later.
 
 This package can be installed from CRAN or
-[R-universe](https://eitsupi.r-universe.dev/prqlr). If available, a
-binary package will be installed.
+[R-universe](https://prql.r-universe.dev/prqlr). If available, a binary
+package will be installed.
 
 ``` r
 # Install from CRAN
@@ -31,7 +31,7 @@ install.packages("prqlr")
 
 ``` r
 # Install from R-universe
-install.packages("prqlr", repos = "https://eitsupi.r-universe.dev")
+install.packages("prqlr", repos = "https://prql.r-universe.dev")
 ```
 
 For source installation, pre-built Rust libraries may be available if
