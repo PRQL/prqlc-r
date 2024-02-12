@@ -6,6 +6,11 @@
   - The error message has been completely changed.
   - `prql_compile()`'s `target` option does not accept `NA` as `"sql.any"` anymore.
 
+## Miscellaneous
+
+- The GitHub repository used to develop this package has been moved to <https://github.com/PRQL/prqlc-r>.
+  Other URLs are also changed accordingly. (#262, #263)
+
 # prqlr 0.7.0
 
 ## Breaking changes
