@@ -3,6 +3,7 @@ version: "3"
 env:
   NOT_CRAN: "true"
   LIBPRQLR_BUILD: "true"
+  PKG_SYSREQS: "false"
 
 vars:
   MANIFEST: src/rust/Cargo.toml
