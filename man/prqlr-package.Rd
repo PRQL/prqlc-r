@@ -13,9 +13,9 @@ Provides a function to convert 'PRQL' strings to 'SQL' strings. Combined with ot
 \seealso{
 Useful links:
 \itemize{
-  \item \url{https://eitsupi.github.io/prqlr/}
-  \item \url{https://github.com/eitsupi/prqlr}
-  \item Report bugs at \url{https://github.com/eitsupi/prqlr/issues}
+  \item \url{https://prql.github.io/prqlc-r/}
+  \item \url{https://github.com/PRQL/prqlc-r}
+  \item Report bugs at \url{https://github.com/PRQL/prqlc-r/issues}
 }
 
 }
