@@ -9,8 +9,8 @@ Authors@R:
     c(person("Tatsuya", "Shima", email = "ts1s1andn@gmail.com", role = c("aut", "cre")),
       person("Authors of the dependency Rust crates", role = "aut",
              comment = "see inst/AUTHORS file for details"))
-URL: https://eitsupi.github.io/prqlr/, https://github.com/eitsupi/prqlr
-BugReports: https://github.com/eitsupi/prqlr/issues
+URL: https://prql.github.io/prqlc-r/, https://github.com/PRQL/prqlc-r
+BugReports: https://github.com/PRQL/prqlc-r/issues
 Depends:
     R (>= 4.2)
 Suggests:

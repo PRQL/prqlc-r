@@ -1,4 +1,4 @@
-base_url <- "https://github.com/eitsupi/prqlr/releases/download/"
+base_url <- "https://github.com/PRQL/prqlc-r/releases/download/"
 
 tag_prefix <- "lib-v"
 
@@ -7,7 +7,7 @@ lib_data_file_path <- file.path("tools", "lib-sums.tsv")
 package_name <- desc::desc_get("Package")
 current_lib_version <- RcppTOML::parseTOML("src/rust/Cargo.toml")$package$version
 
-latest_released_lib_version <- gert::git_remote_ls(remote = "https://github.com/eitsupi/prqlr/") |>
+latest_released_lib_version <- gert::git_remote_ls(remote = "https://github.com/PRQL/prqlc-r/") |>
   dplyr::pull(ref) |>
   stringr::str_subset(stringr::str_c(r"(^refs/tags/)", tag_prefix)) |>
   stringr::str_remove(stringr::str_c(".*", tag_prefix)) |>

@@ -77,7 +77,7 @@ lib_version <- read.dcf("DESCRIPTION", fields = sprintf("Config/%s/LibVersion", 
 lib_tag_prefix <- "lib-v"
 
 target_url <- sprintf(
-  "https://github.com/eitsupi/prqlr/releases/download/%s%s/libprqlr-%s-%s.tar.gz",
+  "https://github.com/PRQL/prqlc-r/releases/download/%s%s/libprqlr-%s-%s.tar.gz",
   lib_tag_prefix,
   lib_version,
   lib_version,
