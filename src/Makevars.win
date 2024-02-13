@@ -45,6 +45,7 @@ $(STATLIB):
 		export CARGO_BUILD_JOBS=2; \
 	fi && \
 		export CARGO_TARGET_X86_64_PC_WINDOWS_GNU_LINKER="$(CARGO_LINKER)" && \
+		export LIBRARY_PATH="$(LIBRARY_PATH);$(LIBGCC_MOCK_DIR)" && \
 		cargo build --lib --manifest-path="$(CURDIR)/rust/Cargo.toml" --target-dir "$(TARGET_DIR)" --target="$(TARGET)" \
 			--profile="$(PRQLR_PROFILE)" --features="$(PRQLR_FEATURES)"
 
