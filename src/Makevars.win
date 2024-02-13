@@ -18,6 +18,7 @@ $(SHLIB): $(STATLIB)
 
 CARGOTMP = $(CURDIR)/.cargo
 VENDOR_DIR = $(CURDIR)/rust/vendor
+LIBGCC_MOCK_DIR = $(CURDIR)/libgcc_mock
 
 $(STATLIB):
 	# `rustc` adds `-lgcc_eh` flags to the compiler, but Rtools' GCC doesn't have
@@ -26,7 +27,7 @@ $(STATLIB):
 	#
 	# For more details, please refer to
 	# https://github.com/r-windows/rtools-packages/blob/2407b23f1e0925bbb20a4162c963600105236318/mingw-w64-gcc/PKGBUILD#L313-L316
-	mkdir -p "$(LIBDIR)/libgcc_mock" && touch "$(LIBDIR)/libgcc_mock/libgcc_eh.a"
+	mkdir -p "$(LIBGCC_MOCK_DIR)" && touch "$(LIBGCC_MOCK_DIR)/libgcc_eh.a"
 
 	if [ -f "$(CURDIR)/../tools/$(LIBNAME)" ]; then \
 		mkdir -p "$(LIBDIR)" ; \
@@ -52,7 +53,7 @@ $(STATLIB):
 	fi
 
 C_clean:
-	rm -Rf "$(SHLIB)" "$(STATLIB)" "$(OBJECTS)"
+	rm -Rf "$(SHLIB)" "$(STATLIB)" "$(OBJECTS)" "$(LIBGCC_MOCK_DIR)"
 
 clean:
-	rm -Rf "$(SHLIB)" "$(STATLIB)" "$(OBJECTS)" "$(TARGET_DIR)"
+	rm -Rf "$(SHLIB)" "$(STATLIB)" "$(OBJECTS)" "$(TARGET_DIR)" "$(LIBGCC_MOCK_DIR)"
