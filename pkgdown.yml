@@ -4,8 +4,8 @@ pkgdown_sha: ~
 articles:
   knitr: knitr.html
   prqlr: prqlr.html
-last_built: 2024-01-08T22:50Z
+last_built: 2024-02-14T10:53Z
 urls:
-  reference: https://eitsupi.github.io/prqlr/reference
-  article: https://eitsupi.github.io/prqlr/articles
+  reference: https://prql.github.io/prqlc-r/reference
+  article: https://prql.github.io/prqlc-r/articles
 
