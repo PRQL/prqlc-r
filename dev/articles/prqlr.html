@@ -97,19 +97,19 @@ data, can be compiled to SQL.</p>
 <p>This package provides a simple function to convert a PRQL query
 string to a SQL string.</p>
 <p>For example, this is a PRQL query.</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode elm"><code class="sourceCode elm"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">from</span> <span class="fu">mtcars</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">filter</span> <span class="fu">cyl</span> <span class="op">&gt;</span> <span class="dv">6</span></span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">select</span> {<span class="fu">cyl</span><span class="op">,</span> <span class="fu">mpg</span>}</span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="fu">derive</span> {<span class="fu">mpg_int</span> <span class="op">=</span> <span class="fu">math</span><span class="op">.</span><span class="fu">round</span> <span class="dv">0</span> <span class="fu">mpg</span>}</span></code></pre></div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode elm"><code class="sourceCode elm"><span id="cb1-1"><a href="#cb1-1" tabindex="-1"></a><span class="fu">from</span> <span class="fu">mtcars</span></span>
+<span id="cb1-2"><a href="#cb1-2" tabindex="-1"></a><span class="fu">filter</span> <span class="fu">cyl</span> <span class="op">&gt;</span> <span class="dv">6</span></span>
+<span id="cb1-3"><a href="#cb1-3" tabindex="-1"></a><span class="fu">select</span> {<span class="fu">cyl</span><span class="op">,</span> <span class="fu">mpg</span>}</span>
+<span id="cb1-4"><a href="#cb1-4" tabindex="-1"></a><span class="fu">derive</span> {<span class="fu">mpg_int</span> <span class="op">=</span> <span class="fu">math</span><span class="op">.</span><span class="fu">round</span> <span class="dv">0</span> <span class="fu">mpg</span>}</span></code></pre></div>
 <p>And, this is the SQL query that is compiled from the PRQL query.</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode sql"><code class="sourceCode sql"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span></span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>  cyl,</span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>  mpg,</span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ROUND</span>(mpg, <span class="dv">0</span>) <span class="kw">AS</span> mpg_int</span>
-<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="kw">FROM</span></span>
-<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>  mtcars</span>
-<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a><span class="kw">WHERE</span></span>
-<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>  cyl <span class="op">&gt;</span> <span class="dv">6</span></span></code></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode sql"><code class="sourceCode sql"><span id="cb2-1"><a href="#cb2-1" tabindex="-1"></a><span class="kw">SELECT</span></span>
+<span id="cb2-2"><a href="#cb2-2" tabindex="-1"></a>  cyl,</span>
+<span id="cb2-3"><a href="#cb2-3" tabindex="-1"></a>  mpg,</span>
+<span id="cb2-4"><a href="#cb2-4" tabindex="-1"></a>  <span class="fu">ROUND</span>(mpg, <span class="dv">0</span>) <span class="kw">AS</span> mpg_int</span>
+<span id="cb2-5"><a href="#cb2-5" tabindex="-1"></a><span class="kw">FROM</span></span>
+<span id="cb2-6"><a href="#cb2-6" tabindex="-1"></a>  mtcars</span>
+<span id="cb2-7"><a href="#cb2-7" tabindex="-1"></a><span class="kw">WHERE</span></span>
+<span id="cb2-8"><a href="#cb2-8" tabindex="-1"></a>  cyl <span class="op">&gt;</span> <span class="dv">6</span></span></code></pre></div>
 <p>To compile a PRQL string, just pass the query string to the
 <code><a href="../reference/prql_compile.html">prql_compile()</a></code> function, like this.</p>
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">

@@ -109,41 +109,41 @@ code chunks</a>. So, usage is the same as for SQL code chunks.</p>
 <p>For example, let’s render an R Markdown file named
 <code>test.Rmd</code> with the following contents with the
 <code><a href="https://rdrr.io/pkg/knitr/man/knit.html" class="external-link">knitr::knit()</a></code> function.</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode markdown"><code class="sourceCode markdown"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="in">#| echo: false</span></span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="in">library(DBI)</span></span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="in">library(prqlr)</span></span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="in">con &lt;- dbConnect(RSQLite::SQLite(), ":memory:")</span></span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="in">dbWriteTable(con, "mtcars", mtcars)</span></span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="in">```{prql}</span></span>
-<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a><span class="in">#| connection: con</span></span>
-<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a><span class="in">from mtcars</span></span>
-<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a><span class="in">filter cyl &gt; 6</span></span>
-<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a><span class="in">select {cyl, mpg}</span></span>
-<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a><span class="in">derive {mpg_int = math.round 0 mpg}</span></span>
-<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a><span class="in">take 3</span></span>
-<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span></code></pre></div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode markdown"><code class="sourceCode markdown"><span id="cb1-1"><a href="#cb1-1" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb1-2"><a href="#cb1-2" tabindex="-1"></a><span class="in">#| echo: false</span></span>
+<span id="cb1-3"><a href="#cb1-3" tabindex="-1"></a></span>
+<span id="cb1-4"><a href="#cb1-4" tabindex="-1"></a><span class="in">library(DBI)</span></span>
+<span id="cb1-5"><a href="#cb1-5" tabindex="-1"></a><span class="in">library(prqlr)</span></span>
+<span id="cb1-6"><a href="#cb1-6" tabindex="-1"></a><span class="in">con &lt;- dbConnect(RSQLite::SQLite(), ":memory:")</span></span>
+<span id="cb1-7"><a href="#cb1-7" tabindex="-1"></a><span class="in">dbWriteTable(con, "mtcars", mtcars)</span></span>
+<span id="cb1-8"><a href="#cb1-8" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb1-9"><a href="#cb1-9" tabindex="-1"></a></span>
+<span id="cb1-10"><a href="#cb1-10" tabindex="-1"></a><span class="in">```{prql}</span></span>
+<span id="cb1-11"><a href="#cb1-11" tabindex="-1"></a><span class="in">#| connection: con</span></span>
+<span id="cb1-12"><a href="#cb1-12" tabindex="-1"></a></span>
+<span id="cb1-13"><a href="#cb1-13" tabindex="-1"></a><span class="in">from mtcars</span></span>
+<span id="cb1-14"><a href="#cb1-14" tabindex="-1"></a><span class="in">filter cyl &gt; 6</span></span>
+<span id="cb1-15"><a href="#cb1-15" tabindex="-1"></a><span class="in">select {cyl, mpg}</span></span>
+<span id="cb1-16"><a href="#cb1-16" tabindex="-1"></a><span class="in">derive {mpg_int = math.round 0 mpg}</span></span>
+<span id="cb1-17"><a href="#cb1-17" tabindex="-1"></a><span class="in">take 3</span></span>
+<span id="cb1-18"><a href="#cb1-18" tabindex="-1"></a><span class="in">```</span></span></code></pre></div>
 <p>After rendering, a Markdown file named <code>test.md</code> is
 generated with the following contents.</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode markdown"><code class="sourceCode markdown"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="in">```elm</span></span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="in">from mtcars</span></span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="in">filter cyl &gt; 6</span></span>
-<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="in">select {cyl, mpg}</span></span>
-<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="in">derive {mpg_int = math.round 0 mpg}</span></span>
-<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a><span class="in">take 3</span></span>
-<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>| cyl|  mpg| mpg_int|</span>
-<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>|---:|----:|-------:|</span>
-<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a>|   8| 18.7|      19|</span>
-<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a>|   8| 14.3|      14|</span>
-<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a>|   8| 16.4|      16|</span></code></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode markdown"><code class="sourceCode markdown"><span id="cb2-1"><a href="#cb2-1" tabindex="-1"></a></span>
+<span id="cb2-2"><a href="#cb2-2" tabindex="-1"></a><span class="in">```elm</span></span>
+<span id="cb2-3"><a href="#cb2-3" tabindex="-1"></a><span class="in">from mtcars</span></span>
+<span id="cb2-4"><a href="#cb2-4" tabindex="-1"></a><span class="in">filter cyl &gt; 6</span></span>
+<span id="cb2-5"><a href="#cb2-5" tabindex="-1"></a><span class="in">select {cyl, mpg}</span></span>
+<span id="cb2-6"><a href="#cb2-6" tabindex="-1"></a><span class="in">derive {mpg_int = math.round 0 mpg}</span></span>
+<span id="cb2-7"><a href="#cb2-7" tabindex="-1"></a><span class="in">take 3</span></span>
+<span id="cb2-8"><a href="#cb2-8" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb2-9"><a href="#cb2-9" tabindex="-1"></a></span>
+<span id="cb2-10"><a href="#cb2-10" tabindex="-1"></a></span>
+<span id="cb2-11"><a href="#cb2-11" tabindex="-1"></a><span class="pp">|</span> cyl<span class="pp">|</span>  mpg<span class="pp">|</span> mpg_int<span class="pp">|</span></span>
+<span id="cb2-12"><a href="#cb2-12" tabindex="-1"></a><span class="pp">|---:|----:|-------:|</span></span>
+<span id="cb2-13"><a href="#cb2-13" tabindex="-1"></a><span class="pp">|</span>   8<span class="pp">|</span> 18.7<span class="pp">|</span>      19<span class="pp">|</span></span>
+<span id="cb2-14"><a href="#cb2-14" tabindex="-1"></a><span class="pp">|</span>   8<span class="pp">|</span> 14.3<span class="pp">|</span>      14<span class="pp">|</span></span>
+<span id="cb2-15"><a href="#cb2-15" tabindex="-1"></a><span class="pp">|</span>   8<span class="pp">|</span> 16.4<span class="pp">|</span>      16<span class="pp">|</span></span></code></pre></div>
 <p>Note that the syntax highlighting of Elm is the best for PRQL, so the
 output code blocks are marked as <code>elm</code>. This can be changed
 by setting the <code>lang</code> chunk option.</p>
@@ -153,44 +153,44 @@ by setting the <code>lang</code> chunk option.</p>
 </h3>
 <p>PRQL code chunks without the <code>connection</code> option will
 generate SQL code blocks.</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode markdown"><code class="sourceCode markdown"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="in">#| echo: false</span></span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="in">library(prqlr)</span></span>
-<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a><span class="in">```{prql}</span></span>
-<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a><span class="in">from mtcars</span></span>
-<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a><span class="in">filter cyl &gt; 6</span></span>
-<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a><span class="in">select {cyl, mpg}</span></span>
-<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a><span class="in">derive {mpg_int = math.round 0 mpg}</span></span>
-<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a><span class="in">take 3</span></span>
-<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span></code></pre></div>
+<div class="sourceCode" id="cb3"><pre class="sourceCode markdown"><code class="sourceCode markdown"><span id="cb3-1"><a href="#cb3-1" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb3-2"><a href="#cb3-2" tabindex="-1"></a><span class="in">#| echo: false</span></span>
+<span id="cb3-3"><a href="#cb3-3" tabindex="-1"></a></span>
+<span id="cb3-4"><a href="#cb3-4" tabindex="-1"></a><span class="in">library(prqlr)</span></span>
+<span id="cb3-5"><a href="#cb3-5" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb3-6"><a href="#cb3-6" tabindex="-1"></a></span>
+<span id="cb3-7"><a href="#cb3-7" tabindex="-1"></a><span class="in">```{prql}</span></span>
+<span id="cb3-8"><a href="#cb3-8" tabindex="-1"></a><span class="in">from mtcars</span></span>
+<span id="cb3-9"><a href="#cb3-9" tabindex="-1"></a><span class="in">filter cyl &gt; 6</span></span>
+<span id="cb3-10"><a href="#cb3-10" tabindex="-1"></a><span class="in">select {cyl, mpg}</span></span>
+<span id="cb3-11"><a href="#cb3-11" tabindex="-1"></a><span class="in">derive {mpg_int = math.round 0 mpg}</span></span>
+<span id="cb3-12"><a href="#cb3-12" tabindex="-1"></a><span class="in">take 3</span></span>
+<span id="cb3-13"><a href="#cb3-13" tabindex="-1"></a><span class="in">```</span></span></code></pre></div>
 <p>The R Markdown file above will be converted to the Markdown file
 below.</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode markdown"><code class="sourceCode markdown"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="in">```elm</span></span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="in">from mtcars</span></span>
-<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="in">filter cyl &gt; 6</span></span>
-<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a><span class="in">select {cyl, mpg}</span></span>
-<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a><span class="in">derive {mpg_int = math.round 0 mpg}</span></span>
-<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a><span class="in">take 3</span></span>
-<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a><span class="in">```sql</span></span>
-<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span></span>
-<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a>  cyl,</span>
-<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a>  mpg,</span>
-<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ROUND</span>(mpg, <span class="dv">0</span>) <span class="kw">AS</span> mpg_int</span>
-<span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a><span class="kw">FROM</span></span>
-<span id="cb4-16"><a href="#cb4-16" aria-hidden="true" tabindex="-1"></a>  mtcars</span>
-<span id="cb4-17"><a href="#cb4-17" aria-hidden="true" tabindex="-1"></a><span class="kw">WHERE</span></span>
-<span id="cb4-18"><a href="#cb4-18" aria-hidden="true" tabindex="-1"></a>  cyl <span class="op">&gt;</span> <span class="dv">6</span></span>
-<span id="cb4-19"><a href="#cb4-19" aria-hidden="true" tabindex="-1"></a><span class="kw">LIMIT</span></span>
-<span id="cb4-20"><a href="#cb4-20" aria-hidden="true" tabindex="-1"></a>  <span class="dv">3</span></span>
-<span id="cb4-21"><a href="#cb4-21" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-22"><a href="#cb4-22" aria-hidden="true" tabindex="-1"></a><span class="co">-- Generated by PRQL compiler version:0.11.2 (https://prql-lang.org)</span></span>
-<span id="cb4-23"><a href="#cb4-23" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span></code></pre></div>
+<div class="sourceCode" id="cb4"><pre class="sourceCode markdown"><code class="sourceCode markdown"><span id="cb4-1"><a href="#cb4-1" tabindex="-1"></a></span>
+<span id="cb4-2"><a href="#cb4-2" tabindex="-1"></a><span class="in">```elm</span></span>
+<span id="cb4-3"><a href="#cb4-3" tabindex="-1"></a><span class="in">from mtcars</span></span>
+<span id="cb4-4"><a href="#cb4-4" tabindex="-1"></a><span class="in">filter cyl &gt; 6</span></span>
+<span id="cb4-5"><a href="#cb4-5" tabindex="-1"></a><span class="in">select {cyl, mpg}</span></span>
+<span id="cb4-6"><a href="#cb4-6" tabindex="-1"></a><span class="in">derive {mpg_int = math.round 0 mpg}</span></span>
+<span id="cb4-7"><a href="#cb4-7" tabindex="-1"></a><span class="in">take 3</span></span>
+<span id="cb4-8"><a href="#cb4-8" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb4-9"><a href="#cb4-9" tabindex="-1"></a></span>
+<span id="cb4-10"><a href="#cb4-10" tabindex="-1"></a><span class="in">```sql</span></span>
+<span id="cb4-11"><a href="#cb4-11" tabindex="-1"></a><span class="kw">SELECT</span></span>
+<span id="cb4-12"><a href="#cb4-12" tabindex="-1"></a>  cyl,</span>
+<span id="cb4-13"><a href="#cb4-13" tabindex="-1"></a>  mpg,</span>
+<span id="cb4-14"><a href="#cb4-14" tabindex="-1"></a>  <span class="fu">ROUND</span>(mpg, <span class="dv">0</span>) <span class="kw">AS</span> mpg_int</span>
+<span id="cb4-15"><a href="#cb4-15" tabindex="-1"></a><span class="kw">FROM</span></span>
+<span id="cb4-16"><a href="#cb4-16" tabindex="-1"></a>  mtcars</span>
+<span id="cb4-17"><a href="#cb4-17" tabindex="-1"></a><span class="kw">WHERE</span></span>
+<span id="cb4-18"><a href="#cb4-18" tabindex="-1"></a>  cyl <span class="op">&gt;</span> <span class="dv">6</span></span>
+<span id="cb4-19"><a href="#cb4-19" tabindex="-1"></a><span class="kw">LIMIT</span></span>
+<span id="cb4-20"><a href="#cb4-20" tabindex="-1"></a>  <span class="dv">3</span></span>
+<span id="cb4-21"><a href="#cb4-21" tabindex="-1"></a></span>
+<span id="cb4-22"><a href="#cb4-22" tabindex="-1"></a><span class="co">-- Generated by PRQL compiler version:0.11.2 (https://prql-lang.org)</span></span>
+<span id="cb4-23"><a href="#cb4-23" tabindex="-1"></a><span class="in">```</span></span></code></pre></div>
 </div>
 </div>
 <div class="section level2">
@@ -203,29 +203,29 @@ below.</p>
 option <code>engine-opts</code> (or <code>engine.opts</code>).</p>
 <p>Note that the <code>format</code> option is always <code>TRUE</code>
 for PRQL code chunks.</p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode markdown"><code class="sourceCode markdown"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="in">#| echo: false</span></span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="in">library(prqlr)</span></span>
-<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a><span class="fu">## YAML-style</span></span>
-<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a><span class="in">```{prql}</span></span>
-<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a><span class="in">#| engine-opts:</span></span>
-<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a><span class="in">#|   target: sql.mssql</span></span>
-<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a><span class="in">#|   signature_comment: false</span></span>
-<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a><span class="in">from mtcars</span></span>
-<span id="cb5-15"><a href="#cb5-15" aria-hidden="true" tabindex="-1"></a><span class="in">take 3</span></span>
-<span id="cb5-16"><a href="#cb5-16" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb5-17"><a href="#cb5-17" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-18"><a href="#cb5-18" aria-hidden="true" tabindex="-1"></a><span class="fu">## R-style</span></span>
-<span id="cb5-19"><a href="#cb5-19" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-20"><a href="#cb5-20" aria-hidden="true" tabindex="-1"></a><span class="in">```{prql engine.opts=list(target="sql.mssql", signature_comment=FALSE)}</span></span>
-<span id="cb5-21"><a href="#cb5-21" aria-hidden="true" tabindex="-1"></a><span class="in">from mtcars</span></span>
-<span id="cb5-22"><a href="#cb5-22" aria-hidden="true" tabindex="-1"></a><span class="in">take 3</span></span>
-<span id="cb5-23"><a href="#cb5-23" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span></code></pre></div>
+<div class="sourceCode" id="cb5"><pre class="sourceCode markdown"><code class="sourceCode markdown"><span id="cb5-1"><a href="#cb5-1" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb5-2"><a href="#cb5-2" tabindex="-1"></a><span class="in">#| echo: false</span></span>
+<span id="cb5-3"><a href="#cb5-3" tabindex="-1"></a></span>
+<span id="cb5-4"><a href="#cb5-4" tabindex="-1"></a><span class="in">library(prqlr)</span></span>
+<span id="cb5-5"><a href="#cb5-5" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb5-6"><a href="#cb5-6" tabindex="-1"></a></span>
+<span id="cb5-7"><a href="#cb5-7" tabindex="-1"></a><span class="fu">## YAML-style</span></span>
+<span id="cb5-8"><a href="#cb5-8" tabindex="-1"></a></span>
+<span id="cb5-9"><a href="#cb5-9" tabindex="-1"></a><span class="in">```{prql}</span></span>
+<span id="cb5-10"><a href="#cb5-10" tabindex="-1"></a><span class="in">#| engine-opts:</span></span>
+<span id="cb5-11"><a href="#cb5-11" tabindex="-1"></a><span class="in">#|   target: sql.mssql</span></span>
+<span id="cb5-12"><a href="#cb5-12" tabindex="-1"></a><span class="in">#|   signature_comment: false</span></span>
+<span id="cb5-13"><a href="#cb5-13" tabindex="-1"></a></span>
+<span id="cb5-14"><a href="#cb5-14" tabindex="-1"></a><span class="in">from mtcars</span></span>
+<span id="cb5-15"><a href="#cb5-15" tabindex="-1"></a><span class="in">take 3</span></span>
+<span id="cb5-16"><a href="#cb5-16" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb5-17"><a href="#cb5-17" tabindex="-1"></a></span>
+<span id="cb5-18"><a href="#cb5-18" tabindex="-1"></a><span class="fu">## R-style</span></span>
+<span id="cb5-19"><a href="#cb5-19" tabindex="-1"></a></span>
+<span id="cb5-20"><a href="#cb5-20" tabindex="-1"></a><span class="in">```{prql engine.opts=list(target="sql.mssql", signature_comment=FALSE)}</span></span>
+<span id="cb5-21"><a href="#cb5-21" tabindex="-1"></a><span class="in">from mtcars</span></span>
+<span id="cb5-22"><a href="#cb5-22" tabindex="-1"></a><span class="in">take 3</span></span>
+<span id="cb5-23"><a href="#cb5-23" tabindex="-1"></a><span class="in">```</span></span></code></pre></div>
 </div>
 <div class="section level3">
 <h3 id="parameterized-prql-code-blocks">Parameterized PRQL code blocks<a class="anchor" aria-label="anchor" href="#parameterized-prql-code-blocks"></a>
@@ -235,85 +235,85 @@ insert R variables into PRQL queries.</p>
 <p>Characters enclosed in <code>{{</code> and <code>}}</code> are
 replaced by the <code><a href="https://glue.tidyverse.org/reference/glue.html" class="external-link">glue::glue()</a></code> function before being passed
 to the <code><a href="../reference/prql_compile.html">prql_compile()</a></code> function.</p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode markdown"><code class="sourceCode markdown"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="in">#| echo: false</span></span>
-<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a><span class="in">library(prqlr)</span></span>
-<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a><span class="in">cyl_min &lt;- 6</span></span>
-<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a><span class="in">derive_or_select &lt;- "derive"</span></span>
-<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a><span class="in">```{prql}</span></span>
-<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a><span class="in">#| engine-opts:</span></span>
-<span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a><span class="in">#|   use_glue: true</span></span>
-<span id="cb6-13"><a href="#cb6-13" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-14"><a href="#cb6-14" aria-hidden="true" tabindex="-1"></a><span class="in">from mtcars</span></span>
-<span id="cb6-15"><a href="#cb6-15" aria-hidden="true" tabindex="-1"></a><span class="in">filter cyl &gt; {{cyl_min}}</span></span>
-<span id="cb6-16"><a href="#cb6-16" aria-hidden="true" tabindex="-1"></a><span class="in">select {cyl, mpg}</span></span>
-<span id="cb6-17"><a href="#cb6-17" aria-hidden="true" tabindex="-1"></a><span class="in">{{derive_or_select}} {mpg_int = math.round 0 mpg}</span></span>
-<span id="cb6-18"><a href="#cb6-18" aria-hidden="true" tabindex="-1"></a><span class="in">take 3</span></span>
-<span id="cb6-19"><a href="#cb6-19" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span></code></pre></div>
+<div class="sourceCode" id="cb6"><pre class="sourceCode markdown"><code class="sourceCode markdown"><span id="cb6-1"><a href="#cb6-1" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb6-2"><a href="#cb6-2" tabindex="-1"></a><span class="in">#| echo: false</span></span>
+<span id="cb6-3"><a href="#cb6-3" tabindex="-1"></a></span>
+<span id="cb6-4"><a href="#cb6-4" tabindex="-1"></a><span class="in">library(prqlr)</span></span>
+<span id="cb6-5"><a href="#cb6-5" tabindex="-1"></a></span>
+<span id="cb6-6"><a href="#cb6-6" tabindex="-1"></a><span class="in">cyl_min &lt;- 6</span></span>
+<span id="cb6-7"><a href="#cb6-7" tabindex="-1"></a><span class="in">derive_or_select &lt;- "derive"</span></span>
+<span id="cb6-8"><a href="#cb6-8" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb6-9"><a href="#cb6-9" tabindex="-1"></a></span>
+<span id="cb6-10"><a href="#cb6-10" tabindex="-1"></a><span class="in">```{prql}</span></span>
+<span id="cb6-11"><a href="#cb6-11" tabindex="-1"></a><span class="in">#| engine-opts:</span></span>
+<span id="cb6-12"><a href="#cb6-12" tabindex="-1"></a><span class="in">#|   use_glue: true</span></span>
+<span id="cb6-13"><a href="#cb6-13" tabindex="-1"></a></span>
+<span id="cb6-14"><a href="#cb6-14" tabindex="-1"></a><span class="in">from mtcars</span></span>
+<span id="cb6-15"><a href="#cb6-15" tabindex="-1"></a><span class="in">filter cyl &gt; {{cyl_min}}</span></span>
+<span id="cb6-16"><a href="#cb6-16" tabindex="-1"></a><span class="in">select {cyl, mpg}</span></span>
+<span id="cb6-17"><a href="#cb6-17" tabindex="-1"></a><span class="in">{{derive_or_select}} {mpg_int = math.round 0 mpg}</span></span>
+<span id="cb6-18"><a href="#cb6-18" tabindex="-1"></a><span class="in">take 3</span></span>
+<span id="cb6-19"><a href="#cb6-19" tabindex="-1"></a><span class="in">```</span></span></code></pre></div>
 <p>The R Markdown file above will be converted to the Markdown file
 below.</p>
-<div class="sourceCode" id="cb7"><pre class="sourceCode markdown"><code class="sourceCode markdown"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="in">```elm</span></span>
-<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="in">from mtcars</span></span>
-<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a><span class="in">filter cyl &gt; 6</span></span>
-<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a><span class="in">select {cyl, mpg}</span></span>
-<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a><span class="in">derive {mpg_int = math.round 0 mpg}</span></span>
-<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a><span class="in">take 3</span></span>
-<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a><span class="in">```sql</span></span>
-<span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span></span>
-<span id="cb7-12"><a href="#cb7-12" aria-hidden="true" tabindex="-1"></a>  cyl,</span>
-<span id="cb7-13"><a href="#cb7-13" aria-hidden="true" tabindex="-1"></a>  mpg,</span>
-<span id="cb7-14"><a href="#cb7-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ROUND</span>(mpg, <span class="dv">0</span>) <span class="kw">AS</span> mpg_int</span>
-<span id="cb7-15"><a href="#cb7-15" aria-hidden="true" tabindex="-1"></a><span class="kw">FROM</span></span>
-<span id="cb7-16"><a href="#cb7-16" aria-hidden="true" tabindex="-1"></a>  mtcars</span>
-<span id="cb7-17"><a href="#cb7-17" aria-hidden="true" tabindex="-1"></a><span class="kw">WHERE</span></span>
-<span id="cb7-18"><a href="#cb7-18" aria-hidden="true" tabindex="-1"></a>  cyl <span class="op">&gt;</span> <span class="dv">6</span></span>
-<span id="cb7-19"><a href="#cb7-19" aria-hidden="true" tabindex="-1"></a><span class="kw">LIMIT</span></span>
-<span id="cb7-20"><a href="#cb7-20" aria-hidden="true" tabindex="-1"></a>  <span class="dv">3</span></span>
-<span id="cb7-21"><a href="#cb7-21" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-22"><a href="#cb7-22" aria-hidden="true" tabindex="-1"></a><span class="co">-- Generated by PRQL compiler version:0.11.2 (https://prql-lang.org)</span></span>
-<span id="cb7-23"><a href="#cb7-23" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span></code></pre></div>
+<div class="sourceCode" id="cb7"><pre class="sourceCode markdown"><code class="sourceCode markdown"><span id="cb7-1"><a href="#cb7-1" tabindex="-1"></a></span>
+<span id="cb7-2"><a href="#cb7-2" tabindex="-1"></a><span class="in">```elm</span></span>
+<span id="cb7-3"><a href="#cb7-3" tabindex="-1"></a><span class="in">from mtcars</span></span>
+<span id="cb7-4"><a href="#cb7-4" tabindex="-1"></a><span class="in">filter cyl &gt; 6</span></span>
+<span id="cb7-5"><a href="#cb7-5" tabindex="-1"></a><span class="in">select {cyl, mpg}</span></span>
+<span id="cb7-6"><a href="#cb7-6" tabindex="-1"></a><span class="in">derive {mpg_int = math.round 0 mpg}</span></span>
+<span id="cb7-7"><a href="#cb7-7" tabindex="-1"></a><span class="in">take 3</span></span>
+<span id="cb7-8"><a href="#cb7-8" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb7-9"><a href="#cb7-9" tabindex="-1"></a></span>
+<span id="cb7-10"><a href="#cb7-10" tabindex="-1"></a><span class="in">```sql</span></span>
+<span id="cb7-11"><a href="#cb7-11" tabindex="-1"></a><span class="kw">SELECT</span></span>
+<span id="cb7-12"><a href="#cb7-12" tabindex="-1"></a>  cyl,</span>
+<span id="cb7-13"><a href="#cb7-13" tabindex="-1"></a>  mpg,</span>
+<span id="cb7-14"><a href="#cb7-14" tabindex="-1"></a>  <span class="fu">ROUND</span>(mpg, <span class="dv">0</span>) <span class="kw">AS</span> mpg_int</span>
+<span id="cb7-15"><a href="#cb7-15" tabindex="-1"></a><span class="kw">FROM</span></span>
+<span id="cb7-16"><a href="#cb7-16" tabindex="-1"></a>  mtcars</span>
+<span id="cb7-17"><a href="#cb7-17" tabindex="-1"></a><span class="kw">WHERE</span></span>
+<span id="cb7-18"><a href="#cb7-18" tabindex="-1"></a>  cyl <span class="op">&gt;</span> <span class="dv">6</span></span>
+<span id="cb7-19"><a href="#cb7-19" tabindex="-1"></a><span class="kw">LIMIT</span></span>
+<span id="cb7-20"><a href="#cb7-20" tabindex="-1"></a>  <span class="dv">3</span></span>
+<span id="cb7-21"><a href="#cb7-21" tabindex="-1"></a></span>
+<span id="cb7-22"><a href="#cb7-22" tabindex="-1"></a><span class="co">-- Generated by PRQL compiler version:0.11.2 (https://prql-lang.org)</span></span>
+<span id="cb7-23"><a href="#cb7-23" tabindex="-1"></a><span class="in">```</span></span></code></pre></div>
 <div class="section level4">
 <h4 id="use-query-strings-in-r-code-blocks">Use query strings in R code blocks<a class="anchor" aria-label="anchor" href="#use-query-strings-in-r-code-blocks"></a>
 </h4>
 <p>With the experimental <code>use_glue</code> option, the query string
 can even be defined completely in R side.</p>
-<div class="sourceCode" id="cb8"><pre class="sourceCode markdown"><code class="sourceCode markdown"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="in">#| echo: false</span></span>
-<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a><span class="in">library(prqlr)</span></span>
-<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a><span class="in">prql_query &lt;- "from mtcars</span></span>
-<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a><span class="in">select cyl"</span></span>
-<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a><span class="in">```{prql}</span></span>
-<span id="cb8-11"><a href="#cb8-11" aria-hidden="true" tabindex="-1"></a><span class="in">#| engine-opts:</span></span>
-<span id="cb8-12"><a href="#cb8-12" aria-hidden="true" tabindex="-1"></a><span class="in">#|   use_glue: true</span></span>
-<span id="cb8-13"><a href="#cb8-13" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-14"><a href="#cb8-14" aria-hidden="true" tabindex="-1"></a><span class="in">{{prql_query}}</span></span>
-<span id="cb8-15"><a href="#cb8-15" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span></code></pre></div>
+<div class="sourceCode" id="cb8"><pre class="sourceCode markdown"><code class="sourceCode markdown"><span id="cb8-1"><a href="#cb8-1" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb8-2"><a href="#cb8-2" tabindex="-1"></a><span class="in">#| echo: false</span></span>
+<span id="cb8-3"><a href="#cb8-3" tabindex="-1"></a></span>
+<span id="cb8-4"><a href="#cb8-4" tabindex="-1"></a><span class="in">library(prqlr)</span></span>
+<span id="cb8-5"><a href="#cb8-5" tabindex="-1"></a></span>
+<span id="cb8-6"><a href="#cb8-6" tabindex="-1"></a><span class="in">prql_query &lt;- "from mtcars</span></span>
+<span id="cb8-7"><a href="#cb8-7" tabindex="-1"></a><span class="in">select cyl"</span></span>
+<span id="cb8-8"><a href="#cb8-8" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb8-9"><a href="#cb8-9" tabindex="-1"></a></span>
+<span id="cb8-10"><a href="#cb8-10" tabindex="-1"></a><span class="in">```{prql}</span></span>
+<span id="cb8-11"><a href="#cb8-11" tabindex="-1"></a><span class="in">#| engine-opts:</span></span>
+<span id="cb8-12"><a href="#cb8-12" tabindex="-1"></a><span class="in">#|   use_glue: true</span></span>
+<span id="cb8-13"><a href="#cb8-13" tabindex="-1"></a></span>
+<span id="cb8-14"><a href="#cb8-14" tabindex="-1"></a><span class="in">{{prql_query}}</span></span>
+<span id="cb8-15"><a href="#cb8-15" tabindex="-1"></a><span class="in">```</span></span></code></pre></div>
 <p>This example outputs the following.</p>
-<div class="sourceCode" id="cb9"><pre class="sourceCode markdown"><code class="sourceCode markdown"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="in">```elm</span></span>
-<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a><span class="in">from mtcars</span></span>
-<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a><span class="in">select cyl</span></span>
-<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a><span class="in">```sql</span></span>
-<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span></span>
-<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a>  cyl</span>
-<span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a><span class="kw">FROM</span></span>
-<span id="cb9-11"><a href="#cb9-11" aria-hidden="true" tabindex="-1"></a>  mtcars</span>
-<span id="cb9-12"><a href="#cb9-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-13"><a href="#cb9-13" aria-hidden="true" tabindex="-1"></a><span class="co">-- Generated by PRQL compiler version:0.11.2 (https://prql-lang.org)</span></span>
-<span id="cb9-14"><a href="#cb9-14" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span></code></pre></div>
+<div class="sourceCode" id="cb9"><pre class="sourceCode markdown"><code class="sourceCode markdown"><span id="cb9-1"><a href="#cb9-1" tabindex="-1"></a></span>
+<span id="cb9-2"><a href="#cb9-2" tabindex="-1"></a><span class="in">```elm</span></span>
+<span id="cb9-3"><a href="#cb9-3" tabindex="-1"></a><span class="in">from mtcars</span></span>
+<span id="cb9-4"><a href="#cb9-4" tabindex="-1"></a><span class="in">select cyl</span></span>
+<span id="cb9-5"><a href="#cb9-5" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb9-6"><a href="#cb9-6" tabindex="-1"></a></span>
+<span id="cb9-7"><a href="#cb9-7" tabindex="-1"></a><span class="in">```sql</span></span>
+<span id="cb9-8"><a href="#cb9-8" tabindex="-1"></a><span class="kw">SELECT</span></span>
+<span id="cb9-9"><a href="#cb9-9" tabindex="-1"></a>  cyl</span>
+<span id="cb9-10"><a href="#cb9-10" tabindex="-1"></a><span class="kw">FROM</span></span>
+<span id="cb9-11"><a href="#cb9-11" tabindex="-1"></a>  mtcars</span>
+<span id="cb9-12"><a href="#cb9-12" tabindex="-1"></a></span>
+<span id="cb9-13"><a href="#cb9-13" tabindex="-1"></a><span class="co">-- Generated by PRQL compiler version:0.11.2 (https://prql-lang.org)</span></span>
+<span id="cb9-14"><a href="#cb9-14" tabindex="-1"></a><span class="in">```</span></span></code></pre></div>
 </div>
 </div>
 <div class="section level3">
@@ -326,35 +326,35 @@ attributes that are used in Quarto Markdown files. The default value is
 <code>"sql"</code>.</p>
 <p>For example, the following R Markdown file includes a PRQL code block
 with the <code>info_string</code> option will be converted to…</p>
-<div class="sourceCode" id="cb10"><pre class="sourceCode markdown"><code class="sourceCode markdown"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="in">#| echo: false</span></span>
-<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a><span class="in">library(prqlr)</span></span>
-<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a><span class="in">```{prql}</span></span>
-<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a><span class="in">#| engine-opts:</span></span>
-<span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a><span class="in">#|   info_string: '{.sql filename="SQL"}'</span></span>
-<span id="cb10-10"><a href="#cb10-10" aria-hidden="true" tabindex="-1"></a><span class="in">from mtcars</span></span>
-<span id="cb10-11"><a href="#cb10-11" aria-hidden="true" tabindex="-1"></a><span class="in">take 3</span></span>
-<span id="cb10-12"><a href="#cb10-12" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span></code></pre></div>
+<div class="sourceCode" id="cb10"><pre class="sourceCode markdown"><code class="sourceCode markdown"><span id="cb10-1"><a href="#cb10-1" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb10-2"><a href="#cb10-2" tabindex="-1"></a><span class="in">#| echo: false</span></span>
+<span id="cb10-3"><a href="#cb10-3" tabindex="-1"></a></span>
+<span id="cb10-4"><a href="#cb10-4" tabindex="-1"></a><span class="in">library(prqlr)</span></span>
+<span id="cb10-5"><a href="#cb10-5" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb10-6"><a href="#cb10-6" tabindex="-1"></a></span>
+<span id="cb10-7"><a href="#cb10-7" tabindex="-1"></a><span class="in">```{prql}</span></span>
+<span id="cb10-8"><a href="#cb10-8" tabindex="-1"></a><span class="in">#| engine-opts:</span></span>
+<span id="cb10-9"><a href="#cb10-9" tabindex="-1"></a><span class="in">#|   info_string: '{.sql filename="SQL"}'</span></span>
+<span id="cb10-10"><a href="#cb10-10" tabindex="-1"></a><span class="in">from mtcars</span></span>
+<span id="cb10-11"><a href="#cb10-11" tabindex="-1"></a><span class="in">take 3</span></span>
+<span id="cb10-12"><a href="#cb10-12" tabindex="-1"></a><span class="in">```</span></span></code></pre></div>
 <p>This Markdown file.</p>
-<div class="sourceCode" id="cb11"><pre class="sourceCode markdown"><code class="sourceCode markdown"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="in">```elm</span></span>
-<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a><span class="in">from mtcars</span></span>
-<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a><span class="in">take 3</span></span>
-<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a><span class="in">```{.sql filename="SQL"}</span></span>
-<span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a><span class="in">SELECT</span></span>
-<span id="cb11-9"><a href="#cb11-9" aria-hidden="true" tabindex="-1"></a><span class="in">  *</span></span>
-<span id="cb11-10"><a href="#cb11-10" aria-hidden="true" tabindex="-1"></a><span class="in">FROM</span></span>
-<span id="cb11-11"><a href="#cb11-11" aria-hidden="true" tabindex="-1"></a><span class="in">  mtcars</span></span>
-<span id="cb11-12"><a href="#cb11-12" aria-hidden="true" tabindex="-1"></a><span class="in">LIMIT</span></span>
-<span id="cb11-13"><a href="#cb11-13" aria-hidden="true" tabindex="-1"></a><span class="in">  3</span></span>
-<span id="cb11-14"><a href="#cb11-14" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-15"><a href="#cb11-15" aria-hidden="true" tabindex="-1"></a><span class="in">-- Generated by PRQL compiler version:0.11.2 (https://prql-lang.org)</span></span>
-<span id="cb11-16"><a href="#cb11-16" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span></code></pre></div>
+<div class="sourceCode" id="cb11"><pre class="sourceCode markdown"><code class="sourceCode markdown"><span id="cb11-1"><a href="#cb11-1" tabindex="-1"></a></span>
+<span id="cb11-2"><a href="#cb11-2" tabindex="-1"></a><span class="in">```elm</span></span>
+<span id="cb11-3"><a href="#cb11-3" tabindex="-1"></a><span class="in">from mtcars</span></span>
+<span id="cb11-4"><a href="#cb11-4" tabindex="-1"></a><span class="in">take 3</span></span>
+<span id="cb11-5"><a href="#cb11-5" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb11-6"><a href="#cb11-6" tabindex="-1"></a></span>
+<span id="cb11-7"><a href="#cb11-7" tabindex="-1"></a><span class="in">```{.sql filename="SQL"}</span></span>
+<span id="cb11-8"><a href="#cb11-8" tabindex="-1"></a><span class="in">SELECT</span></span>
+<span id="cb11-9"><a href="#cb11-9" tabindex="-1"></a><span class="in">  *</span></span>
+<span id="cb11-10"><a href="#cb11-10" tabindex="-1"></a><span class="in">FROM</span></span>
+<span id="cb11-11"><a href="#cb11-11" tabindex="-1"></a><span class="in">  mtcars</span></span>
+<span id="cb11-12"><a href="#cb11-12" tabindex="-1"></a><span class="in">LIMIT</span></span>
+<span id="cb11-13"><a href="#cb11-13" tabindex="-1"></a><span class="in">  3</span></span>
+<span id="cb11-14"><a href="#cb11-14" tabindex="-1"></a></span>
+<span id="cb11-15"><a href="#cb11-15" tabindex="-1"></a><span class="in">-- Generated by PRQL compiler version:0.11.2 (https://prql-lang.org)</span></span>
+<span id="cb11-16"><a href="#cb11-16" tabindex="-1"></a><span class="in">```</span></span></code></pre></div>
 </div>
 </div>
   </main><aside class="col-md-3"><nav id="toc"><h2>On this page</h2>
