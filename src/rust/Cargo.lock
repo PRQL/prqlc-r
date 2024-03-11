@@ -584,9 +584,9 @@ checksum = "f98d2aa92eebf49b69786be48e4477826b256916e84a57ff2a4f21923b48eb4c"
 
 [[package]]
 name = "savvy"
-version = "0.2.16"
+version = "0.2.17"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "8f188cf0607aafefec21ff10330a26f10d4e70e2f8f550998d2be1eae13af62f"
+checksum = "dabaea0105afb151eb02494a57ac610250296ce8f7a7ab5601dda8264ac9724d"
 dependencies = [
  "cc",
  "once_cell",
