@@ -30,7 +30,7 @@ Owners of dependent Rust crates. This list is generated from Crates.io Data <htt
   - errno: Chris Wong <https://github.com/lambda-fairy>, Dan Gohman <https://github.com/sunfishcode>
   - gimli: Nick Fitzgerald <https://github.com/fitzgen>, Philip Craig <https://github.com/philipc>
   - hashbrown: Amanieu d'Antras <https://github.com/Amanieu>
-  - heck: Saoirse Shipwreckt <https://github.com/withoutboats>, Jonas Platte <https://github.com/jplatte>
+  - heck: srrrse <https://github.com/withoutboats>, Jonas Platte <https://github.com/jplatte>
   - hermit-abi: Stefan Lankes <https://github.com/stlankes>, Martin Kröning <https://github.com/mkroening>
   - iana-time-zone: Andrew Straw <https://github.com/astraw>, René Kijewski <https://github.com/Kijewski>
   - iana-time-zone-haiku: Andrew Straw <https://github.com/astraw>, René Kijewski <https://github.com/Kijewski>
@@ -45,7 +45,7 @@ Owners of dependent Rust crates. This list is generated from Crates.io Data <htt
   - memchr: Andrew Gallant <https://github.com/BurntSushi>
   - minimal-lexical: Alexander Huszagh <https://github.com/Alexhuszagh>
   - nom: Geoffroy Couprie <https://github.com/Geal>
-  - num-traits: Josh Stone <https://github.com/cuviper>, Łukasz Jan Niemier <https://github.com/hauleth>
+  - num-traits: Josh Stone <https://github.com/cuviper>
   - object: Nick Fitzgerald <https://github.com/fitzgen>, Philip Craig <https://github.com/philipc>
   - once_cell: Alex Kladov <https://github.com/matklad>, Michal 'vorner' Vaner <https://github.com/vorner>
   - proc-macro2: David Tolnay <https://github.com/dtolnay>

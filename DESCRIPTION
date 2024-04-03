@@ -45,4 +45,4 @@ Config/Needs/dev:
     tidyr
 Config/Needs/website:
     pkgdown
-Config/prqlr/LibVersion: 0.11.1
+Config/prqlr/LibVersion: 0.11.2
