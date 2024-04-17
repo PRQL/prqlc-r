@@ -1,10 +1,10 @@
 pandoc: 3.1.11
-pkgdown: 2.0.7
+pkgdown: 2.0.8
 pkgdown_sha: ~
 articles:
   knitr: knitr.html
   prqlr: prqlr.html
-last_built: 2024-04-05T03:42Z
+last_built: 2024-04-17T12:49Z
 urls:
   reference: https://prql.github.io/prqlc-r/reference
   article: https://prql.github.io/prqlc-r/articles
