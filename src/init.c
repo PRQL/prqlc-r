@@ -1,6 +1,8 @@
 
 #include <stdint.h>
 #include <Rinternals.h>
+#include <R_ext/Parse.h>
+
 #include "rust/api.h"
 
 static uintptr_t TAGGED_POINTER_MASK = (uintptr_t)1;
@@ -32,48 +34,51 @@ SEXP handle_result(SEXP res_) {
     return (SEXP)res;
 }
 
-SEXP compile__impl(SEXP prql_query, SEXP target, SEXP format, SEXP signature_comment) {
-    SEXP res = compile(prql_query, target, format, signature_comment);
+SEXP savvy_compile__impl(SEXP prql_query, SEXP target, SEXP format, SEXP signature_comment) {
+    SEXP res = savvy_compile__ffi(prql_query, target, format, signature_comment);
     return handle_result(res);
 }
 
-SEXP prql_to_pl__impl(SEXP prql_query) {
-    SEXP res = prql_to_pl(prql_query);
+SEXP savvy_prql_to_pl__impl(SEXP prql_query) {
+    SEXP res = savvy_prql_to_pl__ffi(prql_query);
     return handle_result(res);
 }
 
-SEXP pl_to_rq__impl(SEXP pl_json) {
-    SEXP res = pl_to_rq(pl_json);
+SEXP savvy_pl_to_rq__impl(SEXP pl_json) {
+    SEXP res = savvy_pl_to_rq__ffi(pl_json);
     return handle_result(res);
 }
 
-SEXP rq_to_sql__impl(SEXP rq_json) {
-    SEXP res = rq_to_sql(rq_json);
+SEXP savvy_rq_to_sql__impl(SEXP rq_json) {
+    SEXP res = savvy_rq_to_sql__ffi(rq_json);
     return handle_result(res);
 }
 
-SEXP compiler_version__impl(void) {
-    SEXP res = compiler_version();
+SEXP savvy_compiler_version__impl(void) {
+    SEXP res = savvy_compiler_version__ffi();
     return handle_result(res);
 }
 
-SEXP prql_get_targets__impl(void) {
-    SEXP res = prql_get_targets();
+SEXP savvy_prql_get_targets__impl(void) {
+    SEXP res = savvy_prql_get_targets__ffi();
     return handle_result(res);
 }
 
 
 static const R_CallMethodDef CallEntries[] = {
-    {"compile__impl", (DL_FUNC) &compile__impl, 4},
-    {"prql_to_pl__impl", (DL_FUNC) &prql_to_pl__impl, 1},
-    {"pl_to_rq__impl", (DL_FUNC) &pl_to_rq__impl, 1},
-    {"rq_to_sql__impl", (DL_FUNC) &rq_to_sql__impl, 1},
-    {"compiler_version__impl", (DL_FUNC) &compiler_version__impl, 0},
-    {"prql_get_targets__impl", (DL_FUNC) &prql_get_targets__impl, 0},
+    {"savvy_compile__impl", (DL_FUNC) &savvy_compile__impl, 4},
+    {"savvy_prql_to_pl__impl", (DL_FUNC) &savvy_prql_to_pl__impl, 1},
+    {"savvy_pl_to_rq__impl", (DL_FUNC) &savvy_pl_to_rq__impl, 1},
+    {"savvy_rq_to_sql__impl", (DL_FUNC) &savvy_rq_to_sql__impl, 1},
+    {"savvy_compiler_version__impl", (DL_FUNC) &savvy_compiler_version__impl, 0},
+    {"savvy_prql_get_targets__impl", (DL_FUNC) &savvy_prql_get_targets__impl, 0},
     {NULL, NULL, 0}
 };
 
 void R_init_prqlr(DllInfo *dll) {
-  R_registerRoutines(dll, NULL, CallEntries, NULL, NULL);
-  R_useDynamicSymbols(dll, FALSE);
+    R_registerRoutines(dll, NULL, CallEntries, NULL, NULL);
+    R_useDynamicSymbols(dll, FALSE);
+
+    // Functions for initialzation, if any.
+
 }
