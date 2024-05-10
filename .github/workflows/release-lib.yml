@@ -98,7 +98,16 @@ jobs:
 
           LIB_PATH="$(pwd)/rust/target/${TARGET}/${PRQLR_PROFILE}/${LIB_NAME}.a"
           ARTIFACT_NAME="${LIB_NAME}-${LIB_VERSION}-${TARGET}.tar.gz"
-          make -f Makevars${{ runner.os == 'Windows' && '.win' || '.in' }} "${LIB_PATH}"
+          if [[ "${{ runner.os }}" == "macos" ]]; then
+            # Rinternals header is needed
+            pushd ..
+            Rscript -e 'install.packages("pkgbuild")'
+            Rscript -e 'pkgbuild::compile_dll()'
+            popd
+          else
+            make -f Makevars${{ runner.os == 'Windows' && '.win' || '.in' }} "${LIB_PATH}"
+          fi
+
           tar -czf "../${ARTIFACT_NAME}" -C "rust/target/${TARGET}/${PRQLR_PROFILE}" "${LIB_NAME}.a"
           echo "ARTIFACT_NAME=${ARTIFACT_NAME}" >>"$GITHUB_ENV"
 
@@ -127,6 +136,9 @@ jobs:
             r: devel
           - os: macos-latest
             r: oldrel-1
+        include:
+          - os: macos-12
+            r: release
 
     permissions:
       contents: read
