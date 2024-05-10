@@ -20,7 +20,7 @@ License:     0BSD OR Apache-2.0 OR MIT
 -------------------------------------------------------------
 
 Name:        ahash
-Version:     0.8.6
+Version:     0.8.11
 Repository:  https://github.com/tkaitchuck/ahash
 Authors:     Tom Kaitchuck
 License:     Apache-2.0 OR MIT
@@ -28,7 +28,7 @@ License:     Apache-2.0 OR MIT
 -------------------------------------------------------------
 
 Name:        aho-corasick
-Version:     1.1.2
+Version:     1.1.3
 Repository:  https://github.com/BurntSushi/aho-corasick
 Authors:     Andrew Gallant
 License:     MIT OR Unlicense
@@ -36,7 +36,7 @@ License:     MIT OR Unlicense
 -------------------------------------------------------------
 
 Name:        allocator-api2
-Version:     0.2.16
+Version:     0.2.18
 Repository:  https://github.com/zakarumych/allocator-api2
 Authors:     Zakarum
 License:     Apache-2.0 OR MIT
@@ -68,7 +68,7 @@ License:     Apache-2.0 OR MIT
 -------------------------------------------------------------
 
 Name:        anstyle
-Version:     1.0.2
+Version:     1.0.7
 Repository:  https://github.com/rust-cli/anstyle.git
 Authors:     anstyle authors
 License:     Apache-2.0 OR MIT
@@ -76,7 +76,7 @@ License:     Apache-2.0 OR MIT
 -------------------------------------------------------------
 
 Name:        anstyle-parse
-Version:     0.2.1
+Version:     0.2.4
 Repository:  https://github.com/rust-cli/anstyle.git
 Authors:     anstyle-parse authors
 License:     Apache-2.0 OR MIT
@@ -84,7 +84,7 @@ License:     Apache-2.0 OR MIT
 -------------------------------------------------------------
 
 Name:        anstyle-query
-Version:     1.0.0
+Version:     1.0.3
 Repository:  https://github.com/rust-cli/anstyle
 Authors:     anstyle-query authors
 License:     Apache-2.0 OR MIT
@@ -100,7 +100,7 @@ License:     Apache-2.0 OR MIT
 -------------------------------------------------------------
 
 Name:        anyhow
-Version:     1.0.79
+Version:     1.0.83
 Repository:  https://github.com/dtolnay/anyhow
 Authors:     David Tolnay
 License:     Apache-2.0 OR MIT
@@ -108,7 +108,7 @@ License:     Apache-2.0 OR MIT
 -------------------------------------------------------------
 
 Name:        ariadne
-Version:     0.4.0
+Version:     0.4.1
 Repository:  https://github.com/zesterer/ariadne
 Authors:     Joshua Barretto
 License:     MIT
@@ -116,7 +116,7 @@ License:     MIT
 -------------------------------------------------------------
 
 Name:        autocfg
-Version:     1.1.0
+Version:     1.3.0
 Repository:  https://github.com/cuviper/autocfg
 Authors:     Josh Stone
 License:     Apache-2.0 OR MIT
@@ -124,23 +124,15 @@ License:     Apache-2.0 OR MIT
 -------------------------------------------------------------
 
 Name:        backtrace
-Version:     0.3.69
+Version:     0.3.71
 Repository:  https://github.com/rust-lang/backtrace-rs
 Authors:     The Rust Project Developers
 License:     Apache-2.0 OR MIT
 
 -------------------------------------------------------------
 
-Name:        bitflags
-Version:     2.4.1
-Repository:  https://github.com/bitflags/bitflags
-Authors:     The Rust Project Developers
-License:     Apache-2.0 OR MIT
-
--------------------------------------------------------------
-
 Name:        bumpalo
-Version:     3.14.0
+Version:     3.16.0
 Repository:  https://github.com/fitzgen/bumpalo
 Authors:     Nick Fitzgerald
 License:     Apache-2.0 OR MIT
@@ -148,7 +140,7 @@ License:     Apache-2.0 OR MIT
 -------------------------------------------------------------
 
 Name:        cc
-Version:     1.0.83
+Version:     1.0.97
 Repository:  https://github.com/rust-lang/cc-rs
 Authors:     Alex Crichton
 License:     Apache-2.0 OR MIT
@@ -164,7 +156,7 @@ License:     Apache-2.0 OR MIT
 -------------------------------------------------------------
 
 Name:        chrono
-Version:     0.4.33
+Version:     0.4.38
 Repository:  https://github.com/chronotope/chrono
 Authors:     chrono authors
 License:     Apache-2.0 OR MIT
@@ -180,7 +172,7 @@ License:     MIT
 -------------------------------------------------------------
 
 Name:        colorchoice
-Version:     1.0.0
+Version:     1.0.1
 Repository:  https://github.com/rust-cli/anstyle
 Authors:     colorchoice authors
 License:     Apache-2.0 OR MIT
@@ -212,8 +204,8 @@ License:     MIT OR Unlicense
 -------------------------------------------------------------
 
 Name:        either
-Version:     1.9.0
-Repository:  https://github.com/bluss/either
+Version:     1.11.0
+Repository:  https://github.com/rayon-rs/either
 Authors:     bluss
 License:     Apache-2.0 OR MIT
 
@@ -235,14 +227,6 @@ License:     Apache-2.0 OR MIT
 
 -------------------------------------------------------------
 
-Name:        errno
-Version:     0.3.8
-Repository:  https://github.com/lambda-fairy/rust-errno
-Authors:     Chris Wong
-License:     Apache-2.0 OR MIT
-
--------------------------------------------------------------
-
 Name:        gimli
 Version:     0.28.1
 Repository:  https://github.com/gimli-rs/gimli
@@ -252,7 +236,7 @@ License:     Apache-2.0 OR MIT
 -------------------------------------------------------------
 
 Name:        hashbrown
-Version:     0.14.3
+Version:     0.14.5
 Repository:  https://github.com/rust-lang/hashbrown
 Authors:     Amanieu d'Antras
 License:     Apache-2.0 OR MIT
@@ -268,15 +252,15 @@ License:     Apache-2.0 OR MIT
 -------------------------------------------------------------
 
 Name:        hermit-abi
-Version:     0.3.3
-Repository:  https://github.com/hermitcore/hermit-rs
+Version:     0.3.9
+Repository:  https://github.com/hermit-os/hermit-rs
 Authors:     Stefan Lankes
 License:     Apache-2.0 OR MIT
 
 -------------------------------------------------------------
 
 Name:        iana-time-zone
-Version:     0.1.58
+Version:     0.1.60
 Repository:  https://github.com/strawlab/iana-time-zone
 Authors:     Andrew Straw, René Kijewski, Ryan Lopopolo
 License:     Apache-2.0 OR MIT
@@ -292,7 +276,7 @@ License:     Apache-2.0 OR MIT
 -------------------------------------------------------------
 
 Name:        indexmap
-Version:     2.2.2
+Version:     2.2.6
 Repository:  https://github.com/indexmap-rs/indexmap
 Authors:     indexmap authors
 License:     Apache-2.0 OR MIT
@@ -300,7 +284,7 @@ License:     Apache-2.0 OR MIT
 -------------------------------------------------------------
 
 Name:        is-terminal
-Version:     0.4.9
+Version:     0.4.12
 Repository:  https://github.com/sunfishcode/is-terminal
 Authors:     softprops, Dan Gohman
 License:     MIT
@@ -308,7 +292,7 @@ License:     MIT
 -------------------------------------------------------------
 
 Name:        itertools
-Version:     0.12.0
+Version:     0.12.1
 Repository:  https://github.com/rust-itertools/itertools
 Authors:     bluss
 License:     Apache-2.0 OR MIT
@@ -316,7 +300,7 @@ License:     Apache-2.0 OR MIT
 -------------------------------------------------------------
 
 Name:        itoa
-Version:     1.0.10
+Version:     1.0.11
 Repository:  https://github.com/dtolnay/itoa
 Authors:     David Tolnay
 License:     Apache-2.0 OR MIT
@@ -324,7 +308,7 @@ License:     Apache-2.0 OR MIT
 -------------------------------------------------------------
 
 Name:        js-sys
-Version:     0.3.66
+Version:     0.3.69
 Repository:  https://github.com/rustwasm/wasm-bindgen/tree/master/crates/js-sys
 Authors:     The wasm-bindgen Developers
 License:     Apache-2.0 OR MIT
@@ -332,23 +316,15 @@ License:     Apache-2.0 OR MIT
 -------------------------------------------------------------
 
 Name:        libc
-Version:     0.2.151
+Version:     0.2.154
 Repository:  https://github.com/rust-lang/libc
 Authors:     The Rust Project Developers
 License:     Apache-2.0 OR MIT
 
 -------------------------------------------------------------
 
-Name:        linux-raw-sys
-Version:     0.4.12
-Repository:  https://github.com/sunfishcode/linux-raw-sys
-Authors:     Dan Gohman
-License:     Apache-2.0 OR Apache-2.0 WITH LLVM-exception OR MIT
-
--------------------------------------------------------------
-
 Name:        log
-Version:     0.4.20
+Version:     0.4.21
 Repository:  https://github.com/rust-lang/log
 Authors:     The Rust Project Developers
 License:     Apache-2.0 OR MIT
@@ -356,7 +332,7 @@ License:     Apache-2.0 OR MIT
 -------------------------------------------------------------
 
 Name:        memchr
-Version:     2.6.4
+Version:     2.7.2
 Repository:  https://github.com/BurntSushi/memchr
 Authors:     Andrew Gallant, bluss
 License:     MIT OR Unlicense
@@ -372,7 +348,7 @@ License:     Apache-2.0 OR MIT
 -------------------------------------------------------------
 
 Name:        miniz_oxide
-Version:     0.7.1
+Version:     0.7.2
 Repository:  https://github.com/Frommi/miniz_oxide/tree/master/miniz_oxide
 Authors:     Frommi, oyvindln
 License:     Apache-2.0 OR MIT OR Zlib
@@ -388,7 +364,7 @@ License:     MIT
 -------------------------------------------------------------
 
 Name:        num-traits
-Version:     0.2.17
+Version:     0.2.19
 Repository:  https://github.com/rust-num/num-traits
 Authors:     The Rust Project Developers
 License:     Apache-2.0 OR MIT
@@ -396,7 +372,7 @@ License:     Apache-2.0 OR MIT
 -------------------------------------------------------------
 
 Name:        object
-Version:     0.32.1
+Version:     0.32.2
 Repository:  https://github.com/gimli-rs/object
 Authors:     object authors
 License:     Apache-2.0 OR MIT
@@ -412,7 +388,7 @@ License:     Apache-2.0 OR MIT
 -------------------------------------------------------------
 
 Name:        proc-macro2
-Version:     1.0.71
+Version:     1.0.82
 Repository:  https://github.com/dtolnay/proc-macro2
 Authors:     David Tolnay, Alex Crichton
 License:     Apache-2.0 OR MIT
@@ -452,7 +428,7 @@ License:     Apache-2.0 OR MIT
 -------------------------------------------------------------
 
 Name:        quote
-Version:     1.0.33
+Version:     1.0.36
 Repository:  https://github.com/dtolnay/quote
 Authors:     David Tolnay
 License:     Apache-2.0 OR MIT
@@ -460,7 +436,7 @@ License:     Apache-2.0 OR MIT
 -------------------------------------------------------------
 
 Name:        regex
-Version:     1.10.3
+Version:     1.10.4
 Repository:  https://github.com/rust-lang/regex
 Authors:     The Rust Project Developers, Andrew Gallant
 License:     Apache-2.0 OR MIT
@@ -468,7 +444,7 @@ License:     Apache-2.0 OR MIT
 -------------------------------------------------------------
 
 Name:        regex-automata
-Version:     0.4.5
+Version:     0.4.6
 Repository:  https://github.com/rust-lang/regex/tree/master/regex-automata
 Authors:     The Rust Project Developers, Andrew Gallant
 License:     Apache-2.0 OR MIT
@@ -476,7 +452,7 @@ License:     Apache-2.0 OR MIT
 -------------------------------------------------------------
 
 Name:        regex-syntax
-Version:     0.8.2
+Version:     0.8.3
 Repository:  https://github.com/rust-lang/regex/tree/master/regex-syntax
 Authors:     The Rust Project Developers, Andrew Gallant
 License:     Apache-2.0 OR MIT
@@ -484,23 +460,15 @@ License:     Apache-2.0 OR MIT
 -------------------------------------------------------------
 
 Name:        rustc-demangle
-Version:     0.1.23
-Repository:  https://github.com/alexcrichton/rustc-demangle
+Version:     0.1.24
+Repository:  https://github.com/rust-lang/rustc-demangle
 Authors:     Alex Crichton
 License:     Apache-2.0 OR MIT
 
 -------------------------------------------------------------
 
-Name:        rustix
-Version:     0.38.28
-Repository:  https://github.com/bytecodealliance/rustix
-Authors:     Dan Gohman, Jakub Konka
-License:     Apache-2.0 OR Apache-2.0 WITH LLVM-exception OR MIT
-
--------------------------------------------------------------
-
 Name:        rustversion
-Version:     1.0.14
+Version:     1.0.16
 Repository:  https://github.com/dtolnay/rustversion
 Authors:     David Tolnay
 License:     Apache-2.0 OR MIT
@@ -508,7 +476,7 @@ License:     Apache-2.0 OR MIT
 -------------------------------------------------------------
 
 Name:        ryu
-Version:     1.0.16
+Version:     1.0.18
 Repository:  https://github.com/dtolnay/ryu
 Authors:     David Tolnay
 License:     Apache-2.0 OR BSL-1.0
@@ -548,7 +516,7 @@ License:     MIT
 -------------------------------------------------------------
 
 Name:        semver
-Version:     1.0.20
+Version:     1.0.23
 Repository:  https://github.com/dtolnay/semver
 Authors:     David Tolnay
 License:     Apache-2.0 OR MIT
@@ -556,7 +524,7 @@ License:     Apache-2.0 OR MIT
 -------------------------------------------------------------
 
 Name:        serde
-Version:     1.0.193
+Version:     1.0.201
 Repository:  https://github.com/serde-rs/serde
 Authors:     Erick Tryzelaar, David Tolnay
 License:     Apache-2.0 OR MIT
@@ -564,7 +532,7 @@ License:     Apache-2.0 OR MIT
 -------------------------------------------------------------
 
 Name:        serde_derive
-Version:     1.0.193
+Version:     1.0.201
 Repository:  https://github.com/serde-rs/serde
 Authors:     Erick Tryzelaar, David Tolnay
 License:     Apache-2.0 OR MIT
@@ -572,7 +540,7 @@ License:     Apache-2.0 OR MIT
 -------------------------------------------------------------
 
 Name:        serde_json
-Version:     1.0.109
+Version:     1.0.117
 Repository:  https://github.com/serde-rs/json
 Authors:     Erick Tryzelaar, David Tolnay
 License:     Apache-2.0 OR MIT
@@ -580,7 +548,7 @@ License:     Apache-2.0 OR MIT
 -------------------------------------------------------------
 
 Name:        serde_yaml
-Version:     0.9.29
+Version:     0.9.34+deprecated
 Repository:  https://github.com/dtolnay/serde-yaml
 Authors:     David Tolnay
 License:     Apache-2.0 OR MIT
@@ -612,7 +580,7 @@ License:     Apache-2.0 OR MIT
 -------------------------------------------------------------
 
 Name:        strum
-Version:     0.26.1
+Version:     0.26.2
 Repository:  https://github.com/Peternator7/strum
 Authors:     Peter Glotfelty
 License:     MIT
@@ -620,7 +588,7 @@ License:     MIT
 -------------------------------------------------------------
 
 Name:        strum_macros
-Version:     0.26.1
+Version:     0.26.2
 Repository:  https://github.com/Peternator7/strum
 Authors:     Peter Glotfelty
 License:     MIT
@@ -628,7 +596,7 @@ License:     MIT
 -------------------------------------------------------------
 
 Name:        syn
-Version:     2.0.42
+Version:     2.0.61
 Repository:  https://github.com/dtolnay/syn
 Authors:     David Tolnay
 License:     Apache-2.0 OR MIT
@@ -644,7 +612,7 @@ License:     (MIT OR Apache-2.0) AND Unicode-DFS-2016
 -------------------------------------------------------------
 
 Name:        unicode-width
-Version:     0.1.11
+Version:     0.1.12
 Repository:  https://github.com/unicode-rs/unicode-width
 Authors:     kwantam, Manish Goregaokar
 License:     Apache-2.0 OR MIT
@@ -660,7 +628,7 @@ License:     Apache-2.0 OR MIT
 -------------------------------------------------------------
 
 Name:        unsafe-libyaml
-Version:     0.2.10
+Version:     0.2.11
 Repository:  https://github.com/dtolnay/unsafe-libyaml
 Authors:     David Tolnay
 License:     MIT
@@ -684,7 +652,7 @@ License:     Apache-2.0 OR MIT
 -------------------------------------------------------------
 
 Name:        wasm-bindgen
-Version:     0.2.89
+Version:     0.2.92
 Repository:  https://github.com/rustwasm/wasm-bindgen
 Authors:     The wasm-bindgen Developers
 License:     Apache-2.0 OR MIT
@@ -692,7 +660,7 @@ License:     Apache-2.0 OR MIT
 -------------------------------------------------------------
 
 Name:        wasm-bindgen-backend
-Version:     0.2.89
+Version:     0.2.92
 Repository:  https://github.com/rustwasm/wasm-bindgen/tree/master/crates/backend
 Authors:     The wasm-bindgen Developers
 License:     Apache-2.0 OR MIT
@@ -700,7 +668,7 @@ License:     Apache-2.0 OR MIT
 -------------------------------------------------------------
 
 Name:        wasm-bindgen-macro
-Version:     0.2.89
+Version:     0.2.92
 Repository:  https://github.com/rustwasm/wasm-bindgen/tree/master/crates/macro
 Authors:     The wasm-bindgen Developers
 License:     Apache-2.0 OR MIT
@@ -708,7 +676,7 @@ License:     Apache-2.0 OR MIT
 -------------------------------------------------------------
 
 Name:        wasm-bindgen-macro-support
-Version:     0.2.89
+Version:     0.2.92
 Repository:  https://github.com/rustwasm/wasm-bindgen/tree/master/crates/macro-support
 Authors:     The wasm-bindgen Developers
 License:     Apache-2.0 OR MIT
@@ -716,7 +684,7 @@ License:     Apache-2.0 OR MIT
 -------------------------------------------------------------
 
 Name:        wasm-bindgen-shared
-Version:     0.2.89
+Version:     0.2.92
 Repository:  https://github.com/rustwasm/wasm-bindgen/tree/master/crates/shared
 Authors:     The wasm-bindgen Developers
 License:     Apache-2.0 OR MIT
@@ -748,7 +716,7 @@ License:     Apache-2.0 OR MIT
 -------------------------------------------------------------
 
 Name:        windows-core
-Version:     0.51.1
+Version:     0.52.0
 Repository:  https://github.com/microsoft/windows-rs
 Authors:     Microsoft
 License:     Apache-2.0 OR MIT
@@ -780,7 +748,7 @@ License:     Apache-2.0 OR MIT
 -------------------------------------------------------------
 
 Name:        windows-targets
-Version:     0.52.0
+Version:     0.52.5
 Repository:  https://github.com/microsoft/windows-rs
 Authors:     Microsoft
 License:     Apache-2.0 OR MIT
@@ -796,7 +764,7 @@ License:     Apache-2.0 OR MIT
 -------------------------------------------------------------
 
 Name:        windows_aarch64_gnullvm
-Version:     0.52.0
+Version:     0.52.5
 Repository:  https://github.com/microsoft/windows-rs
 Authors:     Microsoft
 License:     Apache-2.0 OR MIT
@@ -812,7 +780,7 @@ License:     Apache-2.0 OR MIT
 -------------------------------------------------------------
 
 Name:        windows_aarch64_msvc
-Version:     0.52.0
+Version:     0.52.5
 Repository:  https://github.com/microsoft/windows-rs
 Authors:     Microsoft
 License:     Apache-2.0 OR MIT
@@ -828,7 +796,15 @@ License:     Apache-2.0 OR MIT
 -------------------------------------------------------------
 
 Name:        windows_i686_gnu
-Version:     0.52.0
+Version:     0.52.5
+Repository:  https://github.com/microsoft/windows-rs
+Authors:     Microsoft
+License:     Apache-2.0 OR MIT
+
+-------------------------------------------------------------
+
+Name:        windows_i686_gnullvm
+Version:     0.52.5
 Repository:  https://github.com/microsoft/windows-rs
 Authors:     Microsoft
 License:     Apache-2.0 OR MIT
@@ -844,7 +820,7 @@ License:     Apache-2.0 OR MIT
 -------------------------------------------------------------
 
 Name:        windows_i686_msvc
-Version:     0.52.0
+Version:     0.52.5
 Repository:  https://github.com/microsoft/windows-rs
 Authors:     Microsoft
 License:     Apache-2.0 OR MIT
@@ -860,7 +836,7 @@ License:     Apache-2.0 OR MIT
 -------------------------------------------------------------
 
 Name:        windows_x86_64_gnu
-Version:     0.52.0
+Version:     0.52.5
 Repository:  https://github.com/microsoft/windows-rs
 Authors:     Microsoft
 License:     Apache-2.0 OR MIT
@@ -876,7 +852,7 @@ License:     Apache-2.0 OR MIT
 -------------------------------------------------------------
 
 Name:        windows_x86_64_gnullvm
-Version:     0.52.0
+Version:     0.52.5
 Repository:  https://github.com/microsoft/windows-rs
 Authors:     Microsoft
 License:     Apache-2.0 OR MIT
@@ -892,7 +868,7 @@ License:     Apache-2.0 OR MIT
 -------------------------------------------------------------
 
 Name:        windows_x86_64_msvc
-Version:     0.52.0
+Version:     0.52.5
 Repository:  https://github.com/microsoft/windows-rs
 Authors:     Microsoft
 License:     Apache-2.0 OR MIT
@@ -900,7 +876,7 @@ License:     Apache-2.0 OR MIT
 -------------------------------------------------------------
 
 Name:        yansi
-Version:     0.5.1
+Version:     1.0.1
 Repository:  https://github.com/SergioBenitez/yansi
 Authors:     Sergio Benitez
 License:     Apache-2.0 OR MIT
@@ -908,7 +884,7 @@ License:     Apache-2.0 OR MIT
 -------------------------------------------------------------
 
 Name:        zerocopy
-Version:     0.7.32
+Version:     0.7.34
 Repository:  https://github.com/google/zerocopy
 Authors:     Joshua Liebow-Feeser
 License:     Apache-2.0 OR BSD-2-Clause OR MIT
@@ -916,7 +892,7 @@ License:     Apache-2.0 OR BSD-2-Clause OR MIT
 -------------------------------------------------------------
 
 Name:        zerocopy-derive
-Version:     0.7.32
+Version:     0.7.34
 Repository:  https://github.com/google/zerocopy
 Authors:     Joshua Liebow-Feeser
 License:     Apache-2.0 OR BSD-2-Clause OR MIT
