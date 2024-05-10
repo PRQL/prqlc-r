@@ -162,7 +162,7 @@ tasks:
     deps:
       - build-vendor-sources
     generates:
-      - R/wrappers.R
+      - R/000-wrappers.R
     cmds:
       - savvy-cli update .
 
