@@ -37,6 +37,7 @@ Config/testthat/edition: 3
 Config/Needs/dev:
     brio,
     devtools,
+    xfun (>= 0.44),
     lintr,
     styler,
     purrr,
