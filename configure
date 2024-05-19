@@ -41,7 +41,7 @@ check_bin_lib() {
 
   if [ "${LIBPRQLR_BUILD}" = "false" ] && [ -f "tools/lib-sums.tsv" ] && [ ! -f "${LIBPRQLR_PATH}" ]; then
     echo ""
-    echo "--------------- [ TRY TO DOWNLOAD PRE-BUILT BINARY ] ---------------"
+    echo "--------------- [TRY TO DOWNLOAD PRE-BUILT BINARY] ---------------"
     "${R_HOME}/bin${R_ARCH_BIN}/Rscript" "tools/prep-lib.R" || echo "Failed to download pre-built binary."
     echo "--------------------------------------------------------------------"
     echo ""
@@ -64,11 +64,11 @@ check_bin_lib() {
       echo ""
     fi
     exit 0
-  elif [ "${LIBR_POLARS_BUILD}" = "false" ] && [ -f "${LIBR_POLARS_DEFAULT_PATH}" ]; then
+  elif [ "${LIBPRQLR_BUILD}" = "false" ] && [ -f "${LIBPRQLR_DEFAULT_PATH}" ]; then
     echo ""
     echo "---------------------- [LIBRARY BINARY FOUND] ----------------------"
-    echo "The library was not found at <${LIBR_POLARS_PATH}>,"
-    echo "but was found at <${LIBR_POLARS_DEFAULT_PATH}>."
+    echo "The library was not found at <${LIBPRQLR_PATH}>,"
+    echo "but was found at <${LIBPRQLR_DEFAULT_PATH}>."
     echo "No need to build it."
     echo "--------------------------------------------------------------------"
     echo ""
