@@ -43,7 +43,8 @@ Config/Needs/dev:
     purrr,
     RcppTOML,
     readr,
-    tidyr
+    tidyr,
+    rhub
 Config/Needs/website:
     pkgdown
 Config/prqlr/LibVersion: 0.11.2
