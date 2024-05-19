@@ -8,12 +8,11 @@
   - { os: ubuntu-latest, r: "release" }
   - { os: ubuntu-latest, r: "oldrel-1" }
 - devtools
-  - `check_rhub()`
   - `check_win_release()`
 
 ## R CMD check results
 
 - There were no ERRORs or WARNINGs.
-- There was a NOTE about CRAN incoming feasibility: `Size of tarball: 15711440 bytes`
+- There was a NOTE about CRAN incoming feasibility: `Size of tarball: 15794231 bytes`
   - Most of this size is a tarball of vendored Rust source code,
     since this package contains all the Rust source code of the dependencies.
