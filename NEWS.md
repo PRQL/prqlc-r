@@ -1,5 +1,7 @@
 # prqlr 0.8.1
 
+Just dependency updates. No user-facing changes.
+
 # prqlr 0.8.0
 
 ## Breaking changes
