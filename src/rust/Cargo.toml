@@ -15,4 +15,4 @@ savvy = "0.6.3"
 # prqlc 0.11.2 is not compatible with Rust 1.65, so a slightly modified version is installed
 # See https://github.com/PRQL/prql/pull/4001
 prqlc = { git = "https://github.com/PRQL/prql", rev = "942102b4c3cebd20e62463d22394d39d89b6fb7b", default-features = false }
-anstream = { version = "0.3.2", features = ["auto"] }
+anstream = { version = "0.6.14", features = ["auto"] }
