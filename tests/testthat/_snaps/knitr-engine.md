@@ -6,7 +6,7 @@
       
       
       
-      ```elm
+      ``` elm
       from mtcars
       filter cyl > 6
       select {cyl, mpg}
@@ -33,7 +33,7 @@
       ```
       
       
-      ```elm
+      ``` elm
       from mtcars
       filter cyl > 6
       select {cyl, mpg}
@@ -61,7 +61,7 @@
       
       
       
-      ```elm
+      ``` elm
       from mtcars
       filter cyl > 6
       select {cyl, mpg}
@@ -88,7 +88,7 @@
       ```
       
       
-      ```elm
+      ``` elm
       from mtcars
       filter cyl > 6
       select {cyl, mpg}
@@ -115,7 +115,7 @@
         prqlr.signature_comment = FALSE), .knit_file("minimal.Rmd"))
     Output
       
-      ```elm
+      ``` elm
       from mtcars
       filter cyl > 6
       select {cyl, mpg}
@@ -147,13 +147,13 @@
       .knit_file("glue.Rmd")
     Output
       
-      ```r
+      ``` r
       a <- "hello"
       b <- "world"
       ```
       
       
-      ```elm
+      ``` elm
       from hello
       select world
       ```
@@ -168,7 +168,7 @@
       
       
       
-      ```elm
+      ``` elm
       from mtcars
       select hello
       ```
@@ -184,7 +184,7 @@
       .knit_file("change-lang.Rmd")
     Output
       
-      ```prql
+      ``` prql
       from mtcars
       filter cyl > 6
       select {cyl, mpg}
@@ -210,7 +210,7 @@
       
       
       
-      ```foo
+      ``` foo
       from mtcars
       filter cyl > 6
       select {cyl, mpg}
@@ -236,7 +236,7 @@
       .knit_file("info-string.Rmd")
     Output
       
-      ```elm
+      ``` elm
       from mtcars
       filter cyl > 6
       select {cyl, mpg}
@@ -267,7 +267,7 @@
       
       
       
-      ```elm
+      ``` elm
       from mtcars
       filter cyl > 6
       select {cyl, mpg}
@@ -276,7 +276,7 @@
       ```
       
       
-      ```elm
+      ``` elm
       from mtcars
       filter cyl > 6
       select {cyl, mpg}
@@ -285,7 +285,7 @@
       ```
       
       
-      ```elm
+      ``` elm
       from {{foo}}
       ```
 
