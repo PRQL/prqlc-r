@@ -1,4 +1,4 @@
-# prqlr (development version)
+# prqlr 0.8.1
 
 # prqlr 0.8.0
 
