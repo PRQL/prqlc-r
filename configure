@@ -66,7 +66,7 @@ check_bin_lib() {
     echo "---------------------- [LIBRARY BINARY FOUND] ----------------------"
     echo "The library was found at <${LIBPRQLR_PATH}>. No need to build it."
     echo ""
-    echo "Note: rustc version: $(rustc -V || echo 'Not found')"
+    echo "Note: rustc version: $(command -v rustc >/dev/null && rustc -V || echo 'Not found')"
     echo "--------------------------------------------------------------------"
     echo ""
     sed -e "s|@RUST_TARGET@||" src/Makevars.in >src/Makevars
@@ -87,7 +87,7 @@ check_bin_lib() {
     echo "but was found at <${LIBPRQLR_DEFAULT_PATH}>."
     echo "No need to build it."
     echo ""
-    echo "Note: rustc version: $(rustc -V || echo 'Not found')"
+    echo "Note: rustc version: $(command -v rustc >/dev/null && rustc -V || echo 'Not found')"
     echo "--------------------------------------------------------------------"
     echo ""
     sed -e "s|@RUST_TARGET@||" src/Makevars.in >src/Makevars
