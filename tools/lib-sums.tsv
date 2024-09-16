@@ -1,6 +1,0 @@
-url	sha256sum
-https://github.com/PRQL/prqlc-r/releases/download/lib-v0.11.2/libprqlr-0.11.2-aarch64-apple-darwin.tar.gz	70067c52db04e411431bba4a8032c47cc9f6fc7c8872ed46ef788de5f21f723c
-https://github.com/PRQL/prqlc-r/releases/download/lib-v0.11.2/libprqlr-0.11.2-aarch64-unknown-linux-musl.tar.gz	27551162cb0bc59dee6362245fbe8c3957ef17b6c21ef4c4d05e05874f839d7e
-https://github.com/PRQL/prqlc-r/releases/download/lib-v0.11.2/libprqlr-0.11.2-x86_64-apple-darwin.tar.gz	2cdec95a346c34fafc915e32c629d610c8faef0faf67d4acd23079d9023ee0d9
-https://github.com/PRQL/prqlc-r/releases/download/lib-v0.11.2/libprqlr-0.11.2-x86_64-pc-windows-gnu.tar.gz	1ca5d9aa3b15cdbb363e452d760c7d0b1877df492ad680965234478a9a084c32
-https://github.com/PRQL/prqlc-r/releases/download/lib-v0.11.2/libprqlr-0.11.2-x86_64-unknown-linux-musl.tar.gz	bde989b146e159240ff793fa8509b33419d54aacbe6861c13fe479d829558e9d
