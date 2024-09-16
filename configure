@@ -3,6 +3,9 @@
 NOT_CRAN=${NOT_CRAN:-"false"}
 LIBPRQLR_BUILD=${LIBPRQLR_BUILD:-""}
 
+# Detect if this is on R-universe.
+MY_UNIVERSE=${MY_UNIVERSE:-""}
+
 LIBNAME="libprqlr.a"
 LIBPRQLR_DEFAULT_PATH="$(pwd)/tools/${LIBNAME}"
 LIBPRQLR_PATH=${LIBPRQLR_PATH:-${LIBPRQLR_DEFAULT_PATH}}
@@ -39,11 +42,22 @@ check_bin_lib() {
     LIBPRQLR_BUILD="false"
   fi
 
+  # On R-universe, we try to download the pre-built binary from GitHub releases.
+  if [ -n "${MY_UNIVERSE}" ] && [ -z "${LIBPRQLR_BUILD}" ]; then
+    echo ""
+    echo "--------------------- [SETTING FOR R-UNIVERSE] ---------------------"
+    echo "It seems that this is on R-universe <${MY_UNIVERSE}>."
+    echo "Trying to download pre-built binary."
+    echo "--------------------------------------------------------------------"
+    echo ""
+    LIBPRQLR_BUILD="false"
+  fi
+
   if [ "${LIBPRQLR_BUILD}" = "false" ] && [ -f "tools/lib-sums.tsv" ] && [ ! -f "${LIBPRQLR_PATH}" ]; then
     echo ""
     echo "--------------- [TRY TO DOWNLOAD PRE-BUILT BINARY] ---------------"
     "${R_HOME}/bin${R_ARCH_BIN}/Rscript" "tools/prep-lib.R" || echo "Failed to download pre-built binary."
-    echo "--------------------------------------------------------------------"
+    echo "------------------------------------------------------------------"
     echo ""
   fi
 
@@ -51,6 +65,8 @@ check_bin_lib() {
     echo ""
     echo "---------------------- [LIBRARY BINARY FOUND] ----------------------"
     echo "The library was found at <${LIBPRQLR_PATH}>. No need to build it."
+    echo ""
+    echo "Note: rustc version: $(rustc -V || echo 'Not found')"
     echo "--------------------------------------------------------------------"
     echo ""
     sed -e "s|@RUST_TARGET@||" src/Makevars.in >src/Makevars
@@ -70,6 +86,8 @@ check_bin_lib() {
     echo "The library was not found at <${LIBPRQLR_PATH}>,"
     echo "but was found at <${LIBPRQLR_DEFAULT_PATH}>."
     echo "No need to build it."
+    echo ""
+    echo "Note: rustc version: $(rustc -V || echo 'Not found')"
     echo "--------------------------------------------------------------------"
     echo ""
     sed -e "s|@RUST_TARGET@||" src/Makevars.in >src/Makevars
@@ -114,6 +132,8 @@ else
 fi
 
 RUST_TARGET="${TARGET:-${HOST_TRIPLE}}"
-sed -e "s|@RUST_TARGET@|${RUST_TARGET}|" src/Makevars.in >src/Makevars
+sed \
+  -e "s|@RUST_TARGET@|${RUST_TARGET}|" \
+  src/Makevars.in >src/Makevars
 
 exit 0
