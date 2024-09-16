@@ -1,5 +1,9 @@
 # prqlr (development version)
 
+## Bug fixes
+
+- Fix to report rustc version even if installing with pre-built binaries. (#305)
+
 # prqlr 0.8.1
 
 Just dependency updates. No user-facing changes.
