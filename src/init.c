@@ -34,23 +34,23 @@ SEXP handle_result(SEXP res_) {
     return (SEXP)res;
 }
 
-SEXP savvy_compile__impl(SEXP prql_query, SEXP target, SEXP format, SEXP signature_comment) {
-    SEXP res = savvy_compile__ffi(prql_query, target, format, signature_comment);
+SEXP savvy_compile__impl(SEXP c_arg__prql_query, SEXP c_arg__target, SEXP c_arg__format, SEXP c_arg__signature_comment) {
+    SEXP res = savvy_compile__ffi(c_arg__prql_query, c_arg__target, c_arg__format, c_arg__signature_comment);
     return handle_result(res);
 }
 
-SEXP savvy_prql_to_pl__impl(SEXP prql_query) {
-    SEXP res = savvy_prql_to_pl__ffi(prql_query);
+SEXP savvy_prql_to_pl__impl(SEXP c_arg__prql_query) {
+    SEXP res = savvy_prql_to_pl__ffi(c_arg__prql_query);
     return handle_result(res);
 }
 
-SEXP savvy_pl_to_rq__impl(SEXP pl_json) {
-    SEXP res = savvy_pl_to_rq__ffi(pl_json);
+SEXP savvy_pl_to_rq__impl(SEXP c_arg__pl_json) {
+    SEXP res = savvy_pl_to_rq__ffi(c_arg__pl_json);
     return handle_result(res);
 }
 
-SEXP savvy_rq_to_sql__impl(SEXP rq_json) {
-    SEXP res = savvy_rq_to_sql__ffi(rq_json);
+SEXP savvy_rq_to_sql__impl(SEXP c_arg__rq_json) {
+    SEXP res = savvy_rq_to_sql__ffi(c_arg__rq_json);
     return handle_result(res);
 }
 
