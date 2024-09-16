@@ -484,7 +484,7 @@ License:     Apache-2.0 OR BSL-1.0
 -------------------------------------------------------------
 
 Name:        savvy
-Version:     0.6.4
+Version:     0.6.7
 Repository:  https://github.com/yutannihilation/savvy/
 Authors:     Hiroaki Yutani
 License:     MIT
@@ -492,7 +492,7 @@ License:     MIT
 -------------------------------------------------------------
 
 Name:        savvy-bindgen
-Version:     0.6.4
+Version:     0.6.7
 Repository:  https://github.com/yutannihilation/savvy/
 Authors:     Hiroaki Yutani
 License:     MIT
@@ -500,7 +500,7 @@ License:     MIT
 -------------------------------------------------------------
 
 Name:        savvy-ffi
-Version:     0.6.4
+Version:     0.6.7
 Repository:  https://github.com/yutannihilation/savvy/
 Authors:     Hiroaki Yutani
 License:     MIT
@@ -508,7 +508,7 @@ License:     MIT
 -------------------------------------------------------------
 
 Name:        savvy-macro
-Version:     0.6.4
+Version:     0.6.7
 Repository:  https://github.com/yutannihilation/savvy/
 Authors:     Hiroaki Yutani
 License:     MIT

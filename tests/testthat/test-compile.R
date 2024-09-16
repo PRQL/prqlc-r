@@ -18,11 +18,11 @@ test_that("target set in the header ", {
 test_that("Not a string object", {
   expect_error(
     1 |> prql_compile(),
-    "Unexpected type"
+    "must be character, not double"
   )
   expect_error(
     c("a", "a") |> prql_compile(),
-    "Must be length 1 of non-missing value"
+    "must be be length 1 of non-missing value"
   )
 })
 
@@ -33,7 +33,7 @@ test_that("Unsupported target", {
   )
   expect_error(
     prql_compile("from a | select {b}", NA),
-    "Unexpected type"
+    "must be character, not logical"
   )
   expect_error(
     prql_compile("from a | select {b}", NA_character_),
