@@ -4,6 +4,10 @@
 
 - Fix to report rustc version even if installing with pre-built binaries. (#305)
 
+## Miscellaneous
+
+- On R-universe, installing with pre-built binaries is now default. (#305)
+
 # prqlr 0.8.1
 
 Just dependency updates. No user-facing changes.
