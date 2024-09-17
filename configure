@@ -14,26 +14,26 @@ export PATH="$PATH:$HOME/.cargo/bin"
 
 check_cargo() {
   if [ ! "$(command -v cargo)" ]; then
-    echo ""
-    echo "------------------------- [RUST NOT FOUND] -------------------------"
-    echo "The 'cargo' command was not found on the PATH. Please install rustc"
-    echo "from: https://www.rust-lang.org/tools/install"
-    echo ""
-    echo "Alternatively, you may install cargo from your OS package manager:"
-    echo " - Debian/Ubuntu: apt-get install cargo"
-    echo " - Fedora/CentOS: dnf install cargo"
-    echo " - macOS: brew install rustc"
-    echo "--------------------------------------------------------------------"
-    echo ""
+  cat <<EOF
+------------------------- [RUST NOT FOUND] -------------------------
+The 'cargo' command was not found on the PATH. Please install rustc
+from: https://www.rust-lang.org/tools/install
+
+Alternatively, you may install cargo from your OS package manager:
+  - Debian/Ubuntu: apt-get install cargo
+  - Fedora/CentOS: dnf install cargo
+  - macOS: brew install rustc
+--------------------------------------------------------------------
+EOF
     exit 1
   else
-    echo ""
-    echo "--------------------------- [RUST FOUND] ---------------------------"
-    cargo -V
-    echo ""
-    rustc -vV
-    echo "--------------------------------------------------------------------"
-    echo ""
+cat <<EOF
+--------------------------- [RUST FOUND] ---------------------------
+$(cargo -V)
+
+$(rustc -vV)
+--------------------------------------------------------------------
+EOF
   fi
 }
 
@@ -44,61 +44,60 @@ check_bin_lib() {
 
   # On R-universe, we try to download the pre-built binary from GitHub releases.
   if [ -n "${MY_UNIVERSE}" ] && [ -z "${LIBPRQLR_BUILD}" ]; then
-    echo ""
-    echo "--------------------- [SETTING FOR R-UNIVERSE] ---------------------"
-    echo "It seems that this is on R-universe <${MY_UNIVERSE}>."
-    echo "Trying to download pre-built binary."
-    echo "--------------------------------------------------------------------"
-    echo ""
+cat <<EOF
+--------------------- [SETTING FOR R-UNIVERSE] ---------------------
+It seems that this is on R-universe <${MY_UNIVERSE}>.
+Trying to download pre-built binary.
+--------------------------------------------------------------------
+EOF
     LIBPRQLR_BUILD="false"
   fi
 
   if [ "${LIBPRQLR_BUILD}" = "false" ] && [ -f "tools/lib-sums.tsv" ] && [ ! -f "${LIBPRQLR_PATH}" ]; then
-    echo ""
-    echo "--------------- [TRY TO DOWNLOAD PRE-BUILT BINARY] ---------------"
-    "${R_HOME}/bin${R_ARCH_BIN}/Rscript" "tools/prep-lib.R" || echo "Failed to download pre-built binary."
-    echo "------------------------------------------------------------------"
-    echo ""
+cat <<EOF
+--------------- [TRY TO DOWNLOAD PRE-BUILT BINARY] ---------------
+$("${R_HOME}/bin${R_ARCH_BIN}/Rscript" "tools/prep-lib.R" || echo "Failed to download pre-built binary.")
+------------------------------------------------------------------
+EOF
   fi
 
   if [ "${LIBPRQLR_BUILD}" = "false" ] && [ -f "${LIBPRQLR_PATH}" ]; then
-    echo ""
-    echo "---------------------- [LIBRARY BINARY FOUND] ----------------------"
-    echo "The library was found at <${LIBPRQLR_PATH}>. No need to build it."
-    echo ""
-    echo "Note: rustc version: $(command -v rustc >/dev/null && rustc -V || echo 'Not found')"
-    echo "--------------------------------------------------------------------"
-    echo ""
+cat <<EOF
+---------------------- [LIBRARY BINARY FOUND] ----------------------
+The library was found at <${LIBPRQLR_PATH}>. No need to build it.
+
+Note: rustc version: $(command -v rustc >/dev/null && rustc -V || echo "Not found")
+--------------------------------------------------------------------
+EOF
     sed -e "s|@RUST_TARGET@||" src/Makevars.in >src/Makevars
     if [ "${LIBPRQLR_PATH}" != "${LIBPRQLR_DEFAULT_PATH}" ]; then
-      echo ""
-      echo "------------------------ [COPYING BINARY] ------------------------"
-      echo "Copying <${LIBPRQLR_PATH}> to <${LIBPRQLR_DEFAULT_PATH}>."
-      mkdir -p "$(dirname "${LIBPRQLR_DEFAULT_PATH}")"
-      cp "${LIBPRQLR_PATH}" "${LIBPRQLR_DEFAULT_PATH}" || echo "Failed to copy binary."
-      echo "------------------------------------------------------------------"
-      echo ""
+cat <<EOF
+------------------------ [COPYING BINARY] ------------------------
+Copying <${LIBPRQLR_PATH}> to <${LIBPRQLR_DEFAULT_PATH}>.
+$(mkdir -p "$(dirname "${LIBPRQLR_DEFAULT_PATH}")")
+$(cp "${LIBPRQLR_PATH}" "${LIBPRQLR_DEFAULT_PATH}" || echo "Failed to copy binary.")
+------------------------------------------------------------------
+EOF
     fi
     exit 0
   elif [ "${LIBPRQLR_BUILD}" = "false" ] && [ -f "${LIBPRQLR_DEFAULT_PATH}" ]; then
-    echo ""
-    echo "---------------------- [LIBRARY BINARY FOUND] ----------------------"
-    echo "The library was not found at <${LIBPRQLR_PATH}>,"
-    echo "but was found at <${LIBPRQLR_DEFAULT_PATH}>."
-    echo "No need to build it."
-    echo ""
-    echo "Note: rustc version: $(command -v rustc >/dev/null && rustc -V || echo 'Not found')"
-    echo "--------------------------------------------------------------------"
-    echo ""
+cat <<EOF
+---------------------- [LIBRARY BINARY FOUND] ----------------------
+The library was not found at <${LIBPRQLR_PATH}>,
+but was found at <${LIBPRQLR_DEFAULT_PATH}>. No need to build it.
+
+Note: rustc version: $(command -v rustc >/dev/null && rustc -V || echo "Not found")
+--------------------------------------------------------------------
+EOF
     sed -e "s|@RUST_TARGET@||" src/Makevars.in >src/Makevars
     exit 0
   elif [ "${LIBPRQLR_BUILD}" = "false" ]; then
-    echo ""
-    echo "-------------------- [LIBRARY BINARY NOT FOUND] --------------------"
-    echo "The library was not found at <${LIBPRQLR_PATH}>."
-    echo "Falling back to building from source."
-    echo "--------------------------------------------------------------------"
-    echo ""
+cat <<EOF
+-------------------- [LIBRARY BINARY NOT FOUND] --------------------
+The library was not found at <${LIBPRQLR_PATH}>.
+Falling back to building from source.
+--------------------------------------------------------------------
+EOF
   fi
 }
 
@@ -107,11 +106,11 @@ detect_target_option() {
     case "${option}" in
     --host=*)
       specified_target="$(echo "${option}" | sed -e 's/--host=//' | sed -E 's/([0-9]+\.)*[0-9]+$//')"
-      echo ""
-      echo "------------------------------ [DETECTED TARGET] ------------------------------"
-      echo "The target was specified as <${specified_target}> via the '--host' option."
-      echo "-------------------------------------------------------------------------------"
-      echo ""
+cat <<EOF
+------------------------- [DETECTED TARGET] -------------------------
+The target was specified as <${specified_target}> via the '--host' option.
+---------------------------------------------------------------------
+EOF
       export TARGET="${specified_target}"
       ;;
     *) ;;
