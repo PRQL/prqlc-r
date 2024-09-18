@@ -123,7 +123,7 @@ check_msrv() {
   )"
   lower_version="$(echo "${rustc_version} ${package_rust_version}" | tr ' ' '\n' | sort -V | head -n1)"
 
-  if [ "${lower_version}" = "${rustc_version}" ] && [ "${LIBPRQLR_MSRV_CHECK_SKIP}" != "true" ]; then
+  if [ "${rustc_version}" != "${package_rust_version}" ] && [ "${rustc_version}" = "${lower_version}" ] && [ "${LIBPRQLR_MSRV_CHECK_SKIP}" != "true" ]; then
     cat <<EOF
 ------------------- [NOT SUPPORTED RUST VERSION] -------------------
 The MSRV of this package is '${package_rust_version}'.
