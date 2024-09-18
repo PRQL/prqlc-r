@@ -10,8 +10,6 @@ LIBNAME="libprqlr.a"
 LIBPRQLR_DEFAULT_PATH="$(pwd)/tools/${LIBNAME}"
 LIBPRQLR_PATH=${LIBPRQLR_PATH:-${LIBPRQLR_DEFAULT_PATH}}
 
-LIBPRQLR_MSRV_CHECK_SKIP=${LIBPRQLR_MSRV_CHECK_SKIP:-"false"}
-
 export PATH="$PATH:$HOME/.cargo/bin"
 
 check_cargo() {
@@ -123,20 +121,22 @@ check_msrv() {
   )"
   lower_version="$(echo "${rustc_version} ${package_rust_version}" | tr ' ' '\n' | sort -V | head -n1)"
 
-  if [ "${rustc_version}" != "${package_rust_version}" ] && [ "${rustc_version}" = "${lower_version}" ] && [ "${LIBPRQLR_MSRV_CHECK_SKIP}" != "true" ]; then
+  if [ "${rustc_version}" != "${package_rust_version}" ] && [ "${rustc_version}" = "${lower_version}" ]; then
     cat <<EOF
 ------------------- [NOT SUPPORTED RUST VERSION] -------------------
-The MSRV of this package is '${package_rust_version}'.
-Please update rustc to '${package_rust_version}' or later.
+The MSRV of this package is '${package_rust_version}',
+so this installation may fail with the current rustc version '${rustc_version}'.
+If this happens, please install the newer version of rustc
+from: https://www.rust-lang.org/tools/install
 --------------------------------------------------------------------
 EOF
-    exit 1
-  fi
-  cat <<EOF
+  else
+    cat <<EOF
 ----------------- [MINIMUM SUPPORTED RUST VERSION] -----------------
 The MSRV of this package is '${package_rust_version}'.
 --------------------------------------------------------------------
 EOF
+  fi
 }
 
 detect_target_option "$@"

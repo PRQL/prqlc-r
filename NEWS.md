@@ -8,8 +8,7 @@
 
 - On R-universe, installing with pre-built binaries is now default. (#305)
 - The configure script now compares the package's MSRV and the rustc version,
-  and if the rustc version is less than the MSRV, an error will occur.
-  This mechanism can be skipped by setting the environment variable `LIBPRQLR_MSRV_CHECK_SKIP` to `true`. (#311)
+  and if the rustc version is less than the MSRV, an warning message is displayed. (#311)
 
 # prqlr 0.8.1
 
