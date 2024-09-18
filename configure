@@ -115,11 +115,11 @@ EOF
 }
 
 check_msrv() {
-  rustc_version="$(rustc -V | grep -oP '[0-9]+(\.[0-9]+)+')"
+  rustc_version="$(rustc -V | grep -o '[0-9]\+\(\.[0-9]\+\)\+')"
   package_rust_version="$(
     cargo metadata --manifest-path src/rust/Cargo.toml --no-deps --format-version 1 |
-      grep -oP '"rust_version"\s*:\s*"[0-9]+(\.[0-9]+)+"' |
-      grep -oP '[0-9]+(\.[0-9]+)+'
+      grep -o '"rust_version"\s*:\s*"[0-9]\+\(\.[0-9]\+\)\+"' |
+      grep -o '[0-9]\+\(\.[0-9]\+\)\+'
   )"
   lower_version="$(echo "${rustc_version} ${package_rust_version}" | tr ' ' '\n' | sort -V | head -n1)"
 
