@@ -10,11 +10,13 @@ LIBNAME="libprqlr.a"
 LIBPRQLR_DEFAULT_PATH="$(pwd)/tools/${LIBNAME}"
 LIBPRQLR_PATH=${LIBPRQLR_PATH:-${LIBPRQLR_DEFAULT_PATH}}
 
+LIBPRQLR_MSRV_CHECK_SKIP=${LIBPRQLR_MSRV_CHECK_SKIP:-"false"}
+
 export PATH="$PATH:$HOME/.cargo/bin"
 
 check_cargo() {
   if [ ! "$(command -v cargo)" ]; then
-  cat <<EOF
+    cat <<EOF
 ------------------------- [RUST NOT FOUND] -------------------------
 The 'cargo' command was not found on the PATH. Please install rustc
 from: https://www.rust-lang.org/tools/install
@@ -27,7 +29,7 @@ Alternatively, you may install cargo from your OS package manager:
 EOF
     exit 1
   else
-cat <<EOF
+    cat <<EOF
 --------------------------- [RUST FOUND] ---------------------------
 $(cargo -V)
 
@@ -44,7 +46,7 @@ check_bin_lib() {
 
   # On R-universe, we try to download the pre-built binary from GitHub releases.
   if [ -n "${MY_UNIVERSE}" ] && [ -z "${LIBPRQLR_BUILD}" ]; then
-cat <<EOF
+    cat <<EOF
 --------------------- [SETTING FOR R-UNIVERSE] ---------------------
 It seems that this is on R-universe <${MY_UNIVERSE}>.
 Trying to download pre-built binary.
@@ -53,25 +55,19 @@ EOF
     LIBPRQLR_BUILD="false"
   fi
 
-  if [ "${LIBPRQLR_BUILD}" = "false" ] && [ -f "tools/lib-sums.tsv" ] && [ ! -f "${LIBPRQLR_PATH}" ]; then
-cat <<EOF
+  if [ "${LIBPRQLR_BUILD}" = "false" ]; then
+    if [ -f "tools/lib-sums.tsv" ] && [ ! -f "${LIBPRQLR_PATH}" ]; then
+      cat <<EOF
 --------------- [TRY TO DOWNLOAD PRE-BUILT BINARY] ---------------
+The library was not found at <${LIBPRQLR_PATH}>.
+Trying to download pre-built binary from the Internet.
 $("${R_HOME}/bin${R_ARCH_BIN}/Rscript" "tools/prep-lib.R" || echo "Failed to download pre-built binary.")
 ------------------------------------------------------------------
 EOF
-  fi
+    fi
 
-  if [ "${LIBPRQLR_BUILD}" = "false" ] && [ -f "${LIBPRQLR_PATH}" ]; then
-cat <<EOF
----------------------- [LIBRARY BINARY FOUND] ----------------------
-The library was found at <${LIBPRQLR_PATH}>. No need to build it.
-
-Note: rustc version: $(command -v rustc >/dev/null && rustc -V || echo "Not found")
---------------------------------------------------------------------
-EOF
-    sed -e "s|@RUST_TARGET@||" src/Makevars.in >src/Makevars
-    if [ "${LIBPRQLR_PATH}" != "${LIBPRQLR_DEFAULT_PATH}" ]; then
-cat <<EOF
+    if [ -f "${LIBPRQLR_PATH}" ] && [ "${LIBPRQLR_PATH}" != "${LIBPRQLR_DEFAULT_PATH}" ]; then
+      cat <<EOF
 ------------------------ [COPYING BINARY] ------------------------
 Copying <${LIBPRQLR_PATH}> to <${LIBPRQLR_DEFAULT_PATH}>.
 $(mkdir -p "$(dirname "${LIBPRQLR_DEFAULT_PATH}")")
@@ -79,20 +75,19 @@ $(cp "${LIBPRQLR_PATH}" "${LIBPRQLR_DEFAULT_PATH}" || echo "Failed to copy binar
 ------------------------------------------------------------------
 EOF
     fi
-    exit 0
-  elif [ "${LIBPRQLR_BUILD}" = "false" ] && [ -f "${LIBPRQLR_DEFAULT_PATH}" ]; then
-cat <<EOF
+
+    if [ -f "${LIBPRQLR_DEFAULT_PATH}" ]; then
+      cat <<EOF
 ---------------------- [LIBRARY BINARY FOUND] ----------------------
-The library was not found at <${LIBPRQLR_PATH}>,
-but was found at <${LIBPRQLR_DEFAULT_PATH}>. No need to build it.
+The library was found at <${LIBPRQLR_DEFAULT_PATH}>. No need to build it.
 
 Note: rustc version: $(command -v rustc >/dev/null && rustc -V || echo "Not found")
 --------------------------------------------------------------------
 EOF
-    sed -e "s|@RUST_TARGET@||" src/Makevars.in >src/Makevars
-    exit 0
-  elif [ "${LIBPRQLR_BUILD}" = "false" ]; then
-cat <<EOF
+      sed -e "s|@RUST_TARGET@||" src/Makevars.in >src/Makevars
+      exit 0
+    fi
+    cat <<EOF
 -------------------- [LIBRARY BINARY NOT FOUND] --------------------
 The library was not found at <${LIBPRQLR_PATH}>.
 Falling back to building from source.
@@ -106,7 +101,7 @@ detect_target_option() {
     case "${option}" in
     --host=*)
       specified_target="$(echo "${option}" | sed -e 's/--host=//' | sed -E 's/([0-9]+\.)*[0-9]+$//')"
-cat <<EOF
+      cat <<EOF
 ------------------------- [DETECTED TARGET] -------------------------
 The target was specified as <${specified_target}> via the '--host' option.
 ---------------------------------------------------------------------
@@ -119,9 +114,35 @@ EOF
   done
 }
 
+check_msrv() {
+  rustc_version="$(rustc -V | grep -oP '[0-9]+(\.[0-9]+)+')"
+  package_rust_version="$(
+    cargo metadata --manifest-path src/rust/Cargo.toml --no-deps --format-version 1 |
+      grep -oP '"rust_version"\s*:\s*"[0-9]+(\.[0-9]+)+"' |
+      grep -oP '[0-9]+(\.[0-9]+)+'
+  )"
+  lower_version="$(echo "${rustc_version} ${package_rust_version}" | tr ' ' '\n' | sort -V | head -n1)"
+
+  if [ "${lower_version}" = "${rustc_version}" ] && [ "${LIBPRQLR_MSRV_CHECK_SKIP}" != "true" ]; then
+    cat <<EOF
+------------------- [NOT SUPPORTED RUST VERSION] -------------------
+The MSRV of this package is '${package_rust_version}'.
+Please update rustc to '${package_rust_version}' or later.
+--------------------------------------------------------------------
+EOF
+    exit 1
+  fi
+  cat <<EOF
+----------------- [MINIMUM SUPPORTED RUST VERSION] -----------------
+The MSRV of this package is '${package_rust_version}'.
+--------------------------------------------------------------------
+EOF
+}
+
 detect_target_option "$@"
 check_bin_lib
 check_cargo
+check_msrv
 
 # cf. https://github.com/r-wasm/rwasm/issues/18#issuecomment-1910198843
 if [ "$(uname)" = "Emscripten" ]; then
