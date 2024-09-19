@@ -33,21 +33,10 @@ tasks:
     internal: true
     desc: Install Rust packages for development.
     cmds:
-      - cargo install cargo-license cargo-outdated savvy-cli
-
-  cargo-update:
-    desc: Update the lock files.
-    sources:
-      - "{{.MANIFEST}}"
-    generates:
-      - "{{.CARGO_LOCK}}"
-    cmds:
-      - cargo outdated --manifest-path "{{.MANIFEST}}"
+      - cargo install cargo-license savvy-cli
 
   build-vendor-sources:
     desc: Vendor Rust sources.
-    deps:
-      - cargo-update
     sources:
       - "{{.CARGO_LOCK}}"
       - dev/vendoring.R
@@ -74,6 +63,7 @@ tasks:
       - build-lib-sums
       - build-documents
     cmds:
+      - task: lint-and-format-r
       - task: test-all
       - task: build-license-note
       - task: build-authors
@@ -148,7 +138,7 @@ tasks:
     deps:
       - build-wrappers
     cmds:
-      - Rscript -e 'devtools::document()'
+      - Rscript -e 'devtools::load_all(); devtools::document()'
 
   build-wrappers:
     internal: true
@@ -160,11 +150,13 @@ tasks:
       - "{{.CARGO_LOCK}}"
       - "{{.RUST_SOURCE}}"
     deps:
+      - lint-and-format-rust
       - build-vendor-sources
     generates:
       - R/000-wrappers.R
     cmds:
       - savvy-cli update .
+      - Rscript -e 'pkgbuild::compile_dll()'
 
   build-license-note:
     internal: true
@@ -214,12 +206,6 @@ tasks:
     cmds:
       - Rscript -e 'testthat::snapshot_accept()'
 
-  lint-and-format:
-    desc: Lint and auto-format R and Rust code.
-    deps:
-      - lint-and-format-r
-      - lint-and-format-rust
-
   lint-and-format-r:
     internal: true
     desc: Lint and auto-format R code.
@@ -232,7 +218,7 @@ tasks:
       - Rscript -e
         'devtools::load_all();
         lintr::lint_package();
-        styler::style_pkg()'
+        styler::style_pkg(exclude_files = "R/000-wrappers.R")'
 
   lint-and-format-rust:
     internal: true
@@ -244,13 +230,3 @@ tasks:
     cmds:
       - cargo clippy --manifest-path {{.MANIFEST}}
       - cargo fmt --manifest-path {{.MANIFEST}}
-
-  release-prep:
-    desc: "Prepare for a release. args: VERSION: major, minor, or patch"
-    deps:
-      - build-all
-      - lint-and-format
-    cmds:
-      - Rscript -e '
-        usethis::use_version(which = "{{.VERSION}}");
-        usethis::use_cran_comments()'
