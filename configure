@@ -59,7 +59,7 @@ EOF
 --------------- [TRY TO DOWNLOAD PRE-BUILT BINARY] ---------------
 The library was not found at <${LIBPRQLR_PATH}>.
 Trying to download pre-built binary from the Internet.
-$("${R_HOME}/bin${R_ARCH_BIN}/Rscript" "tools/prep-lib.R" || echo "Failed to download pre-built binary.")
+$("${R_HOME}/bin${R_ARCH_BIN}/Rscript" "tools/prep-lib.R" && echo "Done!" || echo "Failed to download pre-built binary.")
 ------------------------------------------------------------------
 EOF
     fi
@@ -69,7 +69,7 @@ EOF
 ------------------------ [COPYING BINARY] ------------------------
 Copying <${LIBPRQLR_PATH}> to <${LIBPRQLR_DEFAULT_PATH}>.
 $(mkdir -p "$(dirname "${LIBPRQLR_DEFAULT_PATH}")")
-$(cp "${LIBPRQLR_PATH}" "${LIBPRQLR_DEFAULT_PATH}" || echo "Failed to copy binary.")
+$(cp "${LIBPRQLR_PATH}" "${LIBPRQLR_DEFAULT_PATH}" && echo "Done!" || echo "Failed to copy binary.")
 ------------------------------------------------------------------
 EOF
     fi
