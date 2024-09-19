@@ -11,11 +11,11 @@ NULL
 
 # Check class and extract the external pointer embedded in the environment
 .savvy_extract_ptr <- function(e, class) {
-  if(is.null(e)) {
+  if (is.null(e)) {
     return(NULL)
   }
 
-  if(inherits(e, class)) {
+  if (inherits(e, class)) {
     e$.ptr
   } else {
     msg <- paste0("Expected ", class, ", got ", class(e)[1])
@@ -65,5 +65,3 @@ NULL
 `prql_get_targets` <- function() {
   .Call(savvy_prql_get_targets__impl)
 }
-
-

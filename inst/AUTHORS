@@ -1,6 +1,4 @@
 Owners of dependent Rust crates. This list is generated from Crates.io Data <https://crates.io/data-access>:
-  - addr2line: Nick Fitzgerald <https://github.com/fitzgen>, Philip Craig <https://github.com/philipc>
-  - adler: Jonas Schievink <https://github.com/jonas-schievink>
   - ahash: Tom Kaitchuck <https://github.com/tkaitchuck>
   - aho-corasick: Andrew Gallant <https://github.com/BurntSushi>
   - allocator-api2: Zakarum <https://github.com/zakarumych>
@@ -10,10 +8,8 @@ Owners of dependent Rust crates. This list is generated from Crates.io Data <htt
   - anstyle-parse: Ed Page <https://github.com/epage>
   - anstyle-query: Ed Page <https://github.com/epage>
   - anstyle-wincon: Ed Page <https://github.com/epage>
-  - anyhow: David Tolnay <https://github.com/dtolnay>
   - ariadne: Joshua Barretto <https://github.com/zesterer>
   - autocfg: Josh Stone <https://github.com/cuviper>, Alex Kladov <https://github.com/matklad>
-  - backtrace: ember arlynx <https://github.com/emberian>, Alex Crichton <https://github.com/alexcrichton>
   - bumpalo: Nick Fitzgerald <https://github.com/fitzgen>, Alex Crichton <https://github.com/alexcrichton>
   - cc: ember arlynx <https://github.com/emberian>
   - cfg-if: ember arlynx <https://github.com/emberian>, Alex Crichton <https://github.com/alexcrichton>
@@ -23,17 +19,16 @@ Owners of dependent Rust crates. This list is generated from Crates.io Data <htt
   - core-foundation-sys: Lars Bergstrom <https://github.com/larsbergstrom>, Steven Fackler <https://github.com/sfackler>
   - csv: Andrew Gallant <https://github.com/BurntSushi>
   - csv-core: Andrew Gallant <https://github.com/BurntSushi>
+  - dyn-clone: David Tolnay <https://github.com/dtolnay>
   - either: bluss <https://github.com/bluss>, Josh Stone <https://github.com/cuviper>, Jack Wrenn <https://github.com/jswrenn>
   - enum-as-inner: Benjamin Fry <https://github.com/bluejekyll>
-  - equivalent: Josh Stone <https://github.com/cuviper>
-  - gimli: Nick Fitzgerald <https://github.com/fitzgen>, Philip Craig <https://github.com/philipc>
   - hashbrown: Amanieu d'Antras <https://github.com/Amanieu>
   - heck: srrrse <https://github.com/withoutboats>, Jonas Platte <https://github.com/jplatte>
   - hermit-abi: Stefan Lankes <https://github.com/stlankes>, Martin Kröning <https://github.com/mkroening>
   - iana-time-zone: Andrew Straw <https://github.com/astraw>, René Kijewski <https://github.com/Kijewski>
   - iana-time-zone-haiku: Andrew Straw <https://github.com/astraw>, René Kijewski <https://github.com/Kijewski>
-  - indexmap: bluss <https://github.com/bluss>, Josh Stone <https://github.com/cuviper>
   - is-terminal: Dan Gohman <https://github.com/sunfishcode>
+  - is_terminal_polyfill: Ed Page <https://github.com/epage>
   - itertools: bluss <https://github.com/bluss>, Jack Wrenn <https://github.com/jswrenn>
   - itoa: David Tolnay <https://github.com/dtolnay>
   - js-sys: Nick Fitzgerald <https://github.com/fitzgen>, Alex Crichton <https://github.com/alexcrichton>
@@ -43,29 +38,31 @@ Owners of dependent Rust crates. This list is generated from Crates.io Data <htt
   - minimal-lexical: Alexander Huszagh <https://github.com/Alexhuszagh>
   - nom: Geoffroy Couprie <https://github.com/Geal>
   - num-traits: Josh Stone <https://github.com/cuviper>
-  - object: Nick Fitzgerald <https://github.com/fitzgen>, Philip Craig <https://github.com/philipc>
   - once_cell: Alex Kladov <https://github.com/matklad>, Michal 'vorner' Vaner <https://github.com/vorner>
   - proc-macro2: David Tolnay <https://github.com/dtolnay>
   - prqlc: Maximilian Roos <https://github.com/max-sixty>, Aljaž Mur Eržen <https://github.com/aljazerzen>
-  - prqlc-ast: Maximilian Roos <https://github.com/max-sixty>
   - prqlc-parser: Maximilian Roos <https://github.com/max-sixty>
   - psm: Simonas Kazlauskas <https://github.com/nagisa>
   - quote: David Tolnay <https://github.com/dtolnay>
+  - ref-cast: David Tolnay <https://github.com/dtolnay>
+  - ref-cast-impl: David Tolnay <https://github.com/dtolnay>
   - regex: Andrew Gallant <https://github.com/BurntSushi>, ember arlynx <https://github.com/emberian>, Alex Crichton <https://github.com/alexcrichton>
   - regex-automata: Andrew Gallant <https://github.com/BurntSushi>
   - regex-syntax: Andrew Gallant <https://github.com/BurntSushi>, Alex Crichton <https://github.com/alexcrichton>, ember arlynx <https://github.com/emberian>
-  - rustc-demangle: ember arlynx <https://github.com/emberian>
   - rustversion: David Tolnay <https://github.com/dtolnay>
   - ryu: David Tolnay <https://github.com/dtolnay>
   - savvy: Hiroaki Yutani <https://github.com/yutannihilation>
   - savvy-bindgen: Hiroaki Yutani <https://github.com/yutannihilation>
   - savvy-ffi: Hiroaki Yutani <https://github.com/yutannihilation>
   - savvy-macro: Hiroaki Yutani <https://github.com/yutannihilation>
+  - schemars: Graham Esau <https://github.com/GREsau>
+  - schemars_derive: Graham Esau <https://github.com/GREsau>
   - semver: David Tolnay <https://github.com/dtolnay>
   - serde: David Tolnay <https://github.com/dtolnay>
   - serde_derive: David Tolnay <https://github.com/dtolnay>
+  - serde_derive_internals: David Tolnay <https://github.com/dtolnay>
   - serde_json: David Tolnay <https://github.com/dtolnay>
-  - serde_yaml: David Tolnay <https://github.com/dtolnay>
+  - shlex: Fenhl <https://github.com/fenhl>
   - sqlformat: Josh Holmer <https://github.com/shssoichiro>
   - sqlparser: Andy Grove <https://github.com/andygrove>, Daniël Heres <https://github.com/Dandandan>, Max Countryman <https://github.com/maxcountryman>, Nickolay Ponomarev <https://github.com/nickolay>, Andrew Lamb <https://github.com/alamb>
   - stacker: Simonas Kazlauskas <https://github.com/nagisa>, Alex Crichton <https://github.com/alexcrichton>
@@ -75,7 +72,6 @@ Owners of dependent Rust crates. This list is generated from Crates.io Data <htt
   - unicode-ident: David Tolnay <https://github.com/dtolnay>
   - unicode-width: Riad S. Wahby <https://github.com/kwantam>, Huon Wilson <https://github.com/huonw>, Simon Sapin <https://github.com/SimonSapin>, Manish Goregaokar <https://github.com/Manishearth>, Sujay Jayakar <https://github.com/sujayakar>, Alex Crichton <https://github.com/alexcrichton>
   - unicode_categories: Sean Gillespie <https://github.com/swgillespie>
-  - unsafe-libyaml: David Tolnay <https://github.com/dtolnay>
   - utf8parse: Joe Wilm <https://github.com/jwilm>, Christian Duerr <https://github.com/chrisduerr>, Tyler Berry <https://github.com/Tahler>
   - version_check: Sergio Benitez <https://github.com/SergioBenitez>
   - wasm-bindgen: Nick Fitzgerald <https://github.com/fitzgen>, Alex Crichton <https://github.com/alexcrichton>
@@ -83,9 +79,6 @@ Owners of dependent Rust crates. This list is generated from Crates.io Data <htt
   - wasm-bindgen-macro: Nick Fitzgerald <https://github.com/fitzgen>, Alex Crichton <https://github.com/alexcrichton>
   - wasm-bindgen-macro-support: Nick Fitzgerald <https://github.com/fitzgen>, Alex Crichton <https://github.com/alexcrichton>
   - wasm-bindgen-shared: Nick Fitzgerald <https://github.com/fitzgen>, Alex Crichton <https://github.com/alexcrichton>
-  - winapi: Peter Atashian <https://github.com/retep998>
-  - winapi-i686-pc-windows-gnu: Peter Atashian <https://github.com/retep998>
-  - winapi-x86_64-pc-windows-gnu: Peter Atashian <https://github.com/retep998>
   - windows-core: Kenny Kerr <https://github.com/kennykerr>
   - windows-sys: Kenny Kerr <https://github.com/kennykerr>
   - windows-targets: Kenny Kerr <https://github.com/kennykerr>

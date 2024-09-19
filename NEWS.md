@@ -1,5 +1,9 @@
 # prqlr (development version)
 
+## Breaking changes
+
+- Based on [`prqlc`](https://github.com/prql/prql) 0.13.0 (#312)
+
 ## Bug fixes
 
 - Fix to report rustc version even if installing with pre-built binaries. (#305)
