@@ -48,14 +48,15 @@ struct CompileOptions {
 fn convert_options(
     o: CompileOptions,
 ) -> core::result::Result<prqlc::Options, prqlc::ErrorMessages> {
-    let target = prqlc::Target::from_str(&o.target)
-        .map_err(|e| prqlc::downcast(e.into()))?;
+    let target = prqlc::Target::from_str(&o.target).map_err(prqlc::ErrorMessages::from)?;
 
+    // TODO: support `display` option
     Ok(prqlc::Options {
         format: o.format,
         target,
         signature_comment: o.signature_comment,
         color: false,
+        ..std::default::Default::default()
     })
 }
 
@@ -64,7 +65,7 @@ fn convert_options(
 pub fn prql_to_pl(prql_query: &str) -> savvy::Result<Sexp> {
     let result = Ok(prql_query)
         .and_then(prqlc::prql_to_pl)
-        .and_then(prqlc::json::from_pl);
+        .and_then(|x| prqlc::json::from_pl(&x));
 
     match result {
         Ok(msg) => msg.try_into(),
@@ -78,7 +79,7 @@ pub fn pl_to_rq(pl_json: &str) -> savvy::Result<Sexp> {
     let result = Ok(pl_json)
         .and_then(prqlc::json::to_pl)
         .and_then(prqlc::pl_to_rq)
-        .and_then(prqlc::json::from_rq);
+        .and_then(|x| prqlc::json::from_rq(&x));
 
     match result {
         Ok(msg) => msg.try_into(),
