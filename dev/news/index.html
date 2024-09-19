@@ -45,12 +45,17 @@
     <div class="section level2">
 <h2 class="pkg-version" data-toc-text="development version" id="prqlr-development-version">prqlr (development version)<a class="anchor" aria-label="anchor" href="#prqlr-development-version"></a></h2>
 <div class="section level3">
+<h3 id="breaking-changes-development-version">Breaking changes<a class="anchor" aria-label="anchor" href="#breaking-changes-development-version"></a></h3>
+<ul><li>Based on <a href="https://github.com/prql/prql" class="external-link"><code>prqlc</code></a> 0.13.0 (<a href="https://github.com/PRQL/prqlc-r/issues/312" class="external-link">#312</a>)</li>
+</ul></div>
+<div class="section level3">
 <h3 id="bug-fixes-development-version">Bug fixes<a class="anchor" aria-label="anchor" href="#bug-fixes-development-version"></a></h3>
 <ul><li>Fix to report rustc version even if installing with pre-built binaries. (<a href="https://github.com/PRQL/prqlc-r/issues/305" class="external-link">#305</a>)</li>
 </ul></div>
 <div class="section level3">
 <h3 id="miscellaneous-development-version">Miscellaneous<a class="anchor" aria-label="anchor" href="#miscellaneous-development-version"></a></h3>
 <ul><li>On R-universe, installing with pre-built binaries is now default. (<a href="https://github.com/PRQL/prqlc-r/issues/305" class="external-link">#305</a>)</li>
+<li>The configure script now compares the package’s MSRV and the rustc version, and if the rustc version is less than the MSRV, an warning message is displayed. (<a href="https://github.com/PRQL/prqlc-r/issues/311" class="external-link">#311</a>)</li>
 </ul></div>
 </div>
     <div class="section level2">
@@ -279,7 +284,7 @@
 </div>
 
 <div class="pkgdown-footer-right">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.1.0.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.1.1.</p>
 </div>
 
     </footer></div>
