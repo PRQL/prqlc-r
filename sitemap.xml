@@ -1,45 +1,17 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url>
-    <loc>https://prql.github.io/prqlc-r/404.html</loc>
-  </url>
-  <url>
-    <loc>https://prql.github.io/prqlc-r/LICENSE-text.html</loc>
-  </url>
-  <url>
-    <loc>https://prql.github.io/prqlc-r/LICENSE.html</loc>
-  </url>
-  <url>
-    <loc>https://prql.github.io/prqlc-r/articles/index.html</loc>
-  </url>
-  <url>
-    <loc>https://prql.github.io/prqlc-r/articles/knitr.html</loc>
-  </url>
-  <url>
-    <loc>https://prql.github.io/prqlc-r/articles/prqlr.html</loc>
-  </url>
-  <url>
-    <loc>https://prql.github.io/prqlc-r/authors.html</loc>
-  </url>
-  <url>
-    <loc>https://prql.github.io/prqlc-r/index.html</loc>
-  </url>
-  <url>
-    <loc>https://prql.github.io/prqlc-r/news/index.html</loc>
-  </url>
-  <url>
-    <loc>https://prql.github.io/prqlc-r/reference/index.html</loc>
-  </url>
-  <url>
-    <loc>https://prql.github.io/prqlc-r/reference/prql_compile.html</loc>
-  </url>
-  <url>
-    <loc>https://prql.github.io/prqlc-r/reference/prql_get_targets.html</loc>
-  </url>
-  <url>
-    <loc>https://prql.github.io/prqlc-r/reference/prql_version.html</loc>
-  </url>
-  <url>
-    <loc>https://prql.github.io/prqlc-r/reference/prqlr-package.html</loc>
-  </url>
+<urlset xmlns = 'http://www.sitemaps.org/schemas/sitemap/0.9'>
+<url><loc>https://prql.github.io/prqlc-r/404.html</loc></url>
+<url><loc>https://prql.github.io/prqlc-r/LICENSE-text.html</loc></url>
+<url><loc>https://prql.github.io/prqlc-r/LICENSE.html</loc></url>
+<url><loc>https://prql.github.io/prqlc-r/articles/index.html</loc></url>
+<url><loc>https://prql.github.io/prqlc-r/articles/knitr.html</loc></url>
+<url><loc>https://prql.github.io/prqlc-r/articles/prqlr.html</loc></url>
+<url><loc>https://prql.github.io/prqlc-r/authors.html</loc></url>
+<url><loc>https://prql.github.io/prqlc-r/index.html</loc></url>
+<url><loc>https://prql.github.io/prqlc-r/news/index.html</loc></url>
+<url><loc>https://prql.github.io/prqlc-r/reference/index.html</loc></url>
+<url><loc>https://prql.github.io/prqlc-r/reference/prql_compile.html</loc></url>
+<url><loc>https://prql.github.io/prqlc-r/reference/prql_get_targets.html</loc></url>
+<url><loc>https://prql.github.io/prqlc-r/reference/prql_version.html</loc></url>
+<url><loc>https://prql.github.io/prqlc-r/reference/prqlr-package.html</loc></url>
 </urlset>
+
