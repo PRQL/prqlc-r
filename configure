@@ -56,22 +56,23 @@ EOF
   if [ "${LIBPRQLR_BUILD}" = "false" ]; then
     if [ -f "tools/lib-sums.tsv" ] && [ ! -f "${LIBPRQLR_PATH}" ]; then
       cat <<EOF
---------------- [TRY TO DOWNLOAD PRE-BUILT BINARY] ---------------
+---------------- [TRY TO DOWNLOAD PRE-BUILT BINARY] ----------------
 The library was not found at <${LIBPRQLR_PATH}>.
-Trying to download pre-built binary from the Internet.
-$("${R_HOME}/bin${R_ARCH_BIN}/Rscript" "tools/prep-lib.R" && echo "Done!" || echo "Failed to download pre-built binary.")
-------------------------------------------------------------------
+Trying to download pre-built binary from the Internet...
+--------------------------------------------------------------------
 EOF
+      "${R_HOME}/bin${R_ARCH_BIN}/Rscript" "tools/prep-lib.R" && echo "Done!" ||
+        echo "Failed to download pre-built binary."
     fi
 
     if [ -f "${LIBPRQLR_PATH}" ] && [ "${LIBPRQLR_PATH}" != "${LIBPRQLR_DEFAULT_PATH}" ]; then
       cat <<EOF
------------------------- [COPYING BINARY] ------------------------
+------------------------- [COPYING BINARY] -------------------------
 Copying <${LIBPRQLR_PATH}> to <${LIBPRQLR_DEFAULT_PATH}>.
-$(mkdir -p "$(dirname "${LIBPRQLR_DEFAULT_PATH}")")
-$(cp "${LIBPRQLR_PATH}" "${LIBPRQLR_DEFAULT_PATH}" && echo "Done!" || echo "Failed to copy binary.")
-------------------------------------------------------------------
+--------------------------------------------------------------------
 EOF
+      $(mkdir -p "$(dirname "${LIBPRQLR_DEFAULT_PATH}")")
+      $(cp "${LIBPRQLR_PATH}" "${LIBPRQLR_DEFAULT_PATH}" && echo "Done!" || echo "Failed to copy binary.")
     fi
 
     if [ -f "${LIBPRQLR_DEFAULT_PATH}" ]; then
@@ -100,9 +101,9 @@ detect_target_option() {
     --host=*)
       specified_target="$(echo "${option}" | sed -e 's/--host=//' | sed -E 's/([0-9]+\.)*[0-9]+$//')"
       cat <<EOF
-------------------------- [DETECTED TARGET] -------------------------
+------------------------ [DETECTED TARGET] ------------------------
 The target was specified as <${specified_target}> via the '--host' option.
----------------------------------------------------------------------
+-------------------------------------------------------------------
 EOF
       export TARGET="${specified_target}"
       ;;
