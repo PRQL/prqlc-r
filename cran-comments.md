@@ -13,6 +13,3 @@
 ## R CMD check results
 
 - There were no ERRORs or WARNINGs.
-- There was a NOTE about CRAN incoming feasibility: `Size of tarball: 15794231 bytes`
-  - Most of this size is a tarball of vendored Rust source code,
-    since this package contains all the Rust source code of the dependencies.
