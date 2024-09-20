@@ -1,4 +1,4 @@
-use anstream::ColorChoice;
+use prqlc::ErrorMessages;
 use savvy::{savvy, Sexp};
 use std::str::FromStr;
 
@@ -15,48 +15,40 @@ pub fn compile(
     target: &str,
     format: bool,
     signature_comment: bool,
+    display: &str,
 ) -> savvy::Result<Sexp> {
     let options = convert_options(CompileOptions {
         format,
         target: target.to_string(),
         signature_comment,
-    });
+        display: display.to_string(),
+    })
+    .map_err(|e| e.to_string())?;
 
-    let result = options
-        .and_then(|opts| {
-            Ok(prql_query)
-                .and_then(prqlc::prql_to_pl)
-                .and_then(prqlc::pl_to_rq)
-                .and_then(|rq| prqlc::rq_to_sql(rq, &opts))
-        })
-        .map_err(|e| e.composed(&prql_query.into()));
-
-    ColorChoice::write_global(self::ColorChoice::Never);
-
-    match result {
-        Ok(msg) => msg.try_into(),
-        Err(e) => Err(e.to_string().into()),
-    }
+    prqlc::compile(prql_query, &options)
+        .map_err(|e| savvy::Error::from(e.to_string()))
+        .and_then(|x| x.try_into())
 }
 
 struct CompileOptions {
     format: bool,
     target: String,
     signature_comment: bool,
+    display: String,
 }
 
-fn convert_options(
-    o: CompileOptions,
-) -> core::result::Result<prqlc::Options, prqlc::ErrorMessages> {
-    let target = prqlc::Target::from_str(&o.target).map_err(prqlc::ErrorMessages::from)?;
+fn convert_options(o: CompileOptions) -> core::result::Result<prqlc::Options, ErrorMessages> {
+    let target = prqlc::Target::from_str(&o.target).map_err(ErrorMessages::from)?;
+    let display = prqlc::DisplayOptions::from_str(&o.display).map_err(|e| ErrorMessages {
+        inner: vec![prqlc::Error::new_simple(format!("Invalid display option: {}", e)).into()],
+    })?;
 
-    // TODO: support `display` option
     Ok(prqlc::Options {
         format: o.format,
         target,
         signature_comment: o.signature_comment,
         color: false,
-        ..std::default::Default::default()
+        display,
     })
 }
 

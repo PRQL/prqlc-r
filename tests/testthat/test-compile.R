@@ -28,15 +28,15 @@ test_that("Not a string object", {
 
 test_that("Unsupported target", {
   expect_error(
-    prql_compile("from a | select {b}", "foo"),
+    prql_compile("from a | select {b}", target = "foo"),
     r"(target `"foo"` not found)"
   )
   expect_error(
-    prql_compile("from a | select {b}", NA),
+    prql_compile("from a | select {b}", target = NA),
     "must be character, not logical"
   )
   expect_error(
-    prql_compile("from a | select {b}", NA_character_),
+    prql_compile("from a | select {b}", target = NA_character_),
     "non-missing value"
   )
   expect_error(
@@ -58,20 +58,23 @@ test_that("Options", {
 
 test_that("PRQL query", {
   expect_snapshot(cat(prql_compile("from a | select {b}")))
-  expect_snapshot(cat(prql_compile("from a | select {b}", NULL, FALSE, FALSE)))
+  expect_snapshot(cat(prql_compile("from a | select {b}", target = NULL, format = FALSE, signature_comment = FALSE)))
   expect_snapshot(
     "from star_wars
     select {star_wars.*}
     select !{jar_jar_binks, midichlorians}"
     |>
-      compile("sql.duckdb", TRUE, TRUE) |>
+      prql_compile(target = "sql.duckdb", format = TRUE, signature_comment = TRUE) |>
       cat()
   )
 })
 
 patrick::with_parameters_test_that("Syntax error",
   {
-    expect_snapshot(cat(prql_compile(query, "sql.any", TRUE, FALSE)), error = TRUE)
+    expect_snapshot(
+      cat(prql_compile(query, target = "sql.any", format = TRUE, signature_comment = FALSE)),
+      error = TRUE
+    )
   },
   query = c("Mississippi has four S’s and four I’s.", "from a | select [b]", "from a | select {{{b")
 )
@@ -91,7 +94,7 @@ group {origin, dest} (
 sort {-origin, avg_delay}
 take 2
 "
-    expect_snapshot(cat(prql_compile(query, target, TRUE, FALSE)))
+    expect_snapshot(cat(prql_compile(query, target = target, format = TRUE, signature_comment = FALSE)))
   },
   target = prql_get_targets()
 )
