@@ -383,3 +383,27 @@
     Output
       [1] '0.13.0'
 
+# display display=plain
+
+    Code
+      tryCatch(prql_compile(query, format = TRUE, display = display), error = function(
+        e) cli::ansi_html(e))
+    Output
+      [1] "Error: Error:\n   ╭─[:3:1]\n   │\n 3 │ select\n   │ ───┬──\n   │    ╰──── main expected type `relation`, but found type `func relation -&gt; relation`\n   │\n   │ Help: Have you forgotten an argument to function std.select?\n   │\n   │ Note: Type `relation` expands to `[tuple]`\n───╯\n\n"
+
+# display display=ansi_color
+
+    Code
+      tryCatch(prql_compile(query, format = TRUE, display = display), error = function(
+        e) cli::ansi_html(e))
+    Output
+      [1] "Error: <span class=\"ansi ansi-color-1\">Error:</span>\n   <span class=\"ansi ansi-color-246\">╭</span>─[:3:1<span class=\"ansi ansi-color-246\">]</span>\n   <span class=\"ansi ansi-color-246\">│</span>\n <span class=\"ansi ansi-color-246\">3 │</span> select\n <span class=\"ansi ansi-color-240\">  │</span> ───┬──\n <span class=\"ansi ansi-color-240\">  │</span>    ╰──── main expected type `relation`, but found type `func relation -&gt; relation`\n <span class=\"ansi ansi-color-240\">  │</span>\n <span class=\"ansi ansi-color-240\">  │</span> <span class=\"ansi ansi-color-115\">Help</span>: Have you forgotten an argument to function std.select?\n <span class=\"ansi ansi-color-240\">  │</span>\n <span class=\"ansi ansi-color-240\">  │</span> <span class=\"ansi ansi-color-115\">Note</span>: Type `relation` expands to `[tuple]`\n<span class=\"ansi ansi-color-246\">───╯</span>\n\n"
+
+# display display=bar
+
+    Code
+      tryCatch(prql_compile(query, format = TRUE, display = display), error = function(
+        e) cli::ansi_html(e))
+    Output
+      [1] "Error: Error: `display` must be one of `plain` or `ansi_color`. got: bar\n\n"
+

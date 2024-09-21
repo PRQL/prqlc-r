@@ -39,9 +39,10 @@ struct CompileOptions {
 
 fn convert_options(o: CompileOptions) -> core::result::Result<prqlc::Options, ErrorMessages> {
     let target = prqlc::Target::from_str(&o.target).map_err(ErrorMessages::from)?;
-    let display = prqlc::DisplayOptions::from_str(&o.display).map_err(|e| ErrorMessages {
+    let display = prqlc::DisplayOptions::from_str(&o.display).map_err(|_| ErrorMessages {
         inner: vec![prqlc::Error::new_simple(format!(
-            "`display` must be one of `plain` or `ansi_color`. got: {e}"
+            "`display` must be one of `plain` or `ansi_color`. got: {}",
+            &o.display
         ))
         .into()],
     })?;

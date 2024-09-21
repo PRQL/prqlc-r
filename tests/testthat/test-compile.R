@@ -103,3 +103,17 @@ test_that("prqlc's version", {
   expect_snapshot(prql_version())
   expect_s3_class(prql_version(), "numeric_version")
 })
+
+patrick::with_parameters_test_that("display",
+  {
+    query <- "
+from foo
+select
+"
+    skip_if_not_installed("cli")
+    expect_snapshot(
+      tryCatch(prql_compile(query, format = TRUE, display = display), error = \(e) cli::ansi_html(e))
+    )
+  },
+  display = c("plain", "ansi_color", "bar")
+)
