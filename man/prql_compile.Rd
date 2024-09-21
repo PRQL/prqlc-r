@@ -6,8 +6,8 @@
 \usage{
 prql_compile(
   prql_query,
-  ...,
   target = getOption("prqlr.target", default = NULL),
+  ...,
   format = getOption("prqlr.format", default = TRUE),
   signature_comment = getOption("prqlr.signature_comment", default = TRUE),
   display = getOption("prqlr.display", default = "plain")
@@ -16,11 +16,11 @@ prql_compile(
 \arguments{
 \item{prql_query}{A character of PRQL query.}
 
-\item{...}{Ignored.}
-
 \item{target}{A character of the target name to use or \code{NULL}.
 If \code{NULL}, the target contained in the query will be used.
 All available target names can be listed with the \code{\link[=prql_get_targets]{prql_get_targets()}} function.}
+
+\item{...}{Ignored.}
 
 \item{format}{A logical flag (default: \code{TRUE}). Whether to format the SQL query.}
 

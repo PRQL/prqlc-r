@@ -6,11 +6,11 @@ test_that("target set in the header ", {
     "SELECT * FROM a ORDER BY (SELECT NULL) OFFSET 0 ROWS FETCH FIRST 1 ROWS ONLY"
   )
   expect_equal(
-    prql_compile(mssql_query, target = "sql.any", format = FALSE, signature_comment = FALSE),
+    prql_compile(mssql_query, "sql.any", format = FALSE, signature_comment = FALSE),
     "SELECT * FROM a ORDER BY (SELECT NULL) OFFSET 0 ROWS FETCH FIRST 1 ROWS ONLY"
   )
   expect_equal(
-    prql_compile(mssql_query, target = "sql.generic", format = FALSE, signature_comment = FALSE),
+    prql_compile(mssql_query, "sql.generic", format = FALSE, signature_comment = FALSE),
     "SELECT * FROM a LIMIT 1"
   )
 })
@@ -28,15 +28,15 @@ test_that("Not a string object", {
 
 test_that("Unsupported target", {
   expect_error(
-    prql_compile("from a | select {b}", target = "foo"),
+    prql_compile("from a | select {b}", "foo"),
     r"(target `"foo"` not found)"
   )
   expect_error(
-    prql_compile("from a | select {b}", target = NA),
+    prql_compile("from a | select {b}", NA),
     "must be character, not logical"
   )
   expect_error(
-    prql_compile("from a | select {b}", target = NA_character_),
+    prql_compile("from a | select {b}", NA_character_),
     "non-missing value"
   )
   expect_error(
@@ -64,7 +64,7 @@ test_that("PRQL query", {
     select {star_wars.*}
     select !{jar_jar_binks, midichlorians}"
     |>
-      prql_compile(target = "sql.duckdb", format = TRUE, signature_comment = TRUE) |>
+      prql_compile("sql.duckdb", format = TRUE, signature_comment = TRUE) |>
       cat()
   )
 })
@@ -72,7 +72,7 @@ test_that("PRQL query", {
 patrick::with_parameters_test_that("Syntax error",
   {
     expect_snapshot(
-      cat(prql_compile(query, target = "sql.any", format = TRUE, signature_comment = FALSE)),
+      cat(prql_compile(query, "sql.any", format = TRUE, signature_comment = FALSE)),
       error = TRUE
     )
   },
@@ -94,7 +94,7 @@ group {origin, dest} (
 sort {-origin, avg_delay}
 take 2
 "
-    expect_snapshot(cat(prql_compile(query, target = target, format = TRUE, signature_comment = FALSE)))
+    expect_snapshot(cat(prql_compile(query, target, format = TRUE, signature_comment = FALSE)))
   },
   target = prql_get_targets()
 )

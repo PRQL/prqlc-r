@@ -23,7 +23,7 @@
     Code
       cat(prql_compile(
         "from star_wars\n    select {star_wars.*}\n    select !{jar_jar_binks, midichlorians}",
-        target = "sql.duckdb", format = TRUE, signature_comment = TRUE))
+        "sql.duckdb", format = TRUE, signature_comment = TRUE))
     Output
       SELECT
         * EXCLUDE (jar_jar_binks, midichlorians)
@@ -35,7 +35,7 @@
 # Syntax error query=Mississippi has four S’s and four I’s.
 
     Code
-      cat(prql_compile(query, target = "sql.any", format = TRUE, signature_comment = FALSE))
+      cat(prql_compile(query, "sql.any", format = TRUE, signature_comment = FALSE))
     Condition
       Error:
       ! Error:
@@ -63,7 +63,7 @@
 # Syntax error query=from a | select [b]
 
     Code
-      cat(prql_compile(query, target = "sql.any", format = TRUE, signature_comment = FALSE))
+      cat(prql_compile(query, "sql.any", format = TRUE, signature_comment = FALSE))
     Condition
       Error:
       ! Error:
@@ -77,7 +77,7 @@
 # Syntax error query=from a | select {{{b
 
     Code
-      cat(prql_compile(query, target = "sql.any", format = TRUE, signature_comment = FALSE))
+      cat(prql_compile(query, "sql.any", format = TRUE, signature_comment = FALSE))
     Condition
       Error:
       ! Error:
@@ -91,7 +91,7 @@
 # Targets target=sql.any
 
     Code
-      cat(prql_compile(query, target = target, format = TRUE, signature_comment = FALSE))
+      cat(prql_compile(query, target, format = TRUE, signature_comment = FALSE))
     Output
       SELECT
         origin,
@@ -115,7 +115,7 @@
 # Targets target=sql.ansi
 
     Code
-      cat(prql_compile(query, target = target, format = TRUE, signature_comment = FALSE))
+      cat(prql_compile(query, target, format = TRUE, signature_comment = FALSE))
     Output
       SELECT
         origin,
@@ -139,7 +139,7 @@
 # Targets target=sql.bigquery
 
     Code
-      cat(prql_compile(query, target = target, format = TRUE, signature_comment = FALSE))
+      cat(prql_compile(query, target, format = TRUE, signature_comment = FALSE))
     Output
       SELECT
         origin,
@@ -163,7 +163,7 @@
 # Targets target=sql.clickhouse
 
     Code
-      cat(prql_compile(query, target = target, format = TRUE, signature_comment = FALSE))
+      cat(prql_compile(query, target, format = TRUE, signature_comment = FALSE))
     Output
       SELECT
         origin,
@@ -187,7 +187,7 @@
 # Targets target=sql.duckdb
 
     Code
-      cat(prql_compile(query, target = target, format = TRUE, signature_comment = FALSE))
+      cat(prql_compile(query, target, format = TRUE, signature_comment = FALSE))
     Output
       SELECT
         origin,
@@ -211,7 +211,7 @@
 # Targets target=sql.generic
 
     Code
-      cat(prql_compile(query, target = target, format = TRUE, signature_comment = FALSE))
+      cat(prql_compile(query, target, format = TRUE, signature_comment = FALSE))
     Output
       SELECT
         origin,
@@ -235,7 +235,7 @@
 # Targets target=sql.glaredb
 
     Code
-      cat(prql_compile(query, target = target, format = TRUE, signature_comment = FALSE))
+      cat(prql_compile(query, target, format = TRUE, signature_comment = FALSE))
     Output
       SELECT
         origin,
@@ -259,7 +259,7 @@
 # Targets target=sql.mssql
 
     Code
-      cat(prql_compile(query, target = target, format = TRUE, signature_comment = FALSE))
+      cat(prql_compile(query, target, format = TRUE, signature_comment = FALSE))
     Output
       SELECT
         origin,
@@ -283,7 +283,7 @@
 # Targets target=sql.mysql
 
     Code
-      cat(prql_compile(query, target = target, format = TRUE, signature_comment = FALSE))
+      cat(prql_compile(query, target, format = TRUE, signature_comment = FALSE))
     Output
       SELECT
         origin,
@@ -307,7 +307,7 @@
 # Targets target=sql.postgres
 
     Code
-      cat(prql_compile(query, target = target, format = TRUE, signature_comment = FALSE))
+      cat(prql_compile(query, target, format = TRUE, signature_comment = FALSE))
     Output
       SELECT
         origin,
@@ -331,7 +331,7 @@
 # Targets target=sql.sqlite
 
     Code
-      cat(prql_compile(query, target = target, format = TRUE, signature_comment = FALSE))
+      cat(prql_compile(query, target, format = TRUE, signature_comment = FALSE))
     Output
       SELECT
         origin,
@@ -355,7 +355,7 @@
 # Targets target=sql.snowflake
 
     Code
-      cat(prql_compile(query, target = target, format = TRUE, signature_comment = FALSE))
+      cat(prql_compile(query, target, format = TRUE, signature_comment = FALSE))
     Output
       SELECT
         origin,
