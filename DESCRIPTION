@@ -25,7 +25,8 @@ Suggests:
     dplyr,
     testthat (>= 3.2.0),
     patrick,
-    withr
+    withr,
+    cli
 License: MIT + file LICENSE
 Language: en-US
 Encoding: UTF-8
@@ -47,4 +48,4 @@ Config/Needs/dev:
     rhub
 Config/Needs/website:
     pkgdown
-Config/prqlr/LibVersion: 0.13.0
+Config/prqlr/LibVersion: 0.13.1

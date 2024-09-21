@@ -30,8 +30,8 @@ NULL
 #' @param signature_comment a logical flag. Whether to add a signature comment to the output SQL query.
 #' @return a list contains a SQL string or an error message.
 #' @noRd
-`compile` <- function(`prql_query`, `target`, `format`, `signature_comment`) {
-  .Call(savvy_compile__impl, `prql_query`, `target`, `format`, `signature_comment`)
+`compile` <- function(`prql_query`, `target`, `format`, `signature_comment`, `display`) {
+  .Call(savvy_compile__impl, `prql_query`, `target`, `format`, `signature_comment`, `display`)
 }
 
 #' @noRd
