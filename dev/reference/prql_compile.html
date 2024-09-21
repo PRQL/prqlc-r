@@ -52,8 +52,10 @@
     <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">prql_compile</span><span class="op">(</span></span>
 <span>  <span class="va">prql_query</span>,</span>
 <span>  target <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/options.html" class="external-link">getOption</a></span><span class="op">(</span><span class="st">"prqlr.target"</span>, default <span class="op">=</span> <span class="cn">NULL</span><span class="op">)</span>,</span>
+<span>  <span class="va">...</span>,</span>
 <span>  format <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/options.html" class="external-link">getOption</a></span><span class="op">(</span><span class="st">"prqlr.format"</span>, default <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span>,</span>
-<span>  signature_comment <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/options.html" class="external-link">getOption</a></span><span class="op">(</span><span class="st">"prqlr.signature_comment"</span>, default <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span>
+<span>  signature_comment <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/options.html" class="external-link">getOption</a></span><span class="op">(</span><span class="st">"prqlr.signature_comment"</span>, default <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span>,</span>
+<span>  display <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/options.html" class="external-link">getOption</a></span><span class="op">(</span><span class="st">"prqlr.display"</span>, default <span class="op">=</span> <span class="st">"plain"</span><span class="op">)</span></span>
 <span><span class="op">)</span></span></code></pre></div>
     </div>
 
@@ -62,31 +64,36 @@
 
 
 <dl><dt id="arg-prql-query">prql_query<a class="anchor" aria-label="anchor" href="#arg-prql-query"></a></dt>
-<dd><p>a PRQL query string.</p></dd>
+<dd><p>A character of PRQL query.</p></dd>
 
 
 <dt id="arg-target">target<a class="anchor" aria-label="anchor" href="#arg-target"></a></dt>
-<dd><p>a compile target name to use. If not specified (<code>NULL</code>),
-the target contained in the query will be used.
-All available target names can be listed with the <a href="prql_get_targets.html">prql_get_targets</a> function.</p></dd>
+<dd><p>A character of the target name to use or <code>NULL</code>.
+If <code>NULL</code>, the target contained in the query will be used.
+All available target names can be listed with the <code><a href="prql_get_targets.html">prql_get_targets()</a></code> function.</p></dd>
+
+
+<dt id="arg--">...<a class="anchor" aria-label="anchor" href="#arg--"></a></dt>
+<dd><p>Ignored.</p></dd>
 
 
 <dt id="arg-format">format<a class="anchor" aria-label="anchor" href="#arg-format"></a></dt>
-<dd><p>a logical flag (default: <code>TRUE</code>). Whether to format the SQL query.</p></dd>
+<dd><p>A logical flag (default: <code>TRUE</code>). Whether to format the SQL query.</p></dd>
 
 
 <dt id="arg-signature-comment">signature_comment<a class="anchor" aria-label="anchor" href="#arg-signature-comment"></a></dt>
 <dd><p>a logical flag. (default: <code>TRUE</code>).
 Whether to add a signature comment to the output SQL query.</p></dd>
 
+
+<dt id="arg-display">display<a class="anchor" aria-label="anchor" href="#arg-display"></a></dt>
+<dd><p>A character, one of <code>"plain"</code> (default) or <code>"ansi_color"</code>.
+If <code>"ansi_color"</code>, error will be displayed with ANSI color.</p></dd>
+
 </dl></div>
     <div class="section level2">
     <h2 id="value">Value<a class="anchor" aria-label="anchor" href="#value"></a></h2>
-    <p>a SQL query string</p>
-    </div>
-    <div class="section level2">
-    <h2 id="see-also">See also<a class="anchor" aria-label="anchor" href="#see-also"></a></h2>
-    <div class="dont-index"><p><a href="prql_get_targets.html">prql_get_targets</a></p></div>
+    <p>A character of the compiled SQL query.</p>
     </div>
 
     <div class="section level2">
