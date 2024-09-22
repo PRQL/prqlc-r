@@ -51,15 +51,12 @@ which_arch <- function() {
 }
 
 which_vendor_sys_abi <- function(os = c("linux", "macos", "windows")) {
-  if (match.arg(os) == "linux") {
-    "unknown-linux-musl"
-  } else if (match.arg(os) == "macos") {
-    "apple-darwin"
-  } else if (match.arg(os) == "windows") {
-    "pc-windows-gnu"
-  } else {
+  switch(match.arg(os),
+    linux = "unknown-linux-musl",
+    macos = "apple-darwin",
+    windows = "pc-windows-gnu",
     stop("Unsupported OS: ", os)
-  }
+  )
 }
 
 current_os <- which_os()
