@@ -1,7 +1,7 @@
 check_sha256 <- function(file, sum, os = c("linux", "macos", "windows")) {
   message("Checking SHA256 for <", file, ">...")
 
-  # tools::sha256sum should be available in R > 4.5
+  # tools::sha256sum should be available in R >= 4.5
   if (exists("sha256sum", where = asNamespace("tools"), mode = "function")) {
     out <- tools::sha256sum(file)
   } else {
