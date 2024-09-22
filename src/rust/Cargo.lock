@@ -401,8 +401,9 @@ dependencies = [
 
 [[package]]
 name = "prqlr"
-version = "0.13.1"
+version = "0.13.0"
 dependencies = [
+ "anstream",
  "prqlc",
  "savvy",
 ]

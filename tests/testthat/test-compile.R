@@ -6,11 +6,11 @@ test_that("target set in the header ", {
     "SELECT * FROM a ORDER BY (SELECT NULL) OFFSET 0 ROWS FETCH FIRST 1 ROWS ONLY"
   )
   expect_equal(
-    prql_compile(mssql_query, "sql.any", format = FALSE, signature_comment = FALSE),
+    prql_compile(mssql_query, target = "sql.any", format = FALSE, signature_comment = FALSE),
     "SELECT * FROM a ORDER BY (SELECT NULL) OFFSET 0 ROWS FETCH FIRST 1 ROWS ONLY"
   )
   expect_equal(
-    prql_compile(mssql_query, "sql.generic", format = FALSE, signature_comment = FALSE),
+    prql_compile(mssql_query, target = "sql.generic", format = FALSE, signature_comment = FALSE),
     "SELECT * FROM a LIMIT 1"
   )
 })
@@ -58,23 +58,20 @@ test_that("Options", {
 
 test_that("PRQL query", {
   expect_snapshot(cat(prql_compile("from a | select {b}")))
-  expect_snapshot(cat(prql_compile("from a | select {b}", target = NULL, format = FALSE, signature_comment = FALSE)))
+  expect_snapshot(cat(prql_compile("from a | select {b}", NULL, FALSE, FALSE)))
   expect_snapshot(
     "from star_wars
     select {star_wars.*}
     select !{jar_jar_binks, midichlorians}"
     |>
-      prql_compile("sql.duckdb", format = TRUE, signature_comment = TRUE) |>
+      compile("sql.duckdb", TRUE, TRUE) |>
       cat()
   )
 })
 
 patrick::with_parameters_test_that("Syntax error",
   {
-    expect_snapshot(
-      cat(prql_compile(query, "sql.any", format = TRUE, signature_comment = FALSE)),
-      error = TRUE
-    )
+    expect_snapshot(cat(prql_compile(query, "sql.any", TRUE, FALSE)), error = TRUE)
   },
   query = c("Mississippi has four S’s and four I’s.", "from a | select [b]", "from a | select {{{b")
 )
@@ -94,7 +91,7 @@ group {origin, dest} (
 sort {-origin, avg_delay}
 take 2
 "
-    expect_snapshot(cat(prql_compile(query, target, format = TRUE, signature_comment = FALSE)))
+    expect_snapshot(cat(prql_compile(query, target, TRUE, FALSE)))
   },
   target = prql_get_targets()
 )
@@ -103,18 +100,3 @@ test_that("prqlc's version", {
   expect_snapshot(prql_version())
   expect_s3_class(prql_version(), "numeric_version")
 })
-
-patrick::with_parameters_test_that("display",
-  {
-    query <- "
-from foo
-select
-"
-    skip_if_not_installed("cli")
-    expect_snapshot(
-      tryCatch(prql_compile(query, format = TRUE, display = display), error = \(e) cli::ansi_html(e))
-    )
-  },
-  # The `ansi_color` option is not working on CI, so not tested.
-  display = c("plain", "bar")
-)

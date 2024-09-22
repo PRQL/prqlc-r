@@ -7,31 +7,24 @@
 prql_compile(
   prql_query,
   target = getOption("prqlr.target", default = NULL),
-  ...,
   format = getOption("prqlr.format", default = TRUE),
-  signature_comment = getOption("prqlr.signature_comment", default = TRUE),
-  display = getOption("prqlr.display", default = "plain")
+  signature_comment = getOption("prqlr.signature_comment", default = TRUE)
 )
 }
 \arguments{
-\item{prql_query}{A character of PRQL query.}
+\item{prql_query}{a PRQL query string.}
 
-\item{target}{A character of the target name to use or \code{NULL}.
-If \code{NULL}, the target contained in the query will be used.
-All available target names can be listed with the \code{\link[=prql_get_targets]{prql_get_targets()}} function.}
+\item{target}{a compile target name to use. If not specified (\code{NULL}),
+the target contained in the query will be used.
+All available target names can be listed with the \link{prql_get_targets} function.}
 
-\item{...}{Ignored.}
-
-\item{format}{A logical flag (default: \code{TRUE}). Whether to format the SQL query.}
+\item{format}{a logical flag (default: \code{TRUE}). Whether to format the SQL query.}
 
 \item{signature_comment}{a logical flag. (default: \code{TRUE}).
 Whether to add a signature comment to the output SQL query.}
-
-\item{display}{A character, one of \code{"plain"} (default) or \code{"ansi_color"}.
-If \code{"ansi_color"}, error will be displayed with ANSI color.}
 }
 \value{
-A character of the compiled SQL query.
+a SQL query string
 }
 \description{
 Compile a PRQL query into a SQL query
@@ -62,4 +55,7 @@ select !{cyl}
 " |>
   prql_compile() |>
   cat()
+}
+\seealso{
+\link{prql_get_targets}
 }

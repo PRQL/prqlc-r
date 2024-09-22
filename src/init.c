@@ -34,8 +34,8 @@ SEXP handle_result(SEXP res_) {
     return (SEXP)res;
 }
 
-SEXP savvy_compile__impl(SEXP c_arg__prql_query, SEXP c_arg__target, SEXP c_arg__format, SEXP c_arg__signature_comment, SEXP c_arg__display) {
-    SEXP res = savvy_compile__ffi(c_arg__prql_query, c_arg__target, c_arg__format, c_arg__signature_comment, c_arg__display);
+SEXP savvy_compile__impl(SEXP c_arg__prql_query, SEXP c_arg__target, SEXP c_arg__format, SEXP c_arg__signature_comment) {
+    SEXP res = savvy_compile__ffi(c_arg__prql_query, c_arg__target, c_arg__format, c_arg__signature_comment);
     return handle_result(res);
 }
 
@@ -66,7 +66,7 @@ SEXP savvy_prql_get_targets__impl(void) {
 
 
 static const R_CallMethodDef CallEntries[] = {
-    {"savvy_compile__impl", (DL_FUNC) &savvy_compile__impl, 5},
+    {"savvy_compile__impl", (DL_FUNC) &savvy_compile__impl, 4},
     {"savvy_prql_to_pl__impl", (DL_FUNC) &savvy_prql_to_pl__impl, 1},
     {"savvy_pl_to_rq__impl", (DL_FUNC) &savvy_pl_to_rq__impl, 1},
     {"savvy_rq_to_sql__impl", (DL_FUNC) &savvy_rq_to_sql__impl, 1},

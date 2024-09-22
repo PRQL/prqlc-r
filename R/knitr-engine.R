@@ -1,4 +1,3 @@
-# TODO: support the `error=TRUE` option and support `ansi_color`ed error message with the `cli` package.
 #' @title PRQL knitr engine
 #' @description
 #' If options$connection is NULL, the output is SQL query.
@@ -28,8 +27,7 @@ eng_prql <- function(options) {
     prql_compile(
       target = options$engine.opts[["target"]] %||% getOption("prqlr.target"),
       format = TRUE,
-      signature_comment = options$engine.opts[["signature_comment"]] %||% getOption("prqlr.signature_comment", TRUE),
-      display = "plain"
+      signature_comment = options$engine.opts[["signature_comment"]] %||% getOption("prqlr.signature_comment", TRUE)
     )
 
   # Prints a SQL code block if there is no connection

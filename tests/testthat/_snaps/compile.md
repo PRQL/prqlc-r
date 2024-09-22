@@ -13,17 +13,16 @@
 ---
 
     Code
-      cat(prql_compile("from a | select {b}", target = NULL, format = FALSE,
-        signature_comment = FALSE))
+      cat(prql_compile("from a | select {b}", NULL, FALSE, FALSE))
     Output
       SELECT b FROM a
 
 ---
 
     Code
-      cat(prql_compile(
+      cat(compile(
         "from star_wars\n    select {star_wars.*}\n    select !{jar_jar_binks, midichlorians}",
-        "sql.duckdb", format = TRUE, signature_comment = TRUE))
+        "sql.duckdb", TRUE, TRUE))
     Output
       SELECT
         * EXCLUDE (jar_jar_binks, midichlorians)
@@ -35,7 +34,7 @@
 # Syntax error query=Mississippi has four S’s and four I’s.
 
     Code
-      cat(prql_compile(query, "sql.any", format = TRUE, signature_comment = FALSE))
+      cat(prql_compile(query, "sql.any", TRUE, FALSE))
     Condition
       Error:
       ! Error:
@@ -63,7 +62,7 @@
 # Syntax error query=from a | select [b]
 
     Code
-      cat(prql_compile(query, "sql.any", format = TRUE, signature_comment = FALSE))
+      cat(prql_compile(query, "sql.any", TRUE, FALSE))
     Condition
       Error:
       ! Error:
@@ -77,7 +76,7 @@
 # Syntax error query=from a | select {{{b
 
     Code
-      cat(prql_compile(query, "sql.any", format = TRUE, signature_comment = FALSE))
+      cat(prql_compile(query, "sql.any", TRUE, FALSE))
     Condition
       Error:
       ! Error:
@@ -91,7 +90,7 @@
 # Targets target=sql.any
 
     Code
-      cat(prql_compile(query, target, format = TRUE, signature_comment = FALSE))
+      cat(prql_compile(query, target, TRUE, FALSE))
     Output
       SELECT
         origin,
@@ -115,7 +114,7 @@
 # Targets target=sql.ansi
 
     Code
-      cat(prql_compile(query, target, format = TRUE, signature_comment = FALSE))
+      cat(prql_compile(query, target, TRUE, FALSE))
     Output
       SELECT
         origin,
@@ -139,7 +138,7 @@
 # Targets target=sql.bigquery
 
     Code
-      cat(prql_compile(query, target, format = TRUE, signature_comment = FALSE))
+      cat(prql_compile(query, target, TRUE, FALSE))
     Output
       SELECT
         origin,
@@ -163,7 +162,7 @@
 # Targets target=sql.clickhouse
 
     Code
-      cat(prql_compile(query, target, format = TRUE, signature_comment = FALSE))
+      cat(prql_compile(query, target, TRUE, FALSE))
     Output
       SELECT
         origin,
@@ -187,7 +186,7 @@
 # Targets target=sql.duckdb
 
     Code
-      cat(prql_compile(query, target, format = TRUE, signature_comment = FALSE))
+      cat(prql_compile(query, target, TRUE, FALSE))
     Output
       SELECT
         origin,
@@ -211,7 +210,7 @@
 # Targets target=sql.generic
 
     Code
-      cat(prql_compile(query, target, format = TRUE, signature_comment = FALSE))
+      cat(prql_compile(query, target, TRUE, FALSE))
     Output
       SELECT
         origin,
@@ -235,7 +234,7 @@
 # Targets target=sql.glaredb
 
     Code
-      cat(prql_compile(query, target, format = TRUE, signature_comment = FALSE))
+      cat(prql_compile(query, target, TRUE, FALSE))
     Output
       SELECT
         origin,
@@ -259,7 +258,7 @@
 # Targets target=sql.mssql
 
     Code
-      cat(prql_compile(query, target, format = TRUE, signature_comment = FALSE))
+      cat(prql_compile(query, target, TRUE, FALSE))
     Output
       SELECT
         origin,
@@ -283,7 +282,7 @@
 # Targets target=sql.mysql
 
     Code
-      cat(prql_compile(query, target, format = TRUE, signature_comment = FALSE))
+      cat(prql_compile(query, target, TRUE, FALSE))
     Output
       SELECT
         origin,
@@ -307,7 +306,7 @@
 # Targets target=sql.postgres
 
     Code
-      cat(prql_compile(query, target, format = TRUE, signature_comment = FALSE))
+      cat(prql_compile(query, target, TRUE, FALSE))
     Output
       SELECT
         origin,
@@ -331,7 +330,7 @@
 # Targets target=sql.sqlite
 
     Code
-      cat(prql_compile(query, target, format = TRUE, signature_comment = FALSE))
+      cat(prql_compile(query, target, TRUE, FALSE))
     Output
       SELECT
         origin,
@@ -355,7 +354,7 @@
 # Targets target=sql.snowflake
 
     Code
-      cat(prql_compile(query, target, format = TRUE, signature_comment = FALSE))
+      cat(prql_compile(query, target, TRUE, FALSE))
     Output
       SELECT
         origin,
@@ -382,20 +381,4 @@
       prql_version()
     Output
       [1] '0.13.0'
-
-# display display=plain
-
-    Code
-      tryCatch(prql_compile(query, format = TRUE, display = display), error = function(
-        e) cli::ansi_html(e))
-    Output
-      [1] "Error: Error:\n   ╭─[:3:1]\n   │\n 3 │ select\n   │ ───┬──\n   │    ╰──── main expected type `relation`, but found type `func relation -&gt; relation`\n   │\n   │ Help: Have you forgotten an argument to function std.select?\n   │\n   │ Note: Type `relation` expands to `[tuple]`\n───╯\n\n"
-
-# display display=bar
-
-    Code
-      tryCatch(prql_compile(query, format = TRUE, display = display), error = function(
-        e) cli::ansi_html(e))
-    Output
-      [1] "Error: Error: `display` must be one of `plain` or `ansi_color`. got: bar\n\n"
 
