@@ -1,16 +1,18 @@
 check_sha256 <- function(file, sum, os = c("linux", "macos", "windows")) {
   message("Checking SHA256 for <", file, ">...")
 
-  if (match.arg(os) == "linux") {
-    out <- system2("sha256sum", args = file, stdout = TRUE) |>
-      gsub(r"(\s.*)", "", x = _)
-  } else if (match.arg(os) == "macos") {
-    out <- system2("shasum", args = c("-a", "256", file), stdout = TRUE) |>
-      gsub(r"(\s.*)", "", x = _)
-  } else if (match.arg(os) == "windows") {
-    out <- system2("certutil", args = c("-hashfile", file, "SHA256"), stdout = TRUE)[2]
+  # tools::sha256sum should be available in R >= 4.5
+  if (exists("sha256sum", where = asNamespace("tools"), mode = "function")) {
+    out <- tools::sha256sum(file)
   } else {
-    stop("Unsupported OS: ", os)
+    out <- switch(match.arg(os),
+      linux = system2("sha256sum", args = file, stdout = TRUE) |>
+        gsub(r"(\s.*)", "", x = _),
+      macos = system2("shasum", args = c("-a", "256", file), stdout = TRUE) |>
+        gsub(r"(\s.*)", "", x = _),
+      windows = system2("certutil", args = c("-hashfile", file, "SHA256"), stdout = TRUE)[2],
+      stop("Unsupported OS: ", os)
+    )
   }
 
   if (out != sum) {
@@ -49,15 +51,12 @@ which_arch <- function() {
 }
 
 which_vendor_sys_abi <- function(os = c("linux", "macos", "windows")) {
-  if (match.arg(os) == "linux") {
-    "unknown-linux-musl"
-  } else if (match.arg(os) == "macos") {
-    "apple-darwin"
-  } else if (match.arg(os) == "windows") {
-    "pc-windows-gnu"
-  } else {
+  switch(match.arg(os),
+    linux = "unknown-linux-musl",
+    macos = "apple-darwin",
+    windows = "pc-windows-gnu",
     stop("Unsupported OS: ", os)
-  }
+  )
 }
 
 current_os <- which_os()
