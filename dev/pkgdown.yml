@@ -4,7 +4,7 @@ pkgdown_sha: ~
 articles:
   knitr: knitr.html
   prqlr: prqlr.html
-last_built: 2024-09-21T06:09Z
+last_built: 2024-10-28T11:07Z
 urls:
   reference: https://prql.github.io/prqlc-r/reference
   article: https://prql.github.io/prqlc-r/articles
