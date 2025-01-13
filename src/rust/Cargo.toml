@@ -10,7 +10,7 @@ crate-type = ['staticlib']
 name = "prqlr"
 
 [dependencies]
-savvy = "0.7.2"
+savvy = "0.8.3"
 # prqlc= { version = "0.13.0", default-features = false }
 # prqlc 0.13.0 is not compatible with Rust 1.69.0, so a slightly modified version is installed
 # See https://github.com/PRQL/prql/pull/4916
