@@ -179,7 +179,7 @@ jobs:
           extra-packages: any::pkgload, any::testthat
 
       - run: |
-          Rscript -e 'install.packages(c("pkgload", "testthat"))'
+          Rscript -e 'install.packages(c("pkgload", "testthat", "patrick"))'
         if: matrix.os == 'ubuntu-22.04-arm'
 
       - name: R test
