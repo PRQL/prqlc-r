@@ -77,6 +77,12 @@ jobs:
           use-public-rspm: true
           Ncpus: 2
 
+      - uses: r-lib/actions/setup-r-dependencies@v2
+        if: runner.os != 'Windows'
+        with:
+          dependencies": 'FALSE'
+          extra-packages: any::pkgload
+
       - name: build lib
         env:
           NOT_CRAN: "true"
@@ -92,7 +98,6 @@ jobs:
           if [[ "${{ runner.os }}" != "Windows" ]]; then
             # Rinternals header is needed
             pushd ..
-            Rscript -e 'install.packages("pkgbuild")'
             Rscript -e 'pkgbuild::compile_dll()'
             popd
           else
