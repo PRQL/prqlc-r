@@ -130,6 +130,8 @@ jobs:
         include:
           - os: macos-13
             r: release
+          - os: ubuntu-22.04-arm
+            r: release
 
     permissions:
       contents: read
@@ -145,7 +147,7 @@ jobs:
           if [[ "${{ runner.os }}" == "Windows" ]]; then
             echo "LIB_TARGET=x86_64-pc-windows-gnu" >>"$GITHUB_ENV"
           elif [[ "${{ runner.os }}" == "Linux" ]]; then
-            echo "LIB_TARGET=x86_64-unknown-linux-musl" >>"$GITHUB_ENV"
+            echo "LIB_TARGET=$(uname -m)-unknown-linux-musl" >>"$GITHUB_ENV"
           else
             echo "LIB_TARGET=$(rustc -vV | grep host | cut -d' ' -f2)" >>"$GITHUB_ENV"
           fi
@@ -171,8 +173,14 @@ jobs:
           Ncpus: "2"
 
       - uses: r-lib/actions/setup-r-dependencies@v2
+        # TODO: remove after this action supports arm linux <https://github.com/r-lib/actions/issues/960>
+        if: matrix.os != 'ubuntu-22.04-arm'
         with:
           extra-packages: any::pkgload, any::testthat
+
+      - run: |
+          Rscript -e 'install.packages(c("pkgload", "testthat"))'
+        if: matrix.os == 'ubuntu-22.04-arm'
 
       - name: R test
         shell: Rscript {0}
