@@ -74,8 +74,16 @@ jobs:
         if: runner.os != 'Windows'
         uses: r-lib/actions/setup-r@v2
         with:
-          use-public-rspm: true
+          # TODO: `true` after rspm supports arm linux <https://github.com/r-lib/actions/issues/960>
+          use-public-rspm: ${{ matrix.os != 'ubuntu-22.04-arm' }}
           Ncpus: 2
+
+      - uses: r-lib/actions/setup-r-dependencies@v2
+        if: runner.os != 'Windows'
+        with:
+          # TODO: uncomment after <https://github.com/r-lib/actions/pull/961>
+          # dependencies: 'FALSE'
+          extra-packages: any::pkgload
 
       - name: build lib
         env:
@@ -92,7 +100,6 @@ jobs:
           if [[ "${{ runner.os }}" != "Windows" ]]; then
             # Rinternals header is needed
             pushd ..
-            Rscript -e 'install.packages("pkgbuild")'
             Rscript -e 'pkgbuild::compile_dll()'
             popd
           else
@@ -130,6 +137,8 @@ jobs:
         include:
           - os: macos-13
             r: release
+          - os: ubuntu-22.04-arm
+            r: release
 
     permissions:
       contents: read
@@ -145,7 +154,7 @@ jobs:
           if [[ "${{ runner.os }}" == "Windows" ]]; then
             echo "LIB_TARGET=x86_64-pc-windows-gnu" >>"$GITHUB_ENV"
           elif [[ "${{ runner.os }}" == "Linux" ]]; then
-            echo "LIB_TARGET=x86_64-unknown-linux-musl" >>"$GITHUB_ENV"
+            echo "LIB_TARGET=$(uname -m)-unknown-linux-musl" >>"$GITHUB_ENV"
           else
             echo "LIB_TARGET=$(rustc -vV | grep host | cut -d' ' -f2)" >>"$GITHUB_ENV"
           fi
@@ -167,10 +176,13 @@ jobs:
       - uses: r-lib/actions/setup-r@v2
         with:
           r-version: ${{ matrix.r }}
-          use-public-rspm: true
+          # TODO: `true` after rspm supports arm linux <https://github.com/r-lib/actions/issues/960>
+          use-public-rspm: ${{ matrix.os != 'ubuntu-22.04-arm' }}
           Ncpus: "2"
 
       - uses: r-lib/actions/setup-r-dependencies@v2
+        # TODO: uncomment after <https://github.com/r-lib/actions/pull/961>
+        # dependencies: 'FALSE'
         with:
           extra-packages: any::pkgload, any::testthat
 

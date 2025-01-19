@@ -1,4 +1,6 @@
 test_that("Set prql knitr engine", {
+  skip_if_not_installed("knitr")
+
   expect_true("prql" %in% names(knitr::knit_engines$get()))
 })
 
@@ -19,6 +21,8 @@ test_that("Set prql knitr engine", {
 }
 
 test_that("Snapshot test of knitr-engine", {
+  skip_if_not_installed("knitr")
+
   expect_snapshot(.knit_file("r-style-opts.Rmd"), cran = TRUE)
   expect_snapshot(.knit_file("yaml-style-opts.Rmd"), cran = TRUE)
   expect_snapshot(
