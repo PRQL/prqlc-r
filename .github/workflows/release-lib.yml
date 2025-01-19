@@ -172,14 +172,13 @@ jobs:
 
       - uses: r-lib/actions/setup-r-dependencies@v2
         with:
-          extra-packages: any::rcmdcheck, any::devtools
-          needs: check
+          extra-packages: any::pkgload, any::testthat
 
       - name: R test
         shell: Rscript {0}
         run: |
-          devtools::load_all()
-          testthat::test_dir("tests")
+          pkgload::load_all()
+          testthat::test_local()
 
   release:
     needs:
