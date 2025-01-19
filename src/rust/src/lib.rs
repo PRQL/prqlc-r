@@ -22,11 +22,10 @@ pub fn compile(
         target: target.to_string(),
         signature_comment,
         display: display.to_string(),
-    })
-    .map_err(|e| e.to_string())?;
+    })?;
 
     prqlc::compile(prql_query, &options)
-        .map_err(|e| e.to_string().into())
+        .map_err(|e| e.into())
         .and_then(|x| x.try_into())
 }
 
@@ -62,7 +61,7 @@ pub fn prql_to_pl(prql_query: &str) -> Result<Sexp> {
     Ok(prql_query)
         .and_then(prqlc::prql_to_pl)
         .and_then(|x| prqlc::json::from_pl(&x))
-        .map_err(|e| e.to_string().into())
+        .map_err(|e| e.into())
         .and_then(|x| x.try_into())
 }
 
@@ -73,7 +72,7 @@ pub fn pl_to_rq(pl_json: &str) -> Result<Sexp> {
         .and_then(prqlc::json::to_pl)
         .and_then(prqlc::pl_to_rq)
         .and_then(|x| prqlc::json::from_rq(&x))
-        .map_err(|e| e.to_string().into())
+        .map_err(|e| e.into())
         .and_then(|x| x.try_into())
 }
 
@@ -83,7 +82,7 @@ pub fn rq_to_sql(rq_json: &str) -> Result<Sexp> {
     Ok(rq_json)
         .and_then(prqlc::json::to_rq)
         .and_then(|x| prqlc::rq_to_sql(x, &prqlc::Options::default()))
-        .map_err(|e| e.to_string().into())
+        .map_err(|e| e.into())
         .and_then(|x| x.try_into())
 }
 

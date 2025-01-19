@@ -39,8 +39,8 @@ SEXP savvy_compile__impl(SEXP c_arg__prql_query, SEXP c_arg__target, SEXP c_arg_
     return handle_result(res);
 }
 
-SEXP savvy_prql_to_pl__impl(SEXP c_arg__prql_query) {
-    SEXP res = savvy_prql_to_pl__ffi(c_arg__prql_query);
+SEXP savvy_compiler_version__impl(void) {
+    SEXP res = savvy_compiler_version__ffi();
     return handle_result(res);
 }
 
@@ -49,29 +49,29 @@ SEXP savvy_pl_to_rq__impl(SEXP c_arg__pl_json) {
     return handle_result(res);
 }
 
-SEXP savvy_rq_to_sql__impl(SEXP c_arg__rq_json) {
-    SEXP res = savvy_rq_to_sql__ffi(c_arg__rq_json);
-    return handle_result(res);
-}
-
-SEXP savvy_compiler_version__impl(void) {
-    SEXP res = savvy_compiler_version__ffi();
-    return handle_result(res);
-}
-
 SEXP savvy_prql_get_targets__impl(void) {
     SEXP res = savvy_prql_get_targets__ffi();
+    return handle_result(res);
+}
+
+SEXP savvy_prql_to_pl__impl(SEXP c_arg__prql_query) {
+    SEXP res = savvy_prql_to_pl__ffi(c_arg__prql_query);
+    return handle_result(res);
+}
+
+SEXP savvy_rq_to_sql__impl(SEXP c_arg__rq_json) {
+    SEXP res = savvy_rq_to_sql__ffi(c_arg__rq_json);
     return handle_result(res);
 }
 
 
 static const R_CallMethodDef CallEntries[] = {
     {"savvy_compile__impl", (DL_FUNC) &savvy_compile__impl, 5},
-    {"savvy_prql_to_pl__impl", (DL_FUNC) &savvy_prql_to_pl__impl, 1},
-    {"savvy_pl_to_rq__impl", (DL_FUNC) &savvy_pl_to_rq__impl, 1},
-    {"savvy_rq_to_sql__impl", (DL_FUNC) &savvy_rq_to_sql__impl, 1},
     {"savvy_compiler_version__impl", (DL_FUNC) &savvy_compiler_version__impl, 0},
+    {"savvy_pl_to_rq__impl", (DL_FUNC) &savvy_pl_to_rq__impl, 1},
     {"savvy_prql_get_targets__impl", (DL_FUNC) &savvy_prql_get_targets__impl, 0},
+    {"savvy_prql_to_pl__impl", (DL_FUNC) &savvy_prql_to_pl__impl, 1},
+    {"savvy_rq_to_sql__impl", (DL_FUNC) &savvy_rq_to_sql__impl, 1},
     {NULL, NULL, 0}
 };
 

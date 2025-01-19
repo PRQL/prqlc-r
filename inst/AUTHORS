@@ -11,8 +11,7 @@ Owners of dependent Rust crates. This list is generated from Crates.io Data <htt
   - ariadne: Joshua Barretto <https://github.com/zesterer>
   - autocfg: Josh Stone <https://github.com/cuviper>, Alex Kladov <https://github.com/matklad>
   - bumpalo: Nick Fitzgerald <https://github.com/fitzgen>, Alex Crichton <https://github.com/alexcrichton>
-  - cc: ember arlynx <https://github.com/emberian>
-  - cfg-if: ember arlynx <https://github.com/emberian>, Alex Crichton <https://github.com/alexcrichton>
+  - cfg-if: Alex Crichton <https://github.com/alexcrichton>
   - chrono: Kang Seonghoon <https://github.com/lifthrasiir>, Keegan McAllister <https://github.com/kmcallister>
   - chumsky: Joshua Barretto <https://github.com/zesterer>
   - colorchoice: Ed Page <https://github.com/epage>
@@ -32,8 +31,8 @@ Owners of dependent Rust crates. This list is generated from Crates.io Data <htt
   - itertools: bluss <https://github.com/bluss>, Jack Wrenn <https://github.com/jswrenn>
   - itoa: David Tolnay <https://github.com/dtolnay>
   - js-sys: Nick Fitzgerald <https://github.com/fitzgen>, Alex Crichton <https://github.com/alexcrichton>
-  - libc: Huon Wilson <https://github.com/huonw>, ember arlynx <https://github.com/emberian>, gnzlbg <https://github.com/gnzlbg>, Yuki Okushi <https://github.com/JohnTitor>, Alex Crichton <https://github.com/alexcrichton>, Josh Triplett <https://github.com/joshtriplett>, Sebastian Dröge <https://github.com/sdroege>
-  - log: Huon Wilson <https://github.com/huonw>, Steven Fackler <https://github.com/sfackler>, Alex Crichton <https://github.com/alexcrichton>, Ashley Mannix <https://github.com/KodrAus>
+  - libc: Huon Wilson <https://github.com/huonw>, gnzlbg <https://github.com/gnzlbg>, Yuki Okushi <https://github.com/JohnTitor>, Josh Triplett <https://github.com/joshtriplett>, Sebastian Dröge <https://github.com/sdroege>
+  - log: Huon Wilson <https://github.com/huonw>, Steven Fackler <https://github.com/sfackler>, Ashley Mannix <https://github.com/KodrAus>
   - memchr: Andrew Gallant <https://github.com/BurntSushi>
   - minimal-lexical: Alexander Huszagh <https://github.com/Alexhuszagh>
   - nom: Geoffroy Couprie <https://github.com/Geal>
@@ -46,9 +45,9 @@ Owners of dependent Rust crates. This list is generated from Crates.io Data <htt
   - quote: David Tolnay <https://github.com/dtolnay>
   - ref-cast: David Tolnay <https://github.com/dtolnay>
   - ref-cast-impl: David Tolnay <https://github.com/dtolnay>
-  - regex: Andrew Gallant <https://github.com/BurntSushi>, ember arlynx <https://github.com/emberian>, Alex Crichton <https://github.com/alexcrichton>
+  - regex: Andrew Gallant <https://github.com/BurntSushi>, Alex Crichton <https://github.com/alexcrichton>
   - regex-automata: Andrew Gallant <https://github.com/BurntSushi>
-  - regex-syntax: Andrew Gallant <https://github.com/BurntSushi>, Alex Crichton <https://github.com/alexcrichton>, ember arlynx <https://github.com/emberian>
+  - regex-syntax: Andrew Gallant <https://github.com/BurntSushi>, Alex Crichton <https://github.com/alexcrichton>
   - rustversion: David Tolnay <https://github.com/dtolnay>
   - ryu: David Tolnay <https://github.com/dtolnay>
   - savvy: Hiroaki Yutani <https://github.com/yutannihilation>
@@ -91,5 +90,5 @@ Owners of dependent Rust crates. This list is generated from Crates.io Data <htt
   - windows_x86_64_gnullvm: Kenny Kerr <https://github.com/kennykerr>
   - windows_x86_64_msvc: Kenny Kerr <https://github.com/kennykerr>
   - yansi: Sergio Benitez <https://github.com/SergioBenitez>
-  - zerocopy: Joshua Liebow-Feeser <https://github.com/joshlf>
+  - zerocopy: Joshua Liebow-Feeser <https://github.com/joshlf>, Jack Wrenn <https://github.com/jswrenn>
   - zerocopy-derive: Joshua Liebow-Feeser <https://github.com/joshlf>
