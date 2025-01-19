@@ -81,7 +81,8 @@ jobs:
       - uses: r-lib/actions/setup-r-dependencies@v2
         if: runner.os != 'Windows'
         with:
-          dependencies: 'FALSE'
+          # TODO: uncomment after <https://github.com/r-lib/actions/pull/961>
+          # dependencies: 'FALSE'
           extra-packages: any::pkgload
 
       - name: build lib
@@ -180,6 +181,8 @@ jobs:
           Ncpus: "2"
 
       - uses: r-lib/actions/setup-r-dependencies@v2
+        # TODO: uncomment after <https://github.com/r-lib/actions/pull/961>
+        # dependencies: 'FALSE'
         with:
           extra-packages: any::pkgload, any::testthat
 
