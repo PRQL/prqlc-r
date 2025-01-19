@@ -74,8 +74,15 @@ jobs:
         if: runner.os != 'Windows'
         uses: r-lib/actions/setup-r@v2
         with:
-          use-public-rspm: true
+          # TODO: `true` after rspm supports arm linux <https://github.com/r-lib/actions/issues/960>
+          use-public-rspm: ${{ matrix.os != 'ubuntu-22.04-arm' }}
           Ncpus: 2
+
+      - uses: r-lib/actions/setup-r-dependencies@v2
+        if: runner.os != 'Windows'
+        with:
+          dependencies: 'FALSE'
+          extra-packages: any::pkgload
 
       - name: build lib
         env:
@@ -92,7 +99,6 @@ jobs:
           if [[ "${{ runner.os }}" != "Windows" ]]; then
             # Rinternals header is needed
             pushd ..
-            Rscript -e 'install.packages("pkgbuild")'
             Rscript -e 'pkgbuild::compile_dll()'
             popd
           else
@@ -169,18 +175,13 @@ jobs:
       - uses: r-lib/actions/setup-r@v2
         with:
           r-version: ${{ matrix.r }}
-          use-public-rspm: true
+          # TODO: `true` after rspm supports arm linux <https://github.com/r-lib/actions/issues/960>
+          use-public-rspm: ${{ matrix.os != 'ubuntu-22.04-arm' }}
           Ncpus: "2"
 
       - uses: r-lib/actions/setup-r-dependencies@v2
-        # TODO: remove after this action supports arm linux <https://github.com/r-lib/actions/issues/960>
-        if: matrix.os != 'ubuntu-22.04-arm'
         with:
           extra-packages: any::pkgload, any::testthat
-
-      - run: |
-          Rscript -e 'install.packages(c("pkgload", "testthat", "patrick"))'
-        if: matrix.os == 'ubuntu-22.04-arm'
 
       - name: R test
         shell: Rscript {0}
