@@ -23,6 +23,20 @@ NULL
   }
 }
 
+# Prohibit modifying environments
+
+#' @export
+`$<-.savvy_prqlr__sealed` <- function(x, name, value) {
+  class <- gsub("__bundle$", "", class(x)[1])
+  stop(class, " cannot be modified", call. = FALSE)
+}
+
+#' @export
+`[[<-.savvy_prqlr__sealed` <- function(x, i, value) {
+  class <- gsub("__bundle$", "", class(x)[1])
+  stop(class, " cannot be modified", call. = FALSE)
+}
+
 #' @title Compile a PRQL query into a SQL query
 #' @param prql_query a PRQL query string.
 #' @param target a compile target name to use.
@@ -34,26 +48,16 @@ NULL
   .Call(savvy_compile__impl, `prql_query`, `target`, `format`, `signature_comment`, `display`)
 }
 
-#' @noRd
-`prql_to_pl` <- function(`prql_query`) {
-  .Call(savvy_prql_to_pl__impl, `prql_query`)
-}
-
-#' @noRd
-`pl_to_rq` <- function(`pl_json`) {
-  .Call(savvy_pl_to_rq__impl, `pl_json`)
-}
-
-#' @noRd
-`rq_to_sql` <- function(`rq_json`) {
-  .Call(savvy_rq_to_sql__impl, `rq_json`)
-}
-
 #' @title prqlc's version
 #' @return a prqlc's version string
 #' @noRd
 `compiler_version` <- function() {
   .Call(savvy_compiler_version__impl)
+}
+
+#' @noRd
+`pl_to_rq` <- function(`pl_json`) {
+  .Call(savvy_pl_to_rq__impl, `pl_json`)
 }
 
 #' @title Get available target names
@@ -64,6 +68,16 @@ NULL
 #' @export
 `prql_get_targets` <- function() {
   .Call(savvy_prql_get_targets__impl)
+}
+
+#' @noRd
+`prql_to_pl` <- function(`prql_query`) {
+  .Call(savvy_prql_to_pl__impl, `prql_query`)
+}
+
+#' @noRd
+`rq_to_sql` <- function(`rq_json`) {
+  .Call(savvy_rq_to_sql__impl, `rq_json`)
 }
 
 
