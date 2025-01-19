@@ -128,7 +128,7 @@ jobs:
           - os: macos-latest
             r: oldrel-1
         include:
-          - os: macos-12
+          - os: macos-13
             r: release
 
     permissions:
