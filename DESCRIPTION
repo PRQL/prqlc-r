@@ -24,7 +24,7 @@ Suggests:
     nycflights13,
     dplyr,
     testthat (>= 3.2.0),
-    patrick,
+    patrick (>= 0.3.0),
     withr,
     cli
 License: MIT + file LICENSE

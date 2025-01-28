@@ -76,7 +76,8 @@ patrick::with_parameters_test_that("Syntax error",
       error = TRUE
     )
   },
-  query = c("Mississippi has four S’s and four I’s.", "from a | select [b]", "from a | select {{{b")
+  query = c("Mississippi has four S’s and four I’s.", "from a | select [b]", "from a | select {{{b"),
+  .interpret_glue = FALSE
 )
 
 patrick::with_parameters_test_that("Targets",
