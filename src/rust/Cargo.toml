@@ -2,7 +2,7 @@
 name = "prqlr"
 version = "0.13.1"
 edition = "2021"
-rust-version = "1.69"
+rust-version = "1.70.0"
 publish = false
 
 [lib]
@@ -11,7 +11,4 @@ name = "prqlr"
 
 [dependencies]
 savvy = "0.8"
-# prqlc= { version = "0.13.0", default-features = false }
-# prqlc 0.13.0 is not compatible with Rust 1.69.0, so a slightly modified version is installed
-# See https://github.com/PRQL/prql/pull/4916
-prqlc = { git = "https://github.com/PRQL/prql", rev = "c7bd7a6fc73040394ffbbd85cea2ed6f986fd9dd", default-features = false }
+prqlc= { version = "0.13.3", default-features = false }

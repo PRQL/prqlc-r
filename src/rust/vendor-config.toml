@@ -1,11 +1,6 @@
 [source.crates-io]
 replace-with = "vendored-sources"
 
-[source."git+https://github.com/PRQL/prql?rev=c7bd7a6fc73040394ffbbd85cea2ed6f986fd9dd"]
-git = "https://github.com/PRQL/prql"
-rev = "c7bd7a6fc73040394ffbbd85cea2ed6f986fd9dd"
-replace-with = "vendored-sources"
-
 [source.vendored-sources]
 directory = "rust/vendor"
 

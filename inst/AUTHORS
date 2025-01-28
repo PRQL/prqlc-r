@@ -8,6 +8,7 @@ Owners of dependent Rust crates. This list is generated from Crates.io Data <htt
   - anstyle-parse: Ed Page <https://github.com/epage>
   - anstyle-query: Ed Page <https://github.com/epage>
   - anstyle-wincon: Ed Page <https://github.com/epage>
+  - anyhow: David Tolnay <https://github.com/dtolnay>
   - ariadne: Joshua Barretto <https://github.com/zesterer>
   - autocfg: Josh Stone <https://github.com/cuviper>, Alex Kladov <https://github.com/matklad>
   - bumpalo: Nick Fitzgerald <https://github.com/fitzgen>, Alex Crichton <https://github.com/alexcrichton>
@@ -18,14 +19,23 @@ Owners of dependent Rust crates. This list is generated from Crates.io Data <htt
   - core-foundation-sys: Lars Bergstrom <https://github.com/larsbergstrom>, Steven Fackler <https://github.com/sfackler>
   - csv: Andrew Gallant <https://github.com/BurntSushi>
   - csv-core: Andrew Gallant <https://github.com/BurntSushi>
+  - darling: Ted Driggs <https://github.com/TedDriggs>
+  - darling_core: Ted Driggs <https://github.com/TedDriggs>
+  - darling_macro: Ted Driggs <https://github.com/TedDriggs>
+  - deranged: Jacob Pratt <https://github.com/jhpratt>
+  - derive_builder: Colin Kiegel <https://github.com/colin-kiegel>, Ted Driggs <https://github.com/TedDriggs>
+  - derive_builder_core: Colin Kiegel <https://github.com/colin-kiegel>, Ted Driggs <https://github.com/TedDriggs>
+  - derive_builder_macro: Ted Driggs <https://github.com/TedDriggs>
   - dyn-clone: David Tolnay <https://github.com/dtolnay>
   - either: bluss <https://github.com/bluss>, Josh Stone <https://github.com/cuviper>, Jack Wrenn <https://github.com/jswrenn>
   - enum-as-inner: Benjamin Fry <https://github.com/bluejekyll>
+  - fnv: Simon Sapin <https://github.com/SimonSapin>, Steven Fackler <https://github.com/sfackler>
   - hashbrown: Amanieu d'Antras <https://github.com/Amanieu>
   - heck: srrrse <https://github.com/withoutboats>, Jonas Platte <https://github.com/jplatte>
   - hermit-abi: Stefan Lankes <https://github.com/stlankes>, Martin Kröning <https://github.com/mkroening>
   - iana-time-zone: Andrew Straw <https://github.com/astraw>, René Kijewski <https://github.com/Kijewski>
   - iana-time-zone-haiku: Andrew Straw <https://github.com/astraw>, René Kijewski <https://github.com/Kijewski>
+  - ident_case: Ted Driggs <https://github.com/TedDriggs>
   - is-terminal: Dan Gohman <https://github.com/sunfishcode>
   - is_terminal_polyfill: Ed Page <https://github.com/epage>
   - itertools: bluss <https://github.com/bluss>, Jack Wrenn <https://github.com/jswrenn>
@@ -34,10 +44,11 @@ Owners of dependent Rust crates. This list is generated from Crates.io Data <htt
   - libc: Huon Wilson <https://github.com/huonw>, gnzlbg <https://github.com/gnzlbg>, Yuki Okushi <https://github.com/JohnTitor>, Josh Triplett <https://github.com/joshtriplett>, Sebastian Dröge <https://github.com/sdroege>
   - log: Huon Wilson <https://github.com/huonw>, Steven Fackler <https://github.com/sfackler>, Ashley Mannix <https://github.com/KodrAus>
   - memchr: Andrew Gallant <https://github.com/BurntSushi>
-  - minimal-lexical: Alexander Huszagh <https://github.com/Alexhuszagh>
-  - nom: Geoffroy Couprie <https://github.com/Geal>
+  - num-conv: Jacob Pratt <https://github.com/jhpratt>
   - num-traits: Josh Stone <https://github.com/cuviper>
+  - num_threads: Jacob Pratt <https://github.com/jhpratt>, Thomas Hurst <https://github.com/Freaky>
   - once_cell: Alex Kladov <https://github.com/matklad>, Michal 'vorner' Vaner <https://github.com/vorner>
+  - powerfmt: Jacob Pratt <https://github.com/jhpratt>
   - proc-macro2: David Tolnay <https://github.com/dtolnay>
   - prqlc: Maximilian Roos <https://github.com/max-sixty>, Aljaž Mur Eržen <https://github.com/aljazerzen>
   - prqlc-parser: Maximilian Roos <https://github.com/max-sixty>
@@ -65,13 +76,20 @@ Owners of dependent Rust crates. This list is generated from Crates.io Data <htt
   - sqlformat: Josh Holmer <https://github.com/shssoichiro>
   - sqlparser: Andy Grove <https://github.com/andygrove>, Daniël Heres <https://github.com/Dandandan>, Max Countryman <https://github.com/maxcountryman>, Nickolay Ponomarev <https://github.com/nickolay>, Andrew Lamb <https://github.com/alamb>
   - stacker: Simonas Kazlauskas <https://github.com/nagisa>, Alex Crichton <https://github.com/alexcrichton>
+  - strsim: Danny Guo <https://github.com/dguo>, Max Bachmann <https://github.com/maxbachmann>
   - strum: Peter Glotfelty <https://github.com/Peternator7>
   - strum_macros: Peter Glotfelty <https://github.com/Peternator7>
   - syn: David Tolnay <https://github.com/dtolnay>
+  - time: Jacob Pratt <https://github.com/jhpratt>
+  - time-core: Jacob Pratt <https://github.com/jhpratt>
+  - time-macros: Jacob Pratt <https://github.com/jhpratt>
   - unicode-ident: David Tolnay <https://github.com/dtolnay>
   - unicode-width: Riad S. Wahby <https://github.com/kwantam>, Huon Wilson <https://github.com/huonw>, Simon Sapin <https://github.com/SimonSapin>, Manish Goregaokar <https://github.com/Manishearth>, Sujay Jayakar <https://github.com/sujayakar>, Alex Crichton <https://github.com/alexcrichton>
   - unicode_categories: Sean Gillespie <https://github.com/swgillespie>
   - utf8parse: Joe Wilm <https://github.com/jwilm>, Christian Duerr <https://github.com/chrisduerr>, Tyler Berry <https://github.com/Tahler>
+  - vergen: Jason Ozias <https://github.com/CraZySacX>
+  - vergen-gitcl: Jason Ozias <https://github.com/CraZySacX>
+  - vergen-lib: Jason Ozias <https://github.com/CraZySacX>
   - version_check: Sergio Benitez <https://github.com/SergioBenitez>
   - wasm-bindgen: Nick Fitzgerald <https://github.com/fitzgen>, Alex Crichton <https://github.com/alexcrichton>
   - wasm-bindgen-backend: Nick Fitzgerald <https://github.com/fitzgen>, Alex Crichton <https://github.com/alexcrichton>
@@ -89,6 +107,7 @@ Owners of dependent Rust crates. This list is generated from Crates.io Data <htt
   - windows_x86_64_gnu: Kenny Kerr <https://github.com/kennykerr>
   - windows_x86_64_gnullvm: Kenny Kerr <https://github.com/kennykerr>
   - windows_x86_64_msvc: Kenny Kerr <https://github.com/kennykerr>
+  - winnow: Ed Page <https://github.com/epage>
   - yansi: Sergio Benitez <https://github.com/SergioBenitez>
   - zerocopy: Joshua Liebow-Feeser <https://github.com/joshlf>, Jack Wrenn <https://github.com/jswrenn>
   - zerocopy-derive: Joshua Liebow-Feeser <https://github.com/joshlf>
