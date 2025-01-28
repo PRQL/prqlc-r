@@ -91,7 +91,7 @@ pub fn rq_to_sql(rq_json: &str) -> Result<Sexp> {
 /// @noRd
 #[savvy]
 pub fn compiler_version() -> Result<Sexp> {
-    prqlc::COMPILER_VERSION.to_string().try_into()
+    prqlc::compiler_version().to_string().try_into()
 }
 
 /// @title Get available target names

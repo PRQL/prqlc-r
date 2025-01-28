@@ -83,6 +83,14 @@ License:     Apache-2.0 OR MIT
 
 -------------------------------------------------------------
 
+Name:        anyhow
+Version:     1.0.95
+Repository:  https://github.com/dtolnay/anyhow
+Authors:     David Tolnay
+License:     Apache-2.0 OR MIT
+
+-------------------------------------------------------------
+
 Name:        ariadne
 Version:     0.4.1
 Repository:  https://github.com/zesterer/ariadne
@@ -171,6 +179,62 @@ License:     MIT OR Unlicense
 
 -------------------------------------------------------------
 
+Name:        darling
+Version:     0.20.10
+Repository:  https://github.com/TedDriggs/darling
+Authors:     Ted Driggs
+License:     MIT
+
+-------------------------------------------------------------
+
+Name:        darling_core
+Version:     0.20.10
+Repository:  https://github.com/TedDriggs/darling
+Authors:     Ted Driggs
+License:     MIT
+
+-------------------------------------------------------------
+
+Name:        darling_macro
+Version:     0.20.10
+Repository:  https://github.com/TedDriggs/darling
+Authors:     Ted Driggs
+License:     MIT
+
+-------------------------------------------------------------
+
+Name:        deranged
+Version:     0.3.11
+Repository:  https://github.com/jhpratt/deranged
+Authors:     Jacob Pratt
+License:     Apache-2.0 OR MIT
+
+-------------------------------------------------------------
+
+Name:        derive_builder
+Version:     0.20.2
+Repository:  https://github.com/colin-kiegel/rust-derive-builder
+Authors:     Colin Kiegel, Pascal Hertleif, Jan-Erik Rediger, Ted Driggs
+License:     Apache-2.0 OR MIT
+
+-------------------------------------------------------------
+
+Name:        derive_builder_core
+Version:     0.20.2
+Repository:  https://github.com/colin-kiegel/rust-derive-builder
+Authors:     Colin Kiegel, Pascal Hertleif, Jan-Erik Rediger, Ted Driggs
+License:     Apache-2.0 OR MIT
+
+-------------------------------------------------------------
+
+Name:        derive_builder_macro
+Version:     0.20.2
+Repository:  https://github.com/colin-kiegel/rust-derive-builder
+Authors:     Colin Kiegel, Pascal Hertleif, Jan-Erik Rediger, Ted Driggs
+License:     Apache-2.0 OR MIT
+
+-------------------------------------------------------------
+
 Name:        dyn-clone
 Version:     1.0.17
 Repository:  https://github.com/dtolnay/dyn-clone
@@ -191,6 +255,14 @@ Name:        enum-as-inner
 Version:     0.6.1
 Repository:  https://github.com/bluejekyll/enum-as-inner
 Authors:     Benjamin Fry
+License:     Apache-2.0 OR MIT
+
+-------------------------------------------------------------
+
+Name:        fnv
+Version:     1.0.7
+Repository:  https://github.com/servo/rust-fnv
+Authors:     Alex Crichton
 License:     Apache-2.0 OR MIT
 
 -------------------------------------------------------------
@@ -231,6 +303,14 @@ Name:        iana-time-zone-haiku
 Version:     0.1.2
 Repository:  https://github.com/strawlab/iana-time-zone
 Authors:     René Kijewski
+License:     Apache-2.0 OR MIT
+
+-------------------------------------------------------------
+
+Name:        ident_case
+Version:     1.0.1
+Repository:  https://github.com/TedDriggs/ident_case
+Authors:     Ted Driggs
 License:     Apache-2.0 OR MIT
 
 -------------------------------------------------------------
@@ -299,19 +379,11 @@ License:     MIT OR Unlicense
 
 -------------------------------------------------------------
 
-Name:        minimal-lexical
-Version:     0.2.1
-Repository:  https://github.com/Alexhuszagh/minimal-lexical
-Authors:     Alex Huszagh
+Name:        num-conv
+Version:     0.1.0
+Repository:  https://github.com/jhpratt/num-conv
+Authors:     Jacob Pratt
 License:     Apache-2.0 OR MIT
-
--------------------------------------------------------------
-
-Name:        nom
-Version:     7.1.3
-Repository:  https://github.com/Geal/nom
-Authors:     contact@geoffroycouprie.com
-License:     MIT
 
 -------------------------------------------------------------
 
@@ -323,10 +395,26 @@ License:     Apache-2.0 OR MIT
 
 -------------------------------------------------------------
 
+Name:        num_threads
+Version:     0.1.7
+Repository:  https://github.com/jhpratt/num_threads
+Authors:     Jacob Pratt
+License:     Apache-2.0 OR MIT
+
+-------------------------------------------------------------
+
 Name:        once_cell
 Version:     1.20.2
 Repository:  https://github.com/matklad/once_cell
 Authors:     Aleksey Kladov
+License:     Apache-2.0 OR MIT
+
+-------------------------------------------------------------
+
+Name:        powerfmt
+Version:     0.2.0
+Repository:  https://github.com/jhpratt/powerfmt
+Authors:     Jacob Pratt
 License:     Apache-2.0 OR MIT
 
 -------------------------------------------------------------
@@ -340,7 +428,7 @@ License:     Apache-2.0 OR MIT
 -------------------------------------------------------------
 
 Name:        prqlc
-Version:     0.13.0
+Version:     0.13.3
 Repository:  https://github.com/PRQL/prql
 Authors:     prqlc authors
 License:     Apache-2.0
@@ -348,7 +436,7 @@ License:     Apache-2.0
 -------------------------------------------------------------
 
 Name:        prqlc-parser
-Version:     0.13.0
+Version:     0.13.3
 Repository:  https://github.com/PRQL/prql
 Authors:     prqlc-parser authors
 License:     Apache-2.0
@@ -460,7 +548,7 @@ License:     MIT
 -------------------------------------------------------------
 
 Name:        schemars
-Version:     1.0.0-alpha.15
+Version:     1.0.0-alpha.17
 Repository:  https://github.com/GREsau/schemars
 Authors:     Graham Esau
 License:     MIT
@@ -468,7 +556,7 @@ License:     MIT
 -------------------------------------------------------------
 
 Name:        schemars_derive
-Version:     1.0.0-alpha.15
+Version:     1.0.0-alpha.17
 Repository:  https://github.com/GREsau/schemars
 Authors:     Graham Esau
 License:     MIT
@@ -476,7 +564,7 @@ License:     MIT
 -------------------------------------------------------------
 
 Name:        semver
-Version:     1.0.24
+Version:     1.0.25
 Repository:  https://github.com/dtolnay/semver
 Authors:     David Tolnay
 License:     Apache-2.0 OR MIT
@@ -508,7 +596,7 @@ License:     Apache-2.0 OR MIT
 -------------------------------------------------------------
 
 Name:        serde_json
-Version:     1.0.136
+Version:     1.0.137
 Repository:  https://github.com/serde-rs/json
 Authors:     Erick Tryzelaar, David Tolnay
 License:     Apache-2.0 OR MIT
@@ -524,7 +612,7 @@ License:     Apache-2.0 OR MIT
 -------------------------------------------------------------
 
 Name:        sqlformat
-Version:     0.2.6
+Version:     0.3.5
 Repository:  https://github.com/shssoichiro/sqlformat-rs
 Authors:     Josh Holmer
 License:     Apache-2.0 OR MIT
@@ -532,9 +620,9 @@ License:     Apache-2.0 OR MIT
 -------------------------------------------------------------
 
 Name:        sqlparser
-Version:     0.48.0
-Repository:  https://github.com/sqlparser-rs/sqlparser-rs
-Authors:     Andy Grove
+Version:     0.52.0
+Repository:  https://github.com/apache/datafusion-sqlparser-rs
+Authors:     Apache DataFusion
 License:     Apache-2.0
 
 -------------------------------------------------------------
@@ -544,6 +632,14 @@ Version:     0.1.17
 Repository:  https://github.com/rust-lang/stacker
 Authors:     Alex Crichton, Simonas Kazlauskas
 License:     Apache-2.0 OR MIT
+
+-------------------------------------------------------------
+
+Name:        strsim
+Version:     0.11.1
+Repository:  https://github.com/rapidfuzz/strsim-rs
+Authors:     Danny Guo, maxbachmann
+License:     MIT
 
 -------------------------------------------------------------
 
@@ -567,6 +663,30 @@ Name:        syn
 Version:     2.0.96
 Repository:  https://github.com/dtolnay/syn
 Authors:     David Tolnay
+License:     Apache-2.0 OR MIT
+
+-------------------------------------------------------------
+
+Name:        time
+Version:     0.3.37
+Repository:  https://github.com/time-rs/time
+Authors:     Jacob Pratt, Time contributors
+License:     Apache-2.0 OR MIT
+
+-------------------------------------------------------------
+
+Name:        time-core
+Version:     0.1.2
+Repository:  https://github.com/time-rs/time
+Authors:     Jacob Pratt, Time contributors
+License:     Apache-2.0 OR MIT
+
+-------------------------------------------------------------
+
+Name:        time-macros
+Version:     0.2.19
+Repository:  https://github.com/time-rs/time
+Authors:     Jacob Pratt, Time contributors
 License:     Apache-2.0 OR MIT
 
 -------------------------------------------------------------
@@ -599,6 +719,30 @@ Name:        utf8parse
 Version:     0.2.2
 Repository:  https://github.com/alacritty/vte
 Authors:     Joe Wilm, Christian Duerr
+License:     Apache-2.0 OR MIT
+
+-------------------------------------------------------------
+
+Name:        vergen
+Version:     9.0.4
+Repository:  https://github.com/rustyhorde/vergen
+Authors:     Jason Ozias
+License:     Apache-2.0 OR MIT
+
+-------------------------------------------------------------
+
+Name:        vergen-gitcl
+Version:     1.0.5
+Repository:  https://github.com/rustyhorde/vergen
+Authors:     Jason Ozias
+License:     Apache-2.0 OR MIT
+
+-------------------------------------------------------------
+
+Name:        vergen-lib
+Version:     0.1.6
+Repository:  https://github.com/rustyhorde/vergen
+Authors:     Jason Ozias
 License:     Apache-2.0 OR MIT
 
 -------------------------------------------------------------
@@ -744,6 +888,14 @@ Version:     0.52.6
 Repository:  https://github.com/microsoft/windows-rs
 Authors:     Microsoft
 License:     Apache-2.0 OR MIT
+
+-------------------------------------------------------------
+
+Name:        winnow
+Version:     0.6.25
+Repository:  https://github.com/winnow-rs/winnow
+Authors:     winnow authors
+License:     MIT
 
 -------------------------------------------------------------
 
