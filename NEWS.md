@@ -7,6 +7,7 @@
 ## New features
 
 - New experimental argument `display` of `prql_compile()` function to colorize the error message from prqlc. (#317)
+- Based on [`prqlc`](https://github.com/prql/prql) 0.13.3 (#336)
 
 # prqlr 0.9.0
 
