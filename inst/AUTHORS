@@ -30,13 +30,12 @@ Owners of dependent Rust crates. This list is generated from Crates.io Data <htt
   - either: bluss <https://github.com/bluss>, Josh Stone <https://github.com/cuviper>, Jack Wrenn <https://github.com/jswrenn>
   - enum-as-inner: Benjamin Fry <https://github.com/bluejekyll>
   - fnv: Simon Sapin <https://github.com/SimonSapin>, Steven Fackler <https://github.com/sfackler>
+  - getset: John Baublitz <https://github.com/jbaublitz>
   - hashbrown: Amanieu d'Antras <https://github.com/Amanieu>
   - heck: srrrse <https://github.com/withoutboats>, Jonas Platte <https://github.com/jplatte>
-  - hermit-abi: Stefan Lankes <https://github.com/stlankes>, Martin Kröning <https://github.com/mkroening>
   - iana-time-zone: Andrew Straw <https://github.com/astraw>, René Kijewski <https://github.com/Kijewski>
   - iana-time-zone-haiku: Andrew Straw <https://github.com/astraw>, René Kijewski <https://github.com/Kijewski>
   - ident_case: Ted Driggs <https://github.com/TedDriggs>
-  - is-terminal: Dan Gohman <https://github.com/sunfishcode>
   - is_terminal_polyfill: Ed Page <https://github.com/epage>
   - itertools: bluss <https://github.com/bluss>, Jack Wrenn <https://github.com/jswrenn>
   - itoa: David Tolnay <https://github.com/dtolnay>
@@ -49,6 +48,8 @@ Owners of dependent Rust crates. This list is generated from Crates.io Data <htt
   - num_threads: Jacob Pratt <https://github.com/jhpratt>, Thomas Hurst <https://github.com/Freaky>
   - once_cell: Alex Kladov <https://github.com/matklad>, Michal 'vorner' Vaner <https://github.com/vorner>
   - powerfmt: Jacob Pratt <https://github.com/jhpratt>
+  - proc-macro-error-attr2: Gnome! <https://github.com/GnomedDev>
+  - proc-macro-error2: Gnome! <https://github.com/GnomedDev>
   - proc-macro2: David Tolnay <https://github.com/dtolnay>
   - prqlc: Maximilian Roos <https://github.com/max-sixty>, Aljaž Mur Eržen <https://github.com/aljazerzen>
   - prqlc-parser: Maximilian Roos <https://github.com/max-sixty>
