@@ -108,7 +108,7 @@ License:     Apache-2.0 OR MIT
 -------------------------------------------------------------
 
 Name:        bumpalo
-Version:     3.14.0
+Version:     3.17.0
 Repository:  https://github.com/fitzgen/bumpalo
 Authors:     Nick Fitzgerald
 License:     Apache-2.0 OR MIT
@@ -267,6 +267,14 @@ License:     Apache-2.0 OR MIT
 
 -------------------------------------------------------------
 
+Name:        getset
+Version:     0.1.4
+Repository:  https://github.com/jbaublitz/getset
+Authors:     Ana Hobden, John Baublitz <john.m.baublitz@gmail.com
+License:     MIT
+
+-------------------------------------------------------------
+
 Name:        hashbrown
 Version:     0.14.5
 Repository:  https://github.com/rust-lang/hashbrown
@@ -279,14 +287,6 @@ Name:        heck
 Version:     0.5.0
 Repository:  https://github.com/withoutboats/heck
 Authors:     heck authors
-License:     Apache-2.0 OR MIT
-
--------------------------------------------------------------
-
-Name:        hermit-abi
-Version:     0.4.0
-Repository:  https://github.com/hermit-os/hermit-rs
-Authors:     Stefan Lankes
 License:     Apache-2.0 OR MIT
 
 -------------------------------------------------------------
@@ -315,16 +315,8 @@ License:     Apache-2.0 OR MIT
 
 -------------------------------------------------------------
 
-Name:        is-terminal
-Version:     0.4.13
-Repository:  https://github.com/sunfishcode/is-terminal
-Authors:     softprops, Dan Gohman
-License:     MIT
-
--------------------------------------------------------------
-
 Name:        is_terminal_polyfill
-Version:     1.48.1
+Version:     1.70.1
 Repository:  https://github.com/polyfill-rs/is_terminal_polyfill
 Authors:     is_terminal_polyfill authors
 License:     Apache-2.0 OR MIT
@@ -419,6 +411,22 @@ License:     Apache-2.0 OR MIT
 
 -------------------------------------------------------------
 
+Name:        proc-macro-error-attr2
+Version:     2.0.0
+Repository:  https://github.com/GnomedDev/proc-macro-error-2
+Authors:     CreepySkeleton, GnomedDev
+License:     Apache-2.0 OR MIT
+
+-------------------------------------------------------------
+
+Name:        proc-macro-error2
+Version:     2.0.1
+Repository:  https://github.com/GnomedDev/proc-macro-error-2
+Authors:     CreepySkeleton, GnomedDev
+License:     Apache-2.0 OR MIT
+
+-------------------------------------------------------------
+
 Name:        proc-macro2
 Version:     1.0.93
 Repository:  https://github.com/dtolnay/proc-macro2
@@ -508,7 +516,7 @@ License:     Apache-2.0 OR MIT
 -------------------------------------------------------------
 
 Name:        ryu
-Version:     1.0.18
+Version:     1.0.19
 Repository:  https://github.com/dtolnay/ryu
 Authors:     David Tolnay
 License:     Apache-2.0 OR BSL-1.0
@@ -596,7 +604,7 @@ License:     Apache-2.0 OR MIT
 -------------------------------------------------------------
 
 Name:        serde_json
-Version:     1.0.137
+Version:     1.0.138
 Repository:  https://github.com/serde-rs/json
 Authors:     Erick Tryzelaar, David Tolnay
 License:     Apache-2.0 OR MIT
@@ -692,7 +700,7 @@ License:     Apache-2.0 OR MIT
 -------------------------------------------------------------
 
 Name:        unicode-ident
-Version:     1.0.14
+Version:     1.0.16
 Repository:  https://github.com/dtolnay/unicode-ident
 Authors:     David Tolnay
 License:     (MIT OR Apache-2.0) AND Unicode-3.0
@@ -724,7 +732,7 @@ License:     Apache-2.0 OR MIT
 -------------------------------------------------------------
 
 Name:        vergen
-Version:     9.0.4
+Version:     9.0.0
 Repository:  https://github.com/rustyhorde/vergen
 Authors:     Jason Ozias
 License:     Apache-2.0 OR MIT
@@ -732,7 +740,7 @@ License:     Apache-2.0 OR MIT
 -------------------------------------------------------------
 
 Name:        vergen-gitcl
-Version:     1.0.5
+Version:     1.0.0
 Repository:  https://github.com/rustyhorde/vergen
 Authors:     Jason Ozias
 License:     Apache-2.0 OR MIT
@@ -740,7 +748,7 @@ License:     Apache-2.0 OR MIT
 -------------------------------------------------------------
 
 Name:        vergen-lib
-Version:     0.1.6
+Version:     0.1.3
 Repository:  https://github.com/rustyhorde/vergen
 Authors:     Jason Ozias
 License:     Apache-2.0 OR MIT
@@ -796,14 +804,6 @@ License:     Apache-2.0 OR MIT
 -------------------------------------------------------------
 
 Name:        windows-core
-Version:     0.52.0
-Repository:  https://github.com/microsoft/windows-rs
-Authors:     Microsoft
-License:     Apache-2.0 OR MIT
-
--------------------------------------------------------------
-
-Name:        windows-sys
 Version:     0.52.0
 Repository:  https://github.com/microsoft/windows-rs
 Authors:     Microsoft
