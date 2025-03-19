@@ -15,6 +15,9 @@ CARGO_LINKER = x86_64-w64-mingw32.static.posix-gcc.exe
 all: C_clean
 
 $(SHLIB): $(STATLIB)
+	if [ "$(NOT_CRAN)" != "true" ]; then \
+		rm -Rf "$(STATLIB)" "$(CARGOTMP)" "$(VENDOR_DIR)" "$(LIBDIR)/build"; \
+	fi
 
 CARGOTMP = $(CURDIR)/.cargo
 VENDOR_DIR = $(CURDIR)/rust/vendor
@@ -48,10 +51,6 @@ $(STATLIB):
 		export LIBRARY_PATH="$(LIBRARY_PATH);$(LIBGCC_MOCK_DIR)" && \
 		cargo build --lib --manifest-path="$(CURDIR)/rust/Cargo.toml" --target-dir "$(TARGET_DIR)" --target="$(TARGET)" \
 			--profile="$(PRQLR_PROFILE)" --features="$(PRQLR_FEATURES)"
-
-	if [ "$(NOT_CRAN)" != "true" ]; then \
-		rm -Rf "$(CARGOTMP)" "$(VENDOR_DIR)" "$(LIBDIR)/build"; \
-	fi
 
 C_clean:
 	rm -Rf "$(SHLIB)" "$(STATLIB)" "$(OBJECTS)" "$(LIBGCC_MOCK_DIR)"
