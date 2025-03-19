@@ -9,12 +9,9 @@ STATLIB = $(LIBDIR)/$(LIBNAME)
 PKG_LIBS = -L$(LIBDIR) -lprqlr
 
 .PHONY: all
-all: C_clean $(SHLIB)
+all: C_clean $(SHLIB) cleanup
 
 $(SHLIB): $(STATLIB)
-	if [ "$(NOT_CRAN)" != "true" ]; then \
-		rm -Rf "$(STATLIB)" "$(CARGOTMP)" "$(VENDOR_DIR)" "$(LIBDIR)/build"; \
-	fi
 
 CARGOTMP = $(CURDIR)/.cargo
 VENDOR_DIR = $(CURDIR)/rust/vendor
@@ -51,6 +48,12 @@ $(STATLIB):
 C_clean:
 	rm -Rf "$(SHLIB)" "$(STATLIB)" "$(OBJECTS)"
 
+.PHONY: cleanup
+cleanup:
+	if [ "$(NOT_CRAN)" != "true" ]; then \
+		rm -Rf "$(STATLIB)" "$(CARGOTMP)" "$(VENDOR_DIR)" "$(LIBDIR)/build"; \
+	fi
+
 .PHONY: clean
-clean:
-	rm -Rf "$(SHLIB)" "$(STATLIB)" "$(OBJECTS)" "$(TARGET_DIR)"
+clean: C_clean
+	rm -Rf "$(TARGET_DIR)"
