@@ -95,6 +95,14 @@ jobs:
           # make sure savvy is built from source because rust-cache doesn't work well.
           (find ~/.cargo/registry/ rust/target -name 'savvy-*' | xargs rm -rf) || true
 
+          # tweak Makevars not to clean up the built lib
+          if [[ "${{ runner.os }}" != "macOS" ]]; then
+            sed -i '/^all:/s/clean_intermediate//' Makevars*
+          else
+            sed '/^all:/s/clean_intermediate//' Makevars.in > Makevars.in.new
+            mv Makevars.in.new Makevars.in
+          fi
+
           LIB_PATH="$(pwd)/rust/target/${TARGET}/${PRQLR_PROFILE}/${LIB_NAME}.a"
           ARTIFACT_NAME="${LIB_NAME}-${LIB_VERSION}-${TARGET}.tar.gz"
           if [[ "${{ runner.os }}" != "Windows" ]]; then
