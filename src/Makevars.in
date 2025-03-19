@@ -8,7 +8,7 @@ LIBDIR = $(TARGET_DIR)/$(TARGET)/$(PRQLR_PROFILE)
 STATLIB = $(LIBDIR)/$(LIBNAME)
 PKG_LIBS = -L$(LIBDIR) -lprqlr
 
-all: C_clean
+all: $(SHLIB) clean_intermediate
 
 $(SHLIB): $(STATLIB)
 
@@ -47,8 +47,10 @@ $(STATLIB):
 		rm -Rf "$(CARGOTMP)" "$(VENDOR_DIR)" "$(LIBDIR)/build"; \
 	fi
 
-C_clean:
-	rm -Rf "$(SHLIB)" "$(STATLIB)" "$(OBJECTS)"
+clean_intermediate:
+	rm -f "$(STATLIB)"
 
 clean:
 	rm -Rf "$(SHLIB)" "$(STATLIB)" "$(OBJECTS)" "$(TARGET_DIR)"
+
+.PHONY: all clean_intermediate clean
