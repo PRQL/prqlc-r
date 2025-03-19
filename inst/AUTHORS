@@ -76,7 +76,7 @@ Owners of dependent Rust crates. This list is generated from Crates.io Data <htt
   - shlex: Fenhl <https://github.com/fenhl>
   - sqlformat: Josh Holmer <https://github.com/shssoichiro>
   - sqlparser: Andy Grove <https://github.com/andygrove>, Daniël Heres <https://github.com/Dandandan>, Max Countryman <https://github.com/maxcountryman>, Nickolay Ponomarev <https://github.com/nickolay>, Andrew Lamb <https://github.com/alamb>
-  - stacker: Simonas Kazlauskas <https://github.com/nagisa>, Alex Crichton <https://github.com/alexcrichton>
+  - stacker: Simonas Kazlauskas <https://github.com/nagisa>
   - strsim: Danny Guo <https://github.com/dguo>, Max Bachmann <https://github.com/maxbachmann>
   - strum: Peter Glotfelty <https://github.com/Peternator7>
   - strum_macros: Peter Glotfelty <https://github.com/Peternator7>
