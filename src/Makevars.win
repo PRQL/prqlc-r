@@ -54,7 +54,7 @@ $(STATLIB):
 	fi
 
 clean_intermediate:
-	rm -Rf "$(SHLIB)" "$(LIBGCC_MOCK_DIR)"
+	rm -Rf "$(STATLIB)" "$(LIBGCC_MOCK_DIR)"
 
 clean:
 	rm -Rf "$(SHLIB)" "$(STATLIB)" "$(OBJECTS)" "$(TARGET_DIR)" "$(LIBGCC_MOCK_DIR)"
