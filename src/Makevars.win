@@ -12,9 +12,13 @@ PKG_LIBS = -L$(LIBDIR) -lprqlr -lws2_32 -ladvapi32 -luserenv -lbcrypt -lntdll
 # need to overwrite it via configuration.
 CARGO_LINKER = x86_64-w64-mingw32.static.posix-gcc.exe
 
-all: C_clean
+.PHONY: all
+all: C_clean $(SHLIB) cleanup
 
 $(SHLIB): $(STATLIB)
+	if [ "$(NOT_CRAN)" != "true" ]; then \
+		rm -Rf "$(STATLIB)" "$(CARGOTMP)" "$(VENDOR_DIR)" "$(LIBDIR)/build"; \
+	fi
 
 CARGOTMP = $(CURDIR)/.cargo
 VENDOR_DIR = $(CURDIR)/rust/vendor
@@ -49,12 +53,16 @@ $(STATLIB):
 		cargo build --lib --manifest-path="$(CURDIR)/rust/Cargo.toml" --target-dir "$(TARGET_DIR)" --target="$(TARGET)" \
 			--profile="$(PRQLR_PROFILE)" --features="$(PRQLR_FEATURES)"
 
-	if [ "$(NOT_CRAN)" != "true" ]; then \
-		rm -Rf "$(CARGOTMP)" "$(VENDOR_DIR)" "$(LIBDIR)/build"; \
-	fi
-
+.PHONY: C_clean
 C_clean:
 	rm -Rf "$(SHLIB)" "$(STATLIB)" "$(OBJECTS)" "$(LIBGCC_MOCK_DIR)"
 
-clean:
-	rm -Rf "$(SHLIB)" "$(STATLIB)" "$(OBJECTS)" "$(TARGET_DIR)" "$(LIBGCC_MOCK_DIR)"
+.PHONY: cleanup
+cleanup:
+	if [ "$(NOT_CRAN)" != "true" ]; then \
+		rm -Rf "$(STATLIB)" "$(CARGOTMP)" "$(VENDOR_DIR)" "$(LIBDIR)/build"; \
+	fi
+
+.PHONY: clean
+clean: C_clean
+	rm -Rf "$(TARGET_DIR)"

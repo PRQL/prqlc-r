@@ -8,7 +8,8 @@ LIBDIR = $(TARGET_DIR)/$(TARGET)/$(PRQLR_PROFILE)
 STATLIB = $(LIBDIR)/$(LIBNAME)
 PKG_LIBS = -L$(LIBDIR) -lprqlr
 
-all: C_clean
+.PHONY: all
+all: C_clean $(SHLIB) cleanup
 
 $(SHLIB): $(STATLIB)
 
@@ -43,12 +44,16 @@ $(STATLIB):
 	    --profile="$(PRQLR_PROFILE)" --features="$(PRQLR_FEATURES)" -Zbuild-std=panic_abort,std; \
 	fi
 
-	if [ "$(NOT_CRAN)" != "true" ]; then \
-		rm -Rf "$(CARGOTMP)" "$(VENDOR_DIR)" "$(LIBDIR)/build"; \
-	fi
-
+.PHONY: C_clean
 C_clean:
 	rm -Rf "$(SHLIB)" "$(STATLIB)" "$(OBJECTS)"
 
-clean:
-	rm -Rf "$(SHLIB)" "$(STATLIB)" "$(OBJECTS)" "$(TARGET_DIR)"
+.PHONY: cleanup
+cleanup:
+	if [ "$(NOT_CRAN)" != "true" ]; then \
+		rm -Rf "$(STATLIB)" "$(CARGOTMP)" "$(VENDOR_DIR)" "$(LIBDIR)/build"; \
+	fi
+
+.PHONY: clean
+clean: C_clean
+	rm -Rf "$(TARGET_DIR)"
