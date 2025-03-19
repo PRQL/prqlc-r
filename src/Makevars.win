@@ -12,7 +12,7 @@ PKG_LIBS = -L$(LIBDIR) -lprqlr -lws2_32 -ladvapi32 -luserenv -lbcrypt -lntdll
 # need to overwrite it via configuration.
 CARGO_LINKER = x86_64-w64-mingw32.static.posix-gcc.exe
 
-all: C_clean
+all: C_clean $(SHLIB)
 
 $(SHLIB): $(STATLIB)
 	if [ "$(NOT_CRAN)" != "true" ]; then \
