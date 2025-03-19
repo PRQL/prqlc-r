@@ -12,6 +12,7 @@ PKG_LIBS = -L$(LIBDIR) -lprqlr -lws2_32 -ladvapi32 -luserenv -lbcrypt -lntdll
 # need to overwrite it via configuration.
 CARGO_LINKER = x86_64-w64-mingw32.static.posix-gcc.exe
 
+.PHONY: all
 all: C_clean $(SHLIB)
 
 $(SHLIB): $(STATLIB)
@@ -52,8 +53,10 @@ $(STATLIB):
 		cargo build --lib --manifest-path="$(CURDIR)/rust/Cargo.toml" --target-dir "$(TARGET_DIR)" --target="$(TARGET)" \
 			--profile="$(PRQLR_PROFILE)" --features="$(PRQLR_FEATURES)"
 
+.PHONY: C_clean
 C_clean:
 	rm -Rf "$(SHLIB)" "$(STATLIB)" "$(OBJECTS)" "$(LIBGCC_MOCK_DIR)"
 
+.PHONY: clean
 clean:
 	rm -Rf "$(SHLIB)" "$(STATLIB)" "$(OBJECTS)" "$(TARGET_DIR)" "$(LIBGCC_MOCK_DIR)"

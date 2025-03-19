@@ -8,6 +8,7 @@ LIBDIR = $(TARGET_DIR)/$(TARGET)/$(PRQLR_PROFILE)
 STATLIB = $(LIBDIR)/$(LIBNAME)
 PKG_LIBS = -L$(LIBDIR) -lprqlr
 
+.PHONY: all
 all: C_clean $(SHLIB)
 
 $(SHLIB): $(STATLIB)
@@ -46,8 +47,10 @@ $(STATLIB):
 	    --profile="$(PRQLR_PROFILE)" --features="$(PRQLR_FEATURES)" -Zbuild-std=panic_abort,std; \
 	fi
 
+.PHONY: C_clean
 C_clean:
 	rm -Rf "$(SHLIB)" "$(STATLIB)" "$(OBJECTS)"
 
+.PHONY: clean
 clean:
 	rm -Rf "$(SHLIB)" "$(STATLIB)" "$(OBJECTS)" "$(TARGET_DIR)"
