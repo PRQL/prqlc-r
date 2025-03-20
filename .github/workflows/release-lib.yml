@@ -82,7 +82,7 @@ jobs:
         if: runner.os != 'Windows'
         with:
           dependencies: 'FALSE'
-          extra-packages: any::pkgload, deps::pkgload
+          extra-packages: any::pkgload
 
       - name: build lib
         env:
@@ -182,7 +182,7 @@ jobs:
       - uses: r-lib/actions/setup-r-dependencies@v2
         with:
           dependencies: 'FALSE'
-          extra-packages: any::pkgload, deps::pkgload, any::testthat, deps::testthat
+          extra-packages: any::pkgload, any::testthat
 
       - name: R test
         shell: Rscript {0}
