@@ -16,9 +16,6 @@ CARGO_LINKER = x86_64-w64-mingw32.static.posix-gcc.exe
 all: C_clean $(SHLIB) cleanup
 
 $(SHLIB): $(STATLIB)
-	if [ "$(NOT_CRAN)" != "true" ]; then \
-		rm -Rf "$(STATLIB)" "$(CARGOTMP)" "$(VENDOR_DIR)" "$(LIBDIR)/build"; \
-	fi
 
 CARGOTMP = $(CURDIR)/.cargo
 VENDOR_DIR = $(CURDIR)/rust/vendor
