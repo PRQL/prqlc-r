@@ -48,4 +48,4 @@ Config/Needs/dev:
     rhub
 Config/Needs/website:
     pkgdown
-Config/prqlr/LibVersion: 0.13.1
+Config/prqlr/LibVersion: 0.13.2
