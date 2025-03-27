@@ -3,6 +3,8 @@ on:
   push:
     tags:
       - "lib-v*"
+    branches:
+      - main
   pull_request:
     branches:
       - main
