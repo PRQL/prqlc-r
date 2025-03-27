@@ -96,7 +96,7 @@ jobs:
           # make sure savvy is built from source because rust-cache doesn't work well.
           (find ~/.cargo/registry/ src/rust/target -name 'savvy-*' | xargs rm -rf) || true
 
-          Rscript -e 'pkgbuild::compile_dll()'
+          Rscript -e 'pkgbuild::compile_dll(debug = FALSE)'
           echo "LIBPRQLR_PATH=$(pwd)/src/rust/target/${{ steps.rust-target.outputs.TARGET }}/release/libprqlr.a" >>$GITHUB_ENV
 
       - uses: r-lib/actions/check-r-package@v2
