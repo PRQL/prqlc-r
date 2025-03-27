@@ -165,4 +165,4 @@ jobs:
         shell: Rscript {0}
         run: |
           remotes::install_local(force = TRUE)
-          testthat::test_dir("tests")
+          testthat::test_local()
