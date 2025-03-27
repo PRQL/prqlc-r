@@ -13,13 +13,13 @@ CARGO_BUILD_ARGS = --lib \
 	--target-dir="$(TARGET_DIR)" \
 	--target=$(TARGET)
 
+CARGOTMP = $(CURDIR)/.cargo
+VENDOR_DIR = $(CURDIR)/rust/vendor
+
 .PHONY: all
 all: cleanup
 
 $(SHLIB): $(STATLIB)
-
-CARGOTMP = $(CURDIR)/.cargo
-VENDOR_DIR = $(CURDIR)/rust/vendor
 
 $(STATLIB): remove-prev
 	if [ -f "$(CURDIR)/../tools/$(LIBNAME)" ]; then \
