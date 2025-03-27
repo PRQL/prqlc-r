@@ -33,8 +33,10 @@ which_os <- function() {
     "windows"
   } else if (Sys.info()["sysname"] == "Darwin") {
     "macos"
-  } else if (Sys.info()["sysname"] == "Linux") {
-    "linux"
+  } else if (R.version$os == "linux-gnu") {
+    "linux-gnu"
+  } else if (R.version$os == "linux-musl") {
+    "linux-musl"
   } else {
     stop("Pre-built binaries are not available for OS: ", R.version$os)
   }
@@ -50,9 +52,10 @@ which_arch <- function() {
   }
 }
 
-which_vendor_sys_abi <- function(os = c("linux", "macos", "windows")) {
+which_vendor_sys_abi <- function(os = c("linux-gnu", "linux-musl", "macos", "windows")) {
   switch(match.arg(os),
-    linux = "unknown-linux-musl",
+    "linux-gnu" = "unknown-linux-gnu",
+    "linux-musl" = "unknown-linux-musl",
     macos = "apple-darwin",
     windows = "pc-windows-gnu",
     stop("Unsupported OS: ", os)
