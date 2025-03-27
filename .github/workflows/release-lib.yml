@@ -93,6 +93,7 @@ jobs:
         env:
           NOT_CRAN: "true"
           TARGET: ${{ matrix.target }}
+          LIBPRQLR_BUILD: "true"
           PRQLR_PROFILE: release
         run: |
           # make sure savvy is built from source because rust-cache doesn't work well.
