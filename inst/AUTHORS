@@ -98,6 +98,7 @@ Owners of dependent Rust crates. This list is generated from Crates.io Data <htt
   - wasm-bindgen-macro-support: Nick Fitzgerald <https://github.com/fitzgen>, Alex Crichton <https://github.com/alexcrichton>
   - wasm-bindgen-shared: Nick Fitzgerald <https://github.com/fitzgen>, Alex Crichton <https://github.com/alexcrichton>
   - windows-core: Kenny Kerr <https://github.com/kennykerr>
+  - windows-link: Kenny Kerr <https://github.com/kennykerr>
   - windows-sys: Kenny Kerr <https://github.com/kennykerr>
   - windows-targets: Kenny Kerr <https://github.com/kennykerr>
   - windows_aarch64_gnullvm: Kenny Kerr <https://github.com/kennykerr>
