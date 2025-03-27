@@ -1,4 +1,6 @@
-#!/usr/bin/env sh
+#!/bin/sh
+
+export PATH="$PATH:$HOME/.cargo/bin"
 
 NOT_CRAN=${NOT_CRAN:-"false"}
 LIBPRQLR_BUILD=${LIBPRQLR_BUILD:-""}
@@ -9,8 +11,6 @@ MY_UNIVERSE=${MY_UNIVERSE:-""}
 LIBNAME="libprqlr.a"
 LIBPRQLR_DEFAULT_PATH="$(pwd)/tools/${LIBNAME}"
 LIBPRQLR_PATH=${LIBPRQLR_PATH:-${LIBPRQLR_DEFAULT_PATH}}
-
-export PATH="$PATH:$HOME/.cargo/bin"
 
 check_cargo() {
   if [ ! "$(command -v cargo)" ]; then
@@ -34,6 +34,28 @@ $(cargo -V)
 $(rustc -vV)
 --------------------------------------------------------------------
 EOF
+  fi
+}
+
+check_rustup() {
+  if [ "$(command -v rustup)" ]; then
+    cat <<EOF
+-------------------------- [RUSTUP FOUND] --------------------------
+$(rustup show)
+--------------------------------------------------------------------
+EOF
+  else
+    cat <<EOF
+------------------------ [RUSTUP NOT FOUND] ------------------------
+The 'rustup' command was not found on the PATH.
+--------------------------------------------------------------------
+EOF
+  fi
+}
+
+check_emscripten() {
+  if [ "$(uname)" = "Emscripten" ]; then
+    export TARGET="wasm32-unknown-emscripten"
   fi
 }
 
@@ -71,8 +93,8 @@ EOF
 Copying <${LIBPRQLR_PATH}> to <${LIBPRQLR_DEFAULT_PATH}>.
 --------------------------------------------------------------------
 EOF
-      $(mkdir -p "$(dirname "${LIBPRQLR_DEFAULT_PATH}")")
-      $(cp "${LIBPRQLR_PATH}" "${LIBPRQLR_DEFAULT_PATH}" && echo "Done!" || echo "Failed to copy binary.")
+      mkdir -p "$(dirname "${LIBPRQLR_DEFAULT_PATH}")"
+      cp "${LIBPRQLR_PATH}" "${LIBPRQLR_DEFAULT_PATH}" && echo "Done!" || echo "Failed to copy binary."
     fi
 
     if [ -f "${LIBPRQLR_DEFAULT_PATH}" ]; then
@@ -83,8 +105,8 @@ The library was found at <${LIBPRQLR_DEFAULT_PATH}>. No need to build it.
 Note: rustc version: $(command -v rustc >/dev/null && rustc -V || echo "Not found")
 --------------------------------------------------------------------
 EOF
-      sed -e "s|@RUST_TARGET@||" src/Makevars.in >src/Makevars
-      exit 0
+      export TARGET=""
+      generate_makevars
     fi
     cat <<EOF
 -------------------- [LIBRARY BINARY NOT FOUND] --------------------
@@ -140,21 +162,32 @@ EOF
   fi
 }
 
-detect_target_option "$@"
-check_bin_lib
-check_cargo
-check_msrv
+generate_makevars() {
+  for suffix in "" ".win"; do
+    makefile="src/Makevars${suffix}"
+    sed \
+      -e "s|@TARGET@|${TARGET}|" \
+      -e "s|@PROFILE@|${PROFILE}|" \
+      "$makefile.in" >"$makefile"
+  done
 
-# cf. https://github.com/r-wasm/rwasm/issues/18#issuecomment-1910198843
-if [ "$(uname)" = "Emscripten" ]; then
-  HOST_TRIPLE="wasm32-unknown-emscripten"
+  exit 0
+}
+
+# catch DEBUG envvar, which is passed from pkgbuild::compile_dll()
+if [ "${DEBUG}" = "true" ]; then
+  PROFILE=dev
 else
-  HOST_TRIPLE="$(rustc -vV | grep host | cut -d' ' -f2)"
+  PROFILE=release
 fi
 
-RUST_TARGET="${TARGET:-${HOST_TRIPLE}}"
-sed \
-  -e "s|@RUST_TARGET@|${RUST_TARGET}|" \
-  src/Makevars.in >src/Makevars
+detect_target_option "$@"
+check_bin_lib
+check_rustup
+check_cargo
+check_msrv
+check_emscripten
 
-exit 0
+TARGET="${TARGET:-$(rustc -vV | grep host | cut -d' ' -f2)}"
+
+generate_makevars

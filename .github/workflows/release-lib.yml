@@ -90,23 +90,15 @@ jobs:
           NOT_CRAN: "true"
           TARGET: ${{ matrix.target }}
           PRQLR_PROFILE: release
-        working-directory: src
         run: |
           # make sure savvy is built from source because rust-cache doesn't work well.
           (find ~/.cargo/registry/ rust/target -name 'savvy-*' | xargs rm -rf) || true
 
-          LIB_PATH="$(pwd)/rust/target/${TARGET}/${PRQLR_PROFILE}/${LIB_NAME}.a"
+          LIB_PATH="$(pwd)/src/rust/target/${TARGET}/${PRQLR_PROFILE}/${LIB_NAME}.a"
           ARTIFACT_NAME="${LIB_NAME}-${LIB_VERSION}-${TARGET}.tar.gz"
-          if [[ "${{ runner.os }}" != "Windows" ]]; then
-            # Rinternals header is needed
-            pushd ..
-            Rscript -e 'pkgbuild::compile_dll()'
-            popd
-          else
-            make -f Makevars${{ runner.os == 'Windows' && '.win' || '.in' }} "${LIB_PATH}"
-          fi
+          Rscript -e 'pkgbuild::compile_dll(debug = FALSE)'
 
-          tar -czf "../${ARTIFACT_NAME}" -C "rust/target/${TARGET}/${PRQLR_PROFILE}" "${LIB_NAME}.a"
+          tar -czf "${ARTIFACT_NAME}" -C "src/rust/target/${TARGET}/${PRQLR_PROFILE}" "${LIB_NAME}.a"
           echo "ARTIFACT_NAME=${ARTIFACT_NAME}" >>"$GITHUB_ENV"
 
       - name: upload artifact

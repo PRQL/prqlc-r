@@ -16,7 +16,8 @@
 ^src/\.cargo$
 ^src/rust/vendor$
 ^src/Makevars$
+^src/Makevars\.win$
 ^tools/libprqlr\.a$
 
-^src/rust/.cargo$
+^src/rust/\.cargo$
 ^src/rust/target$

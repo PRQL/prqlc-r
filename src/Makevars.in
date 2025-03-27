@@ -1,22 +1,27 @@
-TARGET ?= @RUST_TARGET@
-PRQLR_PROFILE ?= release
-PRQLR_FEATURES ?=
+TARGET = @TARGET@
+PROFILE = @PROFILE@
 
 LIBNAME = libprqlr.a
 TARGET_DIR = $(CURDIR)/rust/target
-LIBDIR = $(TARGET_DIR)/$(TARGET)/$(PRQLR_PROFILE)
+LIBDIR = $(TARGET_DIR)/$(TARGET)/$(subst dev,debug,$(PROFILE))
 STATLIB = $(LIBDIR)/$(LIBNAME)
 PKG_LIBS = -L$(LIBDIR) -lprqlr
 
+CARGO_BUILD_ARGS = --lib \
+	--profile "$(PROFILE)" \
+	--manifest-path="$(CURDIR)/rust/Cargo.toml" \
+	--target-dir "$(TARGET_DIR)" \
+	--target $(TARGET)
+
 .PHONY: all
-all: $(SHLIB) cleanup
+all: cleanup
 
 $(SHLIB): $(STATLIB)
 
 CARGOTMP = $(CURDIR)/.cargo
 VENDOR_DIR = $(CURDIR)/rust/vendor
 
-$(STATLIB):
+$(STATLIB): remove-prev
 	if [ -f "$(CURDIR)/../tools/$(LIBNAME)" ]; then \
 		mkdir -p "$(LIBDIR)" ; \
 		mv "$(CURDIR)/../tools/$(LIBNAME)" "$(STATLIB)" ; \
@@ -33,16 +38,20 @@ $(STATLIB):
 		export CARGO_BUILD_JOBS=2; \
 	fi && \
 	export PATH="$(PATH):$(HOME)/.cargo/bin" && \
-	if [ "$(TARGET)" != "wasm32-unknown-emscripten" ]; then \
-	  cargo build --lib --manifest-path="$(CURDIR)/rust/Cargo.toml" --target-dir "$(TARGET_DIR)" --target="$(TARGET)" \
-	    --profile="$(PRQLR_PROFILE)" --features="$(PRQLR_FEATURES)"; \
-	else \
-	  export CC="$(CC)" && \
-	  export CFLAGS="$(CFLAGS)" && \
-	  export CARGO_PROFILE_RELEASE_PANIC="abort" && \
-	  cargo +nightly build --lib --manifest-path="$(CURDIR)/rust/Cargo.toml" --target-dir "$(TARGET_DIR)" --target="$(TARGET)" \
-	    --profile="$(PRQLR_PROFILE)" --features="$(PRQLR_FEATURES)" -Zbuild-std=panic_abort,std; \
-	fi
+		if [ "$(TARGET)" != "wasm32-unknown-emscripten" ]; then \
+			cargo build $(CARGO_BUILD_ARGS); \
+		else \
+			export CC="$(CC)" && \
+			export CFLAGS="$(CFLAGS)" && \
+			export CARGO_PROFILE_DEV_PANIC="abort" && \
+			export CARGO_PROFILE_RELEASE_PANIC="abort" && \
+			cargo +nightly build $(CARGO_BUILD_ARGS) -Zbuild-std=panic_abort,std; \
+		fi
+
+.PHONY: remove-prev
+# Remove previous build artifacts
+remove-prev:
+	rm -f "$(STATLIB)"
 
 .PHONY: cleanup
 # Clean up files that may cause warnings in R CMD check on CRAN just after the build
