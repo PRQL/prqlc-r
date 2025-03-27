@@ -9,10 +9,10 @@ STATLIB = $(LIBDIR)/$(LIBNAME)
 PKG_LIBS = -L$(LIBDIR) -lprqlr -lws2_32 -ladvapi32 -luserenv -lbcrypt -lntdll
 
 CARGO_BUILD_ARGS = --lib \
-	--profile "$(PROFILE)" \
+	--profile="$(PROFILE)" \
 	--manifest-path="$(CURDIR)/rust/Cargo.toml" \
-	--target-dir "$(TARGET_DIR)" \
-	--target $(TARGET)
+	--target-dir="$(TARGET_DIR)" \
+	--target=$(TARGET)
 
 # Rtools doesn't have the linker in the location that cargo expects, so we need
 # to overwrite it via configuration.
@@ -60,8 +60,9 @@ remove-prev:
 .PHONY: cleanup
 # Clean up files that may cause warnings in R CMD check on CRAN just after the build
 cleanup: $(SHLIB)
+	rm -Rf "$(CARGOTMP)" "$(VENDOR_DIR)"
 	if [ "$(NOT_CRAN)" != "true" ]; then \
-		rm -Rf "$(STATLIB)" "$(CARGOTMP)" "$(VENDOR_DIR)" "$(LIBDIR)/build"; \
+		rm -Rf "$(STATLIB)" "$(LIBDIR)/build"; \
 	fi
 
 .PHONY: clean
