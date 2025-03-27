@@ -84,7 +84,7 @@ License:     Apache-2.0 OR MIT
 -------------------------------------------------------------
 
 Name:        anyhow
-Version:     1.0.95
+Version:     1.0.97
 Repository:  https://github.com/dtolnay/anyhow
 Authors:     David Tolnay
 License:     Apache-2.0 OR MIT
@@ -92,7 +92,7 @@ License:     Apache-2.0 OR MIT
 -------------------------------------------------------------
 
 Name:        ariadne
-Version:     0.4.1
+Version:     0.5.0
 Repository:  https://github.com/zesterer/ariadne
 Authors:     Joshua Barretto
 License:     MIT
@@ -116,7 +116,7 @@ License:     Apache-2.0 OR MIT
 -------------------------------------------------------------
 
 Name:        cc
-Version:     1.2.10
+Version:     1.2.17
 Repository:  https://github.com/rust-lang/cc-rs
 Authors:     Alex Crichton
 License:     Apache-2.0 OR MIT
@@ -132,7 +132,7 @@ License:     Apache-2.0 OR MIT
 -------------------------------------------------------------
 
 Name:        chrono
-Version:     0.4.39
+Version:     0.4.40
 Repository:  https://github.com/chronotope/chrono
 Authors:     chrono authors
 License:     Apache-2.0 OR MIT
@@ -172,7 +172,7 @@ License:     MIT OR Unlicense
 -------------------------------------------------------------
 
 Name:        csv-core
-Version:     0.1.11
+Version:     0.1.12
 Repository:  https://github.com/BurntSushi/rust-csv
 Authors:     Andrew Gallant
 License:     MIT OR Unlicense
@@ -204,7 +204,7 @@ License:     MIT
 -------------------------------------------------------------
 
 Name:        deranged
-Version:     0.3.11
+Version:     0.4.1
 Repository:  https://github.com/jhpratt/deranged
 Authors:     Jacob Pratt
 License:     Apache-2.0 OR MIT
@@ -236,7 +236,7 @@ License:     Apache-2.0 OR MIT
 -------------------------------------------------------------
 
 Name:        dyn-clone
-Version:     1.0.17
+Version:     1.0.19
 Repository:  https://github.com/dtolnay/dyn-clone
 Authors:     David Tolnay
 License:     Apache-2.0 OR MIT
@@ -244,7 +244,7 @@ License:     Apache-2.0 OR MIT
 -------------------------------------------------------------
 
 Name:        either
-Version:     1.13.0
+Version:     1.15.0
 Repository:  https://github.com/rayon-rs/either
 Authors:     bluss
 License:     Apache-2.0 OR MIT
@@ -268,7 +268,7 @@ License:     Apache-2.0 OR MIT
 -------------------------------------------------------------
 
 Name:        getset
-Version:     0.1.4
+Version:     0.1.5
 Repository:  https://github.com/jbaublitz/getset
 Authors:     Ana Hobden, John Baublitz <john.m.baublitz@gmail.com
 License:     MIT
@@ -292,7 +292,7 @@ License:     Apache-2.0 OR MIT
 -------------------------------------------------------------
 
 Name:        iana-time-zone
-Version:     0.1.61
+Version:     0.1.62
 Repository:  https://github.com/strawlab/iana-time-zone
 Authors:     Andrew Straw, René Kijewski, Ryan Lopopolo
 License:     Apache-2.0 OR MIT
@@ -332,7 +332,7 @@ License:     Apache-2.0 OR MIT
 -------------------------------------------------------------
 
 Name:        itoa
-Version:     1.0.14
+Version:     1.0.15
 Repository:  https://github.com/dtolnay/itoa
 Authors:     David Tolnay
 License:     Apache-2.0 OR MIT
@@ -348,7 +348,7 @@ License:     Apache-2.0 OR MIT
 -------------------------------------------------------------
 
 Name:        libc
-Version:     0.2.169
+Version:     0.2.171
 Repository:  https://github.com/rust-lang/libc
 Authors:     The Rust Project Developers
 License:     Apache-2.0 OR MIT
@@ -356,7 +356,7 @@ License:     Apache-2.0 OR MIT
 -------------------------------------------------------------
 
 Name:        log
-Version:     0.4.25
+Version:     0.4.27
 Repository:  https://github.com/rust-lang/log
 Authors:     The Rust Project Developers
 License:     Apache-2.0 OR MIT
@@ -396,7 +396,7 @@ License:     Apache-2.0 OR MIT
 -------------------------------------------------------------
 
 Name:        once_cell
-Version:     1.20.2
+Version:     1.21.1
 Repository:  https://github.com/matklad/once_cell
 Authors:     Aleksey Kladov
 License:     Apache-2.0 OR MIT
@@ -428,7 +428,7 @@ License:     Apache-2.0 OR MIT
 -------------------------------------------------------------
 
 Name:        proc-macro2
-Version:     1.0.93
+Version:     1.0.94
 Repository:  https://github.com/dtolnay/proc-macro2
 Authors:     David Tolnay, Alex Crichton
 License:     Apache-2.0 OR MIT
@@ -436,7 +436,7 @@ License:     Apache-2.0 OR MIT
 -------------------------------------------------------------
 
 Name:        prqlc
-Version:     0.13.3
+Version:     0.13.4
 Repository:  https://github.com/PRQL/prql
 Authors:     prqlc authors
 License:     Apache-2.0
@@ -444,7 +444,7 @@ License:     Apache-2.0
 -------------------------------------------------------------
 
 Name:        prqlc-parser
-Version:     0.13.3
+Version:     0.13.4
 Repository:  https://github.com/PRQL/prql
 Authors:     prqlc-parser authors
 License:     Apache-2.0
@@ -452,7 +452,7 @@ License:     Apache-2.0
 -------------------------------------------------------------
 
 Name:        psm
-Version:     0.1.24
+Version:     0.1.25
 Repository:  https://github.com/rust-lang/stacker/
 Authors:     Simonas Kazlauskas
 License:     Apache-2.0 OR MIT
@@ -460,7 +460,7 @@ License:     Apache-2.0 OR MIT
 -------------------------------------------------------------
 
 Name:        quote
-Version:     1.0.38
+Version:     1.0.40
 Repository:  https://github.com/dtolnay/quote
 Authors:     David Tolnay
 License:     Apache-2.0 OR MIT
@@ -468,7 +468,7 @@ License:     Apache-2.0 OR MIT
 -------------------------------------------------------------
 
 Name:        ref-cast
-Version:     1.0.23
+Version:     1.0.24
 Repository:  https://github.com/dtolnay/ref-cast
 Authors:     David Tolnay
 License:     Apache-2.0 OR MIT
@@ -476,7 +476,7 @@ License:     Apache-2.0 OR MIT
 -------------------------------------------------------------
 
 Name:        ref-cast-impl
-Version:     1.0.23
+Version:     1.0.24
 Repository:  https://github.com/dtolnay/ref-cast
 Authors:     David Tolnay
 License:     Apache-2.0 OR MIT
@@ -508,7 +508,7 @@ License:     Apache-2.0 OR MIT
 -------------------------------------------------------------
 
 Name:        rustversion
-Version:     1.0.19
+Version:     1.0.20
 Repository:  https://github.com/dtolnay/rustversion
 Authors:     David Tolnay
 License:     Apache-2.0 OR MIT
@@ -516,7 +516,7 @@ License:     Apache-2.0 OR MIT
 -------------------------------------------------------------
 
 Name:        ryu
-Version:     1.0.19
+Version:     1.0.20
 Repository:  https://github.com/dtolnay/ryu
 Authors:     David Tolnay
 License:     Apache-2.0 OR BSL-1.0
@@ -524,7 +524,7 @@ License:     Apache-2.0 OR BSL-1.0
 -------------------------------------------------------------
 
 Name:        savvy
-Version:     0.8.7
+Version:     0.8.8
 Repository:  https://github.com/yutannihilation/savvy/
 Authors:     Hiroaki Yutani
 License:     MIT
@@ -532,7 +532,7 @@ License:     MIT
 -------------------------------------------------------------
 
 Name:        savvy-bindgen
-Version:     0.8.7
+Version:     0.8.8
 Repository:  https://github.com/yutannihilation/savvy/
 Authors:     Hiroaki Yutani
 License:     MIT
@@ -540,7 +540,7 @@ License:     MIT
 -------------------------------------------------------------
 
 Name:        savvy-ffi
-Version:     0.8.7
+Version:     0.8.8
 Repository:  https://github.com/yutannihilation/savvy/
 Authors:     Hiroaki Yutani
 License:     MIT
@@ -548,7 +548,7 @@ License:     MIT
 -------------------------------------------------------------
 
 Name:        savvy-macro
-Version:     0.8.7
+Version:     0.8.8
 Repository:  https://github.com/yutannihilation/savvy/
 Authors:     Hiroaki Yutani
 License:     MIT
@@ -572,7 +572,7 @@ License:     MIT
 -------------------------------------------------------------
 
 Name:        semver
-Version:     1.0.25
+Version:     1.0.26
 Repository:  https://github.com/dtolnay/semver
 Authors:     David Tolnay
 License:     Apache-2.0 OR MIT
@@ -580,7 +580,7 @@ License:     Apache-2.0 OR MIT
 -------------------------------------------------------------
 
 Name:        serde
-Version:     1.0.217
+Version:     1.0.219
 Repository:  https://github.com/serde-rs/serde
 Authors:     Erick Tryzelaar, David Tolnay
 License:     Apache-2.0 OR MIT
@@ -588,7 +588,7 @@ License:     Apache-2.0 OR MIT
 -------------------------------------------------------------
 
 Name:        serde_derive
-Version:     1.0.217
+Version:     1.0.219
 Repository:  https://github.com/serde-rs/serde
 Authors:     Erick Tryzelaar, David Tolnay
 License:     Apache-2.0 OR MIT
@@ -604,7 +604,7 @@ License:     Apache-2.0 OR MIT
 -------------------------------------------------------------
 
 Name:        serde_json
-Version:     1.0.138
+Version:     1.0.140
 Repository:  https://github.com/serde-rs/json
 Authors:     Erick Tryzelaar, David Tolnay
 License:     Apache-2.0 OR MIT
@@ -628,7 +628,7 @@ License:     Apache-2.0 OR MIT
 -------------------------------------------------------------
 
 Name:        sqlparser
-Version:     0.52.0
+Version:     0.53.0
 Repository:  https://github.com/apache/datafusion-sqlparser-rs
 Authors:     Apache DataFusion
 License:     Apache-2.0
@@ -636,7 +636,7 @@ License:     Apache-2.0
 -------------------------------------------------------------
 
 Name:        stacker
-Version:     0.1.17
+Version:     0.1.20
 Repository:  https://github.com/rust-lang/stacker
 Authors:     Alex Crichton, Simonas Kazlauskas
 License:     Apache-2.0 OR MIT
@@ -652,7 +652,7 @@ License:     MIT
 -------------------------------------------------------------
 
 Name:        strum
-Version:     0.26.3
+Version:     0.27.1
 Repository:  https://github.com/Peternator7/strum
 Authors:     Peter Glotfelty
 License:     MIT
@@ -660,7 +660,7 @@ License:     MIT
 -------------------------------------------------------------
 
 Name:        strum_macros
-Version:     0.26.4
+Version:     0.27.1
 Repository:  https://github.com/Peternator7/strum
 Authors:     Peter Glotfelty
 License:     MIT
@@ -668,7 +668,7 @@ License:     MIT
 -------------------------------------------------------------
 
 Name:        syn
-Version:     2.0.96
+Version:     2.0.100
 Repository:  https://github.com/dtolnay/syn
 Authors:     David Tolnay
 License:     Apache-2.0 OR MIT
@@ -676,7 +676,7 @@ License:     Apache-2.0 OR MIT
 -------------------------------------------------------------
 
 Name:        time
-Version:     0.3.37
+Version:     0.3.41
 Repository:  https://github.com/time-rs/time
 Authors:     Jacob Pratt, Time contributors
 License:     Apache-2.0 OR MIT
@@ -684,7 +684,7 @@ License:     Apache-2.0 OR MIT
 -------------------------------------------------------------
 
 Name:        time-core
-Version:     0.1.2
+Version:     0.1.4
 Repository:  https://github.com/time-rs/time
 Authors:     Jacob Pratt, Time contributors
 License:     Apache-2.0 OR MIT
@@ -692,7 +692,7 @@ License:     Apache-2.0 OR MIT
 -------------------------------------------------------------
 
 Name:        time-macros
-Version:     0.2.19
+Version:     0.2.22
 Repository:  https://github.com/time-rs/time
 Authors:     Jacob Pratt, Time contributors
 License:     Apache-2.0 OR MIT
@@ -700,7 +700,7 @@ License:     Apache-2.0 OR MIT
 -------------------------------------------------------------
 
 Name:        unicode-ident
-Version:     1.0.16
+Version:     1.0.18
 Repository:  https://github.com/dtolnay/unicode-ident
 Authors:     David Tolnay
 License:     (MIT OR Apache-2.0) AND Unicode-3.0
@@ -811,6 +811,14 @@ License:     Apache-2.0 OR MIT
 
 -------------------------------------------------------------
 
+Name:        windows-link
+Version:     0.1.1
+Repository:  https://github.com/microsoft/windows-rs
+Authors:     Microsoft
+License:     Apache-2.0 OR MIT
+
+-------------------------------------------------------------
+
 Name:        windows-sys
 Version:     0.59.0
 Repository:  https://github.com/microsoft/windows-rs
@@ -892,7 +900,7 @@ License:     Apache-2.0 OR MIT
 -------------------------------------------------------------
 
 Name:        winnow
-Version:     0.6.25
+Version:     0.6.26
 Repository:  https://github.com/winnow-rs/winnow
 Authors:     winnow authors
 License:     MIT

@@ -1,6 +1,6 @@
 [package]
 name = "prqlr"
-version = "0.13.1"
+version = "0.13.2"
 edition = "2021"
 rust-version = "1.73.0"
 publish = false
@@ -11,4 +11,4 @@ name = "prqlr"
 
 [dependencies]
 savvy = "0.8"
-prqlc= { version = "0.13.3", default-features = false }
+prqlc= { version = "0.13.4", default-features = false }

@@ -71,6 +71,8 @@ test_that("PRQL query", {
 
 patrick::with_parameters_test_that("Syntax error",
   {
+    # TODO: These snap shot tests will fail on GHA with ariadne 0.5.0 but pass with aridane 0.5.1.
+    skip_on_ci()
     expect_snapshot(
       cat(prql_compile(query, "sql.any", format = TRUE, signature_comment = FALSE)),
       error = TRUE
@@ -112,6 +114,7 @@ from foo
 select
 "
     skip_if_not_installed("cli")
+    skip_on_ci()
     expect_snapshot(
       tryCatch(prql_compile(query, format = TRUE, display = display), error = \(e) cli::ansi_html(e))
     )
