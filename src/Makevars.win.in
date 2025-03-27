@@ -6,13 +6,23 @@ LIBNAME = libprqlr.a
 TARGET_DIR = $(CURDIR)/rust/target
 LIBDIR = $(TARGET_DIR)/$(TARGET)/$(subst dev,debug,$(PROFILE))
 STATLIB = $(LIBDIR)/$(LIBNAME)
-PKG_LIBS = -L$(LIBDIR) -lprqlr -lws2_32 -ladvapi32 -luserenv -lbcrypt -lntdll
+
+PKG_LIBS = -L$(LIBDIR) -lprqlr \
+	-lws2_32 \
+	-ladvapi32 \
+	-luserenv \
+	-lbcrypt \
+	-lntdll
 
 CARGO_BUILD_ARGS = --lib \
-	--profile "$(PROFILE)" \
+	--profile="$(PROFILE)" \
 	--manifest-path="$(CURDIR)/rust/Cargo.toml" \
-	--target-dir "$(TARGET_DIR)" \
-	--target $(TARGET)
+	--target-dir="$(TARGET_DIR)" \
+	--target=$(TARGET)
+
+CARGOTMP = $(CURDIR)/.cargo
+VENDOR_DIR = $(CURDIR)/rust/vendor
+LIBGCC_MOCK_DIR = $(CURDIR)/libgcc_mock
 
 # Rtools doesn't have the linker in the location that cargo expects, so we need
 # to overwrite it via configuration.
@@ -22,10 +32,6 @@ CARGO_LINKER = x86_64-w64-mingw32.static.posix-gcc.exe
 all: cleanup
 
 $(SHLIB): $(STATLIB)
-
-CARGOTMP = $(CURDIR)/.cargo
-VENDOR_DIR = $(CURDIR)/rust/vendor
-LIBGCC_MOCK_DIR = $(CURDIR)/libgcc_mock
 
 $(STATLIB): remove-prev
 	# When the GNU toolchain is used (i.e. on CRAN), -lgcc_eh is specified for
@@ -60,8 +66,9 @@ remove-prev:
 .PHONY: cleanup
 # Clean up files that may cause warnings in R CMD check on CRAN just after the build
 cleanup: $(SHLIB)
+	rm -Rf "$(CARGOTMP)" "$(VENDOR_DIR)"
 	if [ "$(NOT_CRAN)" != "true" ]; then \
-		rm -Rf "$(STATLIB)" "$(CARGOTMP)" "$(VENDOR_DIR)" "$(LIBDIR)/build"; \
+		rm -Rf "$(STATLIB)" "$(LIBDIR)/build"; \
 	fi
 
 .PHONY: clean
