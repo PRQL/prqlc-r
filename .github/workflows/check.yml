@@ -157,12 +157,11 @@ jobs:
       - uses: r-lib/actions/setup-r-dependencies@v2
         if: env.TEST_BIN_LIB == 'true'
         with:
-          extra-packages: any::rcmdcheck, any::testthat, any::remotes
-          needs: check
+          extra-packages: any::pkgload
 
       - name: Install with pre-built binary
         if: env.TEST_BIN_LIB == 'true'
         shell: Rscript {0}
         run: |
-          remotes::install_local(force = TRUE)
-          testthat::test_dir("tests")
+          pkgload::load_all()
+          testthat::test_local()
