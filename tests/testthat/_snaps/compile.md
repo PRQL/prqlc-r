@@ -39,21 +39,21 @@
     Condition
       Error:
       ! Error:
-         ╭─[ :1:23 ]
+         ╭─[:1:23]
          │
        1 │ Mississippi has four S’s and four I’s.
          │                       ┬
          │                       ╰── unexpected ’
       ───╯
       Error:
-         ╭─[ :1:36 ]
+         ╭─[:1:36]
          │
        1 │ Mississippi has four S’s and four I’s.
          │                                    ┬
          │                                    ╰── unexpected ’
       ───╯
       Error:
-         ╭─[ :1:39 ]
+         ╭─[:1:39]
          │
        1 │ Mississippi has four S’s and four I’s.
          │                                       │
@@ -67,7 +67,7 @@
     Condition
       Error:
       ! Error:
-         ╭─[ :1:17 ]
+         ╭─[:1:17]
          │
        1 │ from a | select [b]
          │                 ─┬─
@@ -81,7 +81,7 @@
     Condition
       Error:
       ! Error:
-         ╭─[ :1:21 ]
+         ╭─[:1:21]
          │
        1 │ from a | select {{{b
          │                     │
@@ -389,7 +389,7 @@
       tryCatch(prql_compile(query, format = TRUE, display = display), error = function(
         e) cli::ansi_html(e))
     Output
-      [1] "Error: Error:\n   ╭─[ :3:1 ]\n   │\n 3 │ select\n   │ ───┬──\n   │    ╰──── main expected type `relation`, but found type `func relation -&gt; relation`\n   │\n   │ Help: Have you forgotten an argument to function std.select?\n   │\n   │ Note: Type `relation` expands to `[{..}]`\n───╯\n\n"
+      [1] "Error: Error:\n   ╭─[:3:1]\n   │\n 3 │ select\n   │ ───┬──\n   │    ╰──── main expected type `relation`, but found type `func relation -&gt; relation`\n   │\n   │ Help: Have you forgotten an argument to function std.select?\n   │\n   │ Note: Type `relation` expands to `[{..}]`\n───╯\n\n"
 
 # display display=bar
 
