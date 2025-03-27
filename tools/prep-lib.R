@@ -98,7 +98,7 @@ destfile <- tempfile(fileext = ".tar.gz")
 on.exit(unlink(destfile))
 
 utils::download.file(target_url, destfile, quiet = TRUE, mode = "wb")
-check_sha256(destfile, lib_sum, os = current_os)
+check_sha256(destfile, lib_sum, os = gsub("-.*", "", current_os))
 
 utils::untar(destfile, exdir = "tools")
 
