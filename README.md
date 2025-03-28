@@ -9,6 +9,8 @@
 badge](https://prql.r-universe.dev/badges/prqlr)](https://prql.r-universe.dev)
 [![CRAN
 status](https://www.r-pkg.org/badges/version/prqlr)](https://CRAN.R-project.org/package=prqlr)
+[![R-multiverse
+status](https://img.shields.io/badge/dynamic/json?url=https%3A%2F%2Fcommunity.r-multiverse.org%2Fapi%2Fpackages%2Fprqlr&query=%24.Version&label=r-multiverse)](https://community.r-multiverse.org/prqlr)
 <!-- badges: end -->
 
 R bindings for [the `prqlc` Rust library](https://github.com/prql/prql),
@@ -20,14 +22,22 @@ This version supports PRQL 0.13.4.
 
 Requires R 4.2.0 or later.
 
-This package can be installed from CRAN or
-[R-universe](https://prql.r-universe.dev/prqlr). If available, a binary
+This latest release version of this package can be installed from CRAN
+or [R-multiverse](https://r-multiverse.org). If available, a binary
 package will be installed.
 
 ``` r
 # Install from CRAN
 install.packages("prqlr")
 ```
+
+``` r
+# Install from the R-multiverse Community Repository
+install.packages("prqlr", repos = "https://community.r-multiverse.org")
+```
+
+Development version of this package can be installed from PRQL’s
+[R-universe](https://prql.r-universe.dev/prqlr) repository.
 
 ``` r
 # Install from R-universe
