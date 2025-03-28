@@ -1,5 +1,16 @@
 # prqlr 0.10.1
 
+## Bug fixes
+
+- Based on [`prqlc`](https://github.com/prql/prql) 0.13.4. (#357)
+
+## Miscellaneous
+
+- Rewrite the `configure` script and `Makevars` files to pass R CMD check on R 4.5.0.
+  (#347, #351, #356, #361)
+- When installing the source package with the binary library from the web, `linux-gnu` and `linux-musl` are now distinguished.
+  Previously, even on `linux-gnu` R, the `linux-musl` binary library was downloaded and used. (#359, #360)
+
 # prqlr 0.10.0
 
 ## Breaking changes
