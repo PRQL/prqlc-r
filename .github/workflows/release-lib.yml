@@ -85,9 +85,7 @@ jobs:
 
       - uses: r-lib/actions/setup-r-dependencies@v2
         with:
-          # TODO: uncomment after <https://github.com/r-lib/actions/pull/961>
-          # dependencies: 'FALSE'
-          extra-packages: any::pkgload
+          packages: any::pkgbuild
 
       - name: build lib
         env:
@@ -178,8 +176,6 @@ jobs:
           Ncpus: "2"
 
       - uses: r-lib/actions/setup-r-dependencies@v2
-        # TODO: uncomment after <https://github.com/r-lib/actions/pull/961>
-        # dependencies: 'FALSE'
         with:
           extra-packages: any::pkgload, any::testthat
 
