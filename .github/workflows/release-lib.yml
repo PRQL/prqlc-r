@@ -85,8 +85,7 @@ jobs:
 
       - uses: r-lib/actions/setup-r-dependencies@v2
         with:
-          dependencies: 'FALSE'
-          extra-packages: any::pkgbuild
+          packages: any::pkgbuild
 
       - name: build lib
         env:
