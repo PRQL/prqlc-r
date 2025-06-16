@@ -177,7 +177,7 @@ jobs:
 
       - uses: r-lib/actions/setup-r-dependencies@v2
         with:
-          packages: any::pkgload, any::testthat
+          packages: any::pkgload, any::testthat, any::knitr
 
       - name: R test
         shell: Rscript {0}
