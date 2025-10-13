@@ -11,4 +11,4 @@ name = "prqlr"
 
 [dependencies]
 savvy = "0.8"
-prqlc= { version = "0.13.4", default-features = false }
+prqlc= { version = "0.13.5", default-features = false }
