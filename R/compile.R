@@ -38,12 +38,13 @@
 #'   cat()
 #' @export
 prql_compile <- function(
-    prql_query,
-    target = getOption("prqlr.target", default = NULL),
-    ...,
-    format = getOption("prqlr.format", default = TRUE),
-    signature_comment = getOption("prqlr.signature_comment", default = TRUE),
-    display = getOption("prqlr.display", default = "plain")) {
+  prql_query,
+  target = getOption("prqlr.target", default = NULL),
+  ...,
+  format = getOption("prqlr.format", default = TRUE),
+  signature_comment = getOption("prqlr.signature_comment", default = TRUE),
+  display = getOption("prqlr.display", default = "plain")
+) {
   compile(
     prql_query,
     target = target %||% "sql.any",
