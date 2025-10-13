@@ -53,7 +53,7 @@ Sys.setenv(NOT_CRAN = "true")
 install.packages("prqlr")
 ```
 
-Or, the Rust toolchain (Rust 1.75.0 or later) must be configured to
+Or, the Rust toolchain (Rust 1.84.0 or later) must be configured to
 build the Rust library.
 
 Please check the <https://github.com/r-rust/hellorust> repository for

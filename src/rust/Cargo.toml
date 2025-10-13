@@ -2,7 +2,8 @@
 name = "prqlr"
 version = "0.13.3"
 edition = "2021"
-rust-version = "1.75.0"
+# TODO: change this to 1.75.0 after https://github.com/PRQL/prql/issues/5491 is resolved
+rust-version = "1.84.0"
 publish = false
 
 [lib]
