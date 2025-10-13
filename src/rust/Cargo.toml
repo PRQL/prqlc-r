@@ -1,8 +1,9 @@
 [package]
 name = "prqlr"
-version = "0.13.2"
+version = "0.13.3"
 edition = "2021"
-rust-version = "1.73.0"
+# TODO: change this to 1.75.0 after https://github.com/PRQL/prql/issues/5491 is resolved
+rust-version = "1.84.0"
 publish = false
 
 [lib]
@@ -11,4 +12,4 @@ name = "prqlr"
 
 [dependencies]
 savvy = "0.8"
-prqlc= { version = "0.13.4", default-features = false }
+prqlc= { version = "0.13.5", default-features = false }
