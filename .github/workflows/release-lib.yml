@@ -155,7 +155,7 @@ jobs:
           fi
           rm "$(rustup which cargo)"
 
-      - uses: actions/download-artifact@v5
+      - uses: actions/download-artifact@v6
         with:
           name: libs-${{ env.LIB_TARGET }}
           path: libs
@@ -197,7 +197,7 @@ jobs:
     steps:
       - uses: actions/checkout@v6
 
-      - uses: actions/download-artifact@v5
+      - uses: actions/download-artifact@v6
         with:
           pattern: libs-*
           path: libs
