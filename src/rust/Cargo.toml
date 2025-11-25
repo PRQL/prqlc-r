@@ -11,5 +11,5 @@ crate-type = ['staticlib']
 name = "prqlr"
 
 [dependencies]
-savvy = "0.8"
+savvy = "0.9"
 prqlc= { version = "0.13.5", default-features = false }
