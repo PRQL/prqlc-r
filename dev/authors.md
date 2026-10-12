@@ -1,0 +1,142 @@
+# Authors and Citation
+
+## Authors
+
+- **Tatsuya Shima**. Author, maintainer.
+
+- **Authors of the dependency Rust crates**. Author.  
+  see inst/AUTHORS file for details
+
+## Citation
+
+Source:
+[`DESCRIPTION`](https://github.com/PRQL/prqlc-r/blob/main/DESCRIPTION)
+
+Shima T, Authors of the dependency Rust crates (2026). *prqlr: R
+Bindings for the 'prqlc' Rust Library*. R package version 0.10.1.9000,
+<https://prql.github.io/prqlc-r/>.
+
+    @Manual{,
+      title = {prqlr: R Bindings for the 'prqlc' Rust Library},
+      author = {Tatsuya Shima and {Authors of the dependency Rust crates}},
+      year = {2026},
+      note = {R package version 0.10.1.9000},
+      url = {https://prql.github.io/prqlc-r/},
+    }
+
+## Additional details
+
+    Owners of dependent Rust crates. This list is generated from Crates.io Data <https://crates.io/data-access>:
+      - aho-corasick: Andrew Gallant <https://github.com/BurntSushi>
+      - allocator-api2: Zakarum <https://github.com/zakarumych>
+      - android_system_properties: Nicolas Silva <https://github.com/nical>
+      - anstream: Ed Page <https://github.com/epage>
+      - anstyle: Ed Page <https://github.com/epage>
+      - anstyle-parse: Ed Page <https://github.com/epage>
+      - anstyle-query: Ed Page <https://github.com/epage>
+      - anstyle-wincon: Ed Page <https://github.com/epage>
+      - anyhow: David Tolnay <https://github.com/dtolnay>
+      - ariadne: Joshua Barretto <https://github.com/zesterer>
+      - autocfg: Josh Stone <https://github.com/cuviper>, Alex Kladov <https://github.com/matklad>
+      - bumpalo: Nick Fitzgerald <https://github.com/fitzgen>, Alex Crichton <https://github.com/alexcrichton>
+      - chrono: Kang Seonghoon <https://github.com/lifthrasiir>, Keegan McAllister <https://github.com/kmcallister>
+      - chumsky: Joshua Barretto <https://github.com/zesterer>
+      - colorchoice: Ed Page <https://github.com/epage>
+      - core-foundation-sys: Lars Bergstrom <https://github.com/larsbergstrom>, Steven Fackler <https://github.com/sfackler>
+      - csv: Andrew Gallant <https://github.com/BurntSushi>
+      - csv-core: Andrew Gallant <https://github.com/BurntSushi>
+      - darling: Ted Driggs <https://github.com/TedDriggs>
+      - darling_core: Ted Driggs <https://github.com/TedDriggs>
+      - darling_macro: Ted Driggs <https://github.com/TedDriggs>
+      - deranged: Jacob Pratt <https://github.com/jhpratt>
+      - derive_builder: Colin Kiegel <https://github.com/colin-kiegel>, Ted Driggs <https://github.com/TedDriggs>
+      - derive_builder_core: Colin Kiegel <https://github.com/colin-kiegel>, Ted Driggs <https://github.com/TedDriggs>
+      - derive_builder_macro: Ted Driggs <https://github.com/TedDriggs>
+      - dyn-clone: David Tolnay <https://github.com/dtolnay>
+      - either: bluss <https://github.com/bluss>, Josh Stone <https://github.com/cuviper>, Jack Wrenn <https://github.com/jswrenn>
+      - enum-as-inner: Benjamin Fry <https://github.com/bluejekyll>
+      - equivalent: Josh Stone <https://github.com/cuviper>
+      - fnv: Simon Sapin <https://github.com/SimonSapin>, Steven Fackler <https://github.com/sfackler>
+      - foldhash: Orson Peters <https://github.com/orlp>
+      - getset: John Baublitz <https://github.com/jbaublitz>
+      - hashbrown: Amanieu d'Antras <https://github.com/Amanieu>
+      - heck: srrrse <https://github.com/withoutboats>, Jonas Platte <https://github.com/jplatte>
+      - iana-time-zone: Andrew Straw <https://github.com/astraw>, René Kijewski <https://github.com/Kijewski>
+      - iana-time-zone-haiku: Andrew Straw <https://github.com/astraw>, René Kijewski <https://github.com/Kijewski>
+      - ident_case: Ted Driggs <https://github.com/TedDriggs>
+      - is_terminal_polyfill: Ed Page <https://github.com/epage>
+      - itertools: bluss <https://github.com/bluss>, Jack Wrenn <https://github.com/jswrenn>
+      - itoa: David Tolnay <https://github.com/dtolnay>
+      - js-sys: Guy Bedford <https://github.com/guybedford>
+      - libc: Huon Wilson <https://github.com/huonw>, gnzlbg <https://github.com/gnzlbg>, Yuki Okushi <https://github.com/JohnTitor>, Josh Triplett <https://github.com/joshtriplett>, Sebastian Dröge <https://github.com/sdroege>
+      - log: Huon Wilson <https://github.com/huonw>, Steven Fackler <https://github.com/sfackler>, Ashley Mannix <https://github.com/KodrAus>
+      - memchr: Andrew Gallant <https://github.com/BurntSushi>
+      - num-conv: Jacob Pratt <https://github.com/jhpratt>
+      - num-traits: Josh Stone <https://github.com/cuviper>
+      - num_threads: Jacob Pratt <https://github.com/jhpratt>, Thomas Hurst <https://github.com/Freaky>
+      - once_cell: Alex Kladov <https://github.com/matklad>, Michal 'vorner' Vaner <https://github.com/vorner>
+      - powerfmt: Jacob Pratt <https://github.com/jhpratt>
+      - proc-macro-error-attr2: Gnome! <https://github.com/GnomedDev>
+      - proc-macro-error2: Gnome! <https://github.com/GnomedDev>
+      - proc-macro2: David Tolnay <https://github.com/dtolnay>
+      - prqlc: Maximilian Roos <https://github.com/max-sixty>, Aljaž Mur Eržen <https://github.com/aljazerzen>
+      - prqlc-parser: Maximilian Roos <https://github.com/max-sixty>
+      - psm: Simonas Kazlauskas <https://github.com/nagisa>
+      - quote: David Tolnay <https://github.com/dtolnay>
+      - ref-cast: David Tolnay <https://github.com/dtolnay>
+      - ref-cast-impl: David Tolnay <https://github.com/dtolnay>
+      - regex: Andrew Gallant <https://github.com/BurntSushi>
+      - regex-automata: Andrew Gallant <https://github.com/BurntSushi>
+      - regex-syntax: Andrew Gallant <https://github.com/BurntSushi>
+      - rustversion: David Tolnay <https://github.com/dtolnay>
+      - ryu: David Tolnay <https://github.com/dtolnay>
+      - savvy: Hiroaki Yutani <https://github.com/yutannihilation>
+      - savvy-bindgen: Hiroaki Yutani <https://github.com/yutannihilation>
+      - savvy-ffi: Hiroaki Yutani <https://github.com/yutannihilation>
+      - savvy-macro: Hiroaki Yutani <https://github.com/yutannihilation>
+      - schemars: Graham Esau <https://github.com/GREsau>
+      - schemars_derive: Graham Esau <https://github.com/GREsau>
+      - semver: David Tolnay <https://github.com/dtolnay>
+      - serde: David Tolnay <https://github.com/dtolnay>
+      - serde_core: David Tolnay <https://github.com/dtolnay>
+      - serde_derive: David Tolnay <https://github.com/dtolnay>
+      - serde_derive_internals: David Tolnay <https://github.com/dtolnay>
+      - serde_json: David Tolnay <https://github.com/dtolnay>
+      - shlex: Fenhl <https://github.com/fenhl>
+      - sqlformat: Josh Holmer <https://github.com/shssoichiro>
+      - sqlparser: Andy Grove <https://github.com/andygrove>, Daniël Heres <https://github.com/Dandandan>, Max Countryman <https://github.com/maxcountryman>, Nickolay Ponomarev <https://github.com/nickolay>, Andrew Lamb <https://github.com/alamb>
+      - stacker: Simonas Kazlauskas <https://github.com/nagisa>
+      - strsim: Danny Guo <https://github.com/dguo>, Max Bachmann <https://github.com/maxbachmann>
+      - strum: Peter Glotfelty <https://github.com/Peternator7>
+      - strum_macros: Peter Glotfelty <https://github.com/Peternator7>
+      - syn: David Tolnay <https://github.com/dtolnay>
+      - time: Jacob Pratt <https://github.com/jhpratt>
+      - time-core: Jacob Pratt <https://github.com/jhpratt>
+      - time-macros: Jacob Pratt <https://github.com/jhpratt>
+      - unicode-ident: David Tolnay <https://github.com/dtolnay>
+      - unicode-segmentation: Riad S. Wahby <https://github.com/kwantam>, Huon Wilson <https://github.com/huonw>, Simon Sapin <https://github.com/SimonSapin>, Manish Goregaokar <https://github.com/Manishearth>, Sujay Jayakar <https://github.com/sujayakar>, Alex Crichton <https://github.com/alexcrichton>
+      - unicode-width: Riad S. Wahby <https://github.com/kwantam>, Huon Wilson <https://github.com/huonw>, Simon Sapin <https://github.com/SimonSapin>, Manish Goregaokar <https://github.com/Manishearth>, Sujay Jayakar <https://github.com/sujayakar>
+      - unicode_categories: Sean Gillespie <https://github.com/swgillespie>
+      - utf8parse: Joe Wilm <https://github.com/jwilm>, Christian Duerr <https://github.com/chrisduerr>, Tyler Berry <https://github.com/Tahler>
+      - vergen: Jason Ozias <https://github.com/CraZySacX>
+      - vergen-gitcl: Jason Ozias <https://github.com/CraZySacX>
+      - vergen-lib: Jason Ozias <https://github.com/CraZySacX>
+      - wasm-bindgen: Guy Bedford <https://github.com/guybedford>
+      - wasm-bindgen-backend: Guy Bedford <https://github.com/guybedford>
+      - wasm-bindgen-macro: Guy Bedford <https://github.com/guybedford>
+      - wasm-bindgen-macro-support: Guy Bedford <https://github.com/guybedford>
+      - wasm-bindgen-shared: Guy Bedford <https://github.com/guybedford>
+      - windows-core: Kenny Kerr <https://github.com/kennykerr>
+      - windows-link: Kenny Kerr <https://github.com/kennykerr>
+      - windows-sys: Kenny Kerr <https://github.com/kennykerr>
+      - windows-targets: Kenny Kerr <https://github.com/kennykerr>
+      - windows_aarch64_gnullvm: Kenny Kerr <https://github.com/kennykerr>
+      - windows_aarch64_msvc: Kenny Kerr <https://github.com/kennykerr>
+      - windows_i686_gnu: Kenny Kerr <https://github.com/kennykerr>
+      - windows_i686_gnullvm: Kenny Kerr <https://github.com/kennykerr>
+      - windows_i686_msvc: Kenny Kerr <https://github.com/kennykerr>
+      - windows_x86_64_gnu: Kenny Kerr <https://github.com/kennykerr>
+      - windows_x86_64_gnullvm: Kenny Kerr <https://github.com/kennykerr>
+      - windows_x86_64_msvc: Kenny Kerr <https://github.com/kennykerr>
+      - winnow: Ed Page <https://github.com/epage>
+      - yansi: Sergio Benitez <https://github.com/SergioBenitez>
