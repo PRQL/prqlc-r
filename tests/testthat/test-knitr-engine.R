@@ -23,17 +23,17 @@ test_that("Set prql knitr engine", {
 test_that("Snapshot test of knitr-engine", {
   skip_if_not_installed("knitr")
 
-  expect_snapshot(.knit_file("r-style-opts.Rmd"), cran = TRUE)
-  expect_snapshot(.knit_file("yaml-style-opts.Rmd"), cran = TRUE)
+  expect_snapshot(.knit_file("r-style-opts.Rmd"), cran = TRUE, transform = mask_prqlc_version)
+  expect_snapshot(.knit_file("yaml-style-opts.Rmd"), cran = TRUE, transform = mask_prqlc_version)
   expect_snapshot(
     withr::with_options(
       list(prqlr.target = "sql.mssql", prqlr.format = FALSE, prqlr.signature_comment = FALSE),
       .knit_file("minimal.Rmd")
     ),
-    cran = TRUE
+    cran = TRUE, transform = mask_prqlc_version
   )
-  expect_snapshot(.knit_file("glue.Rmd"), cran = TRUE)
-  expect_snapshot(.knit_file("change-lang.Rmd"), cran = TRUE)
-  expect_snapshot(.knit_file("info-string.Rmd"), cran = TRUE)
-  expect_snapshot(.knit_file("eval-opt.Rmd"), cran = TRUE)
+  expect_snapshot(.knit_file("glue.Rmd"), cran = TRUE, transform = mask_prqlc_version)
+  expect_snapshot(.knit_file("change-lang.Rmd"), cran = TRUE, transform = mask_prqlc_version)
+  expect_snapshot(.knit_file("info-string.Rmd"), cran = TRUE, transform = mask_prqlc_version)
+  expect_snapshot(.knit_file("eval-opt.Rmd"), cran = TRUE, transform = mask_prqlc_version)
 })

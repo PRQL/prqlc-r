@@ -168,6 +168,7 @@ generate_makevars() {
     sed \
       -e "s|@TARGET@|${TARGET}|" \
       -e "s|@PROFILE@|${PROFILE}|" \
+      -e "s|@BEFORE_CARGO_BUILD@|${BEFORE_CARGO_BUILD}|" \
       "$makefile.in" >"$makefile"
   done
 
@@ -179,6 +180,13 @@ if [ "${DEBUG}" = "true" ]; then
   PROFILE=dev
 else
   PROFILE=release
+fi
+
+# Match savvy's configure template: prevent cc from using a newer SDK version
+# as the deployment target for C dependencies. Preserve explicit user settings.
+if [ "$(uname)" = "Darwin" ]; then
+  MACOSX_DEPLOYMENT_TARGET="${MACOSX_DEPLOYMENT_TARGET:-11.0}"
+  BEFORE_CARGO_BUILD='export MACOSX_DEPLOYMENT_TARGET="'"${MACOSX_DEPLOYMENT_TARGET}"'" \&\&'
 fi
 
 detect_target_option "$@"
