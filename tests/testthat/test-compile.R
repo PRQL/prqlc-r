@@ -22,7 +22,7 @@ test_that("Not a string object", {
   )
   expect_error(
     c("a", "a") |> prql_compile(),
-    "must be be length 1 of non-missing value"
+    "must be length 1 of non-missing value"
   )
 })
 
@@ -57,7 +57,7 @@ test_that("Options", {
 })
 
 test_that("PRQL query", {
-  expect_snapshot(cat(prql_compile("from a | select {b}")))
+  expect_snapshot(cat(prql_compile("from a | select {b}")), transform = mask_prqlc_version)
   expect_snapshot(cat(prql_compile("from a | select {b}", target = NULL, format = FALSE, signature_comment = FALSE)))
   expect_snapshot(
     "from star_wars
@@ -65,7 +65,8 @@ test_that("PRQL query", {
     select !{jar_jar_binks, midichlorians}"
     |>
       prql_compile("sql.duckdb", format = TRUE, signature_comment = TRUE) |>
-      cat()
+      cat(),
+    transform = mask_prqlc_version
   )
 })
 
@@ -101,7 +102,7 @@ take 2
 )
 
 test_that("prqlc's version", {
-  expect_snapshot(prql_version())
+  expect_snapshot(prql_version(), transform = mask_prqlc_version)
   expect_s3_class(prql_version(), "numeric_version")
 })
 

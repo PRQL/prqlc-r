@@ -37,7 +37,7 @@ $(STATLIB): remove-prev
 		export CARGO_HOME="$(CARGOTMP)"; \
 		export CARGO_BUILD_JOBS=2; \
 	fi && \
-	export PATH="$(PATH):$(HOME)/.cargo/bin" && \
+	@BEFORE_CARGO_BUILD@ export PATH="$(PATH):$(HOME)/.cargo/bin" && \
 		if [ "$(TARGET)" != "wasm32-unknown-emscripten" ]; then \
 			cargo build $(CARGO_BUILD_ARGS); \
 		else \
