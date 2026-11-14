@@ -1,3 +1,8 @@
+# Release libraries are built with R >= 4.5 and omit savvy's older-R backports.
+if (getRversion() < "4.5.0") {
+  stop("Pre-built binaries are only available for R >= 4.5.0.", call. = FALSE)
+}
+
 check_sha256 <- function(file, sum, os = c("linux", "macos", "windows")) {
   message("Checking SHA256 for <", file, ">...")
 
