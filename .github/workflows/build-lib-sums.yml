@@ -1,0 +1,63 @@
+name: Update binary library metadata
+on:
+  workflow_call:
+    inputs:
+      tag:
+        description: Library release tag
+        required: true
+        type: string
+  workflow_dispatch:
+    inputs:
+      tag:
+        description: Library release tag (lib-vVERSION matching main's Cargo version)
+        required: true
+        type: string
+
+concurrency:
+  group: update-lib-sums
+  cancel-in-progress: false
+
+defaults:
+  run:
+    shell: bash
+
+jobs:
+  update-lib-sums:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      pull-requests: write
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          ref: main
+
+      - uses: r-lib/actions/setup-r@f9a764fea8d5c63df6ef9a5c7795bf7deb5d7e05 # v2.14.0
+
+      - name: Download release checksums
+        env:
+          GH_TOKEN: ${{ github.token }}
+          LIB_TAG: ${{ inputs.tag }}
+        run: gh release download "$LIB_TAG" --pattern sha256sums.txt --dir "$RUNNER_TEMP/lib-sums"
+
+      - name: Generate checksum metadata
+        env:
+          LIB_TAG: ${{ inputs.tag }}
+        run: Rscript .github/scripts/generate-lib-sums.R "$LIB_TAG" "$RUNNER_TEMP/lib-sums/sha256sums.txt"
+
+      - name: Create checksum update PR
+        uses: peter-evans/create-pull-request@3ffccacd46053766916f087ce41d627c0b8cf2d1 # v8.1.3
+        with:
+          base: main
+          branch: automation/lib-sums
+          delete-branch: true
+          add-paths: |
+            tools/lib-sums.tsv
+            DESCRIPTION
+          commit-message: "chore: update binary library metadata for ${{ inputs.tag }}"
+          title: "chore: update binary library metadata for ${{ inputs.tag }}"
+          body: |
+            Update tools/lib-sums.tsv and Config/prqlr/LibVersion for
+            [${{ inputs.tag }}](https://github.com/${{ github.repository }}/releases/tag/${{ inputs.tag }}).
+
+            The binary libraries were built and tested by the release-lib workflow.
