@@ -1,15 +1,13 @@
 name: release-lib
 on:
-  push:
-    tags:
-      - "lib-v*"
-    branches:
-      - main
   pull_request:
     branches:
       - main
     paths:
       - .github/workflows/release-lib.yml
+      - .github/workflows/build-lib-sums.yml
+      - .github/scripts/**
+      - configure*
       - src/rust/**
       - src/Makevars*
       - tools/**
@@ -18,7 +16,7 @@ on:
 
 concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
-  cancel-in-progress: true
+  cancel-in-progress: ${{ github.event_name == 'pull_request' }}
 
 defaults:
   run:
@@ -28,7 +26,18 @@ env:
   LIB_NAME: libprqlr
 
 jobs:
+  check-release-scripts:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+      - uses: r-lib/actions/setup-r@f9a764fea8d5c63df6ef9a5c7795bf7deb5d7e05 # v2.14.0
+      - name: Test checksum metadata generation
+        run: Rscript .github/scripts/test-generate-lib-sums.R
+
   build:
+    needs: check-release-scripts
     runs-on: ${{ matrix.os }}
     strategy:
       fail-fast: false
@@ -191,7 +200,9 @@ jobs:
       - build
       - test
     runs-on: ubuntu-latest
-    if: startsWith(github.ref, 'refs/tags/')
+    if: github.event_name == 'workflow_dispatch' && github.ref == 'refs/heads/main'
+    outputs:
+      tag: ${{ steps.version.outputs.tag }}
     permissions:
       contents: write
 
@@ -210,11 +221,27 @@ jobs:
           sha256sum * >"../sha256sums.txt"
           md5sum * >"../md5sums.txt"
 
-      - name: create release
-        uses: softprops/action-gh-release@8a0cd651e5b2365bd640854a3fa5dfc70e4875f3 # v3.0.4
-        with:
-          prerelease: true
-          files: |
-            libs/*
-            sha256sums.txt
-            md5sums.txt
+      - name: Determine release tag
+        id: version
+        run: |
+          version="$(cargo metadata --format-version=1 --no-deps --manifest-path src/rust/Cargo.toml | jq --raw-output '.packages[] | select(.name == "prqlr") | .version')"
+          echo "LIB_TAG=lib-v${version}" >>"$GITHUB_ENV"
+          echo "tag=lib-v${version}" >>"$GITHUB_OUTPUT"
+
+      - name: Create release
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh release create "$LIB_TAG" libs/* sha256sums.txt md5sums.txt \
+            --target "$GITHUB_SHA" --title "$LIB_TAG" --prerelease \
+            --notes "Pre-built Rust libraries for prqlr, built from ${GITHUB_SHA}."
+
+  # Call explicitly: releases created with GITHUB_TOKEN do not trigger release workflows.
+  update-lib-sums:
+    needs: release
+    permissions:
+      contents: write
+      pull-requests: write
+    uses: ./.github/workflows/build-lib-sums.yml
+    with:
+      tag: ${{ needs.release.outputs.tag }}

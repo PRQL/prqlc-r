@@ -1,0 +1,43 @@
+source(".github/scripts/generate-lib-sums.R")
+
+local({
+  root <- tempfile("lib-sums-test-")
+  dir.create(root)
+  on.exit(unlink(root, recursive = TRUE))
+  dir.create(file.path(root, "src"))
+  dir.create(file.path(root, "src/rust"))
+  dir.create(file.path(root, "tools"))
+  writeLines(c('[package]', 'name = "prqlr"', 'version = "1.2.3"',
+               '[dependencies]', 'version = "9.9.9"'), file.path(root, "src/rust/Cargo.toml"))
+  description <- c("Package: prqlr", "Version: 0.10.1", "Config/prqlr/LibVersion: 1.0.0")
+  writeLines(description, file.path(root, "DESCRIPTION"))
+  sums <- file.path(root, "sha256sums.txt")
+  hash <- strrep("a", 64)
+  names <- paste0("libprqlr-1.2.3-", c("x86_64-pc-windows-gnu", "aarch64-apple-darwin"), ".tar.gz")
+  writeLines(paste(hash, names), sums)
+  generate_lib_sums("lib-v1.2.3", sums, root)
+  result <- read.delim(file.path(root, "tools/lib-sums.tsv"))
+  stopifnot(nrow(result) == 2L, identical(result$sha256sum, rep(hash, 2L)))
+  stopifnot(identical(result$url, paste0("https://github.com/PRQL/prqlc-r/releases/download/lib-v1.2.3/", sort(names))))
+  stopifnot(identical(readLines(file.path(root, "DESCRIPTION")),
+                      c(description[1:2], "Config/prqlr/LibVersion: 1.2.3")))
+  original <- readLines(file.path(root, "tools/lib-sums.tsv"))
+  expect_error <- function(tag, lines) {
+    writeLines(lines, sums)
+    result <- tryCatch(generate_lib_sums(tag, sums, root), error = identity)
+    stopifnot(inherits(result, "error"))
+    stopifnot(identical(readLines(file.path(root, "tools/lib-sums.tsv")), original))
+  }
+  expect_error("lib-v9.9.9", paste(hash, names))
+  expect_error("lib-v1.2.3", character())
+  expect_error("lib-v1.2.3", paste("bad-hash", names))
+  expect_error("lib-v1.2.3", rep(paste(hash, names[1]), 2L))
+  expect_error("lib-v1.2.3", paste(hash, "../../libprqlr.a"))
+  expect_error("lib-v1.2.3", paste(hash, sub("1.2.3", "1.2.4", names, fixed = TRUE)))
+  expect_error("lib-v1.2.3", paste(hash, names, "extra-column"))
+  # GNU sha256sum also permits '*' before a binary-mode filename.
+  writeLines(paste(hash, paste0("*", names)), sums)
+  generate_lib_sums("lib-v1.2.3", sums, root)
+  stopifnot(identical(readLines(file.path(root, "tools/lib-sums.tsv")), original))
+})
+cat("Checksum metadata tests passed\n")
