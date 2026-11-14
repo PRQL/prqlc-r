@@ -20,5 +20,6 @@ a character vector of target names.
 prql_get_targets()
 #>  [1] "sql.any"        "sql.ansi"       "sql.bigquery"   "sql.clickhouse"
 #>  [5] "sql.duckdb"     "sql.generic"    "sql.glaredb"    "sql.mssql"     
-#>  [9] "sql.mysql"      "sql.postgres"   "sql.sqlite"     "sql.snowflake" 
+#>  [9] "sql.mysql"      "sql.oracle"     "sql.postgres"   "sql.redshift"  
+#> [13] "sql.sqlite"     "sql.snowflake" 
 ```

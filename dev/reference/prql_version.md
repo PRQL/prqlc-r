@@ -17,5 +17,5 @@ the version of the built-in prqlc.
 
 ``` r
 prql_version()
-#> [1] ‘0.13.5’
+#> [1] ‘0.13.14’
 ```

@@ -58,7 +58,6 @@ Bindings for the 'prqlc' Rust Library*. R package version 0.10.1.9000,
       - equivalent: Josh Stone <https://github.com/cuviper>
       - fnv: Simon Sapin <https://github.com/SimonSapin>, Steven Fackler <https://github.com/sfackler>
       - foldhash: Orson Peters <https://github.com/orlp>
-      - getset: John Baublitz <https://github.com/jbaublitz>
       - hashbrown: Amanieu d'Antras <https://github.com/Amanieu>
       - heck: srrrse <https://github.com/withoutboats>, Jonas Platte <https://github.com/jplatte>
       - iana-time-zone: Andrew Straw <https://github.com/astraw>, René Kijewski <https://github.com/Kijewski>
@@ -74,14 +73,12 @@ Bindings for the 'prqlc' Rust Library*. R package version 0.10.1.9000,
       - num-conv: Jacob Pratt <https://github.com/jhpratt>
       - num-traits: Josh Stone <https://github.com/cuviper>
       - num_threads: Jacob Pratt <https://github.com/jhpratt>, Thomas Hurst <https://github.com/Freaky>
-      - once_cell: Alex Kladov <https://github.com/matklad>, Michal 'vorner' Vaner <https://github.com/vorner>
+      - once_cell_polyfill: Ed Page <https://github.com/epage>
+      - pin-project-lite: Taiki Endo <https://github.com/taiki-e>
       - powerfmt: Jacob Pratt <https://github.com/jhpratt>
-      - proc-macro-error-attr2: Gnome! <https://github.com/GnomedDev>
-      - proc-macro-error2: Gnome! <https://github.com/GnomedDev>
       - proc-macro2: David Tolnay <https://github.com/dtolnay>
       - prqlc: Maximilian Roos <https://github.com/max-sixty>, Aljaž Mur Eržen <https://github.com/aljazerzen>
       - prqlc-parser: Maximilian Roos <https://github.com/max-sixty>
-      - psm: Simonas Kazlauskas <https://github.com/nagisa>
       - quote: David Tolnay <https://github.com/dtolnay>
       - ref-cast: David Tolnay <https://github.com/dtolnay>
       - ref-cast-impl: David Tolnay <https://github.com/dtolnay>
@@ -103,9 +100,9 @@ Bindings for the 'prqlc' Rust Library*. R package version 0.10.1.9000,
       - serde_derive_internals: David Tolnay <https://github.com/dtolnay>
       - serde_json: David Tolnay <https://github.com/dtolnay>
       - shlex: Fenhl <https://github.com/fenhl>
+      - slab: Carl Lerche <https://github.com/carllerche>
       - sqlformat: Josh Holmer <https://github.com/shssoichiro>
       - sqlparser: Andy Grove <https://github.com/andygrove>, Daniël Heres <https://github.com/Dandandan>, Max Countryman <https://github.com/maxcountryman>, Nickolay Ponomarev <https://github.com/nickolay>, Andrew Lamb <https://github.com/alamb>
-      - stacker: Simonas Kazlauskas <https://github.com/nagisa>
       - strsim: Danny Guo <https://github.com/dguo>, Max Bachmann <https://github.com/maxbachmann>
       - strum: Peter Glotfelty <https://github.com/Peternator7>
       - strum_macros: Peter Glotfelty <https://github.com/Peternator7>
@@ -122,21 +119,16 @@ Bindings for the 'prqlc' Rust Library*. R package version 0.10.1.9000,
       - vergen-gitcl: Jason Ozias <https://github.com/CraZySacX>
       - vergen-lib: Jason Ozias <https://github.com/CraZySacX>
       - wasm-bindgen: Guy Bedford <https://github.com/guybedford>
-      - wasm-bindgen-backend: Guy Bedford <https://github.com/guybedford>
       - wasm-bindgen-macro: Guy Bedford <https://github.com/guybedford>
       - wasm-bindgen-macro-support: Guy Bedford <https://github.com/guybedford>
       - wasm-bindgen-shared: Guy Bedford <https://github.com/guybedford>
       - windows-core: Kenny Kerr <https://github.com/kennykerr>
+      - windows-implement: Kenny Kerr <https://github.com/kennykerr>
+      - windows-interface: Kenny Kerr <https://github.com/kennykerr>
       - windows-link: Kenny Kerr <https://github.com/kennykerr>
+      - windows-result: Kenny Kerr <https://github.com/kennykerr>
+      - windows-strings: Kenny Kerr <https://github.com/kennykerr>
       - windows-sys: Kenny Kerr <https://github.com/kennykerr>
-      - windows-targets: Kenny Kerr <https://github.com/kennykerr>
-      - windows_aarch64_gnullvm: Kenny Kerr <https://github.com/kennykerr>
-      - windows_aarch64_msvc: Kenny Kerr <https://github.com/kennykerr>
-      - windows_i686_gnu: Kenny Kerr <https://github.com/kennykerr>
-      - windows_i686_gnullvm: Kenny Kerr <https://github.com/kennykerr>
-      - windows_i686_msvc: Kenny Kerr <https://github.com/kennykerr>
-      - windows_x86_64_gnu: Kenny Kerr <https://github.com/kennykerr>
-      - windows_x86_64_gnullvm: Kenny Kerr <https://github.com/kennykerr>
-      - windows_x86_64_msvc: Kenny Kerr <https://github.com/kennykerr>
       - winnow: Ed Page <https://github.com/epage>
       - yansi: Sergio Benitez <https://github.com/SergioBenitez>
+      - zmij: David Tolnay <https://github.com/dtolnay>
