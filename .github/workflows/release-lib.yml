@@ -42,7 +42,7 @@ jobs:
             target: aarch64-unknown-linux-musl
           - os: ubuntu-22.04-arm
             target: aarch64-unknown-linux-gnu
-          - os: macos-latest
+          - os: macos-15-intel
             target: x86_64-apple-darwin
           - os: macos-latest
             target: aarch64-apple-darwin
@@ -53,7 +53,7 @@ jobs:
       packages: write
 
     steps:
-      - uses: actions/checkout@v6
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
 
       - name: prep Rust
         working-directory: src/rust
@@ -61,11 +61,9 @@ jobs:
           LIB_VERSION="$(cargo metadata --format-version=1 --no-deps | jq --raw-output '.packages[0].version')"
           echo "LIB_VERSION=${LIB_VERSION}" >>"$GITHUB_ENV"
           rustup target add ${{ matrix.target }}
-          # savvy needs R_INCLUDE_DIR envvar
-          echo R_INCLUDE_DIR=$(Rscript -e 'cat(normalizePath(R.home("include")))') >> "$GITHUB_ENV"
 
 
-      - uses: Swatinem/rust-cache@v2
+      - uses: Swatinem/rust-cache@d1527c8f67ef9af357290475d4af4b0fab8f12e0 # v2.9.3
         with:
           workspaces: "src/rust -> target"
           shared-key: ${{ matrix.target }}
@@ -77,15 +75,18 @@ jobs:
           sudo apt-get install -y musl-tools
 
       - name: Set up R
-        uses: r-lib/actions/setup-r@v2
+        uses: r-lib/actions/setup-r@f9a764fea8d5c63df6ef9a5c7795bf7deb5d7e05 # v2.14.0
         with:
           # TODO: `true` after rspm supports arm linux <https://github.com/r-lib/actions/issues/960>
           use-public-rspm: ${{ runner.os != 'Linux' || runner.arch != 'ARM64' }}
           Ncpus: 2
 
-      - uses: r-lib/actions/setup-r-dependencies@v2
+      - uses: r-lib/actions/setup-r-dependencies@f9a764fea8d5c63df6ef9a5c7795bf7deb5d7e05 # v2.14.0
         with:
           packages: any::pkgbuild
+
+      - name: Set R include directory
+        run: echo "R_INCLUDE_DIR=$(Rscript -e 'cat(normalizePath(R.home("include")))')" >> "$GITHUB_ENV"
 
       - name: build lib
         env:
@@ -95,7 +96,7 @@ jobs:
           PRQLR_PROFILE: release
         run: |
           # make sure savvy is built from source because rust-cache doesn't work well.
-          (find ~/.cargo/registry/ rust/target -name 'savvy-*' | xargs rm -rf) || true
+          (find ~/.cargo/registry/ src/rust/target -name 'savvy-*' | xargs rm -rf) || true
 
           LIB_PATH="$(pwd)/src/rust/target/${TARGET}/${PRQLR_PROFILE}/${LIB_NAME}.a"
           ARTIFACT_NAME="${LIB_NAME}-${LIB_VERSION}-${TARGET}.tar.gz"
@@ -105,7 +106,7 @@ jobs:
           echo "ARTIFACT_NAME=${ARTIFACT_NAME}" >>"$GITHUB_ENV"
 
       - name: upload artifact
-        uses: actions/upload-artifact@v6
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
         with:
           name: libs-${{ matrix.target }}
           path: ${{ env.ARTIFACT_NAME }}
@@ -130,7 +131,7 @@ jobs:
           - os: macos-latest
             r: oldrel-1
         include:
-          - os: macos-13
+          - os: macos-15-intel
             r: release
           - os: ubuntu-22.04-arm
             r: release
@@ -139,7 +140,7 @@ jobs:
       contents: read
 
     steps:
-      - uses: actions/checkout@v6
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
 
       - name: prep Rust
         working-directory: src/rust
@@ -155,7 +156,7 @@ jobs:
           fi
           rm "$(rustup which cargo)"
 
-      - uses: actions/download-artifact@v7
+      - uses: actions/download-artifact@9000827ccba6bdab643e8b6fd33ac0654aef8333 # v8.0.2
         with:
           name: libs-${{ env.LIB_TARGET }}
           path: libs
@@ -166,16 +167,16 @@ jobs:
           tar -xzf "libs/${ARTIFACT_NAME}" -C "tools"
           rm -rf "libs"
 
-      - uses: r-lib/actions/setup-pandoc@v2
+      - uses: r-lib/actions/setup-pandoc@f9a764fea8d5c63df6ef9a5c7795bf7deb5d7e05 # v2.14.0
 
-      - uses: r-lib/actions/setup-r@v2
+      - uses: r-lib/actions/setup-r@f9a764fea8d5c63df6ef9a5c7795bf7deb5d7e05 # v2.14.0
         with:
           r-version: ${{ matrix.r }}
           # TODO: `true` after rspm supports arm linux <https://github.com/r-lib/actions/issues/960>
           use-public-rspm: ${{ runner.os != 'Linux' || runner.arch != 'ARM64' }}
           Ncpus: "2"
 
-      - uses: r-lib/actions/setup-r-dependencies@v2
+      - uses: r-lib/actions/setup-r-dependencies@f9a764fea8d5c63df6ef9a5c7795bf7deb5d7e05 # v2.14.0
         with:
           extra-packages: any::pkgload, any::testthat
 
@@ -195,9 +196,9 @@ jobs:
       contents: write
 
     steps:
-      - uses: actions/checkout@v6
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
 
-      - uses: actions/download-artifact@v7
+      - uses: actions/download-artifact@9000827ccba6bdab643e8b6fd33ac0654aef8333 # v8.0.2
         with:
           pattern: libs-*
           path: libs
@@ -210,7 +211,7 @@ jobs:
           md5sum * >"../md5sums.txt"
 
       - name: create release
-        uses: softprops/action-gh-release@v2
+        uses: softprops/action-gh-release@8a0cd651e5b2365bd640854a3fa5dfc70e4875f3 # v3.0.4
         with:
           prerelease: true
           files: |

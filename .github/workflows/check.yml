@@ -6,6 +6,7 @@ on:
     branches:
       - main
     paths:
+      - .github/workflows/check.yml
       - R/**
       - src/**
       - tests/**
@@ -59,18 +60,18 @@ jobs:
       LIBPRQLR_BUILD: "true"
 
     steps:
-      - uses: actions/checkout@v6
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
 
-      - uses: r-lib/actions/setup-pandoc@v2
+      - uses: r-lib/actions/setup-pandoc@f9a764fea8d5c63df6ef9a5c7795bf7deb5d7e05 # v2.14.0
 
-      - uses: r-lib/actions/setup-r@v2
+      - uses: r-lib/actions/setup-r@f9a764fea8d5c63df6ef9a5c7795bf7deb5d7e05 # v2.14.0
         with:
           r-version: ${{ matrix.config.r }}
           http-user-agent: ${{ matrix.config.http-user-agent }}
           use-public-rspm: true
           Ncpus: "2"
 
-      - uses: r-lib/actions/setup-r-dependencies@v2
+      - uses: r-lib/actions/setup-r-dependencies@f9a764fea8d5c63df6ef9a5c7795bf7deb5d7e05 # v2.14.0
         with:
           extra-packages: any::rcmdcheck
           needs: check
@@ -84,7 +85,7 @@ jobs:
             echo "TARGET=$(rustc -vV | grep host | cut -d' ' -f2)" >>$GITHUB_OUTPUT
           fi
 
-      - uses: Swatinem/rust-cache@v2
+      - uses: Swatinem/rust-cache@d1527c8f67ef9af357290475d4af4b0fab8f12e0 # v2.9.3
         with:
           workspaces: "src/rust -> target"
           shared-key: ${{ steps.rust-target.outputs.TARGET }}
@@ -99,7 +100,7 @@ jobs:
           Rscript -e 'pkgbuild::compile_dll(debug = FALSE)'
           echo "LIBPRQLR_PATH=$(pwd)/src/rust/target/${{ steps.rust-target.outputs.TARGET }}/release/libprqlr.a" >>$GITHUB_ENV
 
-      - uses: r-lib/actions/check-r-package@v2
+      - uses: r-lib/actions/check-r-package@f9a764fea8d5c63df6ef9a5c7795bf7deb5d7e05 # v2.14.0
         env:
           LIBPRQLR_BUILD: "false"
           NOT_CRAN: "false"
@@ -133,7 +134,7 @@ jobs:
       LIB_SUMS_PATH: "tools/lib-sums.tsv"
 
     steps:
-      - uses: actions/checkout@v6
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
 
       - name: Check for pre-built binary
         run: |
@@ -144,17 +145,17 @@ jobs:
             echo "TEST_BIN_LIB=false" >>"${GITHUB_ENV}"
           fi
 
-      - uses: r-lib/actions/setup-pandoc@v2
+      - uses: r-lib/actions/setup-pandoc@f9a764fea8d5c63df6ef9a5c7795bf7deb5d7e05 # v2.14.0
         if: env.TEST_BIN_LIB == 'true'
 
-      - uses: r-lib/actions/setup-r@v2
+      - uses: r-lib/actions/setup-r@f9a764fea8d5c63df6ef9a5c7795bf7deb5d7e05 # v2.14.0
         if: env.TEST_BIN_LIB == 'true'
         with:
           r-version: ${{ matrix.r }}
           use-public-rspm: true
           Ncpus: "2"
 
-      - uses: r-lib/actions/setup-r-dependencies@v2
+      - uses: r-lib/actions/setup-r-dependencies@f9a764fea8d5c63df6ef9a5c7795bf7deb5d7e05 # v2.14.0
         if: env.TEST_BIN_LIB == 'true'
         with:
           extra-packages: any::pkgload

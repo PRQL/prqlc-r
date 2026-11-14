@@ -8,7 +8,7 @@ on:
     paths:
       - R/**
       - src/**
-      - vignetts/**
+      - vignettes/**
       - _pkgdown.yml
       - DESCRIPTION
       - README.md
@@ -21,7 +21,7 @@ on:
       - .github/workflows/pkgdown.yml
       - R/**
       - src/**
-      - vignetts/**
+      - vignettes/**
       - _pkgdown.yml
       - DESCRIPTION
       - README.md
@@ -37,20 +37,20 @@ jobs:
     env:
       GITHUB_PAT: ${{ secrets.GITHUB_TOKEN }}
     steps:
-      - uses: actions/checkout@v6
-      - uses: r-lib/actions/setup-pandoc@v2
-      - uses: r-lib/actions/setup-r@v2
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+      - uses: r-lib/actions/setup-pandoc@f9a764fea8d5c63df6ef9a5c7795bf7deb5d7e05 # v2.14.0
+      - uses: r-lib/actions/setup-r@f9a764fea8d5c63df6ef9a5c7795bf7deb5d7e05 # v2.14.0
         with:
           use-public-rspm: true
           Ncpus: "2"
 
-      - uses: Swatinem/rust-cache@v2
+      - uses: Swatinem/rust-cache@d1527c8f67ef9af357290475d4af4b0fab8f12e0 # v2.9.3
         with:
           workspaces: "src/rust -> target"
           shared-key: x86_64-unknown-linux-gnu
           save-if: "false"
 
-      - uses: r-lib/actions/setup-r-dependencies@v2
+      - uses: r-lib/actions/setup-r-dependencies@f9a764fea8d5c63df6ef9a5c7795bf7deb5d7e05 # v2.14.0
         with:
           extra-packages: any::pkgdown, local::.
           needs: website
@@ -61,7 +61,7 @@ jobs:
 
       - name: Deploy to GitHub pages 🚀
         if: github.event_name != 'pull_request'
-        uses: JamesIves/github-pages-deploy-action@v4.8.0
+        uses: JamesIves/github-pages-deploy-action@fa24774553152dd7873cd16ebd8d959b010c5445 # v4.9.0
         with:
           clean: false
           branch: gh-pages
