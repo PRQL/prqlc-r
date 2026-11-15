@@ -1,5 +1,7 @@
 # prqlr (development version)
 
+# prqlr 0.10.2
+
 - Update prqlc to 0.13.14 and savvy to 0.11.0.
 - Raise the minimum supported Rust version from 1.73.0 to 1.81.0.
 - Restrict automatic binary library downloads to R >= 4.5.0; older R builds from source.

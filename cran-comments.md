@@ -10,11 +10,13 @@
 - devtools
   - `check_win_release()`
 
+## Changes addressing CRAN check issues
+
+- Updated Rust dependencies, removing proc-macro-error2 and its
+  future-incompatibility warning.
+- Set the macOS deployment target for Rust C dependencies to avoid
+  linker warnings when the SDK is newer than R's deployment target.
+
 ## R CMD check results
 
 - There were no ERRORs or WARNINGs.
-- Size of tarball is 9.5 MB (More than 5 MB).
-  - Most of this size is a tarball of vendored Rust source code,
-    since this package contains all the Rust source code of the dependencies.
-  - This package has always vendored Rust source code on CRAN since version 0.5.2
-    in September 2023, and the size has been over 9 MB.
