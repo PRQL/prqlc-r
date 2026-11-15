@@ -25,7 +25,7 @@
 
     <a class="navbar-brand me-2" href="../index.html">prqlr</a>
 
-    <small class="nav-text text-danger me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="In-development version">0.10.1.9000</small>
+    <small class="nav-text text-danger me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="In-development version">0.10.2.9000</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -91,8 +91,8 @@ display a SQL query compiled from a PRQL query.</p>
 <p>If using with database connections (set the name of
 <a href="https://dbi.r-dbi.org" class="external-link">DBI</a> connection to the <code>connection</code> chunk
 option), PRQL code chunks pass the output SQL to <a href="https://yihui.org/knitr/" class="external-link">knitr</a>’s
-SQL engine and behaves like <a href="https://bookdown.org/yihui/rmarkdown/language-engines.html#sql" class="external-link">SQL
-code chunks</a>. So, usage is the same as for SQL code chunks.</p>
+SQL engine and behaves like SQL code chunks. So, usage is the same as
+for SQL code chunks.</p>
 <p>For example, let’s render an R Markdown file named
 <code>test.Rmd</code> with the following contents with the
 <code><a href="https://rdrr.io/pkg/knitr/man/knit.html" class="external-link">knitr::knit()</a></code> function.</p>

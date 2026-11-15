@@ -13,14 +13,14 @@ Source:
 [`DESCRIPTION`](https://github.com/PRQL/prqlc-r/blob/main/DESCRIPTION)
 
 Shima T, Authors of the dependency Rust crates (2026). *prqlr: R
-Bindings for the 'prqlc' Rust Library*. R package version 0.10.1.9000,
+Bindings for the 'prqlc' Rust Library*. R package version 0.10.2.9000,
 <https://prql.github.io/prqlc-r/>.
 
     @Manual{,
       title = {prqlr: R Bindings for the 'prqlc' Rust Library},
       author = {Tatsuya Shima and {Authors of the dependency Rust crates}},
       year = {2026},
-      note = {R package version 0.10.1.9000},
+      note = {R package version 0.10.2.9000},
       url = {https://prql.github.io/prqlc-r/},
     }
 

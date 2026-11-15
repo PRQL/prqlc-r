@@ -13,10 +13,8 @@ display a SQL query compiled from a PRQL query.
 If using with database connections (set the name of
 [DBI](https://dbi.r-dbi.org) connection to the `connection` chunk
 option), PRQL code chunks pass the output SQL to
-[knitr](https://yihui.org/knitr/)’s SQL engine and behaves like [SQL
-code
-chunks](https://bookdown.org/yihui/rmarkdown/language-engines.html#sql).
-So, usage is the same as for SQL code chunks.
+[knitr](https://yihui.org/knitr/)’s SQL engine and behaves like SQL code
+chunks. So, usage is the same as for SQL code chunks.
 
 For example, let’s render an R Markdown file named `test.Rmd` with the
 following contents with the
