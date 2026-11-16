@@ -77,7 +77,7 @@ jobs:
 
     steps:
       - uses: r-hub/actions/checkout@efbade992b879d37442a365ffd5f089d56df1255 # v1.1.2
-      - uses: r-hub/actions/setup-r@efbade992b879d37442a365ffd5f089d56df1255 # v1.1.2
+      - uses: r-hub/actions/setup-r@02be5ffbeae2b0d553da66acded089da11a1fb8f # v1.8.1
         with:
           job-config: ${{ matrix.config.job-config }}
           token: ${{ secrets.RHUB_TOKEN }}
